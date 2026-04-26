@@ -686,7 +686,7 @@ body.dark-theme .site-header {
 .callout {
   position: relative;
   border-radius: var(--r-xl);
-  padding: var(--sp-6) var(--sp-8);
+  padding: var(--sp-6);
   margin-block: var(--sp-8);
   display: flex;
   flex-direction: column;
@@ -879,7 +879,8 @@ body.dark-theme .figure-card {
   top: 110px;
 }
 .side-notes .callout,
-.callout-grid .callout {
+.callout-grid .callout,
+.story-grid > .callout {
   margin-block: 0;
 }
 .callout-grid {
