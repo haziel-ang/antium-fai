@@ -8,24 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('.hero');
   if (hero) setTimeout(() => hero.classList.add('visible'), 100);
 
-  // Theme toggle — no storage, sandbox-safe
-  const themeBtn = document.querySelector('[data-theme-toggle]');
-  let theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  const applyTheme = () => {
-    document.body.classList.toggle('dark-theme', theme === 'dark');
-    if (themeBtn) {
-      themeBtn.setAttribute('aria-label', theme === 'dark' ? 'Passa al tema chiaro' : 'Passa al tema scuro');
-      themeBtn.innerHTML = theme === 'dark'
-        ? '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>'
-        : '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>';
-    }
-  };
-  applyTheme();
-  themeBtn && themeBtn.addEventListener('click', () => {
-    theme = theme === 'dark' ? 'light' : 'dark';
-    applyTheme();
-  });
-
   // Sticky header shadow
   const header = document.querySelector('.site-header');
   window.addEventListener('scroll', () => {
