@@ -80,6 +80,31 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── IN-PAGE TABS ────────────────────────────────────────
   const tabBtns = document.querySelectorAll('.tab-btn');
   const panels  = document.querySelectorAll('.page-panel');
+  const tabsInner = document.querySelector('.tabs-inner');
+  const tabsPrev  = document.querySelector('[data-tabs-prev]');
+  const tabsNext  = document.querySelector('[data-tabs-next]');
+
+  const updateTabsArrows = () => {
+    if (!tabsInner || !tabsPrev || !tabsNext) return;
+    const max = tabsInner.scrollWidth - tabsInner.clientWidth - 1;
+    tabsPrev.disabled = tabsInner.scrollLeft <= 0;
+    tabsNext.disabled = tabsInner.scrollLeft >= max;
+  };
+
+  const scrollTabs = (dir) => {
+    if (!tabsInner) return;
+    const step = Math.max(160, tabsInner.clientWidth * 0.7);
+    tabsInner.scrollBy({ left: dir * step, behavior: 'smooth' });
+  };
+
+  if (tabsPrev) tabsPrev.addEventListener('click', () => scrollTabs(-1));
+  if (tabsNext) tabsNext.addEventListener('click', () => scrollTabs(1));
+  if (tabsInner) {
+    tabsInner.addEventListener('scroll', updateTabsArrows, { passive: true });
+    window.addEventListener('resize', updateTabsArrows);
+    requestAnimationFrame(updateTabsArrows);
+  }
+
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.tab;
@@ -89,6 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll(`#${target} .card-3d:not(.revealed), #${target} .reveal:not(.visible)`).forEach(el => {
         el.classList.add('visible', 'revealed');
       });
+      // Center the active tab inside the carousel
+      if (tabsInner) {
+        const offset = btn.offsetLeft - (tabsInner.clientWidth / 2) + (btn.offsetWidth / 2);
+        tabsInner.scrollTo({ left: Math.max(0, offset), behavior: 'smooth' });
+      }
     });
   });
 

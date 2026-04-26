@@ -149,45 +149,6 @@
       </div>
     </section>
 
-    <section class="section section--cream2" aria-labelledby="immagini-title">
-      <div class="container container--wide">
-        <div class="section-header reveal">
-          <span class="section-label">Tre immagini guida</span>
-          <h2 id="immagini-title" class="section-title">Statua, rovina e disegno d’archivio</h2>
-          <p class="section-intro">Le tre immagini allegate diventano i poli visivi del sito: la Fanciulla d’Anzio per la villa imperiale, l’Arco Muto per la memoria della costa antica, il Caffeaus per la seconda vita settecentesca del Cisternone.</p>
-        </div>
-        <div class="cards-grid">
-          <article class="card-3d">
-            <img class="card-img" src="./img/fanciulla-anzio.webp" alt="La Fanciulla d’Anzio, statua femminile con vassoio rituale" width="788" height="1002" loading="lazy" decoding="async">
-            <div class="card-body">
-              <span class="card-tag">Villa Imperiale</span>
-              <h3 class="card-title">La Fanciulla d’Anzio</h3>
-              <p class="card-text">Scultura ellenistica in marmo, rinvenuta nel 1878 tra le rovine della villa imperiale e oggi conservata a Palazzo Massimo.</p>
-              <p class="image-credit">Foto fornita dal curatore. Scheda online: <a href="http://catalogo.cultura.gov.it/detail/ArchaeologicalProperty/1200055743" target="_blank" rel="noopener noreferrer">Catalogo generale dei beni culturali</a>.</p>
-            </div>
-          </article>
-          <article class="card-3d">
-            <img class="card-img" src="./img/arco-muto.webp" alt="Fotografia storica dell’Arco Muto sulla costa di Anzio" width="1080" height="757" loading="lazy" decoding="async">
-            <div class="card-body">
-              <span class="card-tag">Costa imperiale</span>
-              <h3 class="card-title">Arco Muto</h3>
-              <p class="card-text">Il nome conserva la memoria delle arcuazioni romane della falesia, sopravvissute fino al Novecento e poi scomparse.</p>
-              <p class="image-credit">Fotografia storica fornita dal curatore.</p>
-            </div>
-          </article>
-          <article class="card-3d">
-            <img class="card-img" src="./img/caffeaus.webp" alt="Disegno del Caffeaus costruito sopra antichi resti romani" width="1080" height="1080" loading="lazy" decoding="async">
-            <div class="card-body">
-              <span class="card-tag">Cisternone</span>
-              <h3 class="card-title">Il Caffeaus</h3>
-              <p class="card-text">Padiglione di delizia fatto costruire nel 1743 dal cardinale Neri Maria Corsini sopra la cisterna romana di via Tripoli.</p>
-              <p class="image-credit">Disegno fornito dal curatore; nel PDF è collegato alla tradizione documentaria di Lanciani e agli studi Aglietti-Arena.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section id="percorso" class="section section--cream" aria-labelledby="percorso-title">
       <div class="container container--wide">
         <div class="section-header reveal">
@@ -198,8 +159,12 @@
       </div>
 
       <div class="sticky-tabs" aria-label="Sezioni del percorso">
-        <div class="tabs-inner">
-          <button class="tab-btn active" data-tab="quadro">
+        <div class="tabs-frame">
+          <button class="tabs-arrow prev" type="button" aria-label="Sezione precedente" data-tabs-prev>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="tabs-inner">
+            <button class="tab-btn active" data-tab="quadro">
             <span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
             <span class="tab-num">01</span><span class="tab-name">Quadro</span>
           </button>
@@ -234,6 +199,10 @@
           <button class="tab-btn" data-tab="oggi">
             <span class="tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span>
             <span class="tab-num">09</span><span class="tab-name">Oggi</span>
+          </button>
+          </div>
+          <button class="tabs-arrow next" type="button" aria-label="Sezione successiva" data-tabs-next>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
           </button>
         </div>
       </div>
@@ -394,10 +363,16 @@
               <h3>Fanciulla, Gladiatore, Arco Muto</h3>
               <p>La Fanciulla d’Anzio, il Gladiatore Borghese e la memoria dell’Arco Muto raccontano la circolazione di opere ellenistiche, collezioni aristocratiche, scavi moderni e perdita progressiva delle strutture costiere.</p>
             </div>
-            <figure class="figure-card card-3d">
-              <img src="./img/fanciulla-anzio.webp" alt="La Fanciulla d’Anzio, copia o riproduzione fotografica della statua" width="788" height="1002" loading="lazy" decoding="async">
-              <figcaption>La Fanciulla d’Anzio, icona della ricchezza artistica della villa imperiale.</figcaption>
-            </figure>
+            <div class="figure-stack">
+              <figure class="figure-card card-3d">
+                <img src="./img/fanciulla-anzio.webp" alt="La Fanciulla d’Anzio, copia o riproduzione fotografica della statua" width="788" height="1002" loading="lazy" decoding="async">
+                <figcaption>La Fanciulla d’Anzio, icona della ricchezza artistica della villa imperiale.</figcaption>
+              </figure>
+              <figure class="figure-card card-3d figure-card--wide">
+                <img src="./img/arco-muto.webp" alt="Fotografia storica dell’Arco Muto sulla costa di Anzio" width="1080" height="757" loading="lazy" decoding="async">
+                <figcaption>Arco Muto conserva la memoria delle arcuazioni romane della falesia, sopravvissute fino al Novecento e poi scomparse.</figcaption>
+              </figure>
+            </div>
           </div>
           <div class="callout-grid">
             <aside class="callout callout--critica reveal">
@@ -606,9 +581,17 @@
     </section>
   </main>
 
-  <footer class="simple-footer" aria-label="Crediti">
-    <p>A cura di Riccardo Pau — Gruppo FAI Anzio-Nettuno</p>
-    <p>© 2026 · Contenuto rilasciato con licenza CC BY 4.0</p>
+  <footer class="simple-footer" aria-label="Crediti e informazioni editoriali">
+    <div class="footer-summary">
+      <span class="footer-kicker">Percorso storico</span>
+      <strong>Antium</strong>
+      <p>Il Vallo, le Necropoli e i Monumenti di Via Ardeatina</p>
+    </div>
+    <div class="footer-meta" aria-label="Informazioni del sito">
+      <p>A cura di Riccardo Pau</p>
+      <p>Gruppo FAI Anzio-Nettuno</p>
+      <p>© 2026 · Contenuto rilasciato con licenza <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p>
+    </div>
   </footer>
 
   <div class="lightbox" aria-hidden="true">
