@@ -1176,6 +1176,55 @@ a:hover { color: var(--fai-orange); }
 }
 .page-panel.active { display: block; }
 
+.panel-eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fai-orange);
+  margin: 0 0 var(--sp-3);
+}
+.panel-lede {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  line-height: 1.45;
+  color: var(--fai-brown);
+  font-style: italic;
+  margin: var(--sp-3) 0 var(--sp-6);
+  padding-left: var(--sp-4);
+  border-left: 3px solid var(--fai-orange);
+}
+
+.table-wrap {
+  margin: var(--sp-5) 0;
+  overflow-x: auto;
+  border-radius: var(--r-md, 12px);
+  border: 1px solid var(--fai-cream-3, rgba(104,116,91,0.18));
+  background: var(--fai-cream-1, #fbf5e7);
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  line-height: 1.45;
+}
+.data-table thead th {
+  background: var(--fai-cream-2, #f1e6c8);
+  color: var(--fai-brown);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-align: left;
+  padding: var(--sp-3) var(--sp-4);
+  border-bottom: 2px solid var(--fai-orange);
+}
+.data-table tbody td {
+  padding: var(--sp-3) var(--sp-4);
+  border-bottom: 1px solid rgba(104,116,91,0.12);
+  vertical-align: top;
+}
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:nth-child(even) td { background: rgba(216,180,91,0.06); }
+
 .simple-footer {
   background-color: var(--map-paper-2);
   background-image:
