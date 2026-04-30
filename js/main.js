@@ -108,19 +108,73 @@ document.addEventListener('DOMContentLoaded', () => {
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.tab;
-      tabBtns.forEach(b => b.classList.toggle('active', b === btn));
-      panels.forEach(p => p.classList.toggle('active', p.id === target));
+      if (btn.classList.contains('active')) return;
+      tabBtns.forEach(b => {
+        const isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      // Animate panel transition: fade out current, swap, fade in
+      const currentActive = document.querySelector('.page-panel.active');
+      const nextPanel = document.getElementById(target);
+      if (currentActive && currentActive !== nextPanel) {
+        currentActive.style.opacity = '0';
+        currentActive.style.transform = 'translateY(8px)';
+        setTimeout(() => {
+          panels.forEach(p => p.classList.toggle('active', p.id === target));
+          if (nextPanel) {
+            nextPanel.style.opacity = '';
+            nextPanel.style.transform = '';
+          }
+        }, 220);
+      } else {
+        panels.forEach(p => p.classList.toggle('active', p.id === target));
+      }
       // Re-trigger IO for newly-visible panels
       document.querySelectorAll(`#${target} .card-3d:not(.revealed), #${target} .reveal:not(.visible)`).forEach(el => {
         el.classList.add('visible', 'revealed');
       });
-      // Center the active tab inside the carousel
+      // Center the active card inside the carousel
       if (tabsInner) {
         const offset = btn.offsetLeft - (tabsInner.clientWidth / 2) + (btn.offsetWidth / 2);
         tabsInner.scrollTo({ left: Math.max(0, offset), behavior: 'smooth' });
       }
+      // ── Sync the section showcase (hero per section) ───
+      updateShowcase(btn);
     });
   });
+
+  // ── SECTION SHOWCASE SYNC ───────────────────────────────
+  const showcase   = document.querySelector('[data-section-showcase]');
+  const showcaseBg = document.querySelector('[data-showcase-bg]');
+  const showcaseNum   = document.querySelector('[data-showcase-num]');
+  const showcaseEra   = document.querySelector('[data-showcase-era]');
+  const showcaseTitle = document.querySelector('[data-showcase-title]');
+  const showcaseSub   = document.querySelector('[data-showcase-sub]');
+  const showcasePdf   = document.querySelector('[data-showcase-pdf]');
+
+  function updateShowcase(btn) {
+    if (!showcase || !btn) return;
+    const total = tabBtns.length;
+    const idx = Array.from(tabBtns).indexOf(btn) + 1;
+    const num = String(idx).padStart(2, '0');
+    showcase.classList.add('is-changing');
+    setTimeout(() => {
+      if (showcaseNum)   showcaseNum.textContent   = `${num} / ${String(total).padStart(2,'0')}`;
+      if (showcaseEra)   showcaseEra.textContent   = btn.dataset.era || '';
+      if (showcaseTitle) showcaseTitle.textContent = btn.dataset.title || '';
+      if (showcaseSub)   showcaseSub.textContent   = btn.dataset.subtitle || '';
+      if (showcasePdf && btn.dataset.pdf) showcasePdf.setAttribute('href', btn.dataset.pdf);
+      if (showcaseBg && btn.dataset.bg) {
+        showcaseBg.style.backgroundImage = `url('${btn.dataset.bg}')`;
+      }
+      // Update the document title hint (browser tab) to reflect the current section
+      if (btn.dataset.title) {
+        document.title = `Antium · ${btn.dataset.title}`;
+      }
+      requestAnimationFrame(() => showcase.classList.remove('is-changing'));
+    }, 220);
+  }
 
   // ── LIGHTBOX ────────────────────────────────────────────
   const lb = document.querySelector('.lightbox');
