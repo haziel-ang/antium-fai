@@ -170,7 +170,7 @@ a:hover { color: var(--fai-orange); }
   margin-inline: auto;
   padding: var(--sp-5) var(--sp-6);
   display: grid;
-  grid-template-columns: minmax(140px, 220px) 1fr minmax(180px, 260px);
+  grid-template-columns: clamp(190px, 20vw, 330px) minmax(0, 1fr) minmax(180px, 260px);
   align-items: center;
   gap: var(--sp-6);
   min-height: 168px;
@@ -182,10 +182,10 @@ a:hover { color: var(--fai-orange); }
 }
 .brand-logo img {
   display: block;
-  width: 100%;
-  max-width: 200px;
+  width: clamp(180px, 18vw, 320px);
+  max-width: 100%;
   height: auto;
-  max-height: 140px;
+  max-height: clamp(120px, 13vw, 170px);
   object-fit: contain;
   filter: drop-shadow(0 3px 8px rgba(60,30,10,0.18));
 }
@@ -383,7 +383,7 @@ a:hover { color: var(--fai-orange); }
 
 @media (max-width: 980px) {
   .site-brandband-inner {
-    grid-template-columns: 110px 1fr;
+    grid-template-columns: clamp(130px, 24vw, 190px) 1fr;
     grid-template-areas:
       "logo title"
       "search search";
@@ -397,7 +397,7 @@ a:hover { color: var(--fai-orange); }
   .brand-search { grid-area: search; max-width: none; justify-self: stretch; }
   .brand-name { font-size: clamp(2rem, 9vw, 3.4rem); letter-spacing: 0.10em; }
   .brand-tagline { font-size: 11px; letter-spacing: 0.22em; }
-  .brand-logo img { max-width: 110px; max-height: 100px; }
+  .brand-logo img { width: clamp(130px, 24vw, 190px); max-height: 130px; }
 }
 
 @media (max-width: 768px) {
