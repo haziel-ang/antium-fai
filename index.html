@@ -32,8 +32,8 @@
           <p class="brand-tagline">ANTIUM. HISTORIA ET MEMORIA.</p>
         </div>
         <form class="brand-search" role="search" aria-label="Ricerca nel sito" data-site-search onsubmit="return false;">
-          <label class="visually-hidden" for="site-search-input">Cerca nel sito</label>
-          <input id="site-search-input" type="search" placeholder="Cerca..." autocomplete="off" data-site-search-input>
+          <label class="visually-hidden" for="site-search-input-desktop">Cerca nel sito</label>
+          <input id="site-search-input-desktop" type="search" placeholder="Cerca..." autocomplete="off" data-site-search-input>
           <button type="submit" aria-label="Cerca">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
@@ -44,6 +44,24 @@
             <button type="button" class="search-clear" aria-label="Cancella ricerca" data-site-search-clear>&times;</button>
           </div>
         </form>
+        <button class="nav-menu-btn" type="button" aria-label="Apri ricerca" aria-expanded="false" aria-controls="mobile-search-panel">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="mobile-search-panel" id="mobile-search-panel" hidden>
+          <form class="brand-search brand-search--mobile" role="search" aria-label="Ricerca nel sito" data-site-search onsubmit="return false;">
+            <label class="visually-hidden" for="site-search-input-mobile">Cerca nel sito</label>
+            <input id="site-search-input-mobile" type="search" placeholder="Cerca nel sito..." autocomplete="off" data-site-search-input>
+            <button type="submit" aria-label="Cerca">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+            <div class="brand-search-status" data-site-search-status hidden>
+              <span data-site-search-count>0 risultati</span>
+              <button type="button" class="search-nav prev" aria-label="Risultato precedente" data-site-search-prev>&lsaquo;</button>
+              <button type="button" class="search-nav next" aria-label="Risultato successivo" data-site-search-next>&rsaquo;</button>
+              <button type="button" class="search-clear" aria-label="Cancella ricerca" data-site-search-clear>&times;</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </header>

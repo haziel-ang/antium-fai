@@ -24,8 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile menu
   const menuBtn = document.querySelector('.nav-menu-btn');
   const navLinks = document.querySelector('.menu-links');
+  const mobileSearchPanel = document.querySelector('.mobile-search-panel');
   menuBtn && menuBtn.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
+    const targetPanel = mobileSearchPanel || navLinks;
+    if (!targetPanel) return;
+    const open = targetPanel.classList.toggle('open');
+    if (mobileSearchPanel) mobileSearchPanel.hidden = !open;
     menuBtn.classList.toggle('open', open);
     menuBtn.setAttribute('aria-expanded', open);
   });
@@ -274,21 +278,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── FULL-TEXT SEARCH ─────────────────────────────────────
   (function initSiteSearch() {
-    const form    = document.querySelector('[data-site-search]');
-    const input   = document.querySelector('[data-site-search-input]');
-    const status  = document.querySelector('[data-site-search-status]');
-    const counter = document.querySelector('[data-site-search-count]');
-    const prevBtn = document.querySelector('[data-site-search-prev]');
-    const nextBtn = document.querySelector('[data-site-search-next]');
-    const clearBtn= document.querySelector('[data-site-search-clear]');
+    const controls = Array.from(document.querySelectorAll('[data-site-search]')).map(form => ({
+      form,
+      input: form.querySelector('[data-site-search-input]'),
+      status: form.querySelector('[data-site-search-status]'),
+      counter: form.querySelector('[data-site-search-count]'),
+      prevBtn: form.querySelector('[data-site-search-prev]'),
+      nextBtn: form.querySelector('[data-site-search-next]'),
+      clearBtn: form.querySelector('[data-site-search-clear]')
+    })).filter(control => control.form && control.input);
     const main    = document.querySelector('main#contenuto');
-    if (!form || !input || !main) return;
+    if (!controls.length || !main) return;
 
     let hits = [];
     let current = -1;
     let debounceId = null;
+    let activeControl = controls[0];
 
     const escapeRegExp = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+    function syncInputs(value) {
+      controls.forEach(control => { control.input.value = value; });
+    }
 
     function clearHighlights() {
       main.querySelectorAll('mark.search-hit').forEach(m => {
@@ -299,7 +310,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       hits = [];
       current = -1;
-      if (status) status.hidden = true;
+      controls.forEach(control => {
+        if (control.status) control.status.hidden = true;
+      });
     }
 
     function highlight(query) {
@@ -339,12 +352,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (node.parentNode) node.parentNode.replaceChild(frag, node);
       });
 
-      if (status && counter) {
-        status.hidden = hits.length === 0;
-        counter.textContent = hits.length === 1
-          ? '1 risultato'
-          : `${hits.length} risultati`;
-      }
+      controls.forEach(control => {
+        if (control.status) control.status.hidden = hits.length === 0;
+        if (control.counter) {
+          control.counter.textContent = hits.length === 1
+            ? '1 risultato'
+            : `${hits.length} risultati`;
+        }
+      });
       if (hits.length > 0) goTo(0);
     }
 
@@ -370,37 +385,42 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(() => {
         target.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
-      if (counter) {
-        counter.textContent = `${index + 1} / ${hits.length}`;
-      }
+      controls.forEach(control => {
+        if (control.counter) control.counter.textContent = `${index + 1} / ${hits.length}`;
+      });
     }
 
-    input.addEventListener('input', () => {
-      clearTimeout(debounceId);
-      const q = input.value.trim();
-      debounceId = setTimeout(() => highlight(q), 220);
-    });
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      if (!hits.length) highlight(input.value.trim());
-      else goTo(current + 1);
-    });
-    prevBtn && prevBtn.addEventListener('click', () => goTo(current - 1));
-    nextBtn && nextBtn.addEventListener('click', () => goTo(current + 1));
-    clearBtn && clearBtn.addEventListener('click', () => {
-      input.value = '';
-      clearHighlights();
-      input.focus();
+    controls.forEach(control => {
+      control.input.addEventListener('input', () => {
+        activeControl = control;
+        clearTimeout(debounceId);
+        syncInputs(control.input.value);
+        const q = control.input.value.trim();
+        debounceId = setTimeout(() => highlight(q), 220);
+      });
+      control.form.addEventListener('submit', e => {
+        e.preventDefault();
+        activeControl = control;
+        if (!hits.length) highlight(control.input.value.trim());
+        else goTo(current + 1);
+      });
+      control.prevBtn && control.prevBtn.addEventListener('click', () => goTo(current - 1));
+      control.nextBtn && control.nextBtn.addEventListener('click', () => goTo(current + 1));
+      control.clearBtn && control.clearBtn.addEventListener('click', () => {
+        syncInputs('');
+        clearHighlights();
+        control.input.focus();
+      });
     });
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && hits.length) {
-        input.value = '';
+        syncInputs('');
         clearHighlights();
       }
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();
-        input.focus();
-        input.select();
+        activeControl.input.focus();
+        activeControl.input.select();
       }
     });
   })();
