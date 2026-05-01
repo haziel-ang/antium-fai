@@ -147,7 +147,7 @@ a:hover { color: var(--fai-orange); }
   background: var(--fai-cream);
   border-top: 4px solid var(--fai-bordeaux);
   border-bottom: 1px solid var(--fai-divider);
-  transition: box-shadow var(--transition);
+  transition: box-shadow var(--transition), border-color var(--transition);
 }
 .site-header.scrolled { box-shadow: 0 6px 22px rgba(42,28,14,0.12); }
 
@@ -168,12 +168,13 @@ a:hover { color: var(--fai-orange); }
 .site-brandband-inner {
   max-width: var(--content-wide);
   margin-inline: auto;
-  padding: var(--sp-5) var(--sp-6);
+  padding: var(--sp-3) var(--sp-6);
   display: grid;
   grid-template-columns: clamp(190px, 20vw, 330px) minmax(0, 1fr) minmax(180px, 260px);
   align-items: center;
   gap: var(--sp-6);
-  min-height: 168px;
+  min-height: 138px;
+  transition: min-height var(--transition), padding var(--transition), gap var(--transition);
 }
 .brand-logo {
   display: block;
@@ -188,6 +189,7 @@ a:hover { color: var(--fai-orange); }
   max-height: clamp(120px, 13vw, 170px);
   object-fit: contain;
   filter: drop-shadow(0 3px 8px rgba(60,30,10,0.18));
+  transition: width var(--transition), max-height var(--transition), filter var(--transition);
 }
 .brand-title { text-align: center; }
 .brand-name {
@@ -199,6 +201,7 @@ a:hover { color: var(--fai-orange); }
   color: var(--fai-brown);
   letter-spacing: 0.18em;
   text-indent: 0.18em;
+  transition: font-size var(--transition), letter-spacing var(--transition);
 }
 .brand-name .brand-v { font-style: normal; }
 .brand-divider {
@@ -208,6 +211,7 @@ a:hover { color: var(--fai-orange); }
   gap: 10px;
   margin: 12px auto 8px;
   max-width: 480px;
+  transition: margin var(--transition), max-width var(--transition);
 }
 .brand-divider .brand-line {
   flex: 1 1 auto;
@@ -229,6 +233,31 @@ a:hover { color: var(--fai-orange); }
   text-transform: uppercase;
   color: var(--fai-brown);
   font-weight: 500;
+  transition: font-size var(--transition), letter-spacing var(--transition), opacity var(--transition);
+}
+
+.site-header.scrolled .site-brandband-inner {
+  padding-top: var(--sp-2);
+  padding-bottom: var(--sp-2);
+  min-height: 88px;
+  gap: var(--sp-4);
+}
+.site-header.scrolled .brand-logo img {
+  width: clamp(132px, 11vw, 190px);
+  max-height: 82px;
+  filter: drop-shadow(0 2px 5px rgba(60,30,10,0.14));
+}
+.site-header.scrolled .brand-name {
+  font-size: clamp(2rem, 3.8vw, 3.1rem);
+  letter-spacing: 0.14em;
+}
+.site-header.scrolled .brand-divider {
+  margin: 6px auto 4px;
+  max-width: 360px;
+}
+.site-header.scrolled .brand-tagline {
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
 }
 
 .brand-search {
@@ -316,6 +345,7 @@ a:hover { color: var(--fai-orange); }
   display: flex;
   align-items: stretch;
   min-height: 56px;
+  transition: min-height var(--transition);
 }
 .menu-links {
   display: flex;
@@ -338,7 +368,7 @@ a:hover { color: var(--fai-orange); }
   text-transform: uppercase;
   color: var(--fai-brown);
   text-decoration: none;
-  transition: color 0.25s ease;
+  transition: color 0.25s ease, padding var(--transition), font-size var(--transition), letter-spacing var(--transition);
 }
 .menu-link::after {
   content: "";
@@ -357,6 +387,14 @@ a:hover { color: var(--fai-orange); }
 .menu-link.active::after,
 .menu-link[aria-current="page"]::after { transform: scaleX(1); }
 .menu-link.active { color: var(--fai-orange); }
+
+.site-header.scrolled .site-menubar-inner { min-height: 44px; }
+.site-header.scrolled .menu-link {
+  padding-inline: var(--sp-4);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+}
+.site-header.scrolled .menu-link::after { bottom: 8px; }
 
 .nav-menu-btn {
   display: none;
@@ -398,6 +436,17 @@ a:hover { color: var(--fai-orange); }
   .brand-name { font-size: clamp(2rem, 9vw, 3.4rem); letter-spacing: 0.10em; }
   .brand-tagline { font-size: 11px; letter-spacing: 0.22em; }
   .brand-logo img { width: clamp(130px, 24vw, 190px); max-height: 130px; }
+  .site-header.scrolled .site-brandband-inner {
+    padding-top: var(--sp-2);
+    padding-bottom: var(--sp-2);
+    gap: var(--sp-3);
+  }
+  .site-header.scrolled .brand-logo img {
+    width: clamp(106px, 20vw, 150px);
+    max-height: 92px;
+  }
+  .site-header.scrolled .brand-name { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+  .site-header.scrolled .brand-tagline { font-size: 10px; letter-spacing: 0.18em; }
 }
 
 @media (max-width: 768px) {
