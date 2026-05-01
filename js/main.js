@@ -87,35 +87,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── HERO CARDS — drag to scroll horizontally with mouse ─
-  const heroCards = document.querySelector('.hero-cards');
-  if (heroCards) {
+  // ── HERO ERAS — drag to scroll on narrow viewports ─────
+  const heroEras = document.querySelector('.hero-eras');
+  if (heroEras) {
     let isDown = false;
     let startX = 0;
     let startScroll = 0;
     let moved = false;
-    heroCards.addEventListener('pointerdown', (e) => {
+    heroEras.addEventListener('pointerdown', (e) => {
       if (e.pointerType === 'touch') return;
+      if (heroEras.scrollWidth <= heroEras.clientWidth) return;
       isDown = true;
       moved = false;
       startX = e.clientX;
-      startScroll = heroCards.scrollLeft;
-      heroCards.classList.add('is-dragging');
+      startScroll = heroEras.scrollLeft;
+      heroEras.classList.add('is-dragging');
     });
-    heroCards.addEventListener('pointermove', (e) => {
+    heroEras.addEventListener('pointermove', (e) => {
       if (!isDown) return;
       const dx = e.clientX - startX;
       if (Math.abs(dx) > 4) moved = true;
-      heroCards.scrollLeft = startScroll - dx;
+      heroEras.scrollLeft = startScroll - dx;
     });
     const endDrag = () => {
       isDown = false;
-      heroCards.classList.remove('is-dragging');
+      heroEras.classList.remove('is-dragging');
     };
-    heroCards.addEventListener('pointerup', endDrag);
-    heroCards.addEventListener('pointercancel', endDrag);
-    heroCards.addEventListener('pointerleave', endDrag);
-    heroCards.addEventListener('click', (e) => {
+    heroEras.addEventListener('pointerup', endDrag);
+    heroEras.addEventListener('pointercancel', endDrag);
+    heroEras.addEventListener('pointerleave', endDrag);
+    heroEras.addEventListener('click', (e) => {
       if (moved) {
         e.preventDefault();
         e.stopPropagation();
