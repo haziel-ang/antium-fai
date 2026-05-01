@@ -81,9 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const exploreTrigger = document.querySelector('[data-discover-trigger]');
   const explorePanel   = document.querySelector('[data-explore-panel]');
   if (exploreTrigger && explorePanel) {
+    const heroForExplore = exploreTrigger.closest('.hero');
     const setOpen = (open) => {
       exploreTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
       explorePanel.setAttribute('aria-hidden', open ? 'false' : 'true');
+      heroForExplore && heroForExplore.classList.toggle('explore-open', open);
       if (open) {
         explorePanel.hidden = false;
         // forza reflow per attivare la transizione
@@ -111,6 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (exploreTrigger.getAttribute('aria-expanded') !== 'true') return;
       if (explorePanel.contains(e.target) || exploreTrigger.contains(e.target)) return;
       setOpen(false);
+    });
+    explorePanel.addEventListener('click', (e) => {
+      if (e.target === explorePanel) setOpen(false);
     });
   }
 
