@@ -10,8 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Sticky header shadow
   const header = document.querySelector('.site-header');
+  const setHeaderHeight = () => {
+    document.documentElement.style.setProperty('--site-header-height', `${header ? header.offsetHeight : 0}px`);
+  };
+  setHeaderHeight();
+  window.addEventListener('resize', setHeaderHeight);
   window.addEventListener('scroll', () => {
     header && header.classList.toggle('scrolled', window.scrollY > 20);
+    setHeaderHeight();
     btt && btt.classList.toggle('visible', window.scrollY > 400);
   }, { passive: true });
 
