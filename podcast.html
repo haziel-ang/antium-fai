@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Antium &middot; Podcast</title>
+  <meta name="description" content="La sezione podcast di Antium &egrave; in lavorazione: episodi audio per ascoltare la storia della pi&ugrave; antica citt&agrave; latina del litorale.">
+  <meta property="og:title" content="Antium &middot; Podcast">
+  <meta property="og:description" content="Sezione podcast in arrivo.">
+  <meta property="og:image" content="./img/arco-muto.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <a href="#contenuto" class="skip-link">Salta al contenuto</a>
+
+  <header class="site-header" aria-label="Intestazione del sito">
+    <div class="site-brandband">
+      <div class="site-brandband-inner">
+        <a class="brand-logo" href="./index.html" aria-label="Antium - torna alla home">
+          <img src="./img/logo-antium.png" alt="Logo Antium" loading="eager" decoding="async">
+        </a>
+        <div class="brand-title">
+          <h1 class="brand-name" aria-label="Antium">ANTI<span class="brand-v">V</span>M</h1>
+          <div class="brand-divider" aria-hidden="true">
+            <span class="brand-line"></span>
+            <span class="brand-diamond"></span>
+            <span class="brand-line"></span>
+          </div>
+          <p class="brand-tagline">ANTIUM. HISTORIA ET MEMORIA.</p>
+        </div>
+        <form class="brand-search" role="search" aria-label="Ricerca nel sito" data-site-search onsubmit="return false;">
+          <label class="visually-hidden" for="site-search-input">Cerca nel sito</label>
+          <input id="site-search-input" type="search" placeholder="Cerca..." autocomplete="off" data-site-search-input>
+          <button type="submit" aria-label="Cerca">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </form>
+        <button class="nav-menu-btn" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-search-panel">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="mobile-search-panel" id="mobile-search-panel" hidden>
+          <ul class="mobile-menu-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./pdf.html">PDF</a></li>
+            <li><a href="./podcast.html">Podcast</a></li>
+            <li><a href="./fonti.html">Fonti</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <nav class="site-menubar" aria-label="Menu principale">
+      <div class="site-menubar-inner">
+        <ul class="menu-links">
+          <li><a class="menu-link" href="./index.html">Home</a></li>
+          <li><a class="menu-link" href="./pdf.html">PDF</a></li>
+          <li><a class="menu-link active" href="./podcast.html" aria-current="page">Podcast</a></li>
+          <li><a class="menu-link" href="./fonti.html">Fonti</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenuto">
+    <section class="section section--cream coming-soon" aria-labelledby="podcast-title">
+      <div class="container container--narrow">
+        <div class="section-header reveal" style="text-align:center;">
+          <span class="section-label">In arrivo</span>
+          <h2 id="podcast-title" class="section-title">Podcast Antium</h2>
+          <p class="section-intro">La sezione audio della guida &egrave; in lavorazione. Saranno disponibili episodi che ripercorrono la storia di Antium, dal vallo protostorico alle ville imperiali, raccontati con voci, fonti e suggestioni del territorio.</p>
+        </div>
+        <article class="source-card reveal" style="text-align:center;">
+          <h3>Resta in ascolto</h3>
+          <p>I primi episodi saranno pubblicati prossimamente. Nel frattempo &egrave; possibile esplorare le sezioni testuali dalla home, scaricare i PDF della serie o consultare le fonti complete.</p>
+          <p style="margin-top: var(--sp-5);">
+            <a class="btn btn-primary" href="./index.html#home">Vai alle sezioni</a>
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="simple-footer" aria-label="Crediti e informazioni editoriali">
+    <div class="footer-summary">
+      <span class="footer-kicker">Percorso storico</span>
+      <strong>Antium</strong>
+      <p>Il Vallo, le Necropoli e i Monumenti di Via Ardeatina</p>
+    </div>
+    <div class="footer-meta" aria-label="Informazioni del sito">
+      <p>A cura di Riccardo Pau</p>
+      <p>Gruppo FAI Anzio-Nettuno</p>
+      <p>&copy; 2026 &middot; Contenuto rilasciato con licenza <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" type="button" aria-label="Torna su">&uarr;</button>
+  <script src="./js/main.js" defer></script>
+</body>
+</html>
