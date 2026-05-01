@@ -145,61 +145,18 @@ a:hover { color: var(--fai-orange); }
   top: 0;
   z-index: 100;
   background: var(--fai-cream);
+  border-top: 4px solid var(--fai-bordeaux);
   border-bottom: 1px solid var(--fai-divider);
   transition: box-shadow var(--transition);
 }
 .site-header.scrolled { box-shadow: 0 6px 22px rgba(42,28,14,0.12); }
 
-/* 1) Topbar bordeaux */
 :root {
   --fai-bordeaux: #5a1a17;
   --fai-bordeaux-d: #441110;
 }
-.site-topbar {
-  background: linear-gradient(180deg, var(--fai-bordeaux) 0%, var(--fai-bordeaux-d) 100%);
-  color: #f6e9c8;
-  font-family: var(--font-display);
-}
-.site-topbar-inner {
-  max-width: var(--content-wide);
-  margin-inline: auto;
-  padding: 8px var(--sp-6);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-4);
-  min-height: 36px;
-}
-.topbar-tagline {
-  margin: 0;
-  font-size: 12px;
-  letter-spacing: 0.20em;
-  font-weight: 600;
-  color: #f6e9c8;
-  text-transform: uppercase;
-}
-.topbar-social {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  list-style: none;
-  margin: 0; padding: 0;
-}
-.topbar-social a {
-  display: grid;
-  place-items: center;
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  color: #f6e9c8;
-  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
-}
-.topbar-social a:hover {
-  background: rgba(246,233,200,0.14);
-  transform: translateY(-1px);
-}
-.topbar-social svg { width: 16px; height: 16px; display: block; }
 
-/* 2) Brand band */
+/* 1) Brand band */
 .site-brandband {
   background-color: #f4ead2;
   background-image:
@@ -345,7 +302,7 @@ a:hover { color: var(--fai-orange); }
   color: #fff;
 }
 
-/* 3) Menu bar */
+/* 2) Menu bar */
 .site-menubar {
   background: #ede0c0;
   background-image: linear-gradient(180deg, #efe3c4 0%, #e5d6ae 100%);
@@ -444,8 +401,6 @@ a:hover { color: var(--fai-orange); }
 }
 
 @media (max-width: 768px) {
-  .site-topbar-inner { padding: 6px var(--sp-4); min-height: 32px; }
-  .topbar-tagline { font-size: 10px; letter-spacing: 0.16em; }
   .menu-links {
     display: none;
     position: fixed;
