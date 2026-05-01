@@ -77,6 +77,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── EXPLORE PANEL (cards pergamena) ─────────────────────
+  const exploreTrigger = document.querySelector('[data-discover-trigger]');
+  const explorePanel   = document.querySelector('[data-explore-panel]');
+  if (exploreTrigger && explorePanel) {
+    const setOpen = (open) => {
+      exploreTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      explorePanel.setAttribute('aria-hidden', open ? 'false' : 'true');
+      if (open) {
+        explorePanel.hidden = false;
+        // forza reflow per attivare la transizione
+        void explorePanel.offsetWidth;
+        explorePanel.classList.add('is-open');
+      } else {
+        explorePanel.classList.remove('is-open');
+        // nascondi al termine della transizione
+        setTimeout(() => {
+          if (!explorePanel.classList.contains('is-open')) explorePanel.hidden = true;
+        }, 400);
+      }
+    };
+    exploreTrigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      setOpen(exploreTrigger.getAttribute('aria-expanded') !== 'true');
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && exploreTrigger.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        exploreTrigger.focus();
+      }
+    });
+    document.addEventListener('click', (e) => {
+      if (exploreTrigger.getAttribute('aria-expanded') !== 'true') return;
+      if (explorePanel.contains(e.target) || exploreTrigger.contains(e.target)) return;
+      setOpen(false);
+    });
+  }
+
   // ── IN-PAGE TABS ────────────────────────────────────────
   const tabBtns = document.querySelectorAll('.tab-btn');
   const panels  = document.querySelectorAll('.page-panel');
