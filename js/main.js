@@ -87,46 +87,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── EXPLORE PANEL (cards pergamena) ─────────────────────
-  const exploreTrigger = document.querySelector('[data-discover-trigger]');
-  const explorePanel   = document.querySelector('[data-explore-panel]');
-  if (exploreTrigger && explorePanel) {
-    const heroForExplore = exploreTrigger.closest('.hero');
-    const setOpen = (open) => {
-      exploreTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      explorePanel.setAttribute('aria-hidden', open ? 'false' : 'true');
-      heroForExplore && heroForExplore.classList.toggle('explore-open', open);
-      if (open) {
-        explorePanel.hidden = false;
-        // forza reflow per attivare la transizione
-        void explorePanel.offsetWidth;
-        explorePanel.classList.add('is-open');
-      } else {
-        explorePanel.classList.remove('is-open');
-        // nascondi al termine della transizione
-        setTimeout(() => {
-          if (!explorePanel.classList.contains('is-open')) explorePanel.hidden = true;
-        }, 400);
-      }
+  // ── HERO CARDS — drag to scroll horizontally with mouse ─
+  const heroCards = document.querySelector('.hero-cards');
+  if (heroCards) {
+    let isDown = false;
+    let startX = 0;
+    let startScroll = 0;
+    let moved = false;
+    heroCards.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'touch') return;
+      isDown = true;
+      moved = false;
+      startX = e.clientX;
+      startScroll = heroCards.scrollLeft;
+      heroCards.classList.add('is-dragging');
+    });
+    heroCards.addEventListener('pointermove', (e) => {
+      if (!isDown) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      heroCards.scrollLeft = startScroll - dx;
+    });
+    const endDrag = () => {
+      isDown = false;
+      heroCards.classList.remove('is-dragging');
     };
-    exploreTrigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      setOpen(exploreTrigger.getAttribute('aria-expanded') !== 'true');
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && exploreTrigger.getAttribute('aria-expanded') === 'true') {
-        setOpen(false);
-        exploreTrigger.focus();
+    heroCards.addEventListener('pointerup', endDrag);
+    heroCards.addEventListener('pointercancel', endDrag);
+    heroCards.addEventListener('pointerleave', endDrag);
+    heroCards.addEventListener('click', (e) => {
+      if (moved) {
+        e.preventDefault();
+        e.stopPropagation();
       }
-    });
-    document.addEventListener('click', (e) => {
-      if (exploreTrigger.getAttribute('aria-expanded') !== 'true') return;
-      if (explorePanel.contains(e.target) || exploreTrigger.contains(e.target)) return;
-      setOpen(false);
-    });
-    explorePanel.addEventListener('click', (e) => {
-      if (e.target === explorePanel) setOpen(false);
-    });
+    }, true);
   }
 
   // ── IN-PAGE TABS ────────────────────────────────────────
