@@ -638,13 +638,13 @@ a:hover { color: var(--fai-orange); }
 /* ── HERO — editorial cinematic ───────────────────────── */
 .hero {
   position: relative;
-  min-height: calc(88svh - var(--site-header-height, 0px));
+  min-height: calc(100svh - var(--site-header-height, 0px));
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 .hero--editorial {
-  min-height: calc(88svh - var(--site-header-height, 0px));
+  min-height: calc(100svh - var(--site-header-height, 0px));
 }
 .hero--editorial.hero--fit-viewport .hero-content {
   padding-top: clamp(10px, 1.4vh, 14px);
@@ -668,7 +668,7 @@ a:hover { color: var(--fai-orange); }
 }
 
 .section-page-hero {
-  min-height: calc(88svh - var(--site-header-height, 0px));
+  min-height: calc(100svh - var(--site-header-height, 0px));
   height: auto;
 }
 .hero-bg {
@@ -988,7 +988,7 @@ a:hover { color: var(--fai-orange); }
 .btn-hero--soft { background: rgba(253,246,227,0.08); }
 
 .section-page-hero {
-  min-height: calc(88svh - var(--site-header-height, 0px));
+  min-height: calc(100svh - var(--site-header-height, 0px));
 }
 .section-page-hero .hero-title {
   font-size: clamp(2.7rem, 6vw, 5.4rem);
@@ -1527,7 +1527,12 @@ mark.search-hit.is-current {
 .article-body p:last-child { margin-bottom: 0; }
 
 /* ── ANTIUM EDITORIAL LAYOUT ───────────────────────────── */
-.intro-section { padding-top: var(--sp-20); }
+.intro-section { padding-top: var(--sp-10); }
+
+/* Riduce il distacco tra hero e prima sezione nelle pagine di dettaglio */
+.section-page-content {
+  padding-top: var(--sp-10);
+}
 .story-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
