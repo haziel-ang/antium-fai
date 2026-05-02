@@ -18,6 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('.hero');
   if (hero) setTimeout(() => hero.classList.add('visible'), 100);
 
+  const homeHero = document.querySelector('#home.hero--editorial');
+  const fitHomeHeroToViewport = () => {
+    if (!homeHero) return;
+    const headerHeight = header ? header.offsetHeight : 0;
+    const available = Math.max(0, window.innerHeight - headerHeight);
+    // Remove class first to measure the natural height.
+    homeHero.classList.remove('hero--fit-viewport');
+    const naturalHeight = homeHero.scrollHeight;
+    if (naturalHeight > available) {
+      homeHero.classList.add('hero--fit-viewport');
+    }
+  };
+
   // Sticky header shadow
   const header = document.querySelector('.site-header');
   const setHeaderHeight = () => {
@@ -30,6 +43,27 @@ document.addEventListener('DOMContentLoaded', () => {
     setHeaderHeight();
     btt && btt.classList.toggle('visible', window.scrollY > 400);
   }, { passive: true });
+
+  const runLayoutRecalc = () => {
+    setHeaderHeight();
+    fitHomeHeroToViewport();
+  };
+  const scheduleLayoutRecalc = () => {
+    requestAnimationFrame(() => requestAnimationFrame(runLayoutRecalc));
+  };
+
+  // Ensure correct geometry after page transitions and async font/image loads.
+  scheduleLayoutRecalc();
+  window.addEventListener('load', scheduleLayoutRecalc);
+  window.addEventListener('pageshow', scheduleLayoutRecalc);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(scheduleLayoutRecalc).catch(() => {});
+  }
+  document.querySelectorAll('.brand-logo img').forEach(img => {
+    if (!img.complete) {
+      img.addEventListener('load', scheduleLayoutRecalc, { once: true });
+    }
+  });
 
   // Mobile menu
   const menuBtn = document.querySelector('.nav-menu-btn');
@@ -268,22 +302,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ── HOME HERO FIT VIEWPORT ──────────────────────────────
-  const homeHero = document.querySelector('#home.hero--editorial');
-  const fitHomeHeroToViewport = () => {
-    if (!homeHero) return;
-    const headerHeight = header ? header.offsetHeight : 0;
-    const available = Math.max(0, window.innerHeight - headerHeight);
-    // Remove class first to measure the natural height.
-    homeHero.classList.remove('hero--fit-viewport');
-    const naturalHeight = homeHero.scrollHeight;
-    if (naturalHeight > available) {
-      homeHero.classList.add('hero--fit-viewport');
-    }
-  };
-
-  fitHomeHeroToViewport();
-  window.addEventListener('resize', fitHomeHeroToViewport, { passive: true });
-  window.addEventListener('orientationchange', fitHomeHeroToViewport, { passive: true });
+  window.addEventListener('resize', scheduleLayoutRecalc, { passive: true });
+  window.addEventListener('orientationchange', scheduleLayoutRecalc, { passive: true });
 
   // ── ACTIVE NAV LINK on scroll ───────────────────────────
   const sections = document.querySelectorAll('section[id]');
