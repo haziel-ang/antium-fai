@@ -33,20 +33,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Sticky header shadow
   const header = document.querySelector('.site-header');
+  const btt = document.querySelector('.back-to-top');
+  const footer = document.querySelector('.simple-footer, .site-footer');
   const setHeaderHeight = () => {
     document.documentElement.style.setProperty('--site-header-height', `${header ? header.offsetHeight : 0}px`);
   };
+  const updateBackToTopOffset = () => {
+    if (!btt) return;
+    const isMobile = window.matchMedia('(max-width: 600px)').matches;
+    const base = isMobile ? 20 : 28;
+    if (!footer) {
+      btt.style.bottom = `${base}px`;
+      return;
+    }
+    const rect = footer.getBoundingClientRect();
+    const overlap = Math.max(0, window.innerHeight - rect.top + 12);
+    btt.style.bottom = `${Math.round(base + overlap)}px`;
+  };
   setHeaderHeight();
+  updateBackToTopOffset();
   window.addEventListener('resize', setHeaderHeight);
   window.addEventListener('scroll', () => {
     header && header.classList.toggle('scrolled', window.scrollY > 20);
     setHeaderHeight();
+    updateBackToTopOffset();
     btt && btt.classList.toggle('visible', window.scrollY > 400);
   }, { passive: true });
 
   const runLayoutRecalc = () => {
     setHeaderHeight();
     fitHomeHeroToViewport();
+    updateBackToTopOffset();
   };
   const scheduleLayoutRecalc = () => {
     requestAnimationFrame(() => requestAnimationFrame(runLayoutRecalc));
@@ -296,7 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ── BACK TO TOP ─────────────────────────────────────────
-  const btt = document.querySelector('.back-to-top');
   btt && btt.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
