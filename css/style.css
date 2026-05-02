@@ -1723,6 +1723,159 @@ mark.search-hit.is-current {
 .lightbox-close:hover { background: rgba(250,247,242,0.25); }
 
 
+/* ── CREDITS POPUP (pagina manoscritta) ─────────────────── */
+.credits-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(20, 12, 4, 0.76);
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-8) var(--sp-4);
+  backdrop-filter: blur(4px);
+}
+.credits-overlay.open { display: flex; }
+
+.credits-popup {
+  position: relative;
+  max-width: 620px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  /* Pergamena con texture a righe e sfumatura radiale */
+  background-color: #efe0b2;
+  background-image:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px,
+      transparent 27px,
+      rgba(140, 90, 40, 0.07) 27px,
+      rgba(140, 90, 40, 0.07) 28px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(170, 100, 50, 0.10) 0px,
+      rgba(170, 100, 50, 0.10) 1px,
+      transparent 1px
+    ),
+    radial-gradient(ellipse at 50% 42%, #f6eacb 40%, #d8ba80 100%);
+  border-radius: 2px;
+  border: 1px solid rgba(110, 75, 25, 0.30);
+  box-shadow:
+    0 0 0 5px rgba(110, 75, 25, 0.09),
+    0 0 0 9px rgba(110, 75, 25, 0.04),
+    0 36px 90px rgba(8, 4, 0, 0.55),
+    inset 0 0 80px rgba(200, 140, 60, 0.07);
+  padding: var(--sp-12) var(--sp-10) var(--sp-8);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: #261608;
+  /* Animazione dal centro verso l'esterno */
+  transform: scale(0.04);
+  opacity: 0;
+  transition:
+    transform 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.32s ease;
+}
+.credits-overlay.open .credits-popup {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.credits-popup-close {
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-5);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: rgba(110, 75, 25, 0.10);
+  color: #261608;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+  font-family: 'Inter', sans-serif;
+  line-height: 1;
+}
+.credits-popup-close:hover { background: rgba(110, 75, 25, 0.22); }
+
+.credits-popup-ornament {
+  display: block;
+  text-align: center;
+  font-size: 1.1rem;
+  color: rgba(110, 75, 25, 0.50);
+  letter-spacing: 0.35em;
+  margin-bottom: var(--sp-4);
+}
+.credits-popup-title {
+  font-size: clamp(1.55rem, 4vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #261608;
+  text-align: center;
+  margin-bottom: var(--sp-2);
+  line-height: 1.2;
+}
+.credits-popup-subtitle {
+  font-size: var(--text-sm);
+  color: rgba(38, 22, 8, 0.58);
+  text-align: center;
+  font-style: italic;
+  margin-bottom: var(--sp-6);
+  letter-spacing: 0.05em;
+}
+.credits-popup-divider {
+  display: block;
+  width: 70px;
+  height: 1px;
+  background: rgba(110, 75, 25, 0.35);
+  margin: 0 auto var(--sp-8);
+}
+.credits-popup-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+.credits-popup-table th {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(38, 22, 8, 0.50);
+  border-bottom: 1px solid rgba(110, 75, 25, 0.30);
+  padding: var(--sp-2) var(--sp-3) var(--sp-2) 0;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+}
+.credits-popup-table td {
+  padding: var(--sp-3) var(--sp-3) var(--sp-3) 0;
+  border-bottom: 1px solid rgba(110, 75, 25, 0.10);
+  vertical-align: top;
+  line-height: 1.6;
+}
+.credits-popup-table tr:last-child td { border-bottom: none; }
+.credits-popup-footer {
+  margin-top: var(--sp-8);
+  font-size: 0.75rem;
+  color: rgba(38, 22, 8, 0.40);
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.credits-trigger {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--fai-orange);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-size: inherit;
+}
+.credits-trigger:hover { color: var(--fai-orange-d); }
+
+
 /* ── BIBLIOGRAPHY ─────────────────────────────────────── */
 .bib-list {
   list-style: none;

@@ -483,4 +483,35 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   })();
+
+  // ── CREDITS POPUP ────────────────────────────────────────
+  const creditsOverlay = document.querySelector('.credits-overlay');
+  const creditsClose   = document.querySelector('.credits-popup-close');
+
+  const openCredits = () => {
+    if (!creditsOverlay) return;
+    creditsOverlay.classList.add('open');
+    creditsOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    creditsClose && creditsClose.focus();
+  };
+  const closeCredits = () => {
+    if (!creditsOverlay) return;
+    creditsOverlay.classList.remove('open');
+    creditsOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  document.querySelectorAll('.credits-trigger').forEach(btn => {
+    btn.addEventListener('click', openCredits);
+  });
+  creditsClose && creditsClose.addEventListener('click', closeCredits);
+  creditsOverlay && creditsOverlay.addEventListener('click', e => {
+    if (e.target === creditsOverlay) closeCredits();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && creditsOverlay && creditsOverlay.classList.contains('open')) {
+      closeCredits();
+    }
+  });
 });
