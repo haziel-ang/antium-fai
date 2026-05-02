@@ -646,6 +646,27 @@ a:hover { color: var(--fai-orange); }
 .hero--editorial {
   min-height: calc(100svh - var(--site-header-height, 0px));
 }
+.hero--editorial.hero--fit-viewport .hero-content {
+  padding-top: clamp(10px, 1.4vh, 14px);
+  padding-bottom: clamp(8px, 1.2vh, 12px);
+}
+.hero--editorial.hero--fit-viewport .hero-title {
+  font-size: clamp(2.55rem, 7.2vw, 5.3rem);
+  margin-bottom: var(--sp-3);
+}
+.hero--editorial.hero--fit-viewport .hero-eyebrow {
+  font-size: clamp(1.02rem, 2vw, 1.45rem);
+  margin-bottom: var(--sp-3);
+}
+.hero--editorial.hero--fit-viewport .hero-divider {
+  margin-bottom: var(--sp-4);
+}
+.hero--editorial.hero--fit-viewport .hero-subtitle {
+  font-size: clamp(0.92rem, 1.15vw, 1.02rem);
+  line-height: 1.42;
+  margin-bottom: var(--sp-4);
+}
+
 .section-page-hero { min-height: 62svh; height: auto; }
 .hero-bg {
   position: absolute;
@@ -753,6 +774,9 @@ a:hover { color: var(--fai-orange); }
   transition: opacity 0.9s ease 1.05s, transform 0.9s ease 1.05s;
 }
 .hero.visible .hero-footer { opacity: 1; transform: translateY(0); }
+.hero--editorial.hero--fit-viewport .hero-footer {
+  padding-bottom: clamp(12px, 1.6vh, 16px);
+}
 
 .hero-eras {
   display: flex;
@@ -766,6 +790,10 @@ a:hover { color: var(--fai-orange); }
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+.hero--editorial.hero--fit-viewport .hero-eras {
+  padding-top: clamp(8px, 1.2vh, 12px);
+  padding-bottom: clamp(8px, 1.2vh, 12px);
 }
 .hero-eras::-webkit-scrollbar { display: none; width: 0; height: 0; }
 .hero-eras.is-dragging { cursor: grabbing; }
@@ -784,6 +812,24 @@ a:hover { color: var(--fai-orange); }
   color: #fdf6e3;
   position: relative;
   transition: transform 0.25s ease, color 0.25s ease;
+}
+.hero--editorial.hero--fit-viewport .era-card {
+  min-width: 94px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  gap: 4px;
+}
+.hero--editorial.hero--fit-viewport .era-icon {
+  width: clamp(22px, 2.2vw, 26px);
+  height: clamp(22px, 2.2vw, 26px);
+}
+.hero--editorial.hero--fit-viewport .era-title {
+  font-size: clamp(0.72rem, 0.86vw, 0.86rem);
+  letter-spacing: 0.11em;
+}
+.hero--editorial.hero--fit-viewport .era-sub {
+  font-size: clamp(0.52rem, 0.58vw, 0.6rem);
+  letter-spacing: 0.12em;
 }
 .era-card + .era-card::before {
   content: "";
@@ -840,6 +886,16 @@ a:hover { color: var(--fai-orange); }
   padding: 0 var(--sp-6);
   max-width: 760px;
   color: rgba(253,246,227,0.78);
+}
+.hero--editorial.hero--fit-viewport .hero-quote {
+  margin-top: clamp(8px, 1.1vh, 10px);
+}
+.hero--editorial.hero--fit-viewport .hero-quote-text {
+  font-size: clamp(0.82rem, 1vw, 0.95rem);
+  line-height: 1.36;
+}
+.hero--editorial.hero--fit-viewport .hero-quote-author {
+  margin-top: 4px;
 }
 .hero-quote-mark {
   display: block;

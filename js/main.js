@@ -3,8 +3,18 @@
    ========================================================= */
 'use strict';
 
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('pageshow', () => {
+  window.scrollTo(0, 0);
+});
+
 // ── HERO reveal on load ──────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  window.scrollTo(0, 0);
+
   const hero = document.querySelector('.hero');
   if (hero) setTimeout(() => hero.classList.add('visible'), 100);
 
@@ -256,6 +266,24 @@ document.addEventListener('DOMContentLoaded', () => {
   btt && btt.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // ── HOME HERO FIT VIEWPORT ──────────────────────────────
+  const homeHero = document.querySelector('#home.hero--editorial');
+  const fitHomeHeroToViewport = () => {
+    if (!homeHero) return;
+    const headerHeight = header ? header.offsetHeight : 0;
+    const available = Math.max(0, window.innerHeight - headerHeight);
+    // Remove class first to measure the natural height.
+    homeHero.classList.remove('hero--fit-viewport');
+    const naturalHeight = homeHero.scrollHeight;
+    if (naturalHeight > available) {
+      homeHero.classList.add('hero--fit-viewport');
+    }
+  };
+
+  fitHomeHeroToViewport();
+  window.addEventListener('resize', fitHomeHeroToViewport, { passive: true });
+  window.addEventListener('orientationchange', fitHomeHeroToViewport, { passive: true });
 
   // ── ACTIVE NAV LINK on scroll ───────────────────────────
   const sections = document.querySelectorAll('section[id]');
