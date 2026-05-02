@@ -667,7 +667,10 @@ a:hover { color: var(--fai-orange); }
   margin-bottom: var(--sp-4);
 }
 
-.section-page-hero { min-height: 62svh; height: auto; }
+.section-page-hero {
+  min-height: calc(100svh - var(--site-header-height, 0px));
+  height: auto;
+}
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -984,7 +987,9 @@ a:hover { color: var(--fai-orange); }
 }
 .btn-hero--soft { background: rgba(253,246,227,0.08); }
 
-.section-page-hero { min-height: 62svh; }
+.section-page-hero {
+  min-height: calc(100svh - var(--site-header-height, 0px));
+}
 .section-page-hero .hero-title {
   font-size: clamp(2.7rem, 6vw, 5.4rem);
   letter-spacing: 0.02em;
