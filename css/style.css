@@ -794,6 +794,27 @@ a:hover { color: var(--fai-orange); }
   .era-card, .era-icon, .hero-footer { transition: none; }
 }
 
+/* ── HERO ACTIONS — same UI as era-cards, used in section heroes ─ */
+.hero-actions {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: var(--sp-4);
+  padding: clamp(10px, 1.6vh, 16px) 0;
+  border-top: 1px solid rgba(247,212,136,0.18);
+  border-bottom: 1px solid rgba(247,212,136,0.18);
+  max-width: 520px;
+}
+.hero-actions .era-card {
+  flex: 1 1 0;
+  min-width: 150px;
+}
+@media (max-width: 480px) {
+  .hero-actions { max-width: none; }
+  .hero-actions .era-card { min-width: 130px; }
+}
+
 /* CTA in golden outline (matches example) */
 .btn-hero {
   display: inline-flex;
