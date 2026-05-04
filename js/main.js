@@ -484,9 +484,237 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   })();
 
-  // ── CREDITS POPUP ────────────────────────────────────────
+  // ── CREDITS POPUP (contestuale per pagina) ───────────────
+  const creditsCatalog = {
+    'index.html': {
+      subtitle: 'Antium · Home',
+      note: 'Crediti grafici principali della pagina iniziale.',
+      rows: [
+        {
+          element: 'Veduta del porto di Anzio con Villa Corsini e Villa Albani',
+          author: 'Paolo Anesi (1697–1773)',
+          note: 'Pubblico dominio (Wikimedia Commons).'
+        }
+      ]
+    },
+    'pdf.html': {
+      subtitle: 'Antium · Archivio PDF',
+      note: 'La pagina PDF non contiene elaborazioni grafiche dedicate. Per i crediti completi consulta la pagina Crediti.',
+      rows: []
+    },
+    'podcast.html': {
+      subtitle: 'Antium · Podcast',
+      note: 'La pagina Podcast non contiene elaborazioni grafiche dedicate. Per i crediti completi consulta la pagina Crediti.',
+      rows: []
+    },
+    'fonti.html': {
+      subtitle: 'Antium · Crediti',
+      note: 'Questa e la pagina di riferimento per tutti i crediti della serie Antium.',
+      rows: []
+    },
+    'sezioni/vallo.html': {
+      subtitle: 'Sezione 01 · Il Vallo di Antium',
+      note: 'Crediti grafici specifici della sezione.',
+      rows: [
+        {
+          element: 'Immagine hero — Il Vallo di Antium',
+          author: 'Riccardo Pau',
+          note: 'Fotografia e rielaborazione grafica.'
+        },
+        {
+          element: 'Planimetria del Vallo di Antium',
+          author: 'Riccardo Pau',
+          note: 'Tavola descrittiva su fonti Lugli 1940; Egidi–Guidi 2009.'
+        }
+      ]
+    },
+    'sezioni/cisternone-caffeaus.html': {
+      subtitle: 'Sezione 04 · Il Cisternone e il Caffeaus',
+      note: 'Crediti grafici specifici della sezione.',
+      rows: [
+        {
+          element: 'Cisterna prima dello scavo e planimetria attuale',
+          author: 'F. Graziani · Aglietti–Arena 2012',
+          note: 'Fonte: Lazio e Sabina 8 (2012), fig. 2.'
+        },
+        {
+          element: 'Planimetria sfrondata delle modifiche settecentesche',
+          author: 'F. Graziani · Aglietti–Arena 2012',
+          note: 'Fonte: Lazio e Sabina 8 (2012), fig. 5.'
+        },
+        {
+          element: 'Carta Topografica di D. Tranquilli (1838)',
+          author: 'ASRo · Aglietti–Arena 2012',
+          note: 'Disegni e mappe, coll. I, cart. 48, n. 44 (fig. 3).'
+        },
+        {
+          element: 'R. Lanciani, Antico Edificio Romano detto ora Coffee-House',
+          author: 'SBAL · Aglietti–Arena 2012',
+          note: 'Disegno inedito (fig. 4).'
+        },
+        {
+          element: 'Frammenti marmorei dal Caffeaus',
+          author: 'Aglietti–Arena 2012',
+          note: 'Fonte: Lazio e Sabina 8 (2012), fig. 8.'
+        }
+      ]
+    },
+    'sezioni/necropoli-protostoriche.html': {
+      subtitle: 'Sezione 02 · Necropoli protostoriche',
+      note: 'Questa sezione non contiene elaborazioni grafiche originali. Le fotografie sono di pubblico dominio o da archivi citati nel testo.',
+      rows: []
+    },
+    'sezioni/tomba-mulakia.html': {
+      subtitle: 'Sezione 03 · Tomba Mulakia',
+      note: 'Questa sezione non contiene elaborazioni grafiche originali. Le fotografie sono di pubblico dominio o da archivi citati nel testo.',
+      rows: []
+    },
+    'sezioni/villa-imperiale.html': {
+      subtitle: 'Sezione 05 · Villa imperiale di Anzio',
+      note: 'Crediti grafici specifici della sezione.',
+      rows: [
+        {
+          element: 'La Fanciulla di Anzio',
+          author: 'Museo Nazionale Romano / Wikimedia Commons',
+          note: 'Scultura ellenistica in marmo (h. 170 cm), rinvenuta nel 1878. Pubblico dominio.'
+        },
+        {
+          element: "L\u2019Arco Muto",
+          author: 'Fotografia storica \u2014 archivio comunale di Anzio',
+          note: 'Arcuazioni romane della falesia, demolite nel 1965. Pubblico dominio.'
+        }
+      ]
+    },
+    'sezioni/monumenti-citta-alta.html': {
+      subtitle: 'Sezione 06 · Monumenti della città alta',
+      note: 'Questa sezione non contiene elaborazioni grafiche originali. Le fotografie sono di pubblico dominio o da archivi citati nel testo.',
+      rows: []
+    },
+    'sezioni/volsci-cicerone-culti.html': {
+      subtitle: 'Sezione 07 · Volsci, Cicerone e culti',
+      note: 'Questa sezione non contiene elaborazioni grafiche originali. Le fotografie sono di pubblico dominio o da archivi citati nel testo.',
+      rows: []
+    },
+    'sezioni/teatro-romano.html': {
+      subtitle: 'Sezione 08 · Teatro romano',
+      note: 'Crediti grafici specifici della sezione.',
+      rows: [
+        {
+          element: 'Tavola grafica del teatro romano di Antium',
+          author: 'Riccardo Pau',
+          note: 'Ricostruzione grafica basata sulle fonti storiche (Lugli 1940).'
+        }
+      ]
+    }
+  };
+
+  const getPageCredits = () => {
+    const path = window.location.pathname.replace(/\\/g, '/').toLowerCase();
+    const matchedKey = Object.keys(creditsCatalog).find(key => path.endsWith(key));
+    if (matchedKey) return creditsCatalog[matchedKey];
+
+    if (path.includes('/sezioni/')) {
+      const heroTitle = document.querySelector('.hero-title');
+      const sectionName = heroTitle ? heroTitle.textContent.trim() : 'Sezione';
+      return {
+        subtitle: `Sezione · ${sectionName}`,
+        note: 'Questo popup mostra solo i crediti della sezione corrente.',
+        rows: []
+      };
+    }
+
+    return {
+      subtitle: 'Antium · Pagina',
+      note: 'Per questa pagina non sono registrati crediti grafici specifici.',
+      rows: []
+    };
+  };
+
+  const getCreditsHref = () => {
+    const path = window.location.pathname.replace(/\\/g, '/').toLowerCase();
+    return path.includes('/sezioni/') ? '../fonti.html' : './fonti.html';
+  };
+
+  const escapeHtml = (value) => String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
+  const ensureCreditsTriggersInCaptions = () => {
+    const path = window.location.pathname.replace(/\\/g, '/').toLowerCase();
+    if (!path.includes('/sezioni/')) return;
+
+    const captions = Array.from(document.querySelectorAll('figcaption'));
+    if (!captions.length) return;
+
+    captions.forEach((caption) => {
+      if (caption.querySelector('.credits-trigger')) return;
+
+      const button = document.createElement('button');
+      button.className = 'credits-trigger';
+      button.type = 'button';
+      button.textContent = 'Crediti grafici';
+
+      // Inserisci nel primo <p> della didascalia, se esiste,
+      // altrimenti direttamente nella didascalia stessa.
+      const firstP = caption.querySelector('p');
+      const target = firstP || caption;
+      target.appendChild(document.createTextNode('\u00a0'));
+      target.appendChild(button);
+    });
+  };
+
+  const ensureCreditsOverlay = (pageCredits) => {
+    if (document.querySelector('.credits-overlay')) return;
+
+    const rowsMarkup = pageCredits.rows.length
+      ? pageCredits.rows.map(row => `
+          <tr>
+            <td>${escapeHtml(row.element)}</td>
+            <td>${escapeHtml(row.author)}</td>
+            <td>${escapeHtml(row.note)}</td>
+          </tr>`).join('')
+      : '<tr><td colspan="3">Nessun credito grafico specifico registrato per questa sezione.</td></tr>';
+
+    const overlay = document.createElement('div');
+    overlay.className = 'credits-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-labelledby', 'credits-popup-title');
+    overlay.innerHTML = `
+      <div class="credits-popup">
+        <button class="credits-popup-close" type="button" aria-label="Chiudi crediti">×</button>
+        <span class="credits-popup-ornament" aria-hidden="true">· · ·</span>
+        <h2 class="credits-popup-title" id="credits-popup-title">Crediti grafici</h2>
+        <p class="credits-popup-subtitle">${escapeHtml(pageCredits.subtitle)}</p>
+        <p class="credits-popup-subtitle">${escapeHtml(pageCredits.note)}</p>
+        <span class="credits-popup-divider" aria-hidden="true"></span>
+        <table class="credits-popup-table">
+          <thead>
+            <tr>
+              <th>Elemento</th>
+              <th>Autore</th>
+              <th>Nota</th>
+            </tr>
+          </thead>
+          <tbody>${rowsMarkup}
+          </tbody>
+        </table>
+        <p class="credits-popup-footer">Elenco completo: <a href="${getCreditsHref()}">pagina Crediti</a></p>
+      </div>`;
+
+    document.body.appendChild(overlay);
+  };
+
+  const pageCredits = getPageCredits();
+  ensureCreditsTriggersInCaptions();
+  ensureCreditsOverlay(pageCredits);
+
   const creditsOverlay = document.querySelector('.credits-overlay');
-  const creditsClose   = document.querySelector('.credits-popup-close');
+  const creditsClose = document.querySelector('.credits-popup-close');
 
   const openCredits = () => {
     if (!creditsOverlay) return;
