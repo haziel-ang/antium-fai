@@ -3358,3 +3358,231 @@ mark.search-hit.is-current {
   .bento-deco { width: 100px; height: 100px; }
   .bento-wide { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
+
+/* ============================================================
+   MOSAIC SECTION — I numeri che orientano il racconto
+   ============================================================ */
+.mosaic-section {
+  position: relative;
+  padding: var(--sp-16) 0 var(--sp-20);
+  overflow: hidden;
+}
+
+/* Background image layer */
+.mosaic-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.mosaic-bg-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 35%;
+  background-attachment: fixed;
+  filter: saturate(0.6) brightness(0.45);
+}
+.mosaic-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(22, 30, 25, 0.55) 0%,
+    rgba(18, 24, 20, 0.80) 50%,
+    rgba(22, 30, 25, 0.70) 100%
+  );
+}
+
+/* Container sits above background */
+.mosaic-section .container--wide {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section header */
+.mosaic-header {
+  text-align: center;
+  margin-bottom: var(--sp-12);
+}
+.mosaic-header .section-intro {
+  max-width: 58ch;
+  margin: 0.6rem auto 0;
+  font-size: var(--text-base);
+  line-height: 1.65;
+}
+
+/* ---- GRID ---- */
+.mosaic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+/* ---- BASE TILE ---- */
+.mosaic-tile {
+  position: relative;
+  background: rgba(22, 30, 25, 0.72);
+  border: 1px solid rgba(184, 138, 42, 0.22);
+  border-radius: 14px;
+  padding: 1.25rem 1.4rem 1.4rem;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: rgba(253, 246, 227, 0.88);
+  overflow: hidden;
+
+  /* Initial hidden/scattered state */
+  opacity: 0;
+  transform: scale(0.72) translateY(32px);
+  transition:
+    opacity 0.52s ease,
+    transform 0.52s cubic-bezier(0.34, 1.38, 0.64, 1),
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+.mosaic-tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 30% 0%, rgba(199, 71, 26, 0.07), transparent 70%);
+  pointer-events: none;
+}
+.mosaic-tile:hover {
+  border-color: rgba(184, 138, 42, 0.55);
+  background: rgba(30, 40, 32, 0.85);
+}
+
+/* Tile composition: visible state */
+.mosaic-tile.in-view {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Tile size variants */
+.mosaic-tile--xl {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.mosaic-tile--lg {
+  grid-column: span 2;
+}
+.mosaic-tile--wide {
+  grid-column: span 4;
+}
+
+/* Accent colour variant */
+.mosaic-tile--accent {
+  background: rgba(199, 71, 26, 0.25);
+  border-color: rgba(199, 71, 26, 0.45);
+}
+.mosaic-tile--accent2 {
+  background: rgba(36, 51, 46, 0.85);
+  border-color: rgba(184, 138, 42, 0.45);
+}
+.mosaic-tile--dark {
+  background: rgba(15, 20, 17, 0.9);
+}
+
+/* ---- TILE CONTENT ---- */
+.mt-eyebrow {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--fai-gold, #B78A2A);
+  margin-bottom: 0.45rem;
+}
+.mt-num {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-weight: 600;
+  line-height: 1;
+  color: #fdf6e3;
+  letter-spacing: -0.02em;
+}
+.mosaic-tile--xl .mt-num {
+  font-size: clamp(4rem, 8vw, 6rem);
+}
+.mt-unit {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fai-orange, #C8471A);
+  margin-top: 0.15rem;
+  margin-bottom: 0.6rem;
+}
+.mt-desc {
+  font-size: 0.83rem;
+  line-height: 1.55;
+  color: rgba(253, 246, 227, 0.65);
+  margin: 0;
+}
+.mt-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fai-gold, #B78A2A);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184, 138, 42, 0.35);
+  transition: color 0.2s, border-color 0.2s;
+}
+.mt-link:hover {
+  color: var(--fai-orange, #C8471A);
+  border-color: var(--fai-orange, #C8471A);
+}
+
+/* Horizontal number row (--wide tiles) */
+.mt-num-horiz {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.2rem;
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  font-weight: 600;
+  color: #fdf6e3;
+  margin: 0.3rem 0 0.6rem;
+}
+.mt-num-horiz em {
+  font-style: normal;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fai-orange, #C8471A);
+  display: block;
+  margin-top: 0.1rem;
+}
+.mt-sep {
+  color: rgba(184, 138, 42, 0.4);
+  font-size: 0.7rem;
+  align-self: center;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 1100px) {
+  .mosaic-grid { grid-template-columns: repeat(3, 1fr); }
+  .mosaic-tile--wide { grid-column: span 3; }
+}
+@media (max-width: 768px) {
+  .mosaic-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .mosaic-tile--xl { grid-column: span 2; grid-row: span 1; }
+  .mosaic-tile--lg { grid-column: span 2; }
+  .mosaic-tile--wide { grid-column: span 2; }
+  .mosaic-bg-img { background-attachment: scroll; }
+}
+@media (max-width: 480px) {
+  .mosaic-grid { grid-template-columns: 1fr; }
+  .mosaic-tile--xl,
+  .mosaic-tile--lg,
+  .mosaic-tile--wide { grid-column: span 1; }
+}

@@ -743,3 +743,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+/* ============================================================
+   MOSAIC TILES — scroll composition animation
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var tiles = document.querySelectorAll('.mosaic-tile');
+  if (!tiles.length) return;
+
+  // Set CSS custom property for staggered delay
+  tiles.forEach(function (tile, i) {
+    var d = parseFloat(tile.dataset.delay || i);
+    tile.style.transitionDelay = (d * 0.055) + 's';
+  });
+
+  // Intersection observer: fire once per tile
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.06,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  tiles.forEach(function (t) { io.observe(t); });
+}());

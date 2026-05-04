@@ -222,65 +222,157 @@
       </div>
     </section>
 
-    <section class="kpi-section" aria-labelledby="kpi-title">
+        <section class="mosaic-section" aria-labelledby="mosaic-title" id="mosaic-numeri">
+      <div class="mosaic-bg" aria-hidden="true">
+        <div class="mosaic-bg-img" style="background-image:url('./img/anzio-storica.webp')"></div>
+        <div class="mosaic-bg-overlay"></div>
+      </div>
       <div class="container container--wide">
-        <div class="section-header reveal">
-          <span class="section-label">Coordinate essenziali</span>
-          <h2 id="kpi-title" class="section-title">I numeri che orientano il racconto</h2>
+        <div class="mosaic-header reveal">
+          <span class="section-label" style="color:rgba(247,212,136,0.9)">Coordinate essenziali</span>
+          <h2 id="mosaic-title" class="section-title" style="color:#fdf6e3">I numeri che orientano il racconto</h2>
+          <p class="section-intro" style="color:rgba(253,246,227,0.75)">Tremila anni di Antium distillati in numeri: ogni tassello compone il mosaico di una città.</p>
         </div>
-        <div class="bento-grid">
-          <article class="bento-card bento-hero">
-            <div class="bento-deco" aria-hidden="true">
-              <svg viewBox="0 0 160 160" fill="none">
-                <path d="M80 18c31 0 56 25 56 56 0 39-56 68-56 68S24 113 24 74c0-31 25-56 56-56Z" stroke="currentColor" stroke-width="3"/>
-                <path d="M53 72h54M62 50h36M63 94h34" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-              </svg>
+        <div class="mosaic-grid" aria-label="Mosaico dei numeri storici di Antium">
+
+          <article class="mosaic-tile mosaic-tile--xl mosaic-tile--accent" data-delay="0">
+            <div class="mt-eyebrow">Vallo urbano · XI sec. a.C.</div>
+            <div class="mt-num">3.900</div>
+            <div class="mt-unit">metri</div>
+            <p class="mt-desc">Il perimetro del grande circuito difensivo protostorico — più esteso di qualsiasi altro nel Lazio costiero.</p>
+            <a class="mt-link" href="./sezioni/vallo.html">Scopri il Vallo →</a>
+          </article>
+
+          <article class="mosaic-tile mosaic-tile--lg" data-delay="1">
+            <div class="mt-eyebrow">Paleolitico inferiore</div>
+            <div class="mt-num">150.000</div>
+            <div class="mt-unit">anni fa</div>
+            <p class="mt-desc">L’amigdala acheuleana: prima traccia umana nel territorio anziate.</p>
+          </article>
+
+          <article class="mosaic-tile" data-delay="2">
+            <div class="mt-eyebrow">Necropoli · XIII–XII sec. a.C.</div>
+            <div class="mt-num">40</div>
+            <div class="mt-unit">urne</div>
+            <p class="mt-desc">La più antica necropoli a cremazione del Lazio, a Cavallo Morto.</p>
+          </article>
+
+          <article class="mosaic-tile" data-delay="3">
+            <div class="mt-eyebrow">Colle Rotondo</div>
+            <div class="mt-num">7,5</div>
+            <div class="mt-unit">ettari</div>
+            <p class="mt-desc">Area difesa dal circuito: la seconda più grande del Lazio dopo il Campidoglio (10 ha).</p>
+          </article>
+
+          <article class="mosaic-tile" data-delay="4">
+            <div class="mt-eyebrow">Datazione C14</div>
+            <div class="mt-num">1315</div>
+            <div class="mt-unit">a.C.</div>
+            <p class="mt-desc">Legno di quercia carbonizzato dall’aggere di Colle Rotondo: il vallo precede i Volsci di 4 secoli.</p>
+          </article>
+
+          <article class="mosaic-tile mosaic-tile--wide" data-delay="5">
+            <div class="mt-eyebrow">Il Vallo in cifre</div>
+            <div class="mt-num-horiz">
+              <span>45 <em>m s.l.m.</em></span>
+              <span class="mt-sep" aria-hidden="true">◆</span>
+              <span>20 <em>m fossa</em></span>
+              <span class="mt-sep" aria-hidden="true">◆</span>
+              <span>15 <em>m aggere</em></span>
             </div>
-            <div class="bento-body">
-              <span class="bento-tag">Vallo urbano</span>
-              <div class="bento-num">3.900<span class="unit"> m</span></div>
-              <p class="bento-desc">Il perimetro stimato del grande circuito difensivo che avvolgeva Antium sul pianoro costiero.</p>
+            <p class="mt-desc">Quota del pianoro, larghezza della fossa esterna, altezza stimata dell’aggere interno.</p>
+          </article>
+
+          <article class="mosaic-tile" data-delay="6">
+            <div class="mt-eyebrow">Conquista romana</div>
+            <div class="mt-num">338</div>
+            <div class="mt-unit">a.C.</div>
+            <p class="mt-desc">I Rostri delle navi anziati portati al Foro di Roma: Antium diventa municipium.</p>
+          </article>
+
+          <article class="mosaic-tile" data-delay="7">
+            <div class="mt-eyebrow">Tomba Mulakia · IV–II sec. a.C.</div>
+            <div class="mt-num">43</div>
+            <div class="mt-unit">loculi</div>
+            <p class="mt-desc">L’unico ipogeo a gallerie del Lazio repubblicano: anticipa le catacombe cristiane di secoli.</p>
+          </article>
+
+          <article class="mosaic-tile mosaic-tile--accent2" data-delay="8">
+            <div class="mt-eyebrow">Villa Imperiale</div>
+            <div class="mt-num">7</div>
+            <div class="mt-unit">fasi</div>
+            <p class="mt-desc">Dal II sec. a.C. all’età severiana: sette rifacimenti della residenza imperiale.</p>
+            <a class="mt-link" href="./sezioni/villa-imperiale.html">Scopri la Villa →</a>
+          </article>
+
+          <article class="mosaic-tile" data-delay="9">
+            <div class="mt-eyebrow">Villa di Nerone</div>
+            <div class="mt-num">800</div>
+            <div class="mt-unit">metri</div>
+            <p class="mt-desc">Estensione della villa lungo la costa secondo il progetto neroniano.</p>
+          </article>
+
+          <article class="mosaic-tile" data-delay="10">
+            <div class="mt-eyebrow">Fanciulla di Anzio</div>
+            <div class="mt-num">1878</div>
+            <div class="mt-unit">d.C.</div>
+            <p class="mt-desc">Rinvenimento della scultura ellenistica (alt. 170 cm) tra le rovine della villa imperiale.</p>
+          </article>
+
+          <article class="mosaic-tile mosaic-tile--wide" data-delay="11">
+            <div class="mt-eyebrow">Teatro romano in cifre</div>
+            <div class="mt-num-horiz">
+              <span>30 <em>m diam.</em></span>
+              <span class="mt-sep" aria-hidden="true">◆</span>
+              <span>11 <em>cunei</em></span>
+              <span class="mt-sep" aria-hidden="true">◆</span>
+              <span>18 <em>colonne</em></span>
             </div>
+            <p class="mt-desc">La cavea del teatro sul pianoro: piccolo per misura, aristocratico per marmi policromi.</p>
           </article>
-          <article class="bento-card bento-med">
-            <span class="bento-eyebrow">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 18 12 4l8 14H4Z" stroke="currentColor" stroke-width="2"/></svg>
-              Paleolitico
-            </span>
-            <div class="bento-num--lg">150.000</div>
-            <p class="bento-label">anni fa: amigdala del Paleolitico inferiore nel territorio anziate.</p>
+
+          <article class="mosaic-tile" data-delay="12">
+            <div class="mt-eyebrow">Cisterna · II sec. d.C.</div>
+            <div class="mt-num">10×18</div>
+            <div class="mt-unit">metri</div>
+            <p class="mt-desc">La pianta rettangolare del Cisternone romano a due piani, tre pilastri, tre navate.</p>
           </article>
-          <article class="bento-card bento-med">
-            <span class="bento-eyebrow">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M5 8h14v11H5zM8 8V5h8v3" stroke="currentColor" stroke-width="2"/></svg>
-              Cavallo Morto
-            </span>
-            <div class="bento-num--lg">40</div>
-            <p class="bento-label">urne a cremazione scoperte nella più antica necropoli laziale del tipo.</p>
+
+          <article class="mosaic-tile" data-delay="13">
+            <div class="mt-eyebrow">Caffeaus corsiniano</div>
+            <div class="mt-num">1743</div>
+            <div class="mt-unit">d.C.</div>
+            <p class="mt-desc">Galilei e Michetti trasformano il Cisternone in padiglione di delizia per i Corsini.</p>
           </article>
-          <div class="bento-row2">
-            <article class="bento-wide">
-              <span class="bento-side-icon" aria-hidden="true">◈</span>
-              <div class="bento-side-body">
-                <div class="bento-num--md">1925</div>
-                <p class="bento-label">scoperta della necropoli dell’Italcable durante i lavori su via Ardeatina.</p>
-              </div>
-            </article>
-            <article class="bento-wide">
-              <span class="bento-side-icon" aria-hidden="true">Ⅶ</span>
-              <div class="bento-side-body">
-                <div class="bento-num--md">7 fasi</div>
-                <p class="bento-label">sviluppo della Villa Imperiale tra età repubblicana e severiana.</p>
-              </div>
-            </article>
-            <article class="bento-wide">
-              <span class="bento-side-icon" aria-hidden="true">✦</span>
-              <div class="bento-side-body">
-                <div class="bento-num--md">1743</div>
-                <p class="bento-label">costruzione del Caffeaus corsiniano sopra il Cisternone romano.</p>
-              </div>
-            </article>
-          </div>
+
+          <article class="mosaic-tile" data-delay="14">
+            <div class="mt-eyebrow">Scoperta Italcable</div>
+            <div class="mt-num">1925</div>
+            <div class="mt-unit">d.C.</div>
+            <p class="mt-desc">La necropoli su via Ardeatina svela le origini latine pre-volsche di Antium.</p>
+          </article>
+
+          <article class="mosaic-tile mosaic-tile--lg mosaic-tile--dark" data-delay="15">
+            <div class="mt-eyebrow">Tardo Impero · 381–382 d.C.</div>
+            <div class="mt-num">4</div>
+            <div class="mt-unit">terme</div>
+            <p class="mt-desc">Almeno quattro impianti termali attivi contemporaneamente ad Antium in età imperiale.</p>
+          </article>
+
+          <article class="mosaic-tile" data-delay="16">
+            <div class="mt-eyebrow">Fine dell’Antichità</div>
+            <div class="mt-num">537</div>
+            <div class="mt-unit">d.C.</div>
+            <p class="mt-desc">Ultima menzione del porto di Anzio nelle fonti scritte (Procopio di Cesarea).</p>
+          </article>
+
+          <article class="mosaic-tile" data-delay="17">
+            <div class="mt-eyebrow">Recupero contemporaneo</div>
+            <div class="mt-num">2017</div>
+            <div class="mt-unit">d.C.</div>
+            <p class="mt-desc">Inaugurazione del Parco del Vallo Latino-Volsco: tremila anni riemersi al pubblico.</p>
+          </article>
+
         </div>
       </div>
     </section>
