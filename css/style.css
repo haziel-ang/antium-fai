@@ -1098,6 +1098,40 @@ mark.search-hit.is-current {
   box-shadow: var(--shadow-card);
 }
 
+/* ── Subscriptio link — usato al fondo di fonti.html come rimando al percorso ── */
+.subscriptio-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45em;
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+  font-weight: 500;
+  color: var(--fai-brown);
+  letter-spacing: 0.015em;
+  border-bottom: 1px solid var(--fai-gold);
+  padding-bottom: 0.15em;
+  transition: color var(--transition), border-color var(--transition), letter-spacing var(--transition);
+  text-decoration: none;
+}
+.subscriptio-link:hover,
+.subscriptio-link:focus-visible {
+  color: var(--fai-orange);
+  border-color: var(--fai-orange);
+  letter-spacing: 0.04em;
+}
+.subscriptio-ornament {
+  font-style: normal;
+  font-size: 0.7em;
+  line-height: 1;
+  color: var(--fai-gold);
+  transition: color var(--transition);
+}
+.subscriptio-link:hover .subscriptio-ornament,
+.subscriptio-link:focus-visible .subscriptio-ornament {
+  color: var(--fai-orange);
+}
+
 /* ── SECTION BASE ─────────────────────────────────────── */
 .section {
   padding-block: clamp(var(--sp-16), 8vw, var(--sp-32));
@@ -1387,92 +1421,64 @@ mark.search-hit.is-current {
 
 /* ── CALLOUT BOXES ────────────────────────────────────── */
 .callout {
-  border-radius: var(--r-xl);
-  padding: var(--sp-6);
-  margin-block: var(--sp-8);
+  border-radius: 0;
+  padding: var(--sp-5) var(--sp-6);
+  margin-block: var(--sp-6);
   display: flex;
   flex-direction: column;
-  gap: var(--sp-4);
-}
-.callout--curiosita {
-  background: rgba(200,71,26,0.05);
-  border: 1px solid rgba(200,71,26,0.16);
-  box-shadow: inset 4px 0 0 var(--fai-orange), 0 2px 16px rgba(42,28,14,0.08), 0 1px 3px rgba(42,28,14,0.05);
-}
-.callout--suggerimento {
-  background: rgba(200,151,26,0.04);
-  border: 1px solid rgba(200,151,26,0.22);
-  box-shadow: inset 4px 0 0 var(--fai-gold), 0 2px 16px rgba(42,28,14,0.08), 0 1px 3px rgba(42,28,14,0.05);
-}
-.callout--critica {
-  background: rgba(200,71,26,0.08);
-  border: 1px solid rgba(200,71,26,0.20);
-  box-shadow: inset 4px 0 0 var(--fai-orange-d), 0 2px 16px rgba(42,28,14,0.08), 0 1px 3px rgba(42,28,14,0.05);
+  gap: var(--sp-3);
+  background: var(--fai-cream-3);
+  border: none;
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--fai-brown-l);
 }
 
 .callout.reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s ease,
-              transform 0.6s cubic-bezier(0.16,1,0.3,1),
-              box-shadow 0.3s cubic-bezier(0.16,1,0.3,1);
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16,1,0.3,1);
 }
 .callout.reveal.visible {
   opacity: 1;
   transform: none;
 }
-.callout--curiosita:hover {
-  box-shadow: inset 4px 0 0 var(--fai-orange), 0 12px 40px rgba(42,28,14,0.13), 0 3px 10px rgba(42,28,14,0.07);
-}
-.callout--suggerimento:hover {
-  box-shadow: inset 4px 0 0 var(--fai-gold), 0 12px 40px rgba(42,28,14,0.13), 0 3px 10px rgba(42,28,14,0.07);
-}
-.callout--critica:hover {
-  box-shadow: inset 4px 0 0 var(--fai-orange-d), 0 12px 40px rgba(42,28,14,0.13), 0 3px 10px rgba(42,28,14,0.07);
-}
 
 .callout-header {
   display: flex;
   align-items: center;
-  gap: var(--sp-3);
+  gap: var(--sp-2);
 }
 .callout-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 0;
+  background: none;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-.callout--curiosita .callout-icon {
-  background: rgba(200,71,26,0.12);
-  color: var(--fai-orange);
-}
-.callout--suggerimento .callout-icon {
-  background: rgba(200,151,26,0.14);
-  color: var(--fai-gold);
-}
-.callout--critica .callout-icon {
-  background: rgba(200,71,26,0.12);
-  color: var(--fai-orange);
-}
+.callout--curiosita .callout-icon  { color: var(--fai-orange); }
+.callout--suggerimento .callout-icon { color: var(--fai-gold); }
+.callout--critica .callout-icon    { color: var(--fai-orange-d); }
 .callout-label {
-  font-size: var(--text-sm);
-  font-family: var(--font-body);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--text-base);
+  font-weight: 600;
+  font-style: italic;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  text-transform: none;
   margin-bottom: 0;
 }
-.callout--curiosita .callout-label { color: var(--fai-orange); }
-.callout--suggerimento .callout-label { color: var(--fai-gold); }
-.callout--critica .callout-label { color: var(--fai-orange-d); }
+.callout--curiosita .callout-label  { color: var(--fai-orange); }
+.callout--suggerimento .callout-label { color: var(--fai-brown-m); }
+.callout--critica .callout-label    { color: var(--fai-orange-d); }
 .callout-text {
   font-size: var(--text-sm);
   color: var(--text-body);
   line-height: 1.75;
-  padding-left: calc(36px + var(--sp-3));
+  padding-left: 0;
 }
 .callout a,
 .source-list a,
@@ -1507,6 +1513,9 @@ mark.search-hit.is-current {
   margin-bottom: var(--sp-3);
   padding-bottom: var(--sp-3);
   border-bottom: 1px solid var(--fai-divider);
+}
+.article-body > h2:first-child {
+  margin-top: 0;
 }
 .article-body h3 {
   font-family: var(--font-display);
@@ -2269,9 +2278,9 @@ mark.search-hit.is-current {
 .table-wrap {
   margin: var(--sp-5) 0;
   overflow-x: auto;
-  border-radius: var(--r-md, 12px);
-  border: 1px solid var(--fai-cream-3, rgba(104,116,91,0.18));
-  background: var(--fai-cream-1, #fbf5e7);
+  border-radius: 0;
+  border: 1px solid var(--fai-divider);
+  background: transparent;
 }
 .data-table {
   width: 100%;
@@ -2280,21 +2289,29 @@ mark.search-hit.is-current {
   line-height: 1.45;
 }
 .data-table thead th {
-  background: var(--fai-cream-2, #f1e6c8);
+  background: var(--fai-cream-3);
   color: var(--fai-brown);
   font-family: var(--font-display);
   font-weight: 600;
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
   text-align: left;
   padding: var(--sp-3) var(--sp-4);
-  border-bottom: 2px solid var(--fai-orange);
+  border-bottom: 1px solid var(--fai-gold);
 }
 .data-table tbody td {
   padding: var(--sp-3) var(--sp-4);
-  border-bottom: 1px solid rgba(104,116,91,0.12);
+  border-bottom: 1px solid var(--fai-divider);
   vertical-align: top;
 }
+.data-table tbody td:first-child {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--fai-brown);
+  font-size: var(--text-base);
+}
 .data-table tbody tr:last-child td { border-bottom: none; }
-.data-table tbody tr:nth-child(even) td { background: rgba(216,180,91,0.06); }
+.data-table tbody tr:hover td { background: rgba(183,138,42,0.05); }
 
 .simple-footer {
   background:
@@ -2579,21 +2596,28 @@ mark.search-hit.is-current {
   position: fixed;
   bottom: var(--sp-8);
   right: var(--sp-8);
-  width: 48px; height: 48px;
+  width: 44px; height: 44px;
   border-radius: 50%;
-  background: var(--fai-orange);
-  color: #fff;
+  background: var(--fai-cream-2);
+  color: var(--fai-brown);
+  border: 1.5px solid var(--fai-divider);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(200,71,26,0.40);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(36,51,46,0.10);
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--transition), transform var(--transition);
+  transition: opacity var(--transition), transform var(--transition), border-color var(--transition), box-shadow var(--transition);
   z-index: 200;
 }
 .back-to-top.visible { opacity: 1; pointer-events: auto; }
-.back-to-top:hover { transform: translateY(-3px); }
+.back-to-top:hover {
+  transform: translateY(-2px);
+  border-color: var(--fai-gold);
+  box-shadow: 0 4px 12px rgba(183,138,42,0.18);
+}
 
 /* ── RESPONSIVE ───────────────────────────────────────── */
 @media (max-width: 600px) {
@@ -2805,6 +2829,16 @@ mark.search-hit.is-current {
   max-width: 820px;
   margin-inline: auto;
 }
+/* Variante compatta per elenchi di fasi (colonna sinistra ridotta) */
+.tl-root--compact .tl-left {
+  width: 120px;
+}
+.tl-root--compact .tl-date {
+  font-size: var(--text-base);
+}
+@media (max-width: 600px) {
+  .tl-root--compact .tl-left { width: 72px; }
+}
 
 /* Lista degli step */
 .tl-list {
@@ -2840,7 +2874,7 @@ mark.search-hit.is-current {
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-weight: 500;
-  color: var(--fai-orange);
+  color: var(--fai-brown);
   line-height: 1.1;
   display: block;
 }
@@ -2864,40 +2898,41 @@ mark.search-hit.is-current {
 }
 /* Segmento superiore della linea */
 .tl-seg-t {
-  width: 2px;
+  width: 1px;
   height: 24px;
-  background: var(--fai-orange);
-  opacity: 0.30;
+  background: var(--fai-divider);
+  opacity: 1;
   flex-shrink: 0;
 }
 /* Primo step: nasconde il segmento superiore */
 .tl-step:first-child .tl-seg-t {
   background: transparent;
 }
-/* Dot */
+/* Dot — rombo dorato stile registro archivistico */
 .tl-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--fai-cream);
-  border: 3px solid var(--fai-orange);
-  box-shadow: 0 0 0 4px rgba(200,71,26,0.12);
+  width: 10px;
+  height: 10px;
+  border-radius: 0;
+  transform: rotate(45deg);
+  background: var(--fai-cream-2);
+  border: 1.5px solid var(--fai-gold);
+  box-shadow: none;
   flex-shrink: 0;
-  transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
-  margin-block: 2px;
+  transition: background 0.22s ease, transform 0.22s ease;
+  margin-block: 3px;
 }
 .tl-step:hover .tl-dot {
-  background: var(--fai-orange);
-  transform: scale(1.35);
-  box-shadow: 0 0 0 8px rgba(200,71,26,0.13);
+  background: var(--fai-gold);
+  transform: rotate(45deg) scale(1.25);
+  box-shadow: none;
 }
 /* Segmento inferiore */
 .tl-seg-b {
-  width: 2px;
+  width: 1px;
   flex: 1;
   min-height: var(--sp-8);
-  background: var(--fai-orange);
-  opacity: 0.30;
+  background: var(--fai-divider);
+  opacity: 1;
   flex-shrink: 0;
 }
 /* Ultimo step: nasconde il segmento inferiore */
@@ -2913,15 +2948,18 @@ mark.search-hit.is-current {
   padding-top: 14px;
 }
 .tl-card {
-  background: #fff;
-  border-radius: var(--r-xl);
-  padding: var(--sp-5) var(--sp-6) var(--sp-5) calc(var(--sp-6) + var(--sp-3));
-  box-shadow: inset 5px 0 0 var(--fai-cream-3), 0 2px 16px rgba(36,51,46,0.08), 0 1px 3px rgba(36,51,46,0.04);
-  transition: transform 0.24s ease, box-shadow 0.24s ease, border-left-color 0.24s ease;
+  background: transparent;
+  border-radius: 0;
+  padding: var(--sp-3) 0 var(--sp-6) 0;
+  border-bottom: 1px solid var(--fai-divider);
+  box-shadow: none;
+  transition: border-color 0.24s ease;
+}
+.tl-step:last-child .tl-card {
+  border-bottom: none;
 }
 .tl-step:hover .tl-card {
-  transform: translateX(4px);
-  box-shadow: inset 5px 0 0 var(--fai-orange), 0 8px 28px rgba(36,51,46,0.13);
+  border-color: var(--fai-gold);
 }
 .tl-card-title {
   font-family: var(--font-display);
