@@ -753,13 +753,15 @@ document.addEventListener('DOMContentLoaded', () => {
   var tiles = document.querySelectorAll('.mosaic-tile');
   if (!tiles.length) return;
 
-  // Set CSS custom property for staggered delay
+  // Assegna rotazione iniziale e delay progressivo alle tessere.
   tiles.forEach(function (tile, i) {
     var d = parseFloat(tile.dataset.delay || i);
-    tile.style.transitionDelay = (d * 0.055) + 's';
+    var tilt = (Math.random() - 0.5) * 6;
+    tile.style.setProperty('--mosaic-tilt', tilt + 'deg');
+    tile.style.transitionDelay = (d * 0.06) + 's';
   });
 
-  // Intersection observer: fire once per tile
+  // Intersection observer: compone il mosaico una tessera alla volta.
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -768,8 +770,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, {
-    threshold: 0.06,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.05,
+    rootMargin: '0px 0px -60px 0px'
   });
 
   tiles.forEach(function (t) { io.observe(t); });
