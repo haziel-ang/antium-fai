@@ -752,6 +752,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   var tiles = document.querySelectorAll('.mosaic-tile');
   if (!tiles.length) return;
+  var grid = document.querySelector('.mosaic-grid');
+
+  function updateMosaicBalance() {
+    if (!grid) return;
+
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    var cols = 4;
+    var gap = 12;
+
+    if (width <= 480) {
+      cols = 1;
+      gap = 10;
+    } else if (width <= 768) {
+      cols = 2;
+      gap = 10;
+    } else if (width <= 1100) {
+      cols = 3;
+    }
+
+    var lastRow = tiles.length % cols || cols;
+    var gapTotal = (cols - 1) * gap;
+    grid.dataset.mosaicCols = String(cols);
+    grid.dataset.mosaicLastRow = String(lastRow);
+    grid.style.setProperty('--mosaic-gap', gap + 'px');
+    grid.style.setProperty('--mosaic-tile-basis', cols === 1 ? '100%' : 'calc((100% - ' + gapTotal + 'px) / ' + cols + ')');
+  }
+
+  updateMosaicBalance();
+  window.addEventListener('resize', function () {
+    window.requestAnimationFrame(updateMosaicBalance);
+  }, { passive: true });
 
   // Assegna rotazione iniziale e delay progressivo alle tessere.
   tiles.forEach(function (tile, i) {

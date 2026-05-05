@@ -3444,19 +3444,23 @@ mark.search-hit.is-current {
   line-height: 1.65;
 }
 
-/* ---- GRID: layout a 4 colonne con auto-rows dense ---- */
+/* ---- MOSAIC LAYOUT: tessere bilanciate per viewport ---- */
 .mosaic-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: minmax(132px, auto);
-  grid-auto-flow: dense;
-  gap: 12px;
+  --mosaic-gap: 12px;
+  --mosaic-tile-basis: calc((100% - 36px) / 4);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--mosaic-gap);
   align-items: stretch;
 }
 
 /* ---- BASE TILE ---- */
 .mosaic-tile {
   position: relative;
+  flex: 0 1 var(--mosaic-tile-basis);
+  max-width: var(--mosaic-tile-basis);
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -3486,8 +3490,15 @@ mark.search-hit.is-current {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(ellipse at 25% 0%, rgba(199, 71, 26, 0.06), transparent 65%);
+  background:
+    radial-gradient(ellipse at 25% 0%, rgba(199, 71, 26, 0.06), transparent 65%),
+    linear-gradient(135deg, rgba(247, 212, 136, 0.055) 0 1px, transparent 1px 13px),
+    linear-gradient(45deg, rgba(253, 246, 227, 0.035) 0 1px, transparent 1px 17px);
   pointer-events: none;
+}
+.mosaic-tile > * {
+  position: relative;
+  z-index: 1;
 }
 .mosaic-tile:hover {
   border-color: rgba(184, 138, 42, 0.50);
@@ -3504,18 +3515,11 @@ mark.search-hit.is-current {
   transform: scale(1) translateY(0) rotate(0deg);
 }
 
-/* ---- TILE SIZE VARIANTS ---- */
-.mosaic-tile--2x2 {
-  grid-column: span 2;
-  grid-row: span 1;
-}
-.mosaic-tile--2x1 {
-  grid-column: span 2;
-  grid-row: span 1;
-}
+/* ---- TILE SIZE VARIANTS: accenti visivi, non tessere giganti ---- */
+.mosaic-tile--2x2,
+.mosaic-tile--2x1,
 .mosaic-tile--wide {
-  grid-column: span 2;
-  grid-row: span 1;
+  min-height: 162px;
 }
 
 /* ---- ACCENT VARIANTS ---- */
@@ -3552,10 +3556,10 @@ mark.search-hit.is-current {
   margin-bottom: 0.18rem;
 }
 .mosaic-tile--2x2 .mt-num {
-  font-size: clamp(2.7rem, 5.2vw, 4.25rem);
+  font-size: clamp(2.45rem, 4.4vw, 3.75rem);
 }
 .mosaic-tile--2x1 .mt-num {
-  font-size: clamp(2.4rem, 4.6vw, 3.7rem);
+  font-size: clamp(2.35rem, 4vw, 3.45rem);
 }
 .mt-unit {
   font-family: var(--font-body, 'Inter', sans-serif);
@@ -3621,21 +3625,13 @@ mark.search-hit.is-current {
 
 /* ---- RESPONSIVE ---- */
 @media (max-width: 1100px) {
-  .mosaic-grid { grid-template-columns: repeat(3, 1fr); }
-  .mosaic-tile--wide { grid-column: span 2; }
-  .mosaic-tile--2x2 { grid-column: span 2; grid-row: span 1; }
-  .mosaic-tile--2x1 { grid-column: span 2; }
+  .mosaic-grid { --mosaic-tile-basis: calc((100% - 24px) / 3); }
 }
 @media (max-width: 768px) {
-  .mosaic-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; grid-auto-rows: minmax(120px, auto); }
-  .mosaic-tile--2x2 { grid-column: span 2; grid-row: span 1; }
-  .mosaic-tile--2x1 { grid-column: span 2; }
-  .mosaic-tile--wide { grid-column: span 2; }
+  .mosaic-grid { --mosaic-gap: 10px; --mosaic-tile-basis: calc((100% - 10px) / 2); }
   .mosaic-bg-photo { background-attachment: scroll; }
 }
 @media (max-width: 480px) {
-  .mosaic-grid { grid-template-columns: 1fr; }
-  .mosaic-tile--2x2,
-  .mosaic-tile--2x1,
-  .mosaic-tile--wide { grid-column: span 1; }
+  .mosaic-grid { --mosaic-tile-basis: 100%; }
+  .mosaic-tile { max-width: 100%; }
 }
