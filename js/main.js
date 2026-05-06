@@ -494,6 +494,11 @@ document.addEventListener('DOMContentLoaded', () => {
           element: 'Veduta del porto di Anzio con Villa Corsini e Villa Albani',
           author: 'Paolo Anesi (1697–1773)',
           note: 'Pubblico dominio (Wikimedia Commons).'
+        },
+        {
+          element: 'Mosaico con Erote su pantera, Museo Civico Archeologico di Anzio',
+          author: 'Gruppo FAI Anzio-Nettuno / Riccardo Pau',
+          note: 'Fotografia 2025 usata come sfondo del mosaico numerico in home page.'
         }
       ]
     },
@@ -574,14 +579,29 @@ document.addEventListener('DOMContentLoaded', () => {
       note: 'Crediti grafici specifici della sezione.',
       rows: [
         {
-          element: 'La Fanciulla di Anzio',
-          author: 'Museo Nazionale Romano / Wikimedia Commons',
-          note: 'Scultura ellenistica in marmo (h. 170 cm), rinvenuta nel 1878. Pubblico dominio.'
+          element: 'Fanciulla di Anzio, Museo Nazionale Romano',
+          author: 'MM / Wikimedia Commons',
+          note: 'Fotografia CC BY-SA 4.0 usata come immagine hero e figura della sezione.'
         },
         {
           element: "L\u2019Arco Muto",
           author: 'Fotografia storica \u2014 archivio comunale di Anzio',
           note: 'Arcuazioni romane della falesia, demolite nel 1965. Pubblico dominio.'
+        },
+        {
+          element: 'Assetto urbano di Antium, Anzio e Nettuno',
+          author: 'Marco Riggi Nettunense / Wikimedia Commons',
+          note: 'Foto da tavola di Paola Brandizzi Vittucci, CC BY-SA 3.0.'
+        },
+        {
+          element: 'Gladiatore Borghese, Louvre Ma 527',
+          author: 'Jastrow / Wikimedia Commons',
+          note: 'Fotografia 2006 rilasciata in pubblico dominio.'
+        },
+        {
+          element: 'Apollo del Belvedere, Musei Vaticani',
+          author: 'Livioandronico2013 / Wikimedia Commons',
+          note: 'Fotografia CC BY-SA 4.0.'
         }
       ]
     },
