@@ -32,3 +32,4 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
 - Design token-based: usare sempre `var(--sp-*)`, `var(--r-*)`, `var(--text-*)` ecc.
 - Callout: striscia sinistra via `box-shadow: inset 4px 0 0 <colore>` (non ::before)
 - Tab: card verticali con icona SVG + numero + nome
+- Fonti, bibliografie e crediti grafici sono centralizzati in `fonti.html` (menu Crediti): non duplicare sezioni bibliografiche o liste di fonti nel corpo delle pagine in `sezioni/`.
