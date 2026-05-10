@@ -1746,6 +1746,16 @@ mark.search-hit.is-current {
 /* ── PAGINA CREDITI — archivio manoscritto ─────────────── */
 .credits-page-hero {
   background: #2f1a0e;
+  height: calc(100svh - var(--site-header-height, 0px));
+  min-height: 0;
+  max-height: calc(100svh - var(--site-header-height, 0px));
+  overflow: hidden;
+}
+@supports (height: 100dvh) {
+  .credits-page-hero {
+    height: calc(100dvh - var(--site-header-height, 0px));
+    max-height: calc(100dvh - var(--site-header-height, 0px));
+  }
 }
 .credits-page-hero .hero-bg {
   background-color: #4f321d;
@@ -1795,40 +1805,113 @@ mark.search-hit.is-current {
     linear-gradient(180deg, rgba(24,12,5,0.12) 0%, rgba(24,12,5,0.68) 100%);
 }
 .credits-page-hero .hero-content {
+  width: calc(100% - clamp(40px, 8vw, 112px));
   max-width: 1120px;
+  margin-inline: auto;
+  padding: clamp(var(--sp-4), 3.6vh, var(--sp-8)) 0;
+  justify-content: center;
+}
+.credits-page-hero .hero-eyebrow {
+  font-size: clamp(1rem, 1.8vw, 1.45rem);
+  margin-bottom: var(--sp-3);
+}
+.credits-page-hero .hero-title {
+  font-size: clamp(2.45rem, 5.8vw, 4.85rem);
+  line-height: 0.98;
+  margin-bottom: var(--sp-3);
+  max-width: 820px;
+}
+.credits-page-hero .hero-divider {
+  width: min(220px, 46vw);
+  margin-bottom: var(--sp-4);
 }
 .credits-page-hero .hero-subtitle {
-  max-width: 650px;
+  max-width: 620px;
+  margin-bottom: var(--sp-3);
+  font-size: clamp(0.94rem, 1vw, 1.05rem);
+  line-height: 1.48;
+}
+.credits-page-hero .hero-meta {
+  margin: 0 0 var(--sp-4);
+  font-size: clamp(0.74rem, 0.9vw, 0.9rem);
 }
 .credits-hero-actions {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--sp-3);
-  max-width: 900px;
-  padding: var(--sp-3);
+  grid-template-columns: 108px minmax(0, 1fr);
+  gap: 8px;
+  width: min(860px, 100%);
+  max-width: 860px;
+  margin-top: clamp(8px, 1.8vh, 16px);
+  padding: 8px 0;
   background: rgba(24,12,5,0.28);
   border-color: rgba(247,212,136,0.22);
   backdrop-filter: blur(4px);
+  overflow: hidden;
 }
-.credits-hero-actions .era-card {
+.credits-page-hero .credits-hero-actions .era-card {
+  flex: 0 0 auto;
   min-width: 0;
+  min-height: 98px;
   border: 1px solid rgba(247,212,136,0.22);
   border-radius: var(--r-md);
   background:
     radial-gradient(ellipse at 100% 0%, rgba(200,71,26,0.16), transparent 58%),
     linear-gradient(180deg, rgba(253,246,227,0.10), rgba(253,246,227,0.035));
-  padding: var(--sp-4) var(--sp-3);
+  padding: 9px 10px;
 }
 .credits-hero-actions .era-card + .era-card::before {
   display: none;
+}
+.credits-home-action {
+  width: 100%;
+}
+.credits-hero-actions-scroll {
+  display: flex;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(247,212,136,0.22) transparent;
+}
+.credits-hero-actions-scroll .era-card {
+  width: 148px;
+  flex-basis: 148px;
+  scroll-snap-align: start;
+}
+.credits-hero-actions-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.credits-hero-actions-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.credits-hero-actions-scroll::-webkit-scrollbar-thumb {
+  background: rgba(247,212,136,0.18);
+  border-radius: 999px;
+}
+.credits-page-hero .credits-hero-actions .era-icon {
+  width: 24px;
+  height: 24px;
+}
+.credits-page-hero .credits-hero-actions .era-title {
+  font-size: clamp(0.76rem, 0.88vw, 0.9rem);
+  letter-spacing: 0.13em;
+}
+.credits-page-hero .credits-hero-actions .era-sub {
+  font-size: clamp(0.52rem, 0.58vw, 0.62rem);
+  letter-spacing: 0.12em;
 }
 .credits-section {
   scroll-margin-top: calc(var(--site-header-height, 0px) + var(--sp-6));
 }
 .credits-section .source-columns {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  align-items: stretch;
 }
 .credits-section .source-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   border: 1px solid rgba(104,116,91,0.18);
   background-color: #fffaf0;
   background-image:
@@ -1840,8 +1923,61 @@ mark.search-hit.is-current {
     0 18px 42px -28px rgba(36,24,12,0.28);
 }
 .credits-section .source-card h3 {
+  flex: 0 0 auto;
   padding-bottom: var(--sp-3);
   border-bottom: 1px solid rgba(183,138,42,0.28);
+}
+#fonti-documenti .source-card,
+#fonti-digitali .source-card {
+  height: clamp(420px, 54vh, 540px);
+  min-height: 0;
+  overflow: hidden;
+}
+#fonti-documenti .source-list,
+#fonti-digitali .source-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: var(--sp-3);
+  padding-bottom: var(--sp-5);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(183,138,42,0.22) transparent;
+}
+#fonti-documenti .source-card::after,
+#fonti-digitali .source-card::after {
+  content: "";
+  position: absolute;
+  right: var(--sp-5);
+  bottom: var(--sp-4);
+  width: 8px;
+  height: 8px;
+  background: rgba(183,138,42,0.45);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.credits-section .source-list::-webkit-scrollbar {
+  width: 7px;
+}
+.credits-section .source-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.credits-section .source-list::-webkit-scrollbar-thumb {
+  background: rgba(183,138,42,0.16);
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-clip: content-box;
+}
+.credits-section .source-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(183,138,42,0.28);
+  background-clip: content-box;
+}
+.credits-section .source-list::-webkit-scrollbar-button:single-button:vertical:increment {
+  height: 16px;
+  background: transparent url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><path d='M8 3 13 8 8 13 3 8Z' fill='%23B78A2A' fill-opacity='0.55'/></svg>") center / 12px 12px no-repeat;
+}
+.credits-section .source-list::-webkit-scrollbar-button:single-button:vertical:decrement {
+  height: 4px;
+  background: transparent;
 }
 .source-card--wide {
   max-width: 980px;
@@ -1860,6 +1996,10 @@ mark.search-hit.is-current {
   background: rgba(200,71,26,0.055);
 }
 @media (max-width: 760px) {
+  .credits-page-hero {
+    height: calc(100svh - var(--site-header-height, 0px));
+    max-height: calc(100svh - var(--site-header-height, 0px));
+  }
   .credits-page-hero .hero-bg::before {
     inset: -6% -18%;
     font-size: clamp(2rem, 13vw, 4.4rem);
@@ -1871,13 +2011,81 @@ mark.search-hit.is-current {
       linear-gradient(180deg, rgba(24,12,5,0.84) 0%, rgba(24,12,5,0.68) 48%, rgba(24,12,5,0.9) 100%),
       linear-gradient(90deg, rgba(24,12,5,0.58) 0%, rgba(24,12,5,0.3) 100%);
   }
-  .credits-hero-actions {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: none;
-    gap: var(--sp-2);
+  .credits-page-hero .hero-content {
+    width: calc(100% - 32px);
+    padding: clamp(12px, 2.6vh, 22px) 0;
   }
-  .credits-hero-actions .era-card {
-    padding: var(--sp-3) var(--sp-2);
+  .credits-page-hero .hero-eyebrow {
+    font-size: clamp(0.86rem, 4vw, 1.1rem);
+    margin-bottom: var(--sp-2);
+  }
+  .credits-page-hero .hero-title {
+    font-size: clamp(2.05rem, 13vw, 3.35rem);
+    max-width: 100%;
+    margin-bottom: var(--sp-2);
+  }
+  .credits-page-hero .hero-divider {
+    margin-bottom: var(--sp-3);
+  }
+  .credits-page-hero .hero-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.42;
+    margin-bottom: var(--sp-3);
+  }
+  .credits-page-hero .hero-meta {
+    margin-bottom: var(--sp-3);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+  }
+  .credits-hero-actions {
+    grid-template-columns: 92px minmax(0, 1fr);
+    max-width: none;
+    gap: 6px;
+    padding-block: 6px;
+  }
+  .credits-page-hero .credits-hero-actions .era-card {
+    min-height: 88px;
+    padding: 7px 8px;
+  }
+  .credits-hero-actions-scroll .era-card {
+    width: 132px;
+    flex-basis: 132px;
+  }
+  .credits-page-hero .credits-hero-actions .era-icon {
+    width: 21px;
+    height: 21px;
+  }
+  .credits-page-hero .credits-hero-actions .era-title {
+    font-size: 0.72rem;
+  }
+  .credits-page-hero .credits-hero-actions .era-sub {
+    font-size: 0.5rem;
+  }
+  #fonti-documenti .source-card,
+  #fonti-digitali .source-card {
+    height: min(520px, 68svh);
+  }
+}
+@media (max-height: 720px) and (min-width: 761px) {
+  .credits-page-hero .hero-content {
+    padding-block: var(--sp-4);
+  }
+  .credits-page-hero .hero-title {
+    font-size: clamp(2.3rem, 5vw, 4.2rem);
+  }
+  .credits-page-hero .hero-subtitle {
+    line-height: 1.38;
+  }
+  .credits-page-hero .hero-meta {
+    margin-bottom: var(--sp-3);
+  }
+  .credits-page-hero .credits-hero-actions .era-card {
+    min-height: 86px;
+    padding-block: 7px;
+  }
+  .credits-page-hero .credits-hero-actions .era-icon {
+    width: 22px;
+    height: 22px;
   }
 }
 
