@@ -2801,11 +2801,12 @@ mark.search-hit.is-current {
 }
 
 .podcast-page-hero .hero-bg {
-  background-image: none;
+  background-image: url('./podcast/cover.PNG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-color: #5a3a20;
-  background:
-    radial-gradient(130% 90% at 20% 20%, rgba(208,166,96,0.22) 0%, rgba(90,58,32,0) 56%),
-    linear-gradient(180deg, #6a482a 0%, #4a301b 100%);
+  background-attachment: fixed;
   transform: none;
   transition: none;
   filter: none;
@@ -2943,6 +2944,15 @@ mark.search-hit.is-current {
   }
 }
 
+@media (min-width: 901px) {
+  .podcast-page-hero .hero-bg {
+    background-image: none;
+    background:
+      radial-gradient(130% 90% at 20% 20%, rgba(208,166,96,0.22) 0%, rgba(90,58,32,0) 56%),
+      linear-gradient(180deg, #6a482a 0%, #4a301b 100%);
+  }
+}
+
 @media (max-width: 640px) {
   .podcast-page-hero {
     position: relative;
@@ -2950,7 +2960,7 @@ mark.search-hit.is-current {
   }
 
   .podcast-page-hero .hero-bg {
-    background-image: url('./podcast/cover.PNG');
+    background-image: url('./podcast/cover.PNG') !important;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
