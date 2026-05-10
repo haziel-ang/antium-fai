@@ -4251,15 +4251,17 @@ mark.search-hit.is-current {
   mix-blend-mode: normal;
 }
 
-/* Layer 3: velatura per leggibilità */
+/* Layer 3: velatura per leggibilità + sfumatura bordi */
 .mosaic-bg-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(18, 24, 20, 0.48) 0%,
+    #121814 0%,
+    rgba(18, 24, 20, 0.48) 12%,
     rgba(18, 24, 20, 0.58) 42%,
-    rgba(18, 24, 20, 0.52) 100%
+    rgba(18, 24, 20, 0.52) calc(100% - 100px),
+    #121814 100%
   );
 }
 
