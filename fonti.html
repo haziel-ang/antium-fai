@@ -10,7 +10,7 @@
   <meta property="og:image" content="./img/arco-muto.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style.css?v=20260510-credits">
 </head>
 <body>
   <a href="#contenuto" class="skip-link">Salta al contenuto</a>
@@ -85,17 +85,46 @@
 
   <main id="contenuto">
 
-    <section class="section section--cream" aria-labelledby="fonti-hero-title">
-      <div class="container container--wide">
-        <div class="section-header reveal">
-          <span class="section-label">Crediti</span>
-          <h1 id="fonti-hero-title" class="section-title">Crediti e fonti della serie</h1>
-          <p class="section-intro">Pagina unica di riferimento per tutta la serie «Antium»: raccoglie fonti di ricerca, fonti antiche, risorse istituzionali e crediti grafici. I crediti non sono più duplicati nelle sezioni 01–08.</p>
+    <section class="hero hero--editorial section-page-hero credits-page-hero" aria-labelledby="fonti-hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <span class="hero-eyebrow">Crediti</span>
+        <h1 id="fonti-hero-title" class="hero-title">Archivio delle fonti</h1>
+        <div class="hero-divider" aria-hidden="true"><span class="line"></span><span class="diamond"></span></div>
+        <p class="hero-subtitle">Un indice unico per la serie «Antium»: bibliografie di sezione, fonti antiche, risorse istituzionali e crediti grafici raccolti in una pagina consultabile.</p>
+        <p class="hero-meta">Fontes · imagines · testimonia</p>
+
+        <div class="hero-actions credits-hero-actions" aria-label="Indice dei crediti">
+          <a class="era-card" href="#fonti-documenti">
+            <span class="era-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h9l3 3v15H6z" stroke="currentColor" stroke-width="1.8"/><path d="M14 3v4h4M9 11h6M9 15h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span class="era-num">01</span>
+            <span class="era-title">Documenti</span>
+            <span class="era-sub">Fonti per sezione</span>
+          </a>
+          <a class="era-card" href="#fonti-digitali">
+            <span class="era-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.2 2.5 3.3 5.5 3.3 9S14.2 18.5 12 21M12 3c-2.2 2.5-3.3 5.5-3.3 9s1.1 6.5 3.3 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span class="era-num">02</span>
+            <span class="era-title">Digitale</span>
+            <span class="era-sub">Archivi e cataloghi</span>
+          </a>
+          <a class="era-card" href="#fonti-antiche">
+            <span class="era-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 5h10M7 19h10M8 5c-2 2-2 12 0 14M16 5c2 2 2 12 0 14M9 9h6M9 13h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span class="era-num">03</span>
+            <span class="era-title">Antiche</span>
+            <span class="era-sub">Autori e testi</span>
+          </a>
+          <a class="era-card" href="#fonti-grafiche">
+            <span class="era-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.8"/><path d="m7 15 3-3 2 2 3-4 2 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="9" r="1" fill="currentColor"/></svg></span>
+            <span class="era-num">04</span>
+            <span class="era-title">Grafica</span>
+            <span class="era-sub">Immagini e licenze</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="section section--cream2" aria-labelledby="fonti-doc-title">
+    <section id="fonti-documenti" class="section section--cream2 credits-section" aria-labelledby="fonti-doc-title">
       <div class="container container--wide">
         <div class="section-header reveal">
           <span class="section-label">Per documento</span>
@@ -213,7 +242,7 @@
       </div>
     </section>
 
-    <section class="section section--cream" aria-labelledby="fonti-online-title">
+    <section id="fonti-digitali" class="section section--cream credits-section" aria-labelledby="fonti-online-title">
       <div class="container container--wide">
         <div class="section-header reveal">
           <span class="section-label">Risorse digitali</span>
@@ -251,7 +280,7 @@
       </div>
     </section>
 
-    <section class="section section--cream2" aria-labelledby="fonti-antiche-title">
+    <section id="fonti-antiche" class="section section--cream2 credits-section" aria-labelledby="fonti-antiche-title">
       <div class="container container--wide">
         <div class="section-header reveal">
           <span class="section-label">Fonti antiche</span>
@@ -259,7 +288,7 @@
           <p class="section-intro">Elenco riepilogativo degli autori greci e latini citati nei documenti, con i passi di riferimento.</p>
         </div>
 
-        <article class="source-card reveal" style="max-width: 900px; margin: 0 auto;">
+        <article class="source-card source-card--wide reveal">
           <ul class="source-list">
             <li><strong>Strabone</strong>, <em>Geographica</em>, lib. V (descrizione della costa di Antium).</li>
             <li><strong>Tito Livio</strong>, <em>Ab Urbe condita</em>, II, 63 e VIII, 14 (porto Caenon, conquista del 338 a.C.); IX (municipio); XLIII (acquedotto del Loracina).</li>
@@ -280,13 +309,13 @@
       </div>
     </section>
 
-    <section class="section section--cream2" aria-labelledby="fonti-credits-title">
+    <section id="fonti-grafiche" class="section section--cream2 credits-section" aria-labelledby="fonti-credits-title">
       <div class="container container--wide">
         <div class="section-header reveal">
           <span class="section-label">Crediti</span>
           <h2 id="fonti-credits-title" class="section-title">Crediti grafici</h2>
         </div>
-        <article class="source-card reveal" style="max-width: 900px; margin: 0 auto;">
+        <article class="source-card source-card--wide reveal">
           <div class="table-wrap">
             <table class="data-table">
               <thead>
