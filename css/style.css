@@ -1995,6 +1995,51 @@ mark.search-hit.is-current {
 .credits-section .data-table tbody tr:hover td {
   background: rgba(200,71,26,0.055);
 }
+.credit-preview {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  width: 100%;
+  padding: 0 0 0 var(--sp-4);
+  border: 0;
+  background: transparent;
+  color: var(--fai-brown);
+  font: inherit;
+  font-family: var(--font-display);
+  font-style: italic;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+}
+.credit-preview::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.48em;
+  width: 7px;
+  height: 7px;
+  border: 1px solid currentColor;
+  transform: rotate(45deg);
+  color: rgba(183,138,42,0.75);
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+.credit-preview:hover,
+.credit-preview:focus-visible {
+  color: var(--fai-orange-d);
+  outline: none;
+}
+.credit-preview:hover::before,
+.credit-preview:focus-visible::before {
+  background: rgba(200,71,26,0.18);
+  color: var(--fai-orange);
+  transform: rotate(45deg) scale(1.12);
+}
+.credit-preview:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
 @media (max-width: 760px) {
   .credits-page-hero {
     height: calc(100svh - var(--site-header-height, 0px));
@@ -2124,14 +2169,58 @@ mark.search-hit.is-current {
   background: rgba(10,6,2,0.92);
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: var(--sp-4);
   padding: var(--sp-8);
 }
 .lightbox.open { display: flex; }
 .lightbox-img {
   max-width: min(90vw, 1100px);
-  max-height: 88vh;
+  max-height: min(76vh, 900px);
   border-radius: var(--r-lg);
   box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  object-fit: contain;
+}
+.lightbox-caption {
+  width: min(90vw, 900px);
+  color: rgba(253,246,227,0.88);
+  text-align: center;
+}
+.lightbox-caption-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  line-height: 1.15;
+  color: #fdf6e3;
+  margin-bottom: var(--sp-2);
+}
+.lightbox-caption-note {
+  font-size: var(--text-sm);
+  line-height: 1.55;
+  color: rgba(253,246,227,0.72);
+  margin-inline: auto;
+  max-width: 760px;
+}
+.lightbox-caption-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--sp-3);
+  color: rgba(247,212,136,0.95);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.lightbox-caption-source::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: currentColor;
+  transform: rotate(45deg);
+}
+.lightbox-caption-source:hover {
+  color: #fdf6e3;
 }
 .lightbox-close {
   position: absolute;
@@ -2148,6 +2237,19 @@ mark.search-hit.is-current {
   transition: background var(--transition);
 }
 .lightbox-close:hover { background: rgba(250,247,242,0.25); }
+@media (max-width: 640px) {
+  .lightbox {
+    padding: var(--sp-5) var(--sp-4);
+  }
+  .lightbox-img {
+    max-width: 94vw;
+    max-height: 68vh;
+  }
+  .lightbox-close {
+    top: var(--sp-4);
+    right: var(--sp-4);
+  }
+}
 
 
 /* ── CREDITS POPUP (pagina manoscritta) ─────────────────── */

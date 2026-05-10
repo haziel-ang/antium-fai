@@ -285,14 +285,110 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── LIGHTBOX ────────────────────────────────────────────
-  const lb = document.querySelector('.lightbox');
-  const lbImg = lb && lb.querySelector('.lightbox-img');
-  document.querySelectorAll('.gallery-item img').forEach(img => {
+  const galleryImages = document.querySelectorAll('.gallery-item img');
+  const creditPreviewButtons = document.querySelectorAll('[data-credit-image]');
+  let lightboxParts = null;
+
+  function ensureLightbox() {
+    if (lightboxParts) return lightboxParts;
+
+    let lightbox = document.querySelector('.lightbox');
+    if (!lightbox) {
+      lightbox = document.createElement('div');
+      lightbox.className = 'lightbox';
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightbox.innerHTML = `
+        <button class="lightbox-close" type="button" aria-label="Chiudi immagine">×</button>
+        <img class="lightbox-img" src="" alt="">
+      `;
+      document.body.appendChild(lightbox);
+    }
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', 'Anteprima immagine');
+
+    const image = lightbox.querySelector('.lightbox-img');
+    const closeButton = lightbox.querySelector('.lightbox-close');
+    let caption = lightbox.querySelector('.lightbox-caption');
+    if (!caption) {
+      caption = document.createElement('div');
+      caption.className = 'lightbox-caption';
+      caption.innerHTML = `
+        <p class="lightbox-caption-title"></p>
+        <p class="lightbox-caption-note"></p>
+        <a class="lightbox-caption-source" href="#" target="_blank" rel="noopener noreferrer"></a>
+      `;
+      lightbox.appendChild(caption);
+    }
+
+    lightboxParts = {
+      lightbox,
+      image,
+      closeButton,
+      title: caption.querySelector('.lightbox-caption-title'),
+      note: caption.querySelector('.lightbox-caption-note'),
+      source: caption.querySelector('.lightbox-caption-source')
+    };
+
+    lightbox.addEventListener('click', event => {
+      if (event.target === lightbox || event.target.classList.contains('lightbox-close')) {
+        closeLightbox();
+      }
+    });
+
+    return lightboxParts;
+  }
+
+  function openLightbox(details) {
+    const parts = ensureLightbox();
+    if (!parts.image) return;
+
+    parts.image.src = details.src || '';
+    parts.image.alt = details.alt || details.title || 'Immagine';
+    if (parts.title) parts.title.textContent = details.title || '';
+    if (parts.note) parts.note.textContent = details.note || '';
+    if (parts.source) {
+      if (details.source) {
+        parts.source.href = details.source;
+        parts.source.textContent = details.sourceLabel || 'Apri fonte';
+        parts.source.hidden = false;
+      } else {
+        parts.source.hidden = true;
+      }
+    }
+
+    parts.lightbox.classList.add('open');
+    parts.lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    parts.closeButton && parts.closeButton.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightboxParts) return;
+    lightboxParts.lightbox.classList.remove('open');
+    lightboxParts.lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  galleryImages.forEach(img => {
     img.parentElement.addEventListener('click', () => {
-      if (!lb || !lbImg) return;
-      lbImg.src = img.src;
-      lbImg.alt = img.alt;
-      lb.classList.add('open');
+      openLightbox({
+        src: img.src,
+        alt: img.alt,
+        title: img.alt
+      });
+    });
+  });
+
+  creditPreviewButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      openLightbox({
+        src: button.dataset.creditImage,
+        title: button.dataset.creditTitle || button.textContent.trim(),
+        note: button.dataset.creditNote || '',
+        source: button.dataset.creditSource || '',
+        sourceLabel: button.dataset.creditSourceLabel || 'Apri fonte'
+      });
     });
   });
 
@@ -303,13 +399,8 @@ document.addEventListener('DOMContentLoaded', () => {
       img.style.background = 'var(--fai-cream-3)';
     }, { once: true });
   });
-  lb && lb.addEventListener('click', e => {
-    if (e.target === lb || e.target.classList.contains('lightbox-close')) {
-      lb.classList.remove('open');
-    }
-  });
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') lb && lb.classList.remove('open');
+    if (e.key === 'Escape') closeLightbox();
   });
 
   // ── BACK TO TOP ─────────────────────────────────────────
