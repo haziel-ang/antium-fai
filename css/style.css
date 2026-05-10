@@ -2956,18 +2956,43 @@ mark.search-hit.is-current {
 @media (max-width: 640px) {
   .podcast-page-hero {
     position: relative;
+    background-color: #3b2414;
   }
 
   .podcast-page-hero .hero-bg {
-    background-image: url('../podcast/cover.PNG') !important;
-    background-size: cover;
-    background-position: center;
+    background-color: #4f321d;
+    background-image:
+      linear-gradient(180deg, rgba(54,32,16,0.28) 0%, rgba(28,14,6,0.46) 100%),
+      repeating-linear-gradient(0deg, rgba(234,205,150,0.12) 0 1px, transparent 1px 42px),
+      repeating-linear-gradient(90deg, rgba(234,205,150,0.10) 0 1px, transparent 1px 42px),
+      repeating-linear-gradient(135deg, transparent 0 34px, rgba(234,205,150,0.10) 35px 36px, transparent 37px 72px),
+      repeating-conic-gradient(from 12deg at 78% 26%, rgba(234,205,150,0.12) 0deg 1deg, transparent 1deg 15deg),
+      repeating-radial-gradient(ellipse at 18% 32%, rgba(234,205,150,0.10) 0 1px, transparent 1px 18px),
+      linear-gradient(135deg, #6a482a 0%, #4a301b 48%, #2f1a0e 100%);
+    background-size:
+      auto,
+      42px 42px,
+      42px 42px,
+      72px 72px,
+      260px 260px,
+      240px 190px,
+      auto;
+    background-position:
+      center,
+      top left,
+      top left,
+      center,
+      calc(100% + 70px) -80px,
+      -70px -35px,
+      center;
+    background-repeat: no-repeat, repeat, repeat, repeat, no-repeat, repeat, no-repeat;
     background-attachment: scroll;
   }
 
   .podcast-page-hero .hero-overlay {
     background:
-      linear-gradient(180deg, rgba(33,18,7,0.55) 0%, rgba(33,18,7,0.4) 40%, rgba(33,18,7,0.75) 100%);
+      linear-gradient(180deg, rgba(24,12,5,0.76) 0%, rgba(24,12,5,0.64) 46%, rgba(24,12,5,0.88) 100%),
+      linear-gradient(90deg, rgba(24,12,5,0.62) 0%, rgba(24,12,5,0.34) 100%);
   }
 
   .podcast-page-hero .hero-content {
