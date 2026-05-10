@@ -3001,8 +3001,8 @@ mark.search-hit.is-current {
   }
 
   .podcast-hero-actions {
-    grid-template-columns: 80px 80px 1fr;
-    gap: 6px;
+    grid-template-columns: 110px 110px 1fr;
+    gap: 8px;
   }
 
   .podcast-hero-actions-scroll {
@@ -3031,8 +3031,8 @@ mark.search-hit.is-current {
   }
 
   .podcast-hero-actions {
-    grid-template-columns: 70px 70px 1fr;
-    gap: 5px;
+    grid-template-columns: 100px 100px 1fr;
+    gap: 6px;
   }
 
   .podcast-hero-actions > .era-card {
@@ -3055,8 +3055,8 @@ mark.search-hit.is-current {
   }
 
   .podcast-hero-actions {
-    grid-template-columns: 65px 65px 1fr;
-    gap: 5px;
+    grid-template-columns: 90px 90px 1fr;
+    gap: 6px;
   }
 
   .podcast-hero-actions-scroll .era-card {
