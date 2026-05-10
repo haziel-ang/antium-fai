@@ -2801,7 +2801,7 @@ mark.search-hit.is-current {
 }
 
 .podcast-page-hero .hero-bg {
-  background-image: url('./podcast/cover.PNG');
+  background-image: url('../podcast/cover.PNG');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2959,7 +2959,7 @@ mark.search-hit.is-current {
   }
 
   .podcast-page-hero .hero-bg {
-    background-image: url('./podcast/cover.PNG') !important;
+    background-image: url('../podcast/cover.PNG') !important;
     background-size: cover;
     background-position: center;
     background-attachment: scroll;
