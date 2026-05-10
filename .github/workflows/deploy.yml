@@ -24,6 +24,50 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Installa convertitore WebP
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y webp
+
+      - name: Prepara il sito per il deploy
+        run: |
+          set -euo pipefail
+          python3 scripts/prepare_deploy.py
+
+      - name: Verifica staging
+        run: |
+          set -euo pipefail
+          test -d ./_site
+          test -f ./_site/index.html
+          if python3 - <<'PY'
+from pathlib import Path
+
+allowed = {'.webp'}
+image_exts = {'.avif', '.bmp', '.gif', '.heic', '.heif', '.ico', '.jpeg', '.jpg', '.png', '.svg', '.tif', '.tiff', '.webp'}
+remaining = [str(path) for path in Path('_site').rglob('*') if path.is_file() and path.suffix.lower() in image_exts and path.suffix.lower() not in allowed]
+if remaining:
+    print('\n'.join(remaining))
+    raise SystemExit(1)
+PY
+          then
+            :
+          else
+            echo 'Sono rimaste immagini non WebP o immagini non previste nello staging.'
+            exit 1
+          fi
+
+      - name: Report immagini pubblicate
+        run: |
+          set -euo pipefail
+          echo 'Elenco immagini WebP presenti nello staging (_site):'
+          webp_count=$(find ./_site -type f -name '*.webp' | wc -l | tr -d ' ')
+          echo "Totale immagini WebP: ${webp_count}"
+          find ./_site -type f -name '*.webp' | sed 's#^./_site/##' | sort
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -31,7 +75,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
