@@ -2806,7 +2806,7 @@ mark.search-hit.is-current {
   background-position: center;
   background-repeat: no-repeat;
   background-color: #5a3a20;
-  background-attachment: fixed;
+  background-attachment: scroll;
   transform: none;
   transition: none;
   filter: none;
@@ -2956,20 +2956,18 @@ mark.search-hit.is-current {
 @media (max-width: 640px) {
   .podcast-page-hero {
     position: relative;
-    background-attachment: fixed;
   }
 
   .podcast-page-hero .hero-bg {
     background-image: url('./podcast/cover.PNG') !important;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
   }
 
   .podcast-page-hero .hero-overlay {
     background:
-      linear-gradient(180deg, rgba(52,31,14,0.88) 0%, rgba(52,31,14,0.72) 50%, rgba(33,18,7,0.85) 100%),
-      linear-gradient(90deg, rgba(52,31,14,0.85) 0%, rgba(52,31,14,0.7) 50%, rgba(52,31,14,0.5) 100%);
+      linear-gradient(180deg, rgba(33,18,7,0.55) 0%, rgba(33,18,7,0.4) 40%, rgba(33,18,7,0.75) 100%);
   }
 
   .podcast-page-hero .hero-content {
