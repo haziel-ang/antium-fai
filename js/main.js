@@ -7,13 +7,20 @@ if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
 
-window.addEventListener('pageshow', () => {
-  window.scrollTo(0, 0);
-});
+const resetScrollPosition = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  document.documentElement.scrollTop = 0;
+  document.body && (document.body.scrollTop = 0);
+};
+
+window.addEventListener('pageshow', resetScrollPosition);
+window.addEventListener('load', resetScrollPosition);
+window.addEventListener('popstate', resetScrollPosition);
+window.addEventListener('hashchange', resetScrollPosition);
 
 // ── HERO reveal on load ──────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  window.scrollTo(0, 0);
+  resetScrollPosition();
 
   const hero = document.querySelector('.hero');
   if (hero) setTimeout(() => hero.classList.add('visible'), 100);
@@ -33,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
   const pagePath = window.location.pathname.replace(/\\/g, '/').toLowerCase();
-  const lockCompactHeader = pagePath.endsWith('/pdf.html') || pagePath.endsWith('/podcast.html') || pagePath.endsWith('/sezioni/volsci-cicerone-culti.html');
+  const lockCompactHeader = pagePath.endsWith('/pdf.html') || pagePath.endsWith('/podcast.html') || pagePath.endsWith('/index.html') || pagePath === '/' || pagePath.endsWith('/sezioni/volsci-cicerone-culti.html');
   const updateHeaderState = () => {
     if (!header) return;
     const shouldCompact = lockCompactHeader || window.scrollY > 20;
