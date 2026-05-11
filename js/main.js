@@ -18,25 +18,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('.hero');
   if (hero) setTimeout(() => hero.classList.add('visible'), 100);
 
-  const homeHero = document.querySelector('#home.hero--editorial');
-  const fitHomeHeroToViewport = () => {
-    if (!homeHero) return;
-    const headerHeight = header ? header.offsetHeight : 0;
-    const available = Math.max(0, window.innerHeight - headerHeight);
-    // Remove class first to measure the natural height.
-    homeHero.classList.remove('hero--fit-viewport');
-    const naturalHeight = homeHero.scrollHeight;
-    if (naturalHeight > available) {
-      homeHero.classList.add('hero--fit-viewport');
-    }
-  };
-
   // Sticky header shadow
   const header = document.querySelector('.site-header');
   const btt = document.querySelector('.back-to-top');
   const footer = document.querySelector('.simple-footer, .site-footer');
+  const fitHeroesToViewport = () => {
+    const available = Math.max(0, window.innerHeight - (header ? header.offsetHeight : 0));
+    document.querySelectorAll('.hero[data-fit-viewport="true"]').forEach(heroEl => {
+      heroEl.classList.remove('hero--fit-viewport');
+      const naturalHeight = heroEl.scrollHeight;
+      if (naturalHeight > available) {
+        heroEl.classList.add('hero--fit-viewport');
+      }
+    });
+  };
   const pagePath = window.location.pathname.replace(/\\/g, '/').toLowerCase();
-  const lockCompactHeader = pagePath.endsWith('/pdf.html') || pagePath.endsWith('/podcast.html');
+  const lockCompactHeader = pagePath.endsWith('/pdf.html') || pagePath.endsWith('/podcast.html') || pagePath.endsWith('/sezioni/volsci-cicerone-culti.html');
   const updateHeaderState = () => {
     if (!header) return;
     const shouldCompact = lockCompactHeader || window.scrollY > 20;
@@ -73,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const runLayoutRecalc = () => {
     setHeaderHeight();
-    fitHomeHeroToViewport();
+    fitHeroesToViewport();
     updateBackToTopOffset();
   };
   const scheduleLayoutRecalc = () => {

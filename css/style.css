@@ -995,6 +995,95 @@ a:hover { color: var(--fai-orange); }
   letter-spacing: 0.02em;
   max-width: 900px;
 }
+.volsci-page-hero .hero-content {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding-inline: clamp(2.25rem, 5vw, 5rem);
+  padding-top: clamp(var(--sp-2), 1.5vh, var(--sp-4));
+  padding-bottom: clamp(var(--sp-2), 1.5vh, var(--sp-4));
+}
+.volsci-page-hero .hero-copy {
+  max-width: 760px;
+}
+.volsci-page-hero .hero-title {
+  max-width: 16ch;
+  font-size: clamp(1.82rem, 3.45vw, 3.5rem);
+  line-height: 0.92;
+  margin-bottom: 0.6rem;
+}
+.volsci-page-hero .hero-divider {
+  width: min(220px, 44vw);
+  margin-bottom: 0.55rem;
+}
+.volsci-page-hero .hero-subtitle {
+  max-width: 28rem;
+  font-size: clamp(0.88rem, 0.94vw, 0.98rem);
+  line-height: 1.42;
+  margin-bottom: 0.55rem;
+}
+.volsci-page-hero .hero-meta {
+  margin: 0 0 0.6rem;
+  font-size: clamp(0.68rem, 0.78vw, 0.82rem);
+}
+.volsci-page-hero .hero-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  max-width: 480px;
+  padding: 4px 0;
+}
+.volsci-page-hero .hero-actions .era-card {
+  min-width: 0;
+  min-height: 60px;
+  padding: 6px 8px;
+  border-radius: var(--r-md);
+  border: 1px solid rgba(247,212,136,0.22);
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(200,71,26,0.16), transparent 58%),
+    linear-gradient(180deg, rgba(253,246,227,0.10), rgba(253,246,227,0.035));
+}
+.volsci-page-hero .hero-actions .era-card + .era-card::before {
+  display: none;
+}
+.volsci-page-hero .hero-actions .era-icon {
+  width: 20px;
+  height: 20px;
+}
+.volsci-page-hero .hero-actions .era-title {
+  font-size: clamp(0.72rem, 0.78vw, 0.84rem);
+  letter-spacing: 0.13em;
+}
+.volsci-page-hero .hero-actions .era-sub {
+  font-size: clamp(0.48rem, 0.54vw, 0.58rem);
+  letter-spacing: 0.12em;
+}
+@media (max-width: 640px) {
+  .volsci-page-hero .hero-content {
+    gap: var(--sp-4);
+    padding-top: var(--sp-3);
+    padding-bottom: var(--sp-3);
+  }
+  .volsci-page-hero .hero-title {
+    max-width: none;
+    font-size: clamp(2.15rem, 11.5vw, 3.3rem);
+  }
+  .volsci-page-hero .hero-subtitle {
+    max-width: none;
+    font-size: clamp(0.9rem, 3.6vw, 1rem);
+  }
+  .volsci-page-hero .hero-actions {
+    max-width: none;
+    gap: 8px;
+  }
+  .volsci-page-hero .hero-actions .era-card {
+    min-height: 60px;
+    padding: 6px 8px;
+  }
+}
 .hero-meta {
   margin: calc(-1 * var(--sp-4)) 0 var(--sp-6);
   color: rgba(247,212,136,0.92);
