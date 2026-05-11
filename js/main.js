@@ -35,6 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.site-header');
   const btt = document.querySelector('.back-to-top');
   const footer = document.querySelector('.simple-footer, .site-footer');
+  const pagePath = window.location.pathname.replace(/\\/g, '/').toLowerCase();
+  const lockCompactHeader = pagePath.endsWith('/pdf.html') || pagePath.endsWith('/podcast.html');
+  const updateHeaderState = () => {
+    if (!header) return;
+    const shouldCompact = lockCompactHeader || window.scrollY > 20;
+    header.classList.toggle('scrolled', shouldCompact);
+  };
   const setHeaderHeight = () => {
     document.documentElement.style.setProperty('--site-header-height', `${header ? header.offsetHeight : 0}px`);
   };
@@ -50,11 +57,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlap = Math.max(0, window.innerHeight - rect.top + 12);
     btt.style.bottom = `${Math.round(base + overlap)}px`;
   };
+  updateHeaderState();
   setHeaderHeight();
   updateBackToTopOffset();
-  window.addEventListener('resize', setHeaderHeight);
+  window.addEventListener('resize', () => {
+    updateHeaderState();
+    setHeaderHeight();
+  });
   window.addEventListener('scroll', () => {
-    header && header.classList.toggle('scrolled', window.scrollY > 20);
+    updateHeaderState();
     setHeaderHeight();
     updateBackToTopOffset();
     btt && btt.classList.toggle('visible', window.scrollY > 400);
