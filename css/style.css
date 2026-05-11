@@ -1029,14 +1029,14 @@ a:hover { color: var(--fai-orange); }
   margin: 0 0 0.6rem;
   font-size: clamp(0.68rem, 0.78vw, 0.82rem);
 }
-.volsci-page-hero .hero-actions {
+.section-page-hero .hero-actions--section-dual {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
   max-width: 480px;
   padding: 4px 0;
 }
-.volsci-page-hero .hero-actions .era-card {
+.section-page-hero .hero-actions--section-dual .era-card {
   min-width: 0;
   min-height: 60px;
   padding: 6px 8px;
@@ -1046,18 +1046,18 @@ a:hover { color: var(--fai-orange); }
     radial-gradient(ellipse at 100% 0%, rgba(200,71,26,0.16), transparent 58%),
     linear-gradient(180deg, rgba(253,246,227,0.10), rgba(253,246,227,0.035));
 }
-.volsci-page-hero .hero-actions .era-card + .era-card::before {
+.section-page-hero .hero-actions--section-dual .era-card + .era-card::before {
   display: none;
 }
-.volsci-page-hero .hero-actions .era-icon {
+.section-page-hero .hero-actions--section-dual .era-icon {
   width: 20px;
   height: 20px;
 }
-.volsci-page-hero .hero-actions .era-title {
+.section-page-hero .hero-actions--section-dual .era-title {
   font-size: clamp(0.72rem, 0.78vw, 0.84rem);
   letter-spacing: 0.13em;
 }
-.volsci-page-hero .hero-actions .era-sub {
+.section-page-hero .hero-actions--section-dual .era-sub {
   font-size: clamp(0.48rem, 0.54vw, 0.58rem);
   letter-spacing: 0.12em;
 }
@@ -1075,11 +1075,11 @@ a:hover { color: var(--fai-orange); }
     max-width: none;
     font-size: clamp(0.9rem, 3.6vw, 1rem);
   }
-  .volsci-page-hero .hero-actions {
+  .section-page-hero .hero-actions--section-dual {
     max-width: none;
     gap: 8px;
   }
-  .volsci-page-hero .hero-actions .era-card {
+  .section-page-hero .hero-actions--section-dual .era-card {
     min-height: 60px;
     padding: 6px 8px;
   }
