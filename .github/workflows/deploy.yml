@@ -44,19 +44,9 @@ jobs:
           set -euo pipefail
           test -d ./_site
           test -f ./_site/index.html
-          if python3 - <<'PY'
-from pathlib import Path
-
-allowed = {'.webp'}
-image_exts = {'.avif', '.bmp', '.gif', '.heic', '.heif', '.ico', '.jpeg', '.jpg', '.png', '.svg', '.tif', '.tiff', '.webp'}
-remaining = [str(path) for path in Path('_site').rglob('*') if path.is_file() and path.suffix.lower() in image_exts and path.suffix.lower() not in allowed]
-if remaining:
-    print('\n'.join(remaining))
-    raise SystemExit(1)
-PY
-          then
-            :
-          else
+          remaining=$(find ./_site -type f \( -iname '*.avif' -o -iname '*.bmp' -o -iname '*.gif' -o -iname '*.heic' -o -iname '*.heif' -o -iname '*.ico' -o -iname '*.jpeg' -o -iname '*.jpg' -o -iname '*.png' -o -iname '*.svg' -o -iname '*.tif' -o -iname '*.tiff' \) | sed 's#^./_site/##')
+          if [ -n "${remaining}" ]; then
+            echo "${remaining}"
             echo 'Sono rimaste immagini non WebP o immagini non previste nello staging.'
             exit 1
           fi
