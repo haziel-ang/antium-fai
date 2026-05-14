@@ -18,9 +18,229 @@ window.addEventListener('load', resetScrollPosition);
 window.addEventListener('popstate', resetScrollPosition);
 window.addEventListener('hashchange', resetScrollPosition);
 
+const SEO_DEFAULT_BASE_URL = 'https://haziel-ang.github.io/antium-fai';
+
+const normalizeSiteBaseUrl = () => {
+  const configuredBase = document.querySelector('meta[name="site-base-url"]')?.content?.trim();
+  if (configuredBase) return configuredBase.replace(/\/+$/, '');
+
+  const pathname = window.location.pathname.replace(/\\/g, '/').toLowerCase();
+  const marker = '/antium-fai/';
+  const index = pathname.indexOf(marker);
+  if (index !== -1 && /^https?:$/.test(window.location.protocol) && window.location.origin) {
+    return `${window.location.origin}/antium-fai`;
+  }
+
+  return SEO_DEFAULT_BASE_URL;
+};
+
+const getRepoRelativePath = () => {
+  const pathname = window.location.pathname.replace(/\\/g, '/');
+  const lowerPath = pathname.toLowerCase();
+  const marker = '/antium-fai/';
+  const index = lowerPath.indexOf(marker);
+
+  if (index !== -1) {
+    const rel = pathname.slice(index + marker.length);
+    return `/${rel || 'index.html'}`;
+  }
+
+  if (lowerPath === '/' || lowerPath.endsWith('/index.html')) return '/index.html';
+  return pathname.startsWith('/') ? pathname : `/${pathname}`;
+};
+
+const setHeadMeta = (selector, attrName, attrValue, content) => {
+  let tag = document.head.querySelector(selector);
+  if (!tag) {
+    tag = document.createElement('meta');
+    tag.setAttribute(attrName, attrValue);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute('content', content);
+};
+
+const toAbsoluteUrl = (url, baseUrl) => {
+  if (!url) return null;
+  try {
+    const raw = String(url).trim();
+    const isAbsolute = /^[a-z][a-z\d+\-.]*:/i.test(raw) || raw.startsWith('//');
+    const normalized = isAbsolute ? raw : raw.replace(/^\/+/, '').replace(/^\.\//, '');
+    return new URL(normalized, `${baseUrl}/`).href;
+  } catch (_) {
+    return null;
+  }
+};
+
+const extractHeroBackgroundImage = () => {
+  const heroBg = document.querySelector('.hero-bg');
+  if (!heroBg) return null;
+  const bg = getComputedStyle(heroBg).backgroundImage || '';
+  const match = bg.match(/url\(["']?(.*?)["']?\)/);
+  return match ? match[1] : null;
+};
+
+const injectSeoMarkup = () => {
+  const baseUrl = normalizeSiteBaseUrl();
+  const pagePath = getRepoRelativePath();
+  const canonicalUrl = toAbsoluteUrl(pagePath, baseUrl);
+  if (!canonicalUrl) return;
+
+  let canonical = document.head.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute('href', canonicalUrl);
+
+  const title = (document.querySelector('h1')?.textContent || document.title || 'Antium').trim();
+  const description = (document.querySelector('meta[name="description"]')?.getAttribute('content') || '').trim();
+  const siteName = 'Antium';
+  const imageCandidate =
+    document.querySelector('meta[property="og:image"]')?.getAttribute('content') ||
+    document.querySelector('figure img')?.getAttribute('src') ||
+    extractHeroBackgroundImage() ||
+    './img/logo-antium.webp';
+  const imageUrl = toAbsoluteUrl(imageCandidate, baseUrl) || `${baseUrl}/img/logo-antium.webp`;
+
+  setHeadMeta('meta[property="og:url"]', 'property', 'og:url', canonicalUrl);
+  setHeadMeta('meta[property="og:site_name"]', 'property', 'og:site_name', siteName);
+  if (!document.querySelector('meta[property="og:type"]')) {
+    setHeadMeta('meta[property="og:type"]', 'property', 'og:type', 'article');
+  }
+  if (!document.querySelector('meta[property="og:title"]')) {
+    setHeadMeta('meta[property="og:title"]', 'property', 'og:title', document.title);
+  }
+  if (!document.querySelector('meta[property="og:description"]') && description) {
+    setHeadMeta('meta[property="og:description"]', 'property', 'og:description', description);
+  }
+  if (!document.querySelector('meta[property="og:image"]')) {
+    setHeadMeta('meta[property="og:image"]', 'property', 'og:image', imageUrl);
+  }
+
+  if (!document.querySelector('meta[name="twitter:card"]')) {
+    setHeadMeta('meta[name="twitter:card"]', 'name', 'twitter:card', 'summary_large_image');
+  }
+  if (!document.querySelector('meta[name="robots"]')) {
+    setHeadMeta('meta[name="robots"]', 'name', 'robots', 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1');
+  }
+
+  const existingDynamicLd = document.head.querySelector('script[data-seo-jsonld="dynamic"]');
+  if (existingDynamicLd) existingDynamicLd.remove();
+
+  const isHome = pagePath === '/index.html' || pagePath === '/';
+  const isSection = pagePath.startsWith('/sezioni/');
+  const sectionTitle = (document.querySelector('.hero-title')?.textContent || title).trim();
+
+  const graph = [];
+  graph.push({
+    '@type': 'Organization',
+    '@id': `${baseUrl}/#organization`,
+    name: 'Gruppo FAI Anzio-Nettuno',
+    url: `${baseUrl}/`,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${baseUrl}/img/logo-antium.webp`
+    }
+  });
+
+  if (isHome) {
+    graph.push({
+      '@type': 'WebSite',
+      '@id': `${baseUrl}/#website`,
+      url: `${baseUrl}/`,
+      name: siteName,
+      alternateName: ['Antivm', 'Antium FAI'],
+      inLanguage: 'it-IT',
+      publisher: {
+        '@id': `${baseUrl}/#organization`
+      }
+    });
+  }
+
+  graph.push({
+    '@type': 'WebPage',
+    '@id': `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: title,
+    description,
+    inLanguage: 'it-IT',
+    isPartOf: {
+      '@id': `${baseUrl}/#website`
+    },
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: imageUrl
+    },
+    about: {
+      '@type': 'Thing',
+      name: sectionTitle
+    }
+  });
+
+  const breadcrumbItems = [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: `${baseUrl}/index.html`
+    }
+  ];
+
+  if (!isHome) {
+    breadcrumbItems.push({
+      '@type': 'ListItem',
+      position: 2,
+      name: sectionTitle,
+      item: canonicalUrl
+    });
+  }
+
+  graph.push({
+    '@type': 'BreadcrumbList',
+    '@id': `${canonicalUrl}#breadcrumb`,
+    itemListElement: breadcrumbItems
+  });
+
+  if (isSection) {
+    const articleNode = {
+      '@type': 'Article',
+      '@id': `${canonicalUrl}#article`,
+      mainEntityOfPage: canonicalUrl,
+      headline: sectionTitle,
+      description,
+      image: [imageUrl],
+      inLanguage: 'it-IT',
+      author: {
+        '@type': 'Person',
+        name: 'Riccardo Pau'
+      },
+      publisher: {
+        '@id': `${baseUrl}/#organization`
+      },
+      isAccessibleForFree: true
+    };
+    const modified = new Date(document.lastModified);
+    if (!Number.isNaN(modified.getTime())) {
+      articleNode.dateModified = modified.toISOString();
+    }
+    graph.push(articleNode);
+  }
+
+  const ldScript = document.createElement('script');
+  ldScript.type = 'application/ld+json';
+  ldScript.dataset.seoJsonld = 'dynamic';
+  ldScript.textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@graph': graph
+  });
+  document.head.appendChild(ldScript);
+};
+
 // ── HERO reveal on load ──────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   resetScrollPosition();
+  injectSeoMarkup();
 
   const hero = document.querySelector('.hero');
   if (hero) setTimeout(() => hero.classList.add('visible'), 100);
