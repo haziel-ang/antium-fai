@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
   const pagePath = window.location.pathname.replace(/\\/g, '/').toLowerCase();
-  const lockCompactHeader = pagePath.endsWith('/pdf.html') || pagePath.endsWith('/podcast.html') || pagePath.endsWith('/index.html') || pagePath === '/' || pagePath.endsWith('/sezioni/volsci-cicerone-culti.html');
+  const lockCompactHeader = pagePath.endsWith('/pdf.html') || pagePath.endsWith('/podcast.html') || pagePath.endsWith('/fonti.html') || pagePath.endsWith('/index.html') || pagePath === '/' || pagePath.endsWith('/sezioni/volsci-cicerone-culti.html');
   const updateHeaderState = () => {
     if (!header) return;
     const shouldCompact = lockCompactHeader || window.scrollY > 20;
