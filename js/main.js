@@ -897,8 +897,39 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     'sezioni/tomba-mulakia.html': {
       subtitle: 'Sezione 03 · Tomba Mulakia',
-      note: 'Questa sezione non contiene elaborazioni grafiche originali. Le fotografie sono di pubblico dominio o da archivi citati nel testo.',
-      rows: []
+      note: 'Crediti grafici specifici della sezione, tratti dal dossier Mulakia e dalla documentazione Morpurgo 1944-45.',
+      rows: [
+        {
+          element: 'Pianta del sepolcreto Mulakia',
+          author: 'Lucia Morpurgo (1944-45) · rielaborazione web Antium',
+          note: 'Fonte: Notizie degli Scavi 1944-45, fig. 1.'
+        },
+        {
+          element: 'Interno della Tomba Mulakia (loculi)',
+          author: 'Lucia Morpurgo (1944-45) · rielaborazione web Antium',
+          note: 'Fonte: Notizie degli Scavi 1944-45, fig. 9.'
+        },
+        {
+          element: 'Vestibolo e accessi alle gallerie',
+          author: 'Lucia Morpurgo (1944-45) · rielaborazione web Antium',
+          note: 'Fonte: Notizie degli Scavi 1944-45, fig. 6.'
+        },
+        {
+          element: 'Iscrizione funeraria Mulakia',
+          author: 'Lucia Morpurgo (1944-45) · rielaborazione web Antium',
+          note: 'Fonte: Notizie degli Scavi 1944-45, fig. 7.'
+        },
+        {
+          element: 'Suppellettile funeraria Mulakia',
+          author: 'Lucia Morpurgo (1944-45) · rielaborazione web Antium',
+          note: 'Fonte: Notizie degli Scavi 1944-45, fig. 12.'
+        },
+        {
+          element: 'Specchio bronzeo inciso',
+          author: 'Lucia Morpurgo (1944-45) · rielaborazione web Antium',
+          note: 'Fonte: Notizie degli Scavi 1944-45, fig. 17.'
+        }
+      ]
     },
     'sezioni/villa-imperiale.html': {
       subtitle: 'Sezione 05 · Villa imperiale di Anzio',
