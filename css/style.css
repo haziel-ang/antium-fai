@@ -4850,3 +4850,170 @@ mark.search-hit.is-current {
   .mosaic-grid { --mosaic-tile-basis: 100%; }
   .mosaic-tile { max-width: 100%; }
 }
+
+/* ============================================================
+   FORMATI SECTION — Tre vie per scoprire Antium (Web / PDF / Podcast)
+   ============================================================ */
+.section--paper {
+  background: linear-gradient(180deg, #fbf5e9 0%, #f6edda 100%);
+}
+.formati-section { padding-block: var(--sp-16); }
+.formati-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+  margin-top: var(--sp-10);
+}
+.formato-card {
+  background: #fffdf7;
+  border: 1px solid rgba(124, 84, 50, 0.15);
+  border-radius: var(--r-md, 10px);
+  padding: var(--sp-7) var(--sp-6) var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  box-shadow: 0 2px 6px rgba(124, 84, 50, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.formato-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(124, 84, 50, 0.12);
+  border-color: rgba(200, 71, 26, 0.4);
+}
+.formato-icon {
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #C8471A;
+  background: rgba(200, 71, 26, 0.08);
+  border-radius: 50%;
+}
+.formato-icon svg { width: 32px; height: 32px; }
+.formato-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  color: #3a2a17;
+  margin: 0;
+  font-weight: 600;
+}
+.formato-text {
+  color: #5a4a36;
+  line-height: 1.6;
+  margin: 0;
+  font-size: var(--text-base, 1rem);
+}
+.formato-link {
+  margin-top: auto;
+  align-self: flex-start;
+  color: #C8471A;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(200, 71, 26, 0.3);
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease;
+}
+.formato-link:hover { border-color: #C8471A; }
+@media (max-width: 880px) {
+  .formati-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   RICHIAMI SECTION — Nove porte verso le sezioni
+   ============================================================ */
+.richiami-section { padding-block: var(--sp-16); }
+.richiami-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6);
+  margin-top: var(--sp-10);
+}
+.richiamo-card {
+  position: relative;
+  background: #fffdf7;
+  border: 1px solid rgba(124, 84, 50, 0.18);
+  border-left: 4px solid #C8471A;
+  border-radius: var(--r-md, 10px);
+  padding: var(--sp-7) var(--sp-6) var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  box-shadow: 0 2px 6px rgba(124, 84, 50, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.richiamo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(124, 84, 50, 0.14);
+}
+.richiamo-numero {
+  position: absolute;
+  top: 0.8rem;
+  right: 1.1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(200, 71, 26, 0.35);
+  letter-spacing: 0.05em;
+}
+.richiamo-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  color: #8a6d4a;
+  margin: 0;
+  font-weight: 600;
+}
+.richiamo-titolo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  color: #3a2a17;
+  margin: 0.15rem 0 0.3rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.richiamo-hook {
+  color: #4f4030;
+  line-height: 1.6;
+  margin: 0 0 0.4rem;
+  font-size: 0.98rem;
+}
+.richiamo-links {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.7rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed rgba(124, 84, 50, 0.2);
+}
+.richiamo-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.richiamo-link--web {
+  color: #fff;
+  background: #C8471A;
+}
+.richiamo-link--web:hover { background: #a83a14; }
+.richiamo-link--pdf {
+  color: #7a4a1a;
+  background: rgba(200, 71, 26, 0.10);
+}
+.richiamo-link--pdf:hover { background: rgba(200, 71, 26, 0.20); }
+.richiamo-link--audio {
+  color: #2a4a3a;
+  background: rgba(60, 110, 80, 0.12);
+}
+.richiamo-link--audio:hover { background: rgba(60, 110, 80, 0.22); }
+
+@media (max-width: 1100px) {
+  .richiami-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+  .richiami-grid { grid-template-columns: 1fr; }
+}
