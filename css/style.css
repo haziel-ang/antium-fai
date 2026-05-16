@@ -5017,3 +5017,16 @@ mark.search-hit.is-current {
 @media (max-width: 700px) {
   .richiami-grid { grid-template-columns: 1fr; }
 }
+
+/* Intro section: sottotitolo full-width e body senza box */
+.intro-section .section-header { max-width: none; }
+.intro-section .section-intro { max-width: none; }
+.intro-body {
+  margin: 0 0 var(--sp-8);
+}
+.intro-body p {
+  font-size: clamp(1.05rem, 1vw + .85rem, 1.25rem);
+  color: var(--text-body);
+  line-height: 1.75;
+  margin: 0 0 var(--sp-4);
+}
