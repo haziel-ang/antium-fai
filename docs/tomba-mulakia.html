@@ -38,7 +38,17 @@ strong { font-weight:600; } em { font-style:italic; }
 .biblio p { font-size:0.88rem; color:#444; margin:0 0 0.35rem; line-height:1.55; }
 footer { margin-top:3rem; padding-top:1.4rem; border-top:1px solid #e2d8c8; text-align:center; font-family:'DM Sans',sans-serif; font-size:0.78rem; color:#999; line-height:1.7; }
 footer strong { color:#777; } footer a { color:#9a7209; text-decoration:none; }
-@media print { body { font-size: 14px; } .container { padding: 0; } }
+@page { size: A4; margin: 14mm 16mm; }
+@media print {
+	body { font-size: 14px; line-height: 1.64; }
+	.container { max-width: none; width: 100%; padding: 0; }
+	.doc-header, h1, h2, h3, .card, .collocazione { break-inside: avoid; }
+	h1, h2, h3 { break-after: avoid; page-break-after: avoid; overflow-wrap: normal; word-break: normal; hyphens: manual; }
+	h1 { font-size: 1.95rem; }
+	h2 { font-size: 1.18rem; line-height: 1.14; margin: 1.7rem 0 0.54rem; }
+	h3 { font-size: 1.22rem; }
+	p { orphans: 3; widows: 3; }
+}
 </style>
 </head>
 <body>

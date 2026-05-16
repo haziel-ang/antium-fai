@@ -38,7 +38,17 @@ strong { font-weight:600; } em { font-style:italic; }
 .biblio p { font-size:0.88rem; color:#444; margin:0 0 0.35rem; line-height:1.55; }
 footer { margin-top:3rem; padding-top:1.4rem; border-top:1px solid #e2d8c8; text-align:center; font-family:'DM Sans',sans-serif; font-size:0.78rem; color:#999; line-height:1.7; }
 footer strong { color:#777; } footer a { color:#9a7209; text-decoration:none; }
-@media print { body { font-size: 14px; } .container { padding: 0; } }
+@page { size: A4; margin: 14mm 16mm; }
+@media print {
+	body { font-size: 14px; line-height: 1.64; }
+	.container { max-width: none; width: 100%; padding: 0; }
+	.doc-header, h1, h2, h3, .card, .collocazione { break-inside: avoid; }
+	h1, h2, h3 { break-after: avoid; page-break-after: avoid; overflow-wrap: normal; word-break: normal; hyphens: manual; }
+	h1 { font-size: 1.95rem; }
+	h2 { font-size: 1.18rem; line-height: 1.14; margin: 1.7rem 0 0.54rem; }
+	h3 { font-size: 1.22rem; }
+	p { orphans: 3; widows: 3; }
+}
 </style>
 </head>
 <body>
@@ -48,8 +58,7 @@ footer strong { color:#777; } footer a { color:#9a7209; text-decoration:none; }
 <p class="doc-subtitle"><em>Dall&#x27;età del Bronzo alla prima età del Ferro: Cavallo Morto, Colle Rotondo e la necropoli dell&#x27;Italcable — le radici latine di Anzio</em></p>
 </header>
 
-<h2><strong>La preistoria di Anzio: più profonda di </strong><strong>q</strong><strong>uanto si</strong></h2>
-<h2><strong>creda</strong></h2>
+<h2><strong>La preistoria di Anzio: più profonda di quanto si creda</strong></h2>
 <p>La presenza umana nel territorio di Anzio è attestata a partire dal Paleolitico inferiore: un&#x27;amigdala bifacciale riconducibile alla cultura acheuleana (<em>Homo</em> <em>neanderthalensis</em>), rinvenuta durante lo sbancamento per la costruzione del campo sportivo comunale, è stata datata a circa 150.000 anni fa. Ma la storia dell&#x27;insediamento organizzato — villaggi, necropoli, strutture difensive — si radica nell&#x27;età del Bronzo, e in particolare nelle campagne a nord-ovest di Anzio, dove due siti fondamentali gettano nuova luce sull&#x27;origine di Antium: la necropoli di Cavallo Morto e il pianoro di Colle Rotondo.</p>
 <h2><strong>La necropoli di Cavallo Morto</strong></h2>
 <h2><strong>La più antica cremazione del Lazio</strong></h2>
@@ -58,8 +67,7 @@ footer strong { color:#777; } footer a { color:#9a7209; text-decoration:none; }
 <span class="card-title">✦ Curiosità — I L RITO DELL&#x27;INCINERAZIONE</span>
 <p>Nell&#x27;età del Bronzo Recente, in tutta l&#x27;Italia centrale si diffondeva un modo di seppellire i morti basato sull&#x27;incinerazione: il corpo veniva bruciato, le ceneri riposte in un&#x27;urna cineraria biconica, e il tutto sepolto con un corredo di oggetti miniaturistici. Questo tipo di sepoltura appartiene alla cosiddetta <em>facies</em> <em>mediotirrenica</em>, cultura funeraria comune a tutta la fascia costiera laziale e campana, che comprende i gruppi di Roma/Colli Albani (a cui Anzio appartiene) e Tolfa/Allumiere.</p>
 </div>
-<h2><strong>Colle Rotondo: un centro egemone dell&#x27;età del</strong></h2>
-<h2><strong>Bronzo</strong></h2>
+<h2><strong>Colle Rotondo: un centro egemone dell&#x27;età del Bronzo</strong></h2>
 <p>Il pianoro di Colle Rotondo (loc. S. Anastasio, Anzio), oggetto di campagne di scavo a partire dal 2009 da parte di tre atenei romani (Roma Tre, La Sapienza e Roma Tor Vergata), ha restituito un complesso sistema difensivo protostorico con armatura lignea. Il sistema è stato datato al Bronzo Finale – Prima Età del Ferro mediante C14 eseguito dal CEDAD (Centro di Datazione e Diagnostica) dell&#x27;Università del Salento su legno di quercia carbonizzato dell&#x27;armatura interna: campioni 1225– 1010 a.C., 1220–1010 a.C., 1315–1100 a.C. L&#x27;area difesa di 7,5 ettari era seconda nel <em>Latium vetus</em> solo al Campidoglio (10 ettari), confermando il ruolo di centro egemone del sito nell&#x27;area costiera tra Ardea e Anzio.</p>
 <div class="card card-curiosita">
 <span class="card-title">✦ Curiosità — ICERVOLIDI COLLE ROTONDO</span>
@@ -71,8 +79,7 @@ footer strong { color:#777; } footer a { color:#9a7209; text-decoration:none; }
 <span class="card-title">⚑ Nota critica — L A DISTRUZIONE DEL 2005</span>
 <p>A Colle Rotondo, la fase arcaica dell&#x27;aggere orientale è stata distrutta da lavori agricoli nel 2005, compromettendo irrimediabilmente uno dei contesti stratigrafici più importanti della protostoria laziale. L&#x27;episodio — denunciato nei lavori accademici di Cifani e Guidi — conferma l&#x27;urgenza di una tutela attiva e non solo vincolistica per le strutture difensive del territorio anziate.</p>
 </div>
-<h2><strong>Le origini latine di Antium: la necropoli</strong></h2>
-<h2><strong>dell&#x27;Italcable</strong></h2>
+<h2><strong>Le origini latine di Antium: la necropoli dell&#x27;Italcable</strong></h2>
 <p><em>L&#x27;edificio dell&#x27;ex Italcable su via Ardeatina</em> La conferma più clamorosa dell&#x27;origine latina pre-volsca di Antium giunse nel 1925, durante i lavori di costruzione dell&#x27;edificio dell&#x27;Italcable (attuale Centro Difesa Elettronica) lungo via Ardeatina. Il direttore degli scavi, l&#x27;archeologo Ugo Antonielli, Direttore del Museo Preistorico Etnografico di Roma (l&#x27;attuale Museo delle Civiltà – sezione «Luigi Pigorini»), portò alla luce decine di tombe antichissime e scrisse una lettera entusiastica al Soprintendente Roberto Paribeni, datata 14 maggio 1925: «Chiarissimo Paribeni, altro che elmo di Coriolano! Se c&#x27;è un Santo Protettore degli scavi, io sono certamente e bene sotto la sua protezione… Altro che Volsci!» Aveva trovato tombe appartenenti alla cosiddetta <em>facies laziale</em>, ovvero la cultura funeraria tipica dei Latini — i predecessori dei Romani — datate almeno all&#x27;XI–X secolo a.C., nel Bronzo Finale e nella prima Età del Ferro.</p>
 <h2><strong>Le prime tombe: il Bronzo Finale (XI–X sec. a.C.)</strong></h2>
 <p>Le sepolture più antiche risalgono al Bronzo Finale (ca. 1200–1100 a.C.). Appartenevano alla <em>facies mediotirrenica</em>: incinerazioni in urne biconiche, sepolte con corredi di vasetti ceramici a mano in argilla d&#x27;impasto non depurata, coltellini in bronzo, rasoi, fibule e ornamenti personali.</p>
@@ -91,7 +98,7 @@ footer strong { color:#777; } footer a { color:#9a7209; text-decoration:none; }
 <p>DatazioneSitoEvidenza ~150.000Campo sportivoAmigdala acheuleana (Homo neanderthalensis) anni facomunale XIII–XII sec.Cavallo Morto40 urne cinerarie (Bronzo Recente): prima a.C.cremazione del Lazio 1315–1010 a.C.Colle RotondoAggere con armatura lignea di quercia (C14)(CEDAD/Univ. Salento) XI sec. a.C.Necropoli ItalcablePrime sepolture a incinerazione (facies mediotirrenica) XI–X sec. a.C.Pianoro di SantaPrime opere di vallo (datazioni C14) Teresa ~850–700Colle Rotondo /Aggere interno di Colle Rotondo; strato laziale a.C.Santa TeresaIIB–III Dal 1000 a.C.Necropoli ItalcablePassaggio a inumazione; continuità fino al I sec. a.C. ~500 a.C.Tutto il territorioOccupazione volsca di Antium</p>
 <h2><strong>I materiali e dove trovarli</strong></h2>
 <p>I corredi della necropoli dell&#x27;Italcable — urne, fibule, rasoi, vasetti d&#x27;impasto — sono conservati al Museo Nazionale Preistorico Etnografico «Luigi Pigorini» (Museo delle Civiltà, Roma), dove confluirono senza essere distinti per singola tomba. Il Museo Civico Archeologico di Anzio (Villa Adele, Riviera Mallozzi) espone una selezione di corredi protostorici relativi all&#x27;orizzonte del X–IX secolo a.C. I materiali di Colle Rotondo sono prevalentemente in sedi universitarie di ricerca, in assenza di un catalogo open access completo. S U G E R I M E N T O   —   P E R   L A   V I S I TA Il Museo Civico Archeologico di Anzio è la sede più accessibile per vedere i materiali protostorici locali. La villa imperiale neroniana sorge sull&#x27;area dell&#x27;antico pianoro di Santa Teresa: passeggiando dal porto verso la Riviera Mallozzi si percorre fisicamente la dorsale che ospitò il primo insediamento latino di Antium, mille anni prima di Nerone.</p>
-<h2><strong>Bibliogra</strong><strong>&quot;</strong><strong>a</strong></h2>
+<h2><strong>Bibliografia</strong></h2>
 <p>—Guidi A., Angle M., Tusa S., Di Gennaro F., «La necropoli a incinerazione di Cavallo Morto (Anzio, RM)», in <em>L&#x27;età del Bronzo Recente in Italia</em>, Atti del Congresso Nazionale, Lido di Camaiore 2000, Città di Castello-Viareggio 2004, pp. 125–140 —Guidi A., Nomi F., «Colle Rotondo (Anzio, RM): un aggere difensivo protostorico con armatura lignea», <em>Scienze dell&#x27;Antichità</em> 19.2–3, 2013, pp. 35–38 —Cifani G., Guidi A., «Le fortificazioni nel territorio di Anzio», in P. Fontaine – S. Helas (a cura di), <em>Le fortificazioni arcaiche del Latium vetus e dell&#x27;Etruria meridionale</em>, Bruxelles-Roma: IHBR, 2016, pp. 111–124 —Gierow P.G., «La necropoli laziale di Anzio», <em>Bullettino di Paletnologia Italiana</em>, 69–70, 1960– 1961, pp. 243–257 [da non confondere con la monografia <em>The Iron Age Culture of Latium</em>, Lund, dal 1962] —Colonna G., «Preistoria e protostoria di Roma e del Lazio», in <em>Popoli e Civiltà dell&#x27;Italia</em> <em>Antica</em>, vol. II, Roma 1974, pp. 275–346 —Baroncelli P., in <em>Bollettino di Paletnologia Italiana</em>, N.S. VI, 1941–42, pp. 230 ss. —Santamaria Scrinari V., «Anzio: Archeologia e Topografia», studio topografico-archeologico —Di Mario F., Jaia A., in <em>Anzio e Nerone. Tesori dal British Museum e dai Musei Capitolini</em>, catalogo della mostra, Anzio 2009, pp. 39–97 —<em>Notizie degli Scavi di Antichità</em>, 1886, p. 58 (sepolture presso l&#x27;ex proprietà Pamphilj) —<em>Notizie degli Scavi di Antichità</em>, 1884, p. 240 (sepolcri del III sec. d.C. presso la stazione) —Museo Civico Archeologico di Anzio, schede istituzionali: necropoli protostorica</p>
 
 <footer>
