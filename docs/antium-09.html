@@ -45,25 +45,6 @@
       margin-bottom: 2.5rem;
     }
 
-    .fai-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #9a7209;
-      margin: 0 0 0.4rem;
-    }
-
-    .doc-series {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #777;
-      letter-spacing: 0.04em;
-      margin: 0 0 1rem;
-    }
-
     h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 2.45rem;
@@ -77,28 +58,8 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 0.95rem;
       color: #555;
-      margin: 0 0 1.2rem;
+      margin: 0;
       line-height: 1.5;
-    }
-
-    /* ── Pulsante PDF ── */
-    .pdf-btn {
-      display: inline-block;
-      background-color: #9a7209;
-      color: #ffffff !important;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      padding: 0.48rem 1.25rem;
-      border-radius: 25px;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-    }
-    .pdf-btn:hover {
-      background-color: #7a5a07;
     }
 
     /* ── Tipografia ── */
@@ -264,7 +225,6 @@
     }
 
     @media print {
-      .pdf-btn { display: none !important; }
       body { font-size: 14px; }
       .container { padding: 0; }
     }
@@ -274,8 +234,6 @@
   <div class="container">
 
     <header class="doc-header">
-      <p class="fai-label">FAI · Gruppo Anzio-Nettuno</p>
-      <p class="doc-series">Lo xystus e il vasto bagno termale della città alta</p>
       <h1>Lo xystus e il vasto bagno termale della città alta</h1>
       <p class="doc-subtitle">Complesso ginnasiale-termale tra Via Roma, ex Villa Sarsina ed ex Villa Albani: fonti storiche, lettura critica e collocazione.</p>
     </header>
@@ -399,17 +357,5 @@
     </footer>
 
   </div><!-- /.container -->
-
-  <script>
-    /* iOS WKWebView non supporta window.print() — nascondi il pulsante */
-    (function () {
-      var isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
-      var isWKWebView = isIOS && !navigator.userAgent.includes('Safari/');
-      if (isWKWebView) {
-        var btn = document.querySelector('.pdf-btn');
-        if (btn) btn.style.display = 'none';
-      }
-    })();
-  </script>
 </body>
 </html>
