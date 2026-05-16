@@ -1,0 +1,196 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Rigenera PDF xystus 09",
+			"type": "shell",
+			"command": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\"",
+			"args": [
+				"--headless",
+				"--disable-gpu",
+				"--print-to-pdf=c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf",
+				"file:///c:/myGitRepo/antium-fai/docs/antium-09.html"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Rigenera PDF xystus 09 (fix)",
+			"type": "shell",
+			"command": "& \"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\"",
+			"args": [
+				"--headless",
+				"--disable-gpu",
+				"--print-to-pdf=c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf",
+				"file:///c:/myGitRepo/antium-fai/docs/antium-09.html"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Rigenera PDF xystus 09 (msedge)",
+			"type": "shell",
+			"command": "msedge.exe",
+			"args": [
+				"--headless",
+				"--disable-gpu",
+				"--print-to-pdf=c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf",
+				"file:///c:/myGitRepo/antium-fai/docs/antium-09.html"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Rigenera PDF xystus 09 (cmd)",
+			"type": "shell",
+			"command": "cmd.exe",
+			"args": [
+				"/c",
+				"\"\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --headless --disable-gpu --print-to-pdf=c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf file:///c:/myGitRepo/antium-fai/docs/antium-09.html\""
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Rigenera PDF xystus 09 (shortpath)",
+			"type": "shell",
+			"command": "C:\\PROGRA~2\\Microsoft\\Edge\\Application\\msedge.exe",
+			"args": [
+				"--headless",
+				"--disable-gpu",
+				"--print-to-pdf=c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf",
+				"file:///c:/myGitRepo/antium-fai/docs/antium-09.html"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Verifica PDF 09",
+			"type": "shell",
+			"command": "Get-Item c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf | Select-Object Name,Length,LastWriteTime | Format-Table -AutoSize",
+			"isBackground": false
+		},
+		{
+			"label": "Rigenera PDF xystus 09 final",
+			"type": "shell",
+			"command": "C:\\PROGRA~2\\Microsoft\\Edge\\Application\\msedge.exe",
+			"args": [
+				"--headless",
+				"--disable-gpu",
+				"--print-to-pdf=c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf",
+				"file:///c:/myGitRepo/antium-fai/docs/antium-09.html"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Verifica PDF 09 final",
+			"type": "shell",
+			"command": "Get-Item c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf | Select-Object Name,Length,LastWriteTime | Format-Table -AutoSize",
+			"isBackground": false
+		},
+		{
+			"label": "Forza rigenerazione PDF 09 final",
+			"type": "shell",
+			"command": "Remove-Item c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf -Force; C:\\PROGRA~2\\Microsoft\\Edge\\Application\\msedge.exe --headless --disable-gpu --print-to-pdf=c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf file:///c:/myGitRepo/antium-fai/docs/antium-09.html; Get-Item c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf | Select-Object Name,Length,LastWriteTime | Format-Table -AutoSize",
+			"isBackground": false
+		},
+		{
+			"label": "Verifica PDF 09 dopo forzatura",
+			"type": "shell",
+			"command": "Get-Item c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf | Select-Object Name,Length,LastWriteTime | Format-Table -AutoSize",
+			"isBackground": false
+		},
+		{
+			"label": "Converti xystus PNG in WebP",
+			"type": "shell",
+			"command": "cwebp",
+			"args": [
+				"-q",
+				"82",
+				"c:\\myGitRepo\\antium-fai\\img\\xystus-terme.png",
+				"-o",
+				"c:\\myGitRepo\\antium-fai\\img\\xystus-terme.webp"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Rimuovi PNG xystus",
+			"type": "shell",
+			"command": "If (Test-Path c:\\myGitRepo\\antium-fai\\img\\xystus-terme.webp) { Remove-Item c:\\myGitRepo\\antium-fai\\img\\xystus-terme.png -Force }; Get-ChildItem c:\\myGitRepo\\antium-fai\\img\\xystus-terme.* | Select-Object Name,Length,LastWriteTime | Format-Table -AutoSize",
+			"isBackground": false
+		},
+		{
+			"label": "Verifica convertitori immagini",
+			"type": "shell",
+			"command": "Get-Command magick, ffmpeg, cwebp -ErrorAction SilentlyContinue | Select-Object Name,Source | Format-Table -AutoSize",
+			"isBackground": false
+		},
+		{
+			"label": "Verifica Python",
+			"type": "shell",
+			"command": "python --version",
+			"isBackground": false
+		},
+		{
+			"label": "Verifica Pillow",
+			"type": "shell",
+			"command": "python -c \"from PIL import Image; print('ok')\"",
+			"isBackground": false
+		},
+		{
+			"label": "Verifica Pillow 2",
+			"type": "shell",
+			"command": "python -c 'from PIL import Image; print(\"ok\")'",
+			"isBackground": false
+		},
+		{
+			"label": "Verifica Pillow 3",
+			"type": "shell",
+			"command": "python -c 'from PIL import Image; print(123)'",
+			"isBackground": false
+		},
+		{
+			"label": "Converti in webp con Pillow",
+			"type": "shell",
+			"command": "python -c 'from PIL import Image; src=r\"c:\\myGitRepo\\antium-fai\\img\\xystus-terme.png\"; dst=r\"c:\\myGitRepo\\antium-fai\\img\\xystus-terme.webp\"; Image.open(src).save(dst, \"WEBP\", quality=82, method=6)'",
+			"isBackground": false
+		},
+		{
+			"label": "Esegui conversione webp",
+			"type": "shell",
+			"command": "python c:\\myGitRepo\\antium-fai\\scripts\\convert_xystus_webp.py",
+			"isBackground": false
+		},
+		{
+			"label": "Pulisci PNG xystus",
+			"type": "shell",
+			"command": "if (Test-Path c:\\myGitRepo\\antium-fai\\img\\xystus-terme.webp) { Remove-Item c:\\myGitRepo\\antium-fai\\img\\xystus-terme.png -Force }; Get-ChildItem c:\\myGitRepo\\antium-fai\\img\\xystus-terme.* | Select-Object Name,Length,LastWriteTime | Format-Table -AutoSize",
+			"isBackground": false
+		},
+		{
+			"label": "Rigenera PDF 09 dopo rifinitura",
+			"type": "shell",
+			"command": "C:\\PROGRA~2\\Microsoft\\Edge\\Application\\msedge.exe",
+			"args": [
+				"--headless",
+				"--disable-gpu",
+				"--print-to-pdf=c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf",
+				"file:///c:/myGitRepo/antium-fai/docs/antium-09.html"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "Verifica PDF 09 finale",
+			"type": "shell",
+			"command": "Get-Item c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf | Select-Object Name,Length,LastWriteTime | Format-Table -AutoSize",
+			"isBackground": false
+		},
+		{
+			"label": "Forza nuova generazione PDF 09",
+			"type": "shell",
+			"command": "Remove-Item c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf -Force; C:\\PROGRA~2\\Microsoft\\Edge\\Application\\msedge.exe --headless --disable-gpu --print-to-pdf=c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf file:///c:/myGitRepo/antium-fai/docs/antium-09.html",
+			"isBackground": false
+		},
+		{
+			"label": "Controlla PDF 09 rigenerato",
+			"type": "shell",
+			"command": "Get-Item c:\\myGitRepo\\antium-fai\\docs\\antium-09-xystus-terme-citta-alta.pdf | Select-Object Name,Length,LastWriteTime | Format-Table -AutoSize",
+			"isBackground": false
+		}
+	]
+}

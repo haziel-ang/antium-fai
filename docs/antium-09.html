@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antium · 09 · Lo xystus e il vasto bagno termale della città alta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    /* ── Livello 1: color-scheme ── */
+    html {
+      color-scheme: light !important;
+      background-color: #ffffff !important;
+    }
+
+    /* ── Livello 2: tutti gli elementi ── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      color-scheme: light !important;
+    }
+
+    /* ── Livello 3: body ── */
+    body {
+      background-color: #ffffff !important;
+      color: #1a1a1a !important;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.78;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    /* ── Intestazione documento ── */
+    .doc-header {
+      border-bottom: 2px solid #b8860b;
+      padding-bottom: 1.6rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .fai-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #9a7209;
+      margin: 0 0 0.4rem;
+    }
+
+    .doc-series {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #777;
+      letter-spacing: 0.04em;
+      margin: 0 0 1rem;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.45rem;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #1a1a1a;
+      margin: 0 0 0.65rem;
+    }
+
+    .doc-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: #555;
+      margin: 0 0 1.2rem;
+      line-height: 1.5;
+    }
+
+    /* ── Pulsante PDF ── */
+    .pdf-btn {
+      display: inline-block;
+      background-color: #9a7209;
+      color: #ffffff !important;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      padding: 0.48rem 1.25rem;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .pdf-btn:hover {
+      background-color: #7a5a07;
+    }
+
+    /* ── Tipografia ── */
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.78rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 2.6rem 0 0.8rem;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 1.8rem 0 0.5rem;
+    }
+
+    p {
+      margin: 0 0 1.25rem;
+      color: #1a1a1a;
+    }
+
+    strong { font-weight: 600; }
+    em     { font-style: italic; }
+
+    /* ── Classe .termine ── */
+    .termine {
+      font-family: 'DM Sans', sans-serif;
+      font-style: italic;
+      color: #9a7209;
+    }
+    .termine::before {
+      content: '\25C6\00A0';
+      color: #c9a84c;
+      font-style: normal;
+    }
+
+    /* ── Card componenti ── */
+    .card {
+      margin: 1.8rem 0;
+      padding: 1.1rem 1.4rem;
+      border-radius: 3px;
+    }
+    .card-curiosita {
+      border-left: 4px solid #b8860b;
+      background-color: #fffdf5;
+    }
+    .card-nota-critica {
+      border-left: 4px solid #a63d3d;
+      background-color: #fdf8f8;
+    }
+    .card-suggerimento {
+      border-left: 4px solid #4a7c59;
+      background-color: #f6fbf7;
+    }
+
+    .card-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.69rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      margin: 0 0 0.65rem;
+      display: block;
+    }
+    .card-curiosita   .card-title { color: #b8860b; }
+    .card-nota-critica .card-title { color: #a63d3d; }
+    .card-suggerimento .card-title { color: #4a7c59; }
+
+    .card p {
+      margin: 0 0 0.6rem;
+      font-size: 0.95rem;
+    }
+    .card p:last-child { margin-bottom: 0; }
+
+    /* ── Collocazione ── */
+    .collocazione {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: #555;
+      margin: 1.6rem 0;
+      padding: 0.85rem 1.1rem;
+      border-left: 3px solid #d5cabb;
+      background: #f9f8f4;
+      line-height: 1.6;
+    }
+    .collocazione strong { color: #1a1a1a; }
+
+    /* ── Separatore di sezione ── */
+    .sez-divider {
+      border: none;
+      border-top: 1px solid #e2d8c8;
+      margin: 2.6rem 0;
+    }
+
+    /* ── Tabella mappa ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 1.6rem 0;
+    }
+    th {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #777;
+      border-bottom: 2px solid #b8860b;
+      padding: 0.5rem 0.8rem;
+      text-align: left;
+    }
+    td {
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid #e8dece;
+      vertical-align: top;
+      color: #1a1a1a;
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* ── Bibliografia ── */
+    .biblio {
+      margin-top: 3rem;
+      padding-top: 1.6rem;
+      border-top: 2px solid #b8860b;
+    }
+    .biblio h2 {
+      font-size: 1.3rem;
+      margin: 0 0 1rem;
+    }
+    .biblio p {
+      font-size: 0.88rem;
+      color: #444;
+      margin: 0 0 0.35rem;
+      line-height: 1.55;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid #e2d8c8;
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      color: #999;
+      line-height: 1.7;
+    }
+    footer strong { color: #777; }
+    footer a { color: #9a7209; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.95rem; }
+      h2 { font-size: 1.5rem; }
+      .container { padding: 1.5rem 1rem 3rem; }
+      table { font-size: 0.82rem; }
+      th, td { padding: 0.45rem 0.5rem; }
+    }
+
+    @media print {
+      .pdf-btn { display: none !important; }
+      body { font-size: 14px; }
+      .container { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header class="doc-header">
+      <p class="fai-label">FAI · Gruppo Anzio-Nettuno</p>
+      <p class="doc-series">Lo xystus e il vasto bagno termale della città alta</p>
+      <h1>Lo xystus e il vasto bagno termale della città alta</h1>
+      <p class="doc-subtitle">Complesso ginnasiale-termale tra Via Roma, ex Villa Sarsina ed ex Villa Albani: fonti storiche, lettura critica e collocazione.</p>
+    </header>
+
+    <!-- ── TITOLO ── -->
+    <h2>Un complesso monumentale sepolto tra città, ginnasio e benessere</h2>
+
+    <!-- ── TESTO PRINCIPALE ── -->
+    <p>Tra l'attuale Municipio e l'ex Villa Albani, lungo Via Roma, si nasconde sotto gli edifici moderni uno dei complessi più enigmatici della città alta di Antium. Giuseppe Lugli lo descrisse come un edificio in <strong>opera mista di reticolato e mattoni</strong>, databile ai primi anni del II secolo d.C., mentre Francesco Lombardi, che lo vide ancora in parte nell'Ottocento, ricordava un lungo ambulacro sotterraneo a <span class="termine">criptoportico</span>, con feritoie sul lato nord, affiancato da un vasto bagno termale pavimentato a mosaico. Proprio da quel settore proveniva la statua di Marco Aquilio, patrono della città, segno che il monumento aveva anche un forte valore pubblico e rappresentativo.</p>
+
+    <p>La guida allegata lo sintetizza in poche righe, ma la documentazione storica consente di ricostruirne meglio il significato. Lugli osserva che le rovine proseguivano in linea retta sotto Villa Albani, elemento che rende più plausibile l'identificazione con uno <span class="termine">xystus</span> in forma di stadio rispetto a quella con un teatro vero e proprio.</p>
+
+    <p>Lugli propose di riconoscervi uno <span class="termine">xystus</span>, cioè un ginnasio porticato allungato «in forma di stadio», destinato all'esercizio fisico e alla passeggiata. La presenza di terme annesse rende questa interpretazione particolarmente convincente: ad Antium il complesso sembra unire sport, benessere, rappresentanza civica e vita sociale, in perfetta coerenza con il profilo della città come centro residenziale e di villeggiatura aristocratica.</p>
+
+    <p>Resta però un monumento in gran parte perduto, la cui fisionomia può essere ricostruita solo attraverso le fonti antiquarie e il confronto con i ginnasi del mondo greco-romano. Proprio per questo lo xystus di Antium conserva un fascino particolare: più che un rudere visibile, è una presenza sepolta che aiuta a intuire la qualità monumentale e la ricchezza della città alta antica.</p>
+
+    <hr class="sez-divider">
+
+    <!-- ── LOMBARDI ── -->
+    <h2>Il racconto di Lombardi</h2>
+
+    <p>La fonte più preziosa per comprendere il complesso è la descrizione di Francesco Lombardi, che lo vide ancora in parte nella metà dell'Ottocento. Lombardi ricorda un <strong>ambulacro sotterraneo a guisa di criptoportico</strong>, fornito di feritoie lungo tutto il lato settentrionale, lungo 115 metri, mentre il lato parallelo a sud, distante 20,50 metri, risultava già allora quasi del tutto demolito.</p>
+
+    <p>Il dato è fondamentale perché fornisce il solo riferimento metrico sicuro per comprendere l'ampiezza del complesso: non un piccolo ambiente di passaggio, ma una struttura monumentale di dimensioni notevoli, coerente con uno spazio destinato all'esercizio fisico, al passeggio e alla vita sociale. Lombardi ricorda inoltre che <strong>a nord del corridoio si estendeva un vasto bagno termale con pavimento a mosaico</strong>, nel quale fu rinvenuta la statua del patrono della città, Marco Aquilio.</p>
+
+    <p>Questo elemento cambia radicalmente la lettura del sito: non si tratta soltanto di una pista o di un portico, ma di un <strong>complesso unitario</strong> in cui ginnasio, passeggio coperto, bagni e rappresentazione civica convivevano nello stesso organismo architettonico. Lugli ne raccoglie le indicazioni e conclude: «Probabilmente si tratta di un unico edifizio, con uno <span class="termine">xystus</span>, in forma di stadio» — un ginnasio porticato allungato per l'esercizio fisico e la passeggiata.</p>
+
+    <hr class="sez-divider">
+
+    <!-- ── LESSICO VITRUVIANO ── -->
+    <h2>Xystus, xysta e stadio: il lessico di Vitruvio</h2>
+
+    <p>Per comprendere la proposta di Lugli occorre tornare a Vitruvio, che nel libro V del <em>De Architectura</em> distingue gli spazi del ginnasio greco e spiega il significato tecnico del termine <span class="termine">xystus</span>. Lo <em>xystus</em> era il <strong>corridoio coperto</strong> destinato all'allenamento invernale degli atleti: un ambiente chiuso e riparato, lungo e stretto, che permetteva la corsa anche nelle giornate fredde o piovose. Gli <em>xysta</em> erano invece gli spazi aperti sistemati tra i portici, spesso alberati, usati per il movimento e la passeggiata quando il tempo era favorevole. A questi spazi si aggiungeva lo stadio, destinato alla corsa e alle esercitazioni pubbliche in presenza di spettatori.</p>
+
+    <p>Quando Lugli parla di «uno <span class="termine">xystus</span>, in forma di stadio», dunque, non usa una formula vaga, ma una definizione tecnica molto precisa. L'edificio di Antium doveva probabilmente unire un <strong>lungo corpo rettilineo porticato</strong>, adatto al movimento e al passeggio, con una <strong>testata semicircolare</strong> che richiamava la forma terminale di un piccolo stadio ginnasiale. La presenza del criptoportico, delle feritoie e soprattutto del bagno termale annesso rafforza la lettura del complesso come centro di esercizio fisico, benessere e <em>otium</em> urbano.</p>
+
+    <p>La morfologia del complesso — un corpo rettilineo di oltre cento metri con un'estremità semicircolare — è del tutto coerente con la tipologia del ginnasio di matrice ellenistica, filtrato attraverso la sensibilità architettonica romana del primo impero. Non sorprende che le rovine si estendessero «in linea retta sotto Villa Albani», come nota Lugli: è proprio la linearità dell'impianto a distinguerlo dal teatro vero e proprio e ad avvicinarlo alle grandi strutture destinate alla corsa e al passeggio porticato.</p>
+
+    <hr class="sez-divider">
+
+    <!-- ── TERME ANNESSE ── -->
+    <h2>Il vasto bagno termale annesso</h2>
+
+    <p>La presenza del <strong>vasto bagno termale</strong> posto a nord dello xystus è l'elemento più significativo per la lettura dell'intero complesso. Le fonti non ne conservano la pianta, ma il solo fatto che Lombardi lo ricordi come un settore dotato di <strong>pavimento a mosaico</strong> basta a dimostrarne il livello qualitativo e la dignità monumentale.</p>
+
+    <p>In un contesto urbano romano di alto rango, un bagno termale annesso a un portico ginnasiale poteva includere ambienti per bagni freddi, tiepidi e caldi, sale voltate, corridoi di accesso e spazi di rappresentanza con decorazione musiva. La ricostruzione più plausibile per Antium è quella di un blocco termale articolato ma non smisurato, adiacente al lato settentrionale del complesso e funzionalmente collegato allo xystus tramite accessi laterali. In termini visivi, si può prevedere ambienti rettangolari con coperture più alte e massicce rispetto al portico, un cortile o spazio di distribuzione, e almeno una sala maggiore di destinazione incerta ma di tono rappresentativo.</p>
+
+    <p>Ciò che resta certo è il rapporto diretto tra xystus e terme; la forma esatta delle sale è invece una ricostruzione tipologica, non un dato scavato. La qualità documentata dal pavimento musivo indica però che il committente — o la comunità che volle il complesso — non badò a spese e intese offrire alla città alta un polo di aggregazione all'altezza del rango di Antium.</p>
+
+    <div class="card card-nota-critica">
+      <span class="card-title">⚑ Nota critica — Sulla ricostruzione delle terme</span>
+      <p>Ogni visualizzazione delle terme annesse allo xystus deve essere letta come <strong>ricostruzione tipologica</strong>. Le fonti antiche e moderne attestano con sicurezza l'esistenza di un vasto bagno termale a nord del complesso e di un pavimento a mosaico, ma non conservano una pianta dettagliata, né indicano con precisione il numero e la disposizione delle sale. Sono certi il <span class="termine">criptoportico</span>, le misure riportate da Lombardi (115 × 20,50 m), il vasto bagno termale e il rinvenimento della statua di Marco Aquilio. Sono invece ricostruttivi la forma esatta delle sale termali, l'alzato del colonnato e il dettaglio degli ambienti interni. Una restituzione grafica storicamente onesta deve adottare volumetrie plausibili per un bagno termale romano medio, evitando di presentare come certi elementi non documentati nello specifico ad Antium.</p>
+    </div>
+
+    <hr class="sez-divider">
+
+    <!-- ── MARCO AQUILIO ── -->
+    <h2>Marco Aquilio e il valore pubblico del sito</h2>
+
+    <p>Nel bagno termale annesso fu rinvenuta la statua del patrono della città, Marco Aquilio. Questo dettaglio, apparentemente secondario, rivela invece molto sulla natura del complesso. In età romana le terme, i portici e gli spazi di aggregazione urbana erano luoghi privilegiati per l'esposizione di statue onorarie, attraverso le quali la comunità celebrava i propri benefattori, patroni e notabili: una prassi documentata ampiamente nel mondo municipale italico e nelle città costiere del Lazio.</p>
+
+    <p>La presenza di Marco Aquilio nello spazio termale suggerisce perciò che il complesso non fosse un semplice impianto funzionale, ma anche un <strong>luogo di memoria civica e di rappresentazione sociale</strong>. Qui si intrecciavano l'esercizio del corpo, la conversazione, la passeggiata e la visibilità pubblica dei patroni cittadini: una sintesi perfetta dell'<em>otium</em> aristocratico romano nella sua forma urbana. Lo xystus con il suo annesso termale apparteneva dunque a pieno titolo al volto monumentale della città alta, dove portici, sale, terme e residenze componevano un ambiente raffinato, funzionale e fortemente identitario.</p>
+
+    <!-- ── NOTA CRITICA: NON ANFITEATRO ── -->
+    <div class="card card-nota-critica">
+      <span class="card-title">⚑ Nota critica — Non è un anfiteatro</span>
+      <p>Nessuna fonte accademica menziona un anfiteatro ad Antium. L'edificio semicircolare tra Villa Sarsina e Villa Albani è stato variamente interpretato come teatro, circo o xystus, ma mai come anfiteatro, che avrebbe richiesto una morfologia completamente diversa e strutture specifiche per spettatori e arena.</p>
+      <p>Cicerone attesta «ottimi combattimenti gladiatorii» ad Anzio, e Santamaria Scrinari ricorda che un liberto imperiale curò a sue spese la decorazione di una <em>porticus publica</em> con pitture raffiguranti in grandezza naturale gladiatori e ministri dei giochi. Questi dati suggeriscono al massimo la presenza di spazi pubblici decorati e di una viva cultura spettacolare, non l'esistenza di un anfiteatro nel punto dove Lombardi e Lugli collocano lo xystus. Del criptoportico descritto dal Lombardi «si vede solo un piccolo tratto, rintonacato e ridotto a cantina, presso la villa Serena» (Lugli, p. 174).</p>
+    </div>
+
+    <hr class="sez-divider">
+
+    <!-- ── CONTESTO URBANO ── -->
+    <h2>Un complesso coerente con la città di Antium</h2>
+
+    <p>La lettura dello xystus come polo ginnasiale-termale si inserisce bene nel quadro più ampio della topografia anziate. Il complesso non era un episodio marginale, ma un tassello del volto monumentale della città alta, dove portici, sale, terme, teatro e residenze componevano un ambiente raffinato e fortemente identitario. Antium, luogo di villeggiatura imperiale per eccellenza, aveva esigenze di rappresentanza e di benessere che richiedevano strutture adeguate: il complesso dello xystus risponde a questa logica con coerenza tipologica e qualità costruttiva.</p>
+
+    <p>La localizzazione è altrettanto significativa: l'edificio sorgeva nel punto in cui il cardine intersecava il decumano, cioè nel cuore della griglia urbana della città alta. Non si trattava di un impianto periferico, ma di una struttura pubblica collocata in posizione strategica, visibile e accessibile, integrata nel tessuto connettivo del pianoro volsco poi romano.</p>
+
+    <div class="card card-curiosita">
+      <span class="card-title">✦ Curiosità — Quattro impianti termali in una sola città</span>
+      <p>Il bagno termale annesso allo xystus non era il solo impianto della città. Antium disponeva in età imperiale di almeno <strong>quattro distinti complessi termali</strong>: le terme della villa imperiale (con il grandioso <span class="termine">calidarium</span> severiano su <span class="termine">suspensurae</span>), le terme della «villa del Semaforo» (servite dal Cisternone di Via Tripoli), le terme pubbliche sull'estremità orientale della città (restaurate nel 381–382 d.C. da Anicio Auchenio Basso) e appunto il vasto bagno termale annesso allo xystus tra le ville Mencacci e Albani. Una tale concentrazione non è casuale: riflette la natura di Antium come città di residenza, villeggiatura e rappresentanza, legata alla presenza imperiale e all'<em>otium</em> delle élite.</p>
+    </div>
+
+    <hr class="sez-divider">
+
+    <h2>Come poteva apparire il complesso</h2>
+
+    <p>Sulla base delle fonti storiche e dei paralleli architettonici, la ricostruzione più plausibile mostra un <strong>lungo corridoio rettilineo</strong> di circa 115 × 20,50 metri, con testata semicircolare, un portico colonnato lungo un lato, un alto muro con feritoie lungo l'altro e una pista centrale destinata alla corsa e agli esercizi ginnici.</p>
+
+    <p>Adiacente al lato nord si dispone il blocco termale, con sale intonacate, coperture in tegole, ambienti voltati e pavimentazioni musive, in proporzioni subordinate ma monumentali rispetto allo xystus. Questa restituzione è coerente con le misure tramandate da Lombardi, con l'interpretazione di Lugli e con la tipologia ginnasiale descritta da Vitruvio.</p>
+
+    <p>Resta però necessario distinguere tra dati attestati e parti dedotte: sono certi criptoportico, misure, vasto bagno termale e rinvenimento della statua; sono ricostruttive la forma esatta delle sale termali, l'alzato del colonnato e il dettaglio degli ambienti interni.</p>
+
+    <div class="card card-suggerimento">
+      <span class="card-title">◎ Didascalia per la ricostruzione grafica</span>
+      <p>Ricostruzione ipotetica dello xystus di Antium e del vasto bagno termale annesso, basata sulla descrizione di Francesco Lombardi (criptoportico di circa 115 × 20,50 m e bagno termale a mosaico) e sull'interpretazione di Giuseppe Lugli, che vi riconobbe «uno xystus, in forma di stadio», databile agli inizi del II secolo d.C.</p>
+    </div>
+
+    <!-- ── COLLOCAZIONE ── -->
+    <div class="collocazione">
+      <strong>Collocazione:</strong> Tra il Municipio (ex Villa Sarsina) e la struttura sanitaria (ex Villa Albani), lungo Via Roma, nel punto in cui il cardine intersecava il decumano. Quasi interamente sotto le costruzioni moderne. Del criptoportico descritto da Lombardi si vede solo un piccolo tratto, rintonacato e ridotto a cantina, presso la villa Serena. Non accessibile al pubblico.
+    </div>
+
+    <!-- ── BIBLIOGRAFIA ── -->
+    <div class="biblio">
+      <h2>Bibliografia</h2>
+      <p>Lugli G., «Saggio sulla Topografia dell'Antica Antium», <em>Rivista del R. Istituto d'Archeologia e Storia dell'Arte</em>, VII, Roma 1940, pp. 153–188 (pp. 173–176 per lo xystus e le terme)</p>
+      <p>— Lombardi F., <em>Anzio antico e moderno</em>, Roma, 1865</p>
+      <p>— Santamaria Scrinari V., «Anzio: Archeologia e Topografia», studio topografico-archeologico</p>
+      <p>— Vitruvio, <em>De Architectura</em>, libro V, cap. 11 (xystus, xysta, stadio nel ginnasio greco-romano)</p>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <p>
+        <strong>FAI — Fondo Ambiente Italiano &middot; Gruppo FAI Anzio-Nettuno</strong><br>
+        A cura di Riccardo Pau<br>
+        &copy; 2026 &middot; <a href="https://creativecommons.org/licenses/by/4.0/deed.it">CC BY 4.0</a>
+      </p>
+    </footer>
+
+  </div><!-- /.container -->
+
+  <script>
+    /* iOS WKWebView non supporta window.print() — nascondi il pulsante */
+    (function () {
+      var isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
+      var isWKWebView = isIOS && !navigator.userAgent.includes('Safari/');
+      if (isWKWebView) {
+        var btn = document.querySelector('.pdf-btn');
+        if (btn) btn.style.display = 'none';
+      }
+    })();
+  </script>
+</body>
+</html>

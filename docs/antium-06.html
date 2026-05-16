@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antium · 06 · I monumenti della città alta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    /* ── Livello 1: color-scheme ── */
+    html {
+      color-scheme: light !important;
+      background-color: #ffffff !important;
+    }
+
+    /* ── Livello 2: tutti gli elementi ── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      color-scheme: light !important;
+    }
+
+    /* ── Livello 3: body ── */
+    body {
+      background-color: #ffffff !important;
+      color: #1a1a1a !important;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.78;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    /* ── Intestazione documento ── */
+    .doc-header {
+      border-bottom: 2px solid #b8860b;
+      padding-bottom: 1.6rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .fai-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #9a7209;
+      margin: 0 0 0.4rem;
+    }
+
+    .doc-series {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #777;
+      letter-spacing: 0.04em;
+      margin: 0 0 1rem;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.45rem;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #1a1a1a;
+      margin: 0 0 0.65rem;
+    }
+
+    .doc-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: #555;
+      margin: 0 0 1.2rem;
+      line-height: 1.5;
+    }
+
+    /* ── Pulsante PDF ── */
+    .pdf-btn {
+      display: inline-block;
+      background-color: #9a7209;
+      color: #ffffff !important;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      padding: 0.48rem 1.25rem;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .pdf-btn:hover {
+      background-color: #7a5a07;
+    }
+
+    /* ── Tipografia ── */
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.78rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 2.6rem 0 0.8rem;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 1.8rem 0 0.5rem;
+    }
+
+    p {
+      margin: 0 0 1.25rem;
+      color: #1a1a1a;
+    }
+
+    strong { font-weight: 600; }
+    em     { font-style: italic; }
+
+    /* ── Classe .termine ── */
+    .termine {
+      font-family: 'DM Sans', sans-serif;
+      font-style: italic;
+      color: #9a7209;
+    }
+    .termine::before {
+      content: '\25C6\00A0';
+      color: #c9a84c;
+      font-style: normal;
+    }
+
+    /* ── Card componenti ── */
+    .card {
+      margin: 1.8rem 0;
+      padding: 1.1rem 1.4rem;
+      border-radius: 3px;
+    }
+    .card-curiosita {
+      border-left: 4px solid #b8860b;
+      background-color: #fffdf5;
+    }
+    .card-nota-critica {
+      border-left: 4px solid #a63d3d;
+      background-color: #fdf8f8;
+    }
+    .card-suggerimento {
+      border-left: 4px solid #4a7c59;
+      background-color: #f6fbf7;
+    }
+
+    .card-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.69rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      margin: 0 0 0.65rem;
+      display: block;
+    }
+    .card-curiosita   .card-title { color: #b8860b; }
+    .card-nota-critica .card-title { color: #a63d3d; }
+    .card-suggerimento .card-title { color: #4a7c59; }
+
+    .card p {
+      margin: 0 0 0.6rem;
+      font-size: 0.95rem;
+    }
+    .card p:last-child { margin-bottom: 0; }
+
+    /* ── Collocazione ── */
+    .collocazione {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: #555;
+      margin: 1.6rem 0;
+      padding: 0.85rem 1.1rem;
+      border-left: 3px solid #d5cabb;
+      background: #f9f8f4;
+      line-height: 1.6;
+    }
+    .collocazione strong { color: #1a1a1a; }
+
+    /* ── Separatore di sezione ── */
+    .sez-divider {
+      border: none;
+      border-top: 1px solid #e2d8c8;
+      margin: 2.6rem 0;
+    }
+
+    /* ── Tabella mappa ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin: 1.6rem 0;
+    }
+    th {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #777;
+      border-bottom: 2px solid #b8860b;
+      padding: 0.5rem 0.8rem;
+      text-align: left;
+    }
+    td {
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid #e8dece;
+      vertical-align: top;
+      color: #1a1a1a;
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* ── Bibliografia ── */
+    .biblio {
+      margin-top: 3rem;
+      padding-top: 1.6rem;
+      border-top: 2px solid #b8860b;
+    }
+    .biblio h2 {
+      font-size: 1.3rem;
+      margin: 0 0 1rem;
+    }
+    .biblio p {
+      font-size: 0.88rem;
+      color: #444;
+      margin: 0 0 0.35rem;
+      line-height: 1.55;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid #e2d8c8;
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      color: #999;
+      line-height: 1.7;
+    }
+    footer strong { color: #777; }
+    footer a { color: #9a7209; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.95rem; }
+      h2 { font-size: 1.5rem; }
+      .container { padding: 1.5rem 1rem 3rem; }
+      table { font-size: 0.82rem; }
+      th, td { padding: 0.45rem 0.5rem; }
+    }
+
+    @media print {
+      .pdf-btn { display: none !important; }
+      body { font-size: 14px; }
+      .container { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ── INTESTAZIONE ── -->
+    <header class="doc-header">
+      <p class="fai-label">FAI — Fondo Ambiente Italiano</p>
+      <h1>I monumenti della città alta</h1>
+      <p class="doc-subtitle">Il teatro romano, Villa Spigarelli e le terme pubbliche &mdash; la vita urbana di Antium dal pianoro di Santa Teresa al tardo impero</p>
+      <button class="pdf-btn" onclick="window.print()">Salva come PDF</button>
+    </header>
+
+    <!-- ── INTRO PIANORO ── -->
+    <h2>Il pianoro di Santa Teresa: una città sepolta</h2>
+
+    <p>Il quartiere di Santa Teresa di Anzio occupa il pianoro della città alta di Antium — il pianoro volsco e poi romano, delimitato dall'antico vallo. Sotto le costruzioni moderne giace una città: un teatro di piccolo formato, una villa repubblicana i cui mosaici sono ancora intatti sotto una dimora novecentesca, e le terme pubbliche che funzionavano ancora nel IV secolo d.C. Il grande complesso con <span class="termine">xystus</span> e terme annesse che sorgeva tra Via Roma e le ville Mencacci e Albani è trattato separatamente nella guida n. 09 di questa serie. Questa guida percorre i monumenti che emergono, o emergevano, nel restante tessuto urbano stratificato del pianoro.</p>
+
+    <hr class="sez-divider">
+
+    <!-- ── TEATRO ROMANO ── -->
+    <h2>Il Teatro Romano</h2>
+
+    <p>Il piccolo edificio per spettacoli fu scoperto e scavato alla fine degli anni Venti del Novecento, sul pianoro della città volsca. Lugli (1940, pp. 175–176) lo descrive come «un grazioso teatro [...] con un lungo colonnato dietro la scena», precisando che misurava <strong>30 m di diametro</strong>, con la cavea divisa in <strong>11 cunei</strong> tagliati a metà da un corridoio semicircolare coperto. Si accedeva alla cavea per un fornice centrale e due laterali; la scena era fornita di stanze sotterranee per gli attrezzi e di camere per gli attori. L'<span class="termine">opera mista</span> di reticolato e mattoni lo data alla <strong>seconda metà del I secolo d.C.</strong> Il portico posteriore (<em>porticus post scaenam</em>) aveva in origine 18 colonne, ridotte poi a 14 per la costruzione di due stanze agli estremi. L'ossatura muraria era rivestita di marmo, «dimostrando un particolare lusso e un uso limitato a pochi spettatori, ma di rango scelto».</p>
+
+    <div class="card card-nota-critica">
+      <span class="card-title">⚑ Nota critica — La cronologia del teatro: Lugli vs. scheda museale</span>
+      <p>La datazione del teatro presenta una <strong>divergenza tra le fonti</strong>. Lugli (1940) propone la seconda metà del I sec. d.C. sulla base della tecnica costruttiva in opera mista; la scheda ufficiale del Museo Civico Archeologico di Anzio assegna l'edificio genericamente al <strong>II sec. d.C.</strong> Le due datazioni non si escludono — l'edificio potrebbe essere stato avviato alla fine del I sec. e completato nei decenni successivi — ma in assenza di una pubblicazione monografica moderna la divergenza non è risolvibile con certezza. In questa guida si segue la datazione di Lugli come riferimento più analitico.</p>
+      <p>Il Museo Civico Archeologico precisa che interventi di restauro si datano al secondo conflitto mondiale e agli anni Cinquanta. L'area del palco (<em>proscenium</em>) è a fossa, con spazio per macchine teatrali e sipari.</p>
+    </div>
+
+    <div class="card card-curiosita">
+      <span class="card-title">✦ Curiosità — La cavea guarda a ovest</span>
+      <p>La cavea del teatro è rivolta verso ovest, verso il mare aperto. La scelta non è casuale: consentiva l'illuminazione del sole mattutino durante gli spettacoli, seguendo le indicazioni vitruviane, e offriva agli spettatori il panorama della costa come sfondo naturale della scena — un espediente che Lugli collega alle <em>diaetae</em> delle ville romane, «composte di terrazze in parte scoperte e in parte coperte, con portici e fontane, nelle quali si viveva all'aria libera, godendo la vista di un ampio panorama».</p>
+    </div>
+
+    <div class="collocazione">
+      <strong>Collocazione:</strong> Piazzale del Teatro Romano, quartiere Santa Teresa. Visitabile tramite il Museo Civico Archeologico di Anzio.
+    </div>
+
+    <hr class="sez-divider">
+
+    <!-- ── VILLA SPIGARELLI ── -->
+    <h2>Villa Spigarelli — la villa repubblicana sotto una dimora moderna</h2>
+
+    <p>A poca distanza dal teatro, nella stessa area di Santa Teresa, sorge la <strong>Villa Spigarelli</strong>, una delle testimonianze più singolari dell'archeologia anziate. La villa moderna, costruita nei primi anni del Novecento, fu «disegnata in base alla pianta antica» e il suo impianto coincide esattamente con quello della villa romana sottostante, di cui ha conservato corridoi, stanze, e «integri i pregevoli pavimenti in mosaico, per lo più a disegni geometrici in bianco e nero» (Lugli, p. 175).</p>
+
+    <p>Le fasi costruttive documentano l'intera storia della città: Lugli vi riconosce un edificio «iniziato verso la fine della Repubblica (opera reticolata a piccoli elementi) e più volte ampliato fino ai tardi tempi dell'Impero» con un piccolo atrio con impluvio, un triclinio invernale con pitture, un <span class="termine">criptoportico</span> e ambienti sostruttivi. La fase tardo-imperiale (fine IV sec. d.C.) ha restituito una sala rettangolare pavimentata a mosaico di marmi pregiati, con volta a botte alta cinque metri e un grazioso <span class="termine">termopolio</span> (bancone per bevande calde) decorato di intonaco dipinto.</p>
+
+    <div class="card card-curiosita">
+      <span class="card-title">✦ Curiosità — Gli affreschi nascosti della scala</span>
+      <p>Santamaria Scrinari descrive pareti «graziosamente dipinte a monocromo avana con decorazioni naturalistiche stilizzate» raffiguranti fiori, uccelli, figure e amorini nella scala che scende al livello inferiore. Nell'angolo del cortile sopravvivono «accenni di zone rossastre» di intonaco antico. Questi frammenti pittorici, databili alla fine del IV secolo d.C., sono tra le ultime testimonianze della decorazione murale tardo-antica nel territorio anziate.</p>
+    </div>
+
+    <p>Al suo interno è conservata una <strong>statuetta della Fortuna Anziate</strong>: «una statuetta femminile seduta, scolpita in marmo [...] appoggiata al lato destro del trono si vede la pala di un timone che la dea reggeva con la destra» (Lugli, p. 173).</p>
+
+    <div class="collocazione">
+      <strong>Collocazione:</strong> Viale delle Mimose / Viale Coriolano, Santa Teresa. Proprietà privata; accesso limitato a visite organizzate.
+    </div>
+
+    <hr class="sez-divider">
+
+    <!-- ── TERME PUBBLICHE ── -->
+    <h2>Le Terme pubbliche</h2>
+
+    <p>Le terme pubbliche di Antium sono documentate da una <strong>grande epigrafe</strong> (CIL X, 6656) che attesta il loro restauro <strong>tra il 381 e il 382 d.C.</strong>, compiuto dal proconsole della Campania <strong>Anicio Auchenio Basso</strong> sotto gli imperatori Graziano, Valentiniano e Teodosio. L'iscrizione, oggi conservata ai Musei Capitolini, è stata oggetto di uno studio recente (Gazzoli 2025) che ha precisato il proconsolato di Basso e ha interpretato l'intervento come azione edilizia connessa alla carica pubblica, non come pura evergesia privata.</p>
+
+    <p>Il restauro dimostra che Antium era ancora «fiorente nel tardo impero» (Lugli, p. 154). Le terme erano probabilmente «verso l'estremità orientale della città come attesta il ritrovamento della grande epigrafe e di ambienti termali nell'area delle proprietà Pamphili e Cesi» — area che corrisponde oggi alla zona di Villa Adele e dintorni.</p>
+
+    <div class="card card-curiosita">
+      <span class="card-title">✦ Curiosità — Quattro impianti termali in una sola città</span>
+      <p>Le terme pubbliche di Antium non vanno confuse con gli impianti termali privati: le terme della villa imperiale (con il grandioso <span class="termine">calidarium</span> severiano su <span class="termine">suspensurae</span>), le terme della «villa del Semaforo» (servite dal Cisternone di Via Tripoli), e il «vasto bagno termale» annesso allo xystus tra le ville Mencacci e Albani (trattato nella guida n. 09). Una città come Antium, luogo di villeggiatura imperiale, aveva dunque almeno quattro distinti impianti termali attivi contemporaneamente in età imperiale.</p>
+    </div>
+
+    <div class="collocazione">
+      <strong>Collocazione:</strong> Area di Villa Adele (sede del Museo Civico Archeologico) e proprietà limitrofe verso est. Non restano strutture visibili — sono sotto le costruzioni moderne.
+    </div>
+
+    <hr class="sez-divider">
+
+    <!-- ── MAPPA SINTETICA ── -->
+    <h2>Mappa sintetica dei monumenti della città alta</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Monumento</th>
+          <th>Datazione</th>
+          <th>Collocazione attuale</th>
+          <th>Visitabile?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Teatro Romano</td>
+          <td>Seconda metà I sec. d.C.</td>
+          <td>Piazzale del Teatro Romano, S. Teresa</td>
+          <td>Sì (Museo Civico)</td>
+        </tr>
+        <tr>
+          <td>Villa Spigarelli</td>
+          <td>Fine Repubblica – IV sec. d.C.</td>
+          <td>Viale delle Mimose / Viale Coriolano</td>
+          <td>Visite organizzate</td>
+        </tr>
+        <tr>
+          <td>Terme pubbliche</td>
+          <td>Restauro 381–382 d.C.</td>
+          <td>Area Villa Adele</td>
+          <td>No (sotto edifici)</td>
+        </tr>
+        <tr>
+          <td><em>Xystus e terme annesse</em></td>
+          <td><em>Inizi II sec. d.C.</em></td>
+          <td><em>Via Roma, tra ex Villa Sarsina e ex Villa Albani — v. guida n. 09</em></td>
+          <td><em>No (sotto edifici)</em></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ── BIBLIOGRAFIA ── -->
+    <div class="biblio">
+      <h2>Bibliografia</h2>
+      <p>Lugli G., «Saggio sulla Topografia dell'Antica Antium», <em>Rivista del R. Istituto d'Archeologia e Storia dell'Arte</em>, VII, Roma 1940, pp. 153–188 (pp. 173–176 per teatro e Villa Spigarelli)</p>
+      <p>— Santamaria Scrinari V., «Anzio: Archeologia e Topografia», studio topografico-archeologico</p>
+      <p>— Gazzoli S., «Anicius Auchenius Bassus, il restauro delle terme di Anzio e la politica edilizia nella seconda metà del IV secolo d.C.», <em>Annali della Scuola Normale Superiore di Pisa</em>, s. 5, 17/2, 2025, pp. 281–308</p>
+      <p>— <em>Corpus Inscriptionum Latinarum</em>, vol. X, pars I, Berlino 1883, n. 6656 (iscrizione terme)</p>
+      <p>— Museo Civico Archeologico di Anzio, scheda istituzionale: Teatro Romano</p>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <p>
+        <strong>FAI — Fondo Ambiente Italiano &middot; Gruppo FAI Anzio-Nettuno</strong><br>
+        A cura di Riccardo Pau<br>
+        &copy; 2026 &middot; <a href="https://creativecommons.org/licenses/by/4.0/deed.it">CC BY 4.0</a>
+      </p>
+    </footer>
+
+  </div><!-- /.container -->
+
+  <script>
+    /* iOS WKWebView non supporta window.print() — nascondi il pulsante */
+    (function () {
+      var isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
+      var isWKWebView = isIOS && !navigator.userAgent.includes('Safari/');
+      if (isWKWebView) {
+        var btn = document.querySelector('.pdf-btn');
+        if (btn) btn.style.display = 'none';
+      }
+    })();
+  </script>
+</body>
+</html>
