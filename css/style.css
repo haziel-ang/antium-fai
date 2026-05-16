@@ -5030,3 +5030,15 @@ mark.search-hit.is-current {
   line-height: 1.75;
   margin: 0 0 var(--sp-4);
 }
+
+.intro-section .intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.8fr);
+  gap: var(--sp-8);
+  align-items: start;
+  margin-top: var(--sp-6);
+}
+.intro-section .intro-body { margin: 0; }
+@media (max-width: 860px) {
+  .intro-section .intro-grid { grid-template-columns: 1fr; }
+}
