@@ -1697,7 +1697,25 @@ mark.search-hit.is-current {
 }
 
 /* ── ANTIUM EDITORIAL LAYOUT ───────────────────────────── */
-.intro-section { padding-top: var(--sp-10); }
+.intro-section {
+  position: relative;
+  padding-top: var(--sp-10);
+  background-color: rgba(251,248,241,0.94);
+  background-image:
+    /* Mappa stilizzata — percorso costiero e strade */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 800' preserveAspectRatio='xMidYMid slice'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M-100 680 C150 660 300 600 450 550 S750 470 950 420 S1300 340 1500 290' stroke='%23C8471A' stroke-width='1.4' stroke-opacity='0.13' stroke-dasharray='10 7 3 7'/%3E%3Cpath d='M50 780 C250 740 400 690 550 640 S850 560 1050 510 S1400 430 1600 380' stroke='%2324332E' stroke-width='0.9' stroke-opacity='0.09' stroke-dasharray='5 12'/%3E%3Cpath d='M250 250 Q450 210 650 240 T1050 200 T1450 170' stroke='%2324332E' stroke-width='0.6' stroke-opacity='0.06'/%3E%3Ccircle cx='450' cy='550' r='4' fill='%23C8471A' fill-opacity='0.14'/%3E%3Ccircle cx='750' cy='470' r='3' fill='%23C8471A' fill-opacity='0.11'/%3E%3Ccircle cx='950' cy='420' r='4' fill='%23C8471A' fill-opacity='0.14'/%3E%3Ccircle cx='1300' cy='340' r='3' fill='%23C8471A' fill-opacity='0.11'/%3E%3C/g%3E%3C/svg%3E"),
+    /* Griglia cartografica antica */
+    linear-gradient(rgba(104,116,91,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(104,116,91,0.035) 1px, transparent 1px),
+    /* Texture carta invecchiata */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.50 0 0 0 0 0.40 0 0 0 0 0.25 0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    /* Luci e ombre atmosferiche */
+    radial-gradient(ellipse at 18% 82%, rgba(200,71,26,0.065), transparent 55%),
+    radial-gradient(ellipse at 82% 18%, rgba(36,51,46,0.045), transparent 50%),
+    linear-gradient(165deg, rgba(255,255,255,0.48), rgba(240,232,218,0.32));
+  background-size: cover, 70px 70px, 70px 70px, 200px 200px, 100% 100%, 100% 100%, 100% 100%;
+  background-position: center, center, center, center, center, center, center;
+}
 
 /* Riduce il distacco tra hero e prima sezione nelle pagine di dettaglio */
 .section-page-content {
