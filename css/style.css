@@ -168,13 +168,12 @@ a:hover { color: var(--fai-orange); }
 .site-brandband-inner {
   max-width: var(--content-wide);
   margin-inline: auto;
-  padding: 5px var(--sp-6);
+  padding: 4px var(--sp-6);
   display: grid;
-  grid-template-columns: clamp(190px, 20vw, 330px) minmax(0, 1fr) minmax(180px, 260px);
+  grid-template-columns: clamp(120px, 14vw, 200px) minmax(0, 1fr) minmax(160px, 220px);
   align-items: center;
-  gap: var(--sp-6);
+  gap: var(--sp-4);
   min-height: auto;
-  transition: min-height var(--transition), padding var(--transition), gap var(--transition);
 }
 .brand-logo {
   display: block;
@@ -183,25 +182,23 @@ a:hover { color: var(--fai-orange); }
 }
 .brand-logo img {
   display: block;
-  width: clamp(180px, 18vw, 320px);
+  width: clamp(120px, 14vw, 200px);
   max-width: 100%;
   height: auto;
-  max-height: clamp(120px, 13vw, 170px);
+  max-height: 72px;
   object-fit: contain;
-  filter: drop-shadow(0 3px 8px rgba(60,30,10,0.18));
-  transition: width var(--transition), max-height var(--transition), filter var(--transition);
+  filter: drop-shadow(0 2px 5px rgba(60,30,10,0.14));
 }
 .brand-title { text-align: center; }
 .brand-name {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-size: clamp(1.8rem, 3.8vw, 2.8rem);
   line-height: 1;
   color: var(--fai-brown);
-  letter-spacing: 0.18em;
-  text-indent: 0.18em;
-  transition: font-size var(--transition), letter-spacing var(--transition);
+  letter-spacing: 0.14em;
+  text-indent: 0.14em;
 }
 .brand-name .brand-v {
   font-style: normal;
@@ -211,19 +208,18 @@ a:hover { color: var(--fai-orange); }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin: 12px auto 8px;
-  max-width: 480px;
-  transition: margin var(--transition), max-width var(--transition);
+  gap: 8px;
+  margin: 6px auto 4px;
+  max-width: 320px;
 }
 .brand-divider .brand-line {
   flex: 1 1 auto;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--fai-bordeaux) 30%, var(--fai-bordeaux) 70%, transparent);
-  opacity: 0.65;
+  opacity: 0.55;
 }
 .brand-divider .brand-diamond {
-  width: 8px; height: 8px;
+  width: 6px; height: 6px;
   transform: rotate(45deg);
   background: var(--fai-bordeaux);
   flex-shrink: 0;
@@ -231,36 +227,11 @@ a:hover { color: var(--fai-orange); }
 .brand-tagline {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
-  letter-spacing: 0.32em;
+  font-size: clamp(0.72rem, 0.9vw, 0.82rem);
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--fai-brown);
   font-weight: 500;
-  transition: font-size var(--transition), letter-spacing var(--transition), opacity var(--transition);
-}
-
-.site-header.scrolled .site-brandband-inner {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  min-height: auto;
-  gap: var(--sp-4);
-}
-.site-header.scrolled .brand-logo img {
-  width: clamp(132px, 11vw, 190px);
-  max-height: 82px;
-  filter: drop-shadow(0 2px 5px rgba(60,30,10,0.14));
-}
-.site-header.scrolled .brand-name {
-  font-size: clamp(2rem, 3.8vw, 3.1rem);
-  letter-spacing: 0.14em;
-}
-.site-header.scrolled .brand-divider {
-  margin: 6px auto 4px;
-  max-width: 360px;
-}
-.site-header.scrolled .brand-tagline {
-  font-size: 0.78rem;
-  letter-spacing: 0.24em;
 }
 
 .brand-search {
@@ -269,37 +240,39 @@ a:hover { color: var(--fai-orange); }
   align-items: center;
   justify-self: end;
   width: 100%;
-  max-width: 260px;
-  border-bottom: 1px solid var(--fai-brown);
+  max-width: 220px;
+  border-bottom: 1px solid rgba(90,26,23,0.35);
 }
 .brand-search input {
   flex: 1 1 auto;
   background: transparent;
   border: 0;
   outline: none;
-  padding: 8px 30px 8px 4px;
+  padding: 5px 26px 5px 4px;
   font-family: var(--font-body);
-  font-size: var(--text-sm);
+  font-size: clamp(0.78rem, 0.85vw, 0.88rem);
   color: var(--fai-brown);
-  font-style: italic;
+  font-style: normal;
+  font-weight: 400;
 }
 .brand-search input::placeholder {
-  color: rgba(60,30,10,0.55);
-  font-style: italic;
+  color: rgba(60,30,10,0.45);
+  font-style: normal;
+  font-weight: 400;
 }
 .brand-search button[type="submit"] {
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 28px; height: 28px;
+  width: 24px; height: 24px;
   display: grid;
   place-items: center;
-  color: var(--fai-brown);
+  color: rgba(90,26,23,0.55);
   transition: color 0.2s ease;
 }
 .brand-search button[type="submit"]:hover { color: var(--fai-orange); }
-.brand-search button[type="submit"] svg { width: 18px; height: 18px; }
+.brand-search button[type="submit"] svg { width: 15px; height: 15px; }
 .brand-search-status {
   position: absolute;
   top: calc(100% + 6px);
@@ -431,13 +404,7 @@ a:hover { color: var(--fai-orange); }
 .menu-link.active,
 .menu-link[aria-current="page"] { color: #fdf6e3; }
 
-.site-header.scrolled .site-menubar-inner { min-height: 26px; }
-.site-header.scrolled .menu-link {
-  padding-inline: var(--sp-3);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-}
-.site-header.scrolled .menu-link::after { bottom: 5px; }
+/* Header fisso: nessuna transizione di dimensione allo scroll */
 
 .nav-menu-btn {
   display: none;
@@ -579,12 +546,11 @@ a:hover { color: var(--fai-orange); }
     outline: none;
   }
 
-  /* In mobile/tablet l'header NON si rimpicciolisce allo scroll
-     (logo e titolo si sovrapporrebbero) */
+  /* In mobile/tablet l'header NON si rimpicciolisce allo scroll */
   .site-header.scrolled .site-brandband-inner {
-    padding-top: 6px;
-    padding-bottom: 6px;
-    min-height: 96px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    min-height: auto;
     gap: 0;
   }
   .site-header.scrolled .brand-logo img {
@@ -597,7 +563,7 @@ a:hover { color: var(--fai-orange); }
     letter-spacing: 0.10em;
   }
   .site-header.scrolled .brand-divider {
-    margin: 6px auto 5px;
+    margin: 6px auto 4px;
     max-width: clamp(180px, 30vw, 280px);
   }
   .site-header.scrolled .brand-tagline {
@@ -609,8 +575,8 @@ a:hover { color: var(--fai-orange); }
 /* Mobile compatto (≤ 480px): logo più piccolo, titolo più ridotto */
 @media (max-width: 480px) {
   .site-brandband-inner {
-    min-height: 84px;
-    padding: 6px 56px;
+    min-height: auto;
+    padding: 4px 56px;
   }
   .brand-logo img {
     width: clamp(54px, 16vw, 76px);
@@ -623,7 +589,9 @@ a:hover { color: var(--fai-orange); }
   .brand-tagline { font-size: 9px; letter-spacing: 0.13em; }
   .brand-divider { max-width: 180px; margin: 4px auto 3px; }
   .site-header.scrolled .site-brandband-inner {
-    min-height: 84px;
+    min-height: auto;
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
   .site-header.scrolled .brand-logo img {
     width: clamp(54px, 16vw, 76px);
