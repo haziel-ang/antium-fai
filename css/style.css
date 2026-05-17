@@ -4852,7 +4852,7 @@ mark.search-hit.is-current {
 }
 
 /* ============================================================
-   FORMATI SECTION — Tre vie per scoprire Antium (Web / PDF / Podcast)
+   FORMATI SECTION ï¿½ Tre vie per scoprire Antium (Web / PDF / Podcast)
    ============================================================ */
 .section--paper {
   background: linear-gradient(180deg, #fbf5e9 0%, #f6edda 100%);
@@ -4921,7 +4921,7 @@ mark.search-hit.is-current {
 }
 
 /* ============================================================
-   RICHIAMI SECTION — Nove porte verso le sezioni
+   RICHIAMI SECTION ï¿½ Nove porte verso le sezioni
    ============================================================ */
 .richiami-section { padding-block: var(--sp-16); }
 .richiami-grid {
@@ -5025,10 +5025,17 @@ mark.search-hit.is-current {
   margin: 0 0 var(--sp-8);
 }
 .intro-body p {
-  font-size: clamp(1.05rem, 1vw + .85rem, 1.25rem);
+  font-size: clamp(0.95rem, 0.5vw + 0.85rem, 1.1rem);
   color: var(--text-body);
-  line-height: 1.75;
+  line-height: 1.7;
   margin: 0 0 var(--sp-4);
+}
+
+@media (max-width: 480px) {
+  .intro-body p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
 }
 
 .intro-section .intro-grid {
