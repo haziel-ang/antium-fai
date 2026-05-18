@@ -989,8 +989,8 @@ document.addEventListener('DOMContentLoaded', () => {
       rows: [
         {
           element: 'Hero — Fanciulla di Anzio, Palazzo Massimo alle Terme',
-          author: 'Miguel Hermoso Cuesta · Wikimedia Commons',
-          note: 'Fotografia CC BY-SA 4.0.'
+          author: 'Museo Nazionale Romano · Palazzo Massimo alle Terme',
+          note: 'Etichetta BCS (Beni Culturali Standard, MiC) — riuso libero per studio, editoria e valorizzazione.'
         },
         {
           element: 'Fanciulla di Anzio — figura nel box',
