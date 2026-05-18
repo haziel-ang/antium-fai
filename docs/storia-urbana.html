@@ -3,124 +3,500 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
 <title>Volsci, Cicerone e i culti di Antium</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
 <style>
-html { color-scheme: light; background:#fff; }
-* { box-sizing: border-box; }
-body { background:#fff; color:#1a1a1a; font-family:'DM Sans',sans-serif; font-size:17px; line-height:1.78; margin:0; padding:0; -webkit-font-smoothing:antialiased; }
-.container { max-width:780px; margin:0 auto; padding:2.5rem 1.5rem 5rem; }
-.doc-header { border-bottom:2px solid #b8860b; padding-bottom:1.6rem; margin-bottom:2.5rem; }
-h1 { font-family:'Cormorant Garamond',serif; font-size:2.45rem; font-weight:700; line-height:1.15; color:#1a1a1a; margin:0 0 0.65rem; }
-.doc-subtitle { font-family:'DM Sans',sans-serif; font-size:0.95rem; color:#555; margin:0; line-height:1.5; }
-h2 { font-family:'Cormorant Garamond',serif; font-size:1.78rem; font-weight:700; color:#1a1a1a; margin:2.6rem 0 0.8rem; line-height:1.2; }
-h3 { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:600; color:#1a1a1a; margin:1.8rem 0 0.5rem; }
-p { margin:0 0 1.25rem; color:#1a1a1a; }
-strong { font-weight:600; } em { font-style:italic; }
-.termine { font-family:'DM Sans',sans-serif; font-style:italic; color:#9a7209; }
-.termine::before { content:'\25C6\00A0'; color:#c9a84c; font-style:normal; }
-.card { margin:1.8rem 0; padding:1.1rem 1.4rem; border-radius:3px; }
-.card-curiosita { border-left:4px solid #b8860b; background:#fffdf5; }
-.card-nota-critica { border-left:4px solid #a63d3d; background:#fdf8f8; }
-.card-suggerimento { border-left:4px solid #4a7c59; background:#f6fbf7; }
-.card-title { font-family:'DM Sans',sans-serif; font-size:0.69rem; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; margin:0 0 0.65rem; display:block; }
-.card-curiosita .card-title { color:#b8860b; }
-.card-nota-critica .card-title { color:#a63d3d; }
-.card-suggerimento .card-title { color:#4a7c59; }
-.card p { margin:0 0 0.6rem; font-size:0.95rem; } .card p:last-child { margin-bottom:0; }
-.collocazione { font-family:'DM Sans',sans-serif; font-size:0.9rem; color:#555; margin:1.6rem 0; padding:0.85rem 1.1rem; border-left:3px solid #d5cabb; background:#f9f8f4; line-height:1.6; }
-.collocazione strong { color:#1a1a1a; }
-.sez-divider { border:none; border-top:1px solid #e2d8c8; margin:2.6rem 0; }
-.biblio { margin-top:3rem; padding-top:1.6rem; border-top:2px solid #b8860b; }
-.biblio h2 { font-size:1.3rem; margin:0 0 1rem; }
-.biblio p { font-size:0.88rem; color:#444; margin:0 0 0.35rem; line-height:1.55; }
-footer { margin-top:3rem; padding-top:1.4rem; border-top:1px solid #e2d8c8; text-align:center; font-family:'DM Sans',sans-serif; font-size:0.78rem; color:#999; line-height:1.7; }
-footer strong { color:#777; } footer a { color:#9a7209; text-decoration:none; }
-@page { size: A4; margin: 14mm 16mm; }
-@media print {
-	body { font-size: 14px; line-height: 1.64; }
-	.container { max-width: none; width: 100%; padding: 0; }
-	.doc-header, h1, h2, h3, .card, .collocazione { break-inside: avoid; }
-	h1, h2, h3 { break-after: avoid; page-break-after: avoid; overflow-wrap: normal; word-break: normal; hyphens: manual; }
-	h1 { font-size: 1.95rem; }
-	h2 { font-size: 1.18rem; line-height: 1.14; margin: 1.7rem 0 0.54rem; }
-	h3 { font-size: 1.22rem; }
-	p { orphans: 3; widows: 3; }
-}
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --bg: #ffffff;
+    --text: #2d2a26;
+    --accent-gold: #9a7209;
+    --accent-gold-light: #c9a84c;
+    --accent-green: #4a7c59;
+    --accent-red: #a63d3d;
+    --border: #e0d8cc;
+    --card-bg: #faf8f4;
+    --max-width: 780px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #ffffff !important;
+    color: #2d2a26 !important;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.82;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+    background: #ffffff !important;
+    color: #2d2a26 !important;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.22;
+    color: #2d2a26 !important;
+    padding-bottom: 1.4rem;
+    border-bottom: 2px solid var(--accent-gold-light);
+    margin-bottom: 2rem;
+  }
+
+  .sottotitolo {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #6b6560;
+    line-height: 1.5;
+    margin-top: 0.4rem;
+    margin-bottom: 0;
+  }
+
+  /* SEZIONI */
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem;
+    font-weight: 600;
+    color: #2d2a26 !important;
+    margin: 2.4rem 0 0.8rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--border);
+  }
+
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #2d2a26 !important;
+    margin: 1.6rem 0 0.5rem;
+  }
+
+  p { margin-bottom: 1rem; }
+
+  /* TERMINE */
+  .termine {
+    font-family: 'DM Sans', sans-serif;
+    font-style: italic;
+    color: #9a7209 !important;
+  }
+  .termine::before {
+    content: '◆ ';
+    color: #c9a84c;
+    font-size: 0.45em;
+    vertical-align: middle;
+  }
+
+  /* CARD BASE */
+  .card {
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    margin: 1.4rem 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    background: var(--card-bg) !important;
+  }
+  .card-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  /* CURIOSITÀ */
+  .curiosita {
+    border-left: 4px solid #b8860b;
+  }
+  .curiosita .card-label { color: #b8860b !important; }
+
+  /* SUGGERIMENTO */
+  .suggerimento {
+    border-left: 4px solid #4a7c59;
+  }
+  .suggerimento .card-label { color: #4a7c59 !important; }
+
+  /* NOTA CRITICA */
+  .nota-critica {
+    border-left: 4px solid #a63d3d;
+  }
+  .nota-critica .card-label { color: #a63d3d !important; }
+
+  /* FONTE VULPIO — nuova card tipo citazione */
+  .fonte-vulpio {
+    border-left: 4px solid var(--accent-gold);
+    background: #fdf9f0 !important;
+  }
+  .fonte-vulpio .card-label { color: var(--accent-gold) !important; }
+  .fonte-vulpio blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.97rem;
+    color: #4a3f28 !important;
+    border: none;
+    padding: 0;
+    margin: 0.4rem 0 0;
+  }
+
+  /* ISCRIZIONE LAPIDARIA */
+  .iscrizione {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    background: #f5f0e8 !important;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin: 0.8rem 0;
+    color: #2d2a26 !important;
+  }
+
+  /* TABELLA CRONOLOGICA */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin: 1.2rem 0;
+  }
+  th {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-gold) !important;
+    border-bottom: 2px solid var(--border);
+    padding: 0.5rem 0.6rem;
+    text-align: left;
+    background: transparent !important;
+  }
+  td {
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px dotted var(--border);
+    vertical-align: top;
+    color: #2d2a26 !important;
+    background: transparent !important;
+  }
+  tr:last-child td { border-bottom: none; }
+
+  /* BIBLIOGR */
+  .bibliography {
+    margin-top: 2.8rem;
+    padding-top: 1.4rem;
+    border-top: 2px solid var(--border);
+  }
+  .bibliography h2 {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .bibliography ul {
+    list-style: none;
+    padding-left: 1rem;
+  }
+  .bibliography li {
+    font-size: 0.87rem;
+    margin-bottom: 0.35rem;
+    color: #4a4540 !important;
+  }
+  .bibliography li::before {
+    content: '—';
+    color: #c9a84c;
+    margin-right: 0.5em;
+    margin-left: -1rem;
+  }
+  .bibliography .separatore {
+    border: none;
+    border-top: 1px dotted var(--border);
+    margin: 0.6rem 0;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #8c8480 !important;
+    text-align: center;
+    gap: 0.3rem;
+  }
+  footer a {
+    color: var(--accent-gold) !important;
+    text-decoration: none;
+  }
+
+
 </style>
 </head>
 <body>
-<div class="container">
-<header class="doc-header">
-<h1><strong>Volsci, Cicerone e i culti di Antium</strong></h1>
-<p class="doc-subtitle"><em>L&#x27;occupazione volsca, Coriolano, la conquista romana, Cicerone librario, il culto della Fortuna, i Rostri nel Foro — la storia urbana di Antium in dodici secoli di fonti scritte</em></p>
-</header>
 
-<h2><strong>Il nome di Antium: le tradizioni divergenti</strong></h2>
-<p>La denominazione <em>Antium</em> per la città antica è oggetto di tradizioni divergenti. Lo storico antico Xenagora, citato da Dionigi di Alicarnasso (I, 72, 5), la attribuiva alla fondazione da parte di Anteia, figlio di Ulisse e della maga Circe. Un&#x27;altra tradizione la riconduce ad Ascanio, figlio di Enea. Una terza interpretazione la connette al latino <em>antrum</em> (caverna), forse per la presenza di ripari rupestri usati nei primordi dell&#x27;insediamento.</p>
-<div class="card card-curiosita">
-<span class="card-title">✦ Curiosità — L E TRE CITTÀ FIGLIE D I CIRCE</span>
-<p>Secondo la tradizione riportata da Xenagora, Odisseo e Circe ebbero tre figli — Romo, Anteia e Ardeia — che fondarono rispettivamente Roma, Antium e Ardea.</p>
-<p>Questa genealogia mitica, alternativa a quella esiodea (che nomina Agrio, Latino e Telegono), legava le tre principali comunità del Lazio costiero in un&#x27;unica saga odisseica, facendo di Antium una città «sorella» della stessa Roma.</p>
+<h1>Volsci, Cicerone e i culti di Antium</h1>
+<p class="sottotitolo">L'occupazione volsca, Coriolano, la conquista romana, Cicerone librario, il culto della Fortuna, i Rostri nel Foro — la storia urbana di Antium in dodici secoli di fonti scritte</p>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>Il nome di Antium: le tradizioni divergenti</h2>
+
+<p>La denominazione <span class="termine">Antium</span> per la città antica è oggetto di tradizioni divergenti. Lo storico antico Xenagora, citato da Dionigi di Alicarnasso (<em>I, 72, 5</em>), la attribuiva alla fondazione da parte di Anteia, figlio di Ulisse e della maga Circe. Un'altra tradizione la riconduce ad Ascanio, figlio di Enea. Una terza interpretazione la connette al latino <em>antrum</em> (caverna), forse per la presenza di ripari rupestri usati nei primordi dell'insediamento.</p>
+
+<div class="card curiosita">
+  <div class="card-label">✦ Curiosità — Le tre città figlie di Circe</div>
+  <p>Secondo la tradizione riportata da Xenagora, Odisseo e Circe ebbero tre figli — Romo, Anteia e Ardeia — che fondarono rispettivamente Roma, Antium e Ardea. Questa genealogia mitica, alternativa a quella esiodea (che nomina Agrio, Latino e Telegono), legava le tre principali comunità del Lazio costiero in un'unica saga odisseica, facendo di Antium una città «sorella» della stessa Roma.</p>
 </div>
-<h2><strong>L&#x27;occupazione volsca di Antium</strong></h2>
-<p>I Volsci erano un antico popolo italico di ceppo osco-umbro, stanziato in un&#x27;ampia zona del Lazio meridionale. La tradizione antica li descrive come aggressivi e «più bellicosi nel ribellarsi che nel condurre una guerra» (Tito Livio). Tra la fine del VI e gli inizi del V sec. a.C., occuparono i centri latini di Velletri (<em>Velitrae</em>), Suessa Pometia, Satrico e Anzio, trasformando Antium in <em>caput</em> <em>Volscorum</em> (la loro capitale). L&#x27;economia era incentrata sulla navigazione e sulla pirateria «praticata fino al Mar Egeo»; il porto <em>Caenon</em> (da <em>kainón</em>, «nuovo» o «sporco»), citato da Livio (II, 63) e da Dionigi (IX, 56), era il punto di partenza delle scorrerie.</p>
-<h2><strong>Coriolano, Attio Tullio e le guerre con Roma (489–338 a.C.)</strong></h2>
-<p>I conflitti tra i Volsci anziati e Roma durarono circa un secolo e mezzo (V–IV sec. a.C.). L&#x27;episodio più celebre è la saga di Coriolano: l&#x27;esule romano Caio Marzio Coriolano si rifugiò ad Anzio presso il nobile anziate Attio Tullio, convincendolo a muovere guerra a Roma fino a minacciarla direttamente (489–488 a.C.). Secondo Plutarco e Dionigi di Alicarnasso, Coriolano fu infine processato e ucciso nel foro di Anzio per ordine dello stesso Attio Tullio, che lo accusava di aver rinunciato a combattere dopo l&#x27;intervento delle matrone romane guidate dalla madre Veturia.</p>
-<div class="card card-nota-critica">
-<span class="card-title">⚑ Nota critica — CORIOLANO: STORIA O L E G G E N DA? NOTA CRITICA — CORIOLANO: STORIA O LEGGENDA?</span>
-<p>Secondo parte della moderna storiografia, Coriolano potrebbe essere un personaggio leggendario, creato per giustificare le sconfitte dei Romani. Il suo nome non compare nei fasti consolari; lo stesso Dionigi di Alicarnasso (VIII, 62) attesta che ai suoi tempi Coriolano era celebrato nei <em>canti dei Volsci</em>, suggerendo un&#x27;origine popolare della leggenda. La Treccani (<em>Enciclopedia Italiana</em>) definisce la sua vicenda «una celebre e bellissima leggenda romana».</p>
+
+<div class="card fonte-vulpio">
+  <div class="card-label">◎ Vulpio 1726 — Le origini secondo il Vetus Latium</div>
+  <p>Giuseppe Rocco Vulpio, nel <em>Vetus Latium Profanum</em> (Tomo III, Cap. I, Padova 1726), sistematizza quattro tradizioni: la greca di Antheas figlio di Circe, la troiana di Ascanio, quella albana dei re albanesi, e infine la fondazione di un tempio a Venere-Afrodite da parte di Enea stesso ad Antio — da cui il toponimo <em>Aphrodisium</em> attestato nelle fonti. Vulpio giudica più attendibile la tradizione che riconduce il nome ad <span class="termine">Antheas</span> o <span class="termine">Anthia</span> figlio di Circe, anche sulla base dei lapidi effossi dalle rovine di Antio, nei quali gli stessi Antiati rivendicavano quella discendenza. La stessa conclusione è confermata da Pirro Ligorius, citato da Vulpio, tramite le iscrizioni da lui raccolte.</p>
 </div>
-<p>La battaglia di Anzio del 484 a.C. vide gli Anziati resistere vittoriosamente grazie alla tattica della finta ritirata. La battaglia del 468 a.C. fu invece una vittoria romana del console Tito Quinzio Capitolino Barbato, che devastò gli arsenali navali del porto; ciononostante, la solidità del vallo impedì a Roma di spezzare definitivamente Antium, che resistette per altri centotrenta anni.</p>
-<h2><strong>La resa definitiva: 338 a.C.</strong></h2>
-<p>La conquista giunse nel 338 a.C. nell&#x27;ambito della Guerra Latina, con la famosa battaglia del fiume Astura. I consoli Lucio Furio Camillo e Caio Menio guidarono l&#x27;operazione: la flotta fu in parte distrutta e in parte condotta agli arsenali romani; i rostri delle navi bruciate furono posti ad ornamento del soppalco degli oratori nel Foro Romano (da allora chiamata <em>Rostra</em>); gli abitanti furono interdetti dall&#x27;uso del mare e vi fu dedotta una colonia. Nel 317 a.C. Anzio divenne municipio romano.</p>
-<div class="card card-curiosita">
-<span class="card-title">✦ Curiosità — I ROSTRI: DA ANZIO A L CUORE D I ROMA PER</span>
-<p>O LT R E   M I L E   A N I Gli speroni di bronzo delle navi anziati rimasero esposti sulla tribuna del Foro Romano per oltre mille anni. Le navi migliori risalirono il Tevere fino ai <em>Navalia</em>, costituendo il primo nucleo della marina militare romana. Plinio il Vecchio scrisse che quei rostri «ornavano il Foro come una corona conferita allo stesso Popolo Romano». Intorno al 470 d.C. — oltre ottocento anni dopo — il prefetto Ulpio Giunio Valentino, celebrando una vittoria contro i Vandali, prolungò il lato nord della tribuna con i cosiddetti <em>Rostra Vandalica</em>. La piccola Anzio continuò ad essere celebrata nel cuore simbolico di Roma per tutta la durata della civiltà romana.</p>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>L'occupazione volsca di Antium</h2>
+
+<p>I <span class="termine">Volsci</span> erano un antico popolo italico di ceppo osco-umbro, stanziato in un'ampia zona del Lazio meridionale. La tradizione antica li descrive come aggressivi e «più bellicosi nel ribellarsi che nel condurre una guerra» (Tito Livio). Tra la fine del VI e gli inizi del V sec. a.C., occuparono i centri latini di Velletri, Suessa Pometia, Satrico e Anzio, trasformando Antium nella loro capitale. L'economia era incentrata sulla navigazione e sulla pirateria praticata fino al Mar Egeo; il porto <span class="termine">Caenon</span>, citato da Livio (II, 63) e da Dionigi (IX, 56), era il punto di partenza delle scorrerie.</p>
+
+<div class="card fonte-vulpio">
+  <div class="card-label">◎ Vulpio 1726 — Il porto di Cenona e la topografia di Nettuno</div>
+  <p>Vulpio (Tomo III, Cap. II e IX) precisa che il porto militare e il mercato degli Antiati non si trovavano nella città stessa ma nel borgo separato di <span class="termine">Cenona</span> o <span class="termine">Cerione</span> — ad un tempo arsenale navale e mercato delle merci alimentari. Nella tavola dei toponimi premessa al testo, Vulpio identifica esplicitamente questo borgo con l'attuale <strong>Nettuno</strong>, sorto sulle sue rovine a due miglia da Anzio, a quaranta da Roma, direttamente sul mare. Il porto poi ampliato da Nerone occupava lo stesso sito, e le sue rovine erano ancora visibili sia a terra che in mare ai tempi di Vulpio.</p>
 </div>
-<div class="card card-curiosita">
-<span class="card-title">✦ Curiosità — L A COLONIA D I VETERANI PRETORIANI</span>
-<p>Santamaria Scrinari precisa che la colonia dedotta ad Antium dopo la conquista del 338 a.C. era composta da veterani del pretorio, sostenuti dal trasferimento di domicilio dei più ricchi dei <em>primipili</em> (centurioni di primo rango). Non si trattava dunque di semplici coloni civili, ma di militari di alto grado: un segno dell&#x27;importanza strategica e del prestigio che Roma attribuiva ad Antium.</p>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>Coriolano, Attio Tullio e le guerre con Roma (489–338 a.C.)</h2>
+
+<p>I conflitti tra i Volsci anziati e Roma durarono circa un secolo e mezzo (V–IV sec. a.C.). L'episodio più celebre è la saga di <span class="termine">Coriolano</span>: l'esule romano Caio Marzio Coriolano si rifugiò ad Anzio presso il nobile anziate Attio Tullio, convincendolo a muovere guerra a Roma fino a minacciarla direttamente (489–488 a.C.). Secondo Plutarco e Dionigi di Alicarnasso, Coriolano fu infine processato e ucciso nel foro di Anzio per ordine dello stesso Attio Tullio, che lo accusava di aver rinunciato a combattere dopo l'intervento delle matrone romane guidate dalla madre Veturia.</p>
+
+<div class="card nota-critica">
+  <div class="card-label">⚑ Nota Critica — Coriolano: storia o leggenda?</div>
+  <p>Secondo parte della moderna storiografia, Coriolano potrebbe essere un personaggio leggendario, creato per giustificare le sconfitte dei Romani. Il suo nome non compare nei fasti consolari; lo stesso Dionigi di Alicarnasso (<em>VIII, 62</em>) attesta che ai suoi tempi Coriolano era celebrato nei canti dei Volsci, suggerendo un'origine popolare della leggenda. La Treccani (<em>Enciclopedia Italiana</em>) definisce la sua vicenda «una celebre e bellissima leggenda romana».</p>
 </div>
-<h2><strong>L&#x27;Anzio di Cicerone (I sec. a.C.)</strong></h2>
-<p>La fonte più viva e immediata sulla vita di Antium nel I sec. a.C. è Cicerone. Dalle sue lettere ad Attico sappiamo che l&#x27;oratore soggiornava ad Anzio più volentieri che altrove. Insisteva nell&#x27;invitare Attico e ne sollecitava l&#x27;aiuto per l&#x27;organizzazione della sua biblioteca — ricevendo prima il liberto Tirannione, poi nel 56 a.C. i due <em>librarii</em> Dionisio e Menofilo procuratigli dallo stesso Attico. Raccontava che ad Anzio si svolgevano ottimi combattimenti gladiatorii e che vi si celebravano i <em>ludi</em> ai primi di maggio. Un dettaglio topografico è particolarmente rivelatore: Cicerone descrive la sua villa «<em>in oppido</em>», cioè all&#x27;interno del perimetro urbano ancora cinto dal vallo volsco, e spiega ad Attico come raggiungerla: «<em>de via recta in hortos</em>» — dalla strada dritta ai giardini. Quando Attico vorrebbe acquistare una proprietà, Cicerone nel 56 a.C. gli spiega che non trova nulla di già costruito nell&#x27;agro ma che «<em>in oppido est quiddam… et proximum quidem nostris aedibus</em>»: qualcosa c&#x27;è nella città fortificata, anzi vicinissimo alla sua casa. Questo conferma che ancora alla metà del I sec. a.C. Antium conservava il suo carattere di <em>oppidum</em> murato, con il vallo volsco riconoscibile come confine urbano.</p>
-<div class="card card-curiosita">
-<span class="card-title">✦ Curiosità — LAVIA R E C TAD I CICERONE</span>
-<p>La <em>via recta</em> citata da Cicerone non è la Via Anziatina principale, ma una strada secondaria che passava a nord del grande complesso imperiale (che ancora non esisteva nella forma neroniana), tagliando direttamente verso gli <em>horti</em> sulla costa.</p>
-<p>È probabile che sia la stessa villa poi venduta da Cicerone a Lepido, dato che nelle lettere successive (45 a.C.) l&#x27;oratore scrive da Astura, dove evidentemente possiede una nuova proprietà. Nel giardino di Villa Spigarelli, Santamaria Scrinari identifica un tratto di strada basolata come pertinente a questo tracciato.</p>
+
+<div class="card fonte-vulpio">
+  <div class="card-label">◎ Vulpio 1726 — L'uccisione di Coriolano nel foro di Antio</div>
+  <p>Vulpio (Tomo III, Cap. II) segue la narrazione di Livio e Dionisio con precisione topografica: Coriolano, tornato ad Antium e convocato un'assemblea popolare nel foro per rendere conto delle sue azioni, fu impedito di parlare e poi ucciso in un tumulto istigato dai fautori di Attio Tullio — abbattuto a colpi di spada o lapidato, secondo le versioni. Fatto notevole: gli Antiati, presi poi da rimorso, onorarono Coriolano erigendogli un monumento illustre al centro del foro di Anzio, esattamente nel luogo in cui era caduto, adornato di armi e spoglie di guerra come si conveniva a un grande condottiero.</p>
 </div>
-<h2><strong>Il pretore Lucrezio e il santuario di Esculapio (170 a.C.)</strong></h2>
-<p>Già un secolo prima di Cicerone, nel 170 a.C., il pretore Caio Lucrezio aveva provveduto Antium di un acquedotto deducendo l&#x27;acqua del fiume Loracina per una spesa pari a 130.000 assi di bronzo, e aveva adornato il santuario di Esculapio con tavole dipinte provenienti dalla sua preda bellica in Macedonia. Entrambi i gesti — infrastruttura idrica e ornamento artistico — confermano l&#x27;importanza di Antium già in epoca medio-repubblicana.</p>
-<div class="card card-curiosita">
-<span class="card-title">✦ Curiosità — I L SERPENTE D I ESCULAPIO E L A RIVIERA D I</span>
-<p>L E VA N T E La sede del santuario di Esculapio rimane ignota, ma una leggenda locale tramanda che il serpente sacro al dio uscisse dalle onde per lambire le fondamenta del tempio. Il ritrovamento di una statua del dio nei pressi di Villa Pia potrebbe indicare il santuario sulla riviera di levante, verso la zona che fu poi dei Cesi e dei Pamphilj. Dell&#x27;antico culto salutare restano dunque un toponimo smarrito e una leggenda marina.</p>
+
+<p>La <strong>battaglia di Anzio del 484 a.C.</strong> vide gli Anziati resistere vittoriosamente grazie alla tattica della finta ritirata. La <strong>battaglia del 468 a.C.</strong> fu invece una vittoria romana del console Tito Quinzio Capitolino Barbato, che devastò gli arsenali navali del porto; ciononostante, la solidità del vallo impedì a Roma di spezzare definitivamente Antium, che resistette per altri centotrenta anni.</p>
+
+<div class="card fonte-vulpio">
+  <div class="card-label">◎ Vulpio 1726 — La distruzione di Cenona (468 a.C.)</div>
+  <p>Vulpio (Cap. II) documenta con precisione la campagna del 468 a.C.: il console Numicio, non osando assediare Antium stessa, si concentrò sul borgo portuale di Cenona. Lo prese con grande bottino, ne portò via ventadue navi da guerra lunghe e tutti gli armamenti, lo radé al suolo e incendiò arsenali ed edifici per privare definitivamente Antium della sua proiezione marittima — senza doversi impegnare nel ben più costoso assedio della città murata.</p>
 </div>
-<h2><strong>I culti di Antium</strong></h2>
-<h2><strong>La Fortuna di Antium</strong></h2>
-<p>Tra i culti più importanti della città vi era quello della Fortuna, di antica memoria italica e strettamente collegato al santuario prenestino. Orazio la invoca in favore di un Cesare che sta per affrontare i Britanni; i cavalieri la invocano per la salute dell&#x27;Augusta Livia come <em>Fortuna Equestre</em>; nei Fasti della villa imperiale compare un <em>Philetus, aedituus Fortunarum</em>, quasi a sottintendere la dipendenza del tempio delle Fortune dall&#x27;amministrazione imperiale. In occasione della maternità di Poppea, le immagini delle due Fortune — prenestina e anziate — furono portate nel tempio di Giove Capitolino a Roma per sostenere la felice riuscita del parto. Il santuario era quasi certamente all&#x27;interno della città e strettamente connesso con la vita della corte.</p>
-<div class="card card-curiosita">
-<span class="card-title">✦ Curiosità — L A FORTUNA EQUESTRE E CERERE FUORI L E</span>
-<p>M U R A Santamaria Scrinari precisa che non tutti i culti si svolgevano entro le mura. Il sacello della Fortuna Equestre — la cui invocazione per la salute di Livia è attestata epigraficamente — era situato fuori dal perimetro urbano, come lascia dedurre la dizione delle fonti <em>apud Antium</em> (presso Antium, non <em>in</em> Antium). Lo stesso vale forse per il culto di Cerere. Questo riflette la distinzione giuridica e sacrale tra lo spazio protetto dall&#x27;<em>agger</em> e il territorio aperto circostante.</p>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>La resa definitiva: 338 a.C.</h2>
+
+<p>La conquista giunse nel 338 a.C. nell'ambito della Guerra Latina, con la famosa <strong>battaglia del fiume Astura</strong>. I consoli Lucio Furio Camillo e Caio Menio guidarono l'operazione: la flotta fu in parte distrutta e in parte condotta agli arsenali romani; i rostri delle navi bruciate furono posti ad ornamento del soppalco degli oratori nel Foro Romano (da allora chiamata <span class="termine">Rostra</span>); gli abitanti furono interdetti dall'uso del mare e vi fu dedotta una colonia. Nel 317 a.C. Anzio divenne municipio romano.</p>
+
+<div class="card curiosita">
+  <div class="card-label">✦ Curiosità — I Rostri: da Anzio al cuore di Roma per oltre mille anni</div>
+  <p>Gli speroni di bronzo delle navi anziati rimasero esposti sulla tribuna del Foro Romano per oltre mille anni. Le navi migliori risalirono il Tevere fino ai <em>Navalia</em>, costituendo il primo nucleo della marina militare romana. Plinio il Vecchio scrisse che quei rostri «ornavano il Foro come una corona conferita allo stesso Popolo Romano». Intorno al 470 d.C. — oltre ottocento anni dopo — il prefetto Ulpio Giunio Valentino, celebrando una vittoria contro i Vandali, prolungò il lato nord della tribuna con i cosiddetti <span class="termine">Rostra Vandalica</span>. La piccola Anzio continuò ad essere celebrata nel cuore simbolico di Roma per tutta la durata della civiltà romana.</p>
 </div>
-<div class="card card-curiosita">
-<span class="card-title">✦ Curiosità — L&#x27;IPOTESI VOLPI SUL SANTUARIO DELLE</span>
-<p>F O R T U N E Già nel 1726, il gesuita Giovanni Rocco Volpi (<em>Vetus Latium Profanum</em>) proponeva di identificare l&#x27;area tra Capo d&#x27;Anzio e il Faro come sede del santuario delle due Fortune. Il complesso, distinto dalla villa imperiale per quote e strutture, occupa una posizione preminente tra la dimora dei Cesari, il porto e il centro cittadino.</p>
-<p>Santamaria Scrinari ritiene l&#x27;ipotesi plausibile, ma avverte che solo uno scavo completo potrebbe confermarla.</p>
+
+<div class="card fonte-vulpio">
+  <div class="card-label">◎ Vulpio 1726 — Le tre colonie di Antium e il trionfo di C. Menio</div>
+  <p>Vulpio (Cap. II) distingue tre distinte deduzioni coloniali. La <strong>prima colonia</strong> (286 a.U.c.) fu prevalentemente latina ed ernica — la plebe romana si rifiutò di parteciparvi, vedendola come un esilio piuttosto che un beneficio. La <strong>seconda colonia romana</strong> (338 a.C.) fu quella del console C. Menio, che concesse agli Antiati la cittadinanza romana iscrivendoli nelle nuove tribù <span class="termine">Maecia</span> e <span class="termine">Scaptia</span>. La <strong>terza colonia</strong> fu quella neroniana. Il trionfo di Menio è documentato dai Fasti Capitolini con iscrizione autentica:</p>
+  <div class="iscrizione">C. MAENIUS P.F. P.N. COS.<br>DE ANTIATIBUS LAVINEIS VELITERNEIS<br>PRIDIE K. OCT. ANNO CDXV</div>
 </div>
-<h2><strong>L&#x27;ipotesi dell&#x27;area forense</strong></h2>
-<p>Il tracciato delle strade più antiche — con il loro incontro nella vallata tra l&#x27;altura di Villa Sarsina e quella di Villa Albani — ha indotto gli studiosi a riconoscere in questa zona l&#x27;area forense della città. L&#x27;ipotesi è avvalorata dalla vicinanza delle costruzioni monumentali rinvenute sotto le case Mencacci, sotto Villa Serena e Villa Sarsina, dalla linea del circo ad esse tangente e dalla discesa al porto dalla antica postierla volsca. Il nucleo di Villa Sarsina — l&#x27;attuale Municipio — potrebbe corrispondere all&#x27;acropoli dell&#x27;antica città, forse sede di un tempio ad Ercole: la divinità italica è ricordata da un elegante ninfeo d&#x27;epoca neroniana (il cosiddetto «Ninfeo di Ercole», oggi al Museo Civico).</p>
-<h2><strong>Cronologia storica essenziale</strong></h2>
-<p>DataEventoFonte Fine VI – inizi VOccupazione volsca; Antium diventa caputLivio, Dionigi di sec. a.C.VolscorumAlicarnasso 489–488 a.C.Saga di Coriolano; guerra contro RomaPlutarco, Dionigi VIII 484 a.C.Vittoria degli Anziati con la finta ritirataLivio II 468 a.C.Vittoria di Tito Quinzio Capitolino Barbato;Livio II devastazione del porto 338 a.C.Conquista romana; battaglia del fiume Astura;Livio VIII; Plinio Rostri al Foro 317 a.C.Antium diventa municipio romanoLivio IX 170 a.C.Pretore Lucrezio: acquedotto dal Loracina;Livio XLIII santuario di Esculapio 56–45 a.C.Cicerone ad Anzio: villa in oppido, biblioteca,Lettere ad Attico ludi 2 a.C.Augusto nella villa anziate rifiuta il titolo di PaterSvetonio, Augusto Patriae 12 e 37 d.C.Nascita di Caligola e Nerone nella villa anziateSvetonio ~470 d.C.Rostra Vandalica nel Foro: ultima eco di AntiumCIL VI a Roma 537 d.C.Ultima menzione del porto di Anzio nelle fontiProcopio, <em>De Bello</em> scritte<em>Gothico</em></p>
-<h2><strong>Bibliografia</strong></h2>
-<p>—Lugli G., «Saggio sulla Topografia dell&#x27;Antica Antium», <em>Rivista del R. Istituto d&#x27;Archeologia e</em> <em>Storia dell&#x27;Arte</em>, VII, Roma 1940, pp. 153–188 —Santamaria Scrinari V., «Anzio: Archeologia e Topografia», studio topografico-archeologico —La Regina A., s.v. «Porto d&#x27;Anzio», <em>Enciclopedia dell&#x27;Arte Antica Classica e Orientale</em>, Treccani, Roma —Lombardi F., <em>Anzio antico e moderno</em>, Roma, 1865 —Volpi G.R., <em>Vetus Latium Profanum</em>, Roma, 1726 —Marigliani C., <em>Storia di Anzio</em>, Roma, 2008 —Lanciani R., appunti topografici su Antium, Cod. Vat. Lat. 13045, pp. 270–271 —<em>Corpus Inscriptionum Latinarum</em>, vol. X, pars I, Berlino 1883, pp. 660–675 (iscrizioni di Antium)</p>
+
+<div class="card curiosita">
+  <div class="card-label">✦ Curiosità — La colonia di veterani pretoriani</div>
+  <p>Santamaria Scrinari precisa che la colonia dedotta ad Antium dopo la conquista del 338 a.C. era composta da veterani del pretorio, sostenuti dal trasferimento di domicilio dei più ricchi dei primipili (centurioni di primo rango). Non si trattava dunque di semplici coloni civili, ma di militari di alto grado: un segno dell'importanza strategica e del prestigio che Roma attribuiva ad Antium. Anche Vulpio (Cap. II) conferma questa composizione elitaria per la terza colonia neroniana: «adscriptis illi veteranis e Praetorio, additisque per domicilii translationem ditissimis primipilaribus».</p>
+</div>
+
+<div class="card fonte-vulpio">
+  <div class="card-label">◎ Vulpio 1726 — Il porto prima di Nerone</div>
+  <p>Vulpio (Cap. IX) corregge esplicitamente chi faceva risalire il porto di Anzio a Nerone: il porto è documentato sin dai primordi della Repubblica. La sua sede coincideva con quella dell'attuale Nettuno, dove si trovava anche il tempio di Esculapio: il serpente sacro al dio, trasportato da Epidauro durante la Prima Guerra Punica, scivolò in mare dalla nave approdata nelle vicinanze e raggiunse a nuoto il vestibolo del tempio. Nerone ampliò il porto, che si estendeva verso Roma fino al punto da cui, ai tempi di Vulpio, partiva l'acquedotto di Innocenzo XII. Un'iscrizione funeraria rinvenuta al porto attesta la presenza di un magistrato specificamente detto «pretore antiato»:</p>
+  <div class="iscrizione">DIIS MANIBVS<br>T. FLAVIO AVG. LIB. EVANGELUS<br>TABLARIVS PRAETORI ANTIATINI<br>M. VLPIVS AVG. LIBERIS CVS.<br>PARENTI BENEMERENTI H.M.H.N.S.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>L'Anzio di Cicerone (I sec. a.C.)</h2>
+
+<p>La fonte più viva e immediata sulla vita di Antium nel I sec. a.C. è Cicerone. Dalle sue lettere ad Attico sappiamo che l'oratore soggiornava ad Anzio più volentieri che altrove. Insisteva nell'invitare Attico e ne sollecitava l'aiuto per l'organizzazione della sua biblioteca — ricevendo prima il liberto Tirannione, poi nel 56 a.C. i due librarii Dionisio e Menofilo procuratigli dallo stesso Attico. Raccontava che ad Anzio si svolgevano ottimi combattimenti gladiatorii e che vi si celebravano i ludi ai primi di maggio. Un dettaglio topografico è particolarmente rivelatore: Cicerone descrive la sua villa <em>in oppido</em> — all'interno del perimetro urbano ancora cinto dal vallo volsco — e spiega ad Attico come raggiungerla: «dalla strada dritta ai giardini». Quando Attico vorrebbe acquistare una proprietà, Cicerone nel 56 a.C. gli spiega che non trova nulla di già costruito nell'agro ma che «nella città c'è qualcosa… anzi vicinissimo alla mia casa»: confermando che ancora alla metà del I sec. a.C. Antium conservava il suo carattere di oppidum murato, con il vallo volsco riconoscibile come confine urbano.</p>
+
+<div class="card curiosita">
+  <div class="card-label">✦ Curiosità — La via recta di Cicerone</div>
+  <p>La <em>via recta</em> citata da Cicerone non è la Via Anziatina principale, ma una strada secondaria che passava a nord del grande complesso imperiale (che ancora non esisteva nella forma neroniana), tagliando direttamente verso gli <em>horti</em> sulla costa. È probabile che sia la stessa villa poi venduta da Cicerone a Lepido, dato che nelle lettere successive (45 a.C.) l'oratore scrive da Astura, dove evidentemente possiede una nuova proprietà. Nel giardino di Villa Spigarelli, Santamaria Scrinari identifica un tratto di strada basolata come pertinente a questo tracciato.</p>
+</div>
+
+<div class="card fonte-vulpio">
+  <div class="card-label">◎ Vulpio 1726 — Astura: la proprietà finale di Cicerone</div>
+  <p>Vulpio dedica un intero capitolo (Cap. XI) ad Astura — oppidum nell'antico agro antiato, dove si trovavano grandiose ville imperiali — e ne ricostruisce la topografia. Ricorda che Augusto, Tiberio e Caligola vi fecero sosta e che tutti e tre morirono di lì a poco, sì che il luogo aveva acquistato una sinistra fama. Il sito corrisponde all'odierna <span class="termine">Torre di Astura</span>, a sette miglia da Nettuno in direzione del Circeo — distanza che Vulpio verifica con precisi calcoli topografici.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>Il pretore Lucrezio e il santuario di Esculapio (170 a.C.)</h2>
+
+<p>Già un secolo prima di Cicerone, nel 170 a.C., il pretore Caio Lucrezio aveva provveduto Antium di un acquedotto deducendo l'acqua del fiume Loracina per una spesa pari a 130.000 assi di bronzo, e aveva adornato il santuario di <span class="termine">Esculapio</span> con tavole dipinte provenienti dalla sua preda bellica in Macedonia. Entrambi i gesti — infrastruttura idrica e ornamento artistico — confermano l'importanza di Antium già in epoca medio-repubblicana.</p>
+
+<div class="card curiosita">
+  <div class="card-label">✦ Curiosità — Il serpente di Esculapio e la riviera di Levante</div>
+  <p>La sede del santuario di Esculapio rimane ignota, ma una leggenda locale tramanda che il serpente sacro al dio uscisse dalle onde per lambire le fondamenta del tempio. Il ritrovamento di una statua del dio nei pressi di Villa Pia potrebbe indicare il santuario sulla riviera di levante, verso la zona che fu poi dei Cesi e dei Pamphilj. Dell'antico culto salutare restano dunque un toponimo smarrito e una leggenda marina.</p>
+</div>
+
+<div class="card fonte-vulpio">
+  <div class="card-label">◎ Vulpio 1726 — Il serpente di Epidauro e la topografia del porto</div>
+  <p>Vulpio (Cap. IX) ricostruisce l'episodio del serpente sacro di Esculapio, trasportato da Epidauro, come precisa testimonianza topografica: la nave approdò nelle vicinanze di Antium, il serpente si calò in acqua e raggiunse a nuoto il vestibolo del tempio. Poiché il tempio era a breve distanza dal mare, Vulpio conclude che il porto si trovava esattamente nel sito poi occupato da Nettuno, dove ai suoi tempi si vedevano ancora resti di strutture murarie sia a terra che in mare. L'iscrizione funeraria del porto — riportata per esteso nel Cap. VIII — rivela anche l'esistenza di un magistrato locale specificamente detto «pretore antiato»:</p>
+  <div class="iscrizione">DIIS MANIBVS<br>T. FLAVIO AVG. LIB. EVANGELUS<br>TABLARIVS PRAETORI ANTIATINI<br>M. VLPIVS AVG. LIBERIS CVS.<br>PARENTI BENEMERENTI H.M.H.N.S.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>I culti di Antium</h2>
+
+<h3>La Fortuna di Antium</h3>
+
+<p>Tra i culti più importanti della città vi era quello della <span class="termine">Fortuna</span>, di antica memoria italica e strettamente collegato al santuario prenestino. Orazio la invoca in favore di un Cesare che sta per affrontare i Britanni; i cavalieri la invocano per la salute dell'Augusta Livia come <em>Fortuna Equestre</em>; nei Fasti della villa imperiale compare un Philetus, <em>aedituus Fortunarum</em>, quasi a sottintendere la dipendenza del tempio delle Fortune dall'amministrazione imperiale. In occasione della maternità di Poppea, le immagini delle due Fortune — prenestina e anziate — furono portate nel tempio di Giove Capitolino a Roma per sostenere la felice riuscita del parto.</p>
+
+<div class="card curiosita">
+  <div class="card-label">✦ Curiosità — La Fortuna Equestre e Cerere fuori le mura</div>
+  <p>Santamaria Scrinari precisa che non tutti i culti si svolgevano entro le mura. Il sacello della <em>Fortuna Equestre</em> — la cui invocazione per la salute di Livia è attestata epigraficamente — era situato fuori dal perimetro urbano, come lascia dedurre la dizione delle fonti <em>apud Antium</em> (presso Antium, non <em>in Antium</em>). Lo stesso vale forse per il culto di Cerere. Questo riflette la distinzione giuridica e sacrale tra lo spazio protetto dall'<em>agger</em> e il territorio aperto circostante.</p>
+</div>
+
+<div class="card curiosita">
+  <div class="card-label">✦ Curiosità — L'ipotesi Volpi sul santuario delle Fortune</div>
+  <p>Già nel 1726, il gesuita Giovanni Rocco Volpi (<em>Vetus Latium Profanum</em>) proponeva di identificare l'area tra Capo d'Anzio e il Faro come sede del santuario delle due Fortune. Il complesso, distinto dalla villa imperiale per quote e strutture, occupa una posizione preminente tra la dimora dei Cesari, il porto e il centro cittadino. Santamaria Scrinari ritiene l'ipotesi plausibile, ma avverte che solo uno scavo completo potrebbe confermarla.</p>
+</div>
+
+<div class="card fonte-vulpio">
+  <div class="card-label">◎ Vulpio 1726 — I templi di Antium e le magistrature religiose</div>
+  <p>Vulpio (Capp. IV–V) tratta estesamente i templi antiati, tra cui quello della Fortuna e quello di Esculapio. Il Cap. VIII documenta tre figure sacerdotali specifiche di Antio: il <span class="termine">Flamen Laurentinalis</span> (sacerdote dei culti propri della città), il <span class="termine">Flamen Lavinalis</span> (dei culti comuni latini) e il <span class="termine">Flamen Lucularis</span> (dei boschi sacri di Apollo, di Giove Indigete e di Anna Perenna). I Seviri Augustali — sacerdoti del culto imperiale — sono attestati da iscrizioni. Che il tempio delle Fortune fosse nell'orbita diretta della gestione imperiale già in età giulio-claudia è confermato da un custode del tempio, un certo Fileto, che nei Fasti della villa imperiale è registrato come dipendente dell'amministrazione palatina.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>L'ipotesi dell'area forense</h2>
+
+<p>Il tracciato delle strade più antiche — con il loro incontro nella vallata tra l'altura di Villa Sarsina e quella di Villa Albani — ha indotto gli studiosi a riconoscere in questa zona l'area forense della città. L'ipotesi è avvalorata dalla vicinanza delle costruzioni monumentali rinvenute sotto le case Mencacci, sotto Villa Serena e Villa Sarsina, dalla linea del circo ad esse tangente e dalla discesa al porto dalla antica postierla volsca. Il nucleo di Villa Sarsina — l'attuale Municipio — potrebbe corrispondere all'acropoli dell'antica città, forse sede di un tempio ad Ercole.</p>
+
+<div class="card fonte-vulpio">
+  <div class="card-label">◎ Vulpio 1726 — La topografia del territorio: Satricum, Astura, Clostra Romanae</div>
+  <p>Nell'indice dei toponimi premesso al Tomo III, Vulpio ricostruisce la geografia dell'intero territorio antiato. <strong>Satricum</strong> — colonia degli Antiati e sede del famoso tempio della Mater Matuta (rimasto intatto per prodigio durante le ripetute distruzioni della città) — è identificata con il sito di <span class="termine">Conca</span>, tra Nettuno, Velletri e Cisterna. Le <strong>Clostra Romanae</strong> (Cap. XII), citate da Plinio, erano argini costruiti dai Romani alla foce del fiume Nymphaeum (l'odierno Storace) per impedire che le mareggiate colmassero di sabbia il letto del fiume: non i confini dell'Impero, come erroneamente sostenevano alcune fonti, ma opere idrauliche collocabili alle <span class="termine">Bocche del fiume Storace</span>. La città di <strong>Nympha</strong>, dai cui resti sorse poi la medievale <em>Ninfa</em>, apparteneva all'agro norbanico confinante con quello antiato.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2>Cronologia storica essenziale</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Evento</th>
+      <th>Fonti</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fine VI – inizi V sec. a.C.</td>
+      <td>Occupazione volsca; Antium diventa capitale dei Volsci</td>
+      <td>Livio, Dionigi di Alicarnasso</td>
+    </tr>
+    <tr>
+      <td>489–488 a.C.</td>
+      <td>Saga di Coriolano; guerra contro Roma; monumento funebre nel foro di Antio</td>
+      <td>Plutarco, Dionigi VIII; Vulpio, Cap. II</td>
+    </tr>
+    <tr>
+      <td>484 a.C.</td>
+      <td>Vittoria degli Anziati con la finta ritirata</td>
+      <td>Livio II</td>
+    </tr>
+    <tr>
+      <td>468 a.C.</td>
+      <td>Vittoria di T. Quinzio Capitolino Barbato; distruzione del porto di Cenona (22 navi lunghe)</td>
+      <td>Livio II; Vulpio, Cap. II e IX</td>
+    </tr>
+    <tr>
+      <td>338 a.C.</td>
+      <td>Conquista romana; battaglia del fiume Astura; Rostri al Foro; prima colonia romana</td>
+      <td>Livio VIII; Plinio; Vulpio, Cap. II</td>
+    </tr>
+    <tr>
+      <td>317 a.C.</td>
+      <td>Antium diventa municipio romano</td>
+      <td>Livio IX</td>
+    </tr>
+    <tr>
+      <td>170 a.C.</td>
+      <td>Pretore Lucrezio: acquedotto dal Loracina; ornamento santuario di Esculapio</td>
+      <td>Livio XLIII</td>
+    </tr>
+    <tr>
+      <td>56–45 a.C.</td>
+      <td>Cicerone ad Anzio: villa dentro le mura, biblioteca, ludi</td>
+      <td>Lettere ad Attico; Vulpio, Cap. VIII</td>
+    </tr>
+    <tr>
+      <td>2 a.C.</td>
+      <td>Augusto nella villa anziate rifiuta il titolo di Padre della Patria</td>
+      <td>Svetonio, <em>Augusto</em></td>
+    </tr>
+    <tr>
+      <td>12 e 37 d.C.</td>
+      <td>Nascita di Caligola e Nerone nella villa anziate</td>
+      <td>Svetonio; Vulpio, Cap. II</td>
+    </tr>
+    <tr>
+      <td>~60 d.C.</td>
+      <td>Terza colonia neroniana: veterani pretoriani e primipilari</td>
+      <td>Svetonio; Vulpio, Cap. II</td>
+    </tr>
+    <tr>
+      <td>~470 d.C.</td>
+      <td>Rostra Vandalica nel Foro: ultima eco di Antium a Roma</td>
+      <td>CIL VI</td>
+    </tr>
+    <tr>
+      <td>537 d.C.</td>
+      <td>Ultima menzione del porto di Anzio nelle fonti scritte</td>
+      <td>Procopio, <em>Guerra Gotica</em></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="bibliography">
+  <h2>Bibliografia</h2>
+  <ul>
+    <li>Lugli G., «Saggio sulla Topografia dell'Antica Antium», <em>Rivista del R. Istituto d'Archeologia e Storia dell'Arte</em>, VII, Roma 1940, pp. 153–188</li>
+    <li>Santamaria Scrinari V., «Anzio: Archeologia e Topografia», studio topografico-archeologico</li>
+    <li>La Regina A., s.v. «Porto d'Anzio», <em>Enciclopedia dell'Arte Antica Classica e Orientale</em>, Treccani, Roma</li>
+    <li>Lombardi F., <em>Anzio antico e moderno</em>, Roma, 1865</li>
+    <li>Lanciani R., appunti topografici su Antium, Cod. Vat. Lat. 13045, pp. 270–271</li>
+    <li><em>Corpus Inscriptionum Latinarum</em>, vol. X, pars I, Berlino 1883, pp. 660–675 (iscrizioni di Antium)</li>
+    <li>Marigliani C., <em>Storia di Anzio</em>, Roma, 2008</li>
+    <hr class="separatore">
+    <li>Vulpio G.R., <em>Vetus Latium Profanum</em>, Tomus III: <em>De Antiatibus et Norbanis</em>, Patavii, excudebat Josephus Cominus, 1726 — Capp. I (origini), II (colonie), VIII (magistrature), IX (porto), X (Satricum), XI (Astura), XII (Clostra Romanae); <em>Index locorum</em> (tavola dei toponimi). Edizione digitale: Universitätsbibliothek Heidelberg, DOI 10.11588/diglit.30719</li>
+  </ul>
+</div>
+
+
 
 <footer>
-<p><strong>FAI &middot; Gruppo FAI Anzio-Nettuno</strong><br>
-A cura di Riccardo Pau<br>
-&copy; 2026 &middot; <a href="https://creativecommons.org/licenses/by/4.0/deed.it">CC BY 4.0</a></p>
+  <div>A cura di Riccardo Pau · Gruppo FAI Anzio-Nettuno</div>
+  <div>© 2026 · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></div>
 </footer>
-</div>
+
 </body>
 </html>
