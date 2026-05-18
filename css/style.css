@@ -1592,6 +1592,36 @@ mark.search-hit.is-current {
 }
 .article-body p:last-child { margin-bottom: 0; }
 
+/* Elenchi puntati in articoli — rombo dorato allineato al testo */
+.article-body ul {
+  list-style: none;
+  padding-left: 1.1rem;
+  margin-left: -1.1rem; /* compensa il padding per allineare il testo ai paragrafi */
+  margin-bottom: var(--sp-5);
+}
+.article-body ul li {
+  position: relative;
+  padding-left: 0;
+  margin-bottom: var(--sp-3);
+  font-size: var(--text-base);
+  line-height: 1.8;
+  color: var(--text-body);
+}
+.article-body ul li:last-child {
+  margin-bottom: 0;
+}
+.article-body ul li::before {
+  content: '';
+  position: absolute;
+  left: -1.1rem;
+  top: 0.85em;
+  transform: translateY(-50%) rotate(45deg);
+  width: 7px;
+  height: 7px;
+  background: var(--fai-gold);
+  border-radius: 0;
+}
+
 .article-body--long {
   max-width: 860px;
 }
