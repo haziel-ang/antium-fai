@@ -988,12 +988,7 @@ document.addEventListener('DOMContentLoaded', () => {
       note: 'Crediti grafici specifici della sezione.',
       rows: [
         {
-          element: 'Hero — Fanciulla di Anzio, Palazzo Massimo alle Terme',
-          author: 'Museo Nazionale Romano · Palazzo Massimo alle Terme',
-          note: 'Etichetta BCS (Beni Culturali Standard, MiC) — riuso libero per studio, editoria e valorizzazione.'
-        },
-        {
-          element: 'Fanciulla di Anzio — figura nel box',
+          element: 'Fanciulla di Anzio (hero + figura nel testo)',
           author: 'Museo Nazionale Romano · Palazzo Massimo alle Terme',
           note: 'Etichetta BCS (Beni Culturali Standard, MiC) — riuso libero per studio, editoria e valorizzazione.'
         }
