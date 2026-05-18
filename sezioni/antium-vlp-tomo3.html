@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Antium · nel Vetus Latium Profanum · Vulpio 1726</title>
+  <meta name="description" content="Origini mitiche, colonie, porto e magistrature di Antium — estratto commentato dal Tomo III di Giuseppe Rocco Vulpio S.J., De Antiatibus et Norbanis, Padova 1726.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* ── Hero VLP ── */
+    .vlp-page-hero .hero-bg {
+      background-position: center 12%;
+    }
+    .vlp-page-hero .hero-content {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding-inline: clamp(2.25rem, 5vw, 5rem);
+      padding-top: clamp(var(--sp-2), 1.5vh, var(--sp-4));
+      padding-bottom: clamp(var(--sp-2), 1.5vh, var(--sp-4));
+    }
+    .vlp-page-hero .hero-copy {
+      max-width: 760px;
+    }
+    .vlp-page-hero .hero-title {
+      max-width: 20ch;
+      font-size: clamp(1.82rem, 3.45vw, 3.5rem);
+      line-height: 0.94;
+      margin-bottom: 0.6rem;
+    }
+    .vlp-page-hero .hero-divider {
+      width: min(220px, 44vw);
+      margin-bottom: 0.55rem;
+    }
+    .vlp-page-hero .hero-subtitle {
+      max-width: 30rem;
+      font-size: clamp(0.88rem, 0.94vw, 0.98rem);
+      line-height: 1.42;
+      margin-bottom: 0.55rem;
+    }
+    .vlp-page-hero .hero-meta {
+      margin: 0 0 0.6rem;
+      font-size: clamp(0.68rem, 0.78vw, 0.82rem);
+    }
+    @media (max-width: 640px) {
+      .vlp-page-hero .hero-title {
+        max-width: none;
+        font-size: clamp(2rem, 11vw, 3.2rem);
+      }
+      .vlp-page-hero .hero-subtitle {
+        max-width: none;
+        font-size: clamp(0.9rem, 3.6vw, 1rem);
+      }
+    }
+
+    /* ── Quote block ── */
+    .quote-block {
+      margin: var(--sp-6) 0;
+      padding: var(--sp-4) var(--sp-6);
+      border-left: 3px solid var(--fai-gold);
+      background: #fdf9ee;
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.1vw + .7rem, 1.18rem);
+      font-style: italic;
+      color: #3a2a08;
+      line-height: 1.6;
+    }
+    .quote-block cite {
+      display: block;
+      margin-top: var(--sp-2);
+      font-style: normal;
+      font-family: var(--font-body);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+  </style>
+</head>
+<body>
+  <a href="#contenuto" class="skip-link">Salta al contenuto</a>
+  <header class="site-header" aria-label="Intestazione del sito">
+    <nav class="site-menubar" aria-label="Menu principale">
+      <div class="site-menubar-inner">
+        <ul class="menu-links">
+          <li><a class="menu-link" href="../index.html">Home</a></li>
+          <li><a class="menu-link" href="../pdf.html">PDF</a></li>
+          <li><a class="menu-link" href="../podcast.html">Podcast</a></li>
+          <li><a class="menu-link" href="../fonti.html">Crediti</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="site-brandband">
+      <div class="site-brandband-inner">
+        <a class="brand-logo" href="../index.html#home" aria-label="Antium - torna alla home">
+          <img src="../img/logo-antium.webp" alt="Logo Antium" loading="eager" decoding="async">
+        </a>
+        <div class="brand-title">
+          <p class="brand-name" aria-label="Antium">ANTI<span class="brand-v">V</span>M</p>
+          <div class="brand-divider" aria-hidden="true">
+            <span class="brand-line"></span>
+            <span class="brand-diamond"></span>
+            <span class="brand-line"></span>
+          </div>
+          <p class="brand-tagline">ANTIUM. HISTORIA ET MEMORIA.</p>
+        </div>
+        <form class="brand-search" role="search" aria-label="Ricerca nel sito" data-site-search onsubmit="return false;">
+          <label class="visually-hidden" for="site-search-input-desktop">Cerca nel sito</label>
+          <input id="site-search-input-desktop" type="search" placeholder="Cerca..." autocomplete="off" data-site-search-input>
+          <button type="submit" aria-label="Cerca">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="brand-search-status" data-site-search-status hidden>
+            <span data-site-search-count>0 risultati</span>
+            <button type="button" class="search-nav prev" aria-label="Risultato precedente" data-site-search-prev>&lsaquo;</button>
+            <button type="button" class="search-nav next" aria-label="Risultato successivo" data-site-search-next>&rsaquo;</button>
+            <button type="button" class="search-clear" aria-label="Cancella ricerca" data-site-search-clear>&times;</button>
+          </div>
+        </form>
+        <button class="nav-menu-btn" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mobile-search-panel">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="mobile-search-panel" id="mobile-search-panel" hidden>
+          <ul class="mobile-menu-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pdf.html">PDF</a></li>
+            <li><a href="../podcast.html">Podcast</a></li>
+            <li><a href="../fonti.html">Crediti</a></li>
+          </ul>
+          <form class="brand-search brand-search--mobile" role="search" aria-label="Ricerca nel sito" data-site-search onsubmit="return false;">
+            <label class="visually-hidden" for="site-search-input-mobile">Cerca nel sito</label>
+            <input id="site-search-input-mobile" type="search" placeholder="Cerca nel sito..." autocomplete="off" data-site-search-input>
+            <button type="submit" aria-label="Cerca">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+            <div class="brand-search-status" data-site-search-status hidden>
+              <span data-site-search-count>0 risultati</span>
+              <button type="button" class="search-nav prev" aria-label="Risultato precedente" data-site-search-prev>&lsaquo;</button>
+              <button type="button" class="search-nav next" aria-label="Risultato successivo" data-site-search-next>&rsaquo;</button>
+              <button type="button" class="search-clear" aria-label="Cancella ricerca" data-site-search-clear>&times;</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenuto">
+    <section class="hero hero--editorial hero--fit-viewport section-page-hero vlp-page-hero" data-fit-viewport="true" aria-labelledby="vlp-hero-title">
+      <div class="hero-bg" style="background-image:url('../img/fanciulla-anzio.webp')" aria-hidden="true"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content container vlp-page-hero">
+        <div class="hero-copy">
+          <h1 id="vlp-hero-title" class="hero-title">Antium nel <em>Vetus Latium Profanum</em></h1>
+          <div class="hero-divider" aria-hidden="true"><span class="line"></span><span class="diamond"></span></div>
+          <p class="hero-subtitle">Origini, colonie, porto e magistrature — estratto commentato dal Tomo III di G.R.&nbsp;Vulpio S.J., <em>De Antiatibus et Norbanis</em>, Padova&nbsp;1726.</p>
+          <p class="hero-meta">VI sec. a.C. — II sec. d.C.</p>
+          <div class="hero-actions hero-actions--section-dual">
+            <a class="era-card" href="../index.html#home">
+              <span class="era-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 14 16 4l11 10"/>
+                  <path d="M8 13v15h16V13"/>
+                  <path d="M14 28v-7h4v7"/>
+                </svg>
+              </span>
+              <span class="era-title">Home</span>
+              <span class="era-sub">Torna all&rsquo;inizio</span>
+            </a>
+            <a class="era-card" href="../docs/antium-vlp-tomo3.pdf" target="_blank" rel="noopener noreferrer">
+              <span class="era-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 4v18"/>
+                  <path d="M9 16l7 7 7-7"/>
+                  <path d="M5 26v3h22v-3"/>
+                </svg>
+              </span>
+              <span class="era-title">PDF</span>
+              <span class="era-sub">Scarica documento</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--cream section-page-content" aria-label="Antium nel Vetus Latium Profanum">
+      <div class="container container--wide">
+        <article class="page-panel active section-page-article">
+          <div class="article-layout">
+            <div class="article-body">
+
+              <h2>Antium nel <em>Vetus Latium Profanum</em></h2>
+              <p class="panel-lede">Nel 1726 il gesuita Giuseppe Rocco Vulpio pubblica a Padova il <em>De Antiatibus et Norbanis</em>, parte del Tomo III della sua enciclopedia antiquaria <em>Vetus Latium Profanum</em>. È la prima monografia sistematica dedicata alla storia di Antium: origini mitiche, guerre con Roma, fondazione delle colonie, porto, magistrature, e i luoghi del territorio — Satricum, Astura, le Claustra Romanae. Questo estratto commentato raccoglie i capitoli principali dell&rsquo;opera.</p>
+
+              <h3>Premessa geografica: i nomi del territorio</h3>
+              <p>Vulpio apre con una tavola di corrispondenze tra i toponimi antichi e quelli del Settecento, indispensabile per orientarsi in una trattazione che segue da vicino le fonti latine e greche. <strong>Antium</strong> — <em>urbs olim celeberrima Veteris Latii, Volscorum caput ad mare</em> — era già distrutta: il luogo corrispondeva a Capo d&rsquo;Anzo. <strong>Cenosfa/Cerbio</strong> — oppidum volsco, porto commerciale e mercato — è identificato con il sito dell&rsquo;attuale <strong>Nettuno</strong>. <strong>Satricum</strong>, colonia degli Antiati, corrisponde a <strong>Conca</strong>, tra Nettuno, Velletri e Cisterna. Il <strong>Nymphaeum</strong> sopravvive nel fiume <strong>Storace</strong> e nelle rovine medievali di <strong>Ninfa</strong>.</p>
+
+              <h3>Le origini di Antium: tra mito greco e tradizione troiana</h3>
+              <p>La fonte che Vulpio giudica più credibile (<em>verior</em>) risale a Xenagora e Dionisio di Alicarnasso: Antium fu fondata da <strong>Antheas</strong>, uno dei tre figli di Circe, che diede il suo nome alla città. Prove della discendenza da Antheas erano iscritte sulle stesse lapidi recuperate dalle rovine di Antio, nelle quali gli Antiati rivendicavano la propria origine. Una tradizione parallela — Solino — attribuisce invece la fondazione ad <strong>Ascanio</strong>, figlio di Enea, conciliando la saga troiana con quella greca: le due potevano coesistere se si ricordava il costume degli antichi di attribuire ai fondatori delle città un&rsquo;origine divina o semidivina.</p>
+
+              <p>Un tempio a <strong>Venere Genitrice</strong> (Afrodite per i Greci), che Enea avrebbe consacrato ad Antium, diede al luogo il nome alternativo di <em>Aphrodisium</em> e spiegherebbe perché su molte monete antiati compare la raffigurazione della Fortuna con attributi venerei: due culti sovrapposti in un unico paesaggio sacro.</p>
+
+              <h3>Antium e Roma: le guerre dei Volsci (V–IV sec. a.C.)</h3>
+              <p>Antium era la principale città del popolo dei <strong>Volsci</strong> sul litorale laziale: <em>opulentissima ac munitissima</em>, dotata di porto e di un centro commerciale nel borgo di Cenona (Nettuno). Sotto Tarquinio il Superbo, gli Antiati stipularono un&rsquo;alleanza con Roma; caduta la monarchia, si schierarono con i loro conterranei volsci.</p>
+
+              <p>L&rsquo;episodio più celebre è quello di <strong>Coriolano</strong>: bandito da Roma, si recò di notte alla casa di <strong>Attio Tullio Aufidio</strong>, il più potente dei capi volsci ad Antium, che lo accolse. I due organizzarono insieme un esercito che conquistò quasi tutte le città latine alleate di Roma, fermandosi alle Fosse Cluilie — a cinque miglia dall&rsquo;Urbe. Solo le lacrime della madre Veturia convinsero Coriolano a ritirare le legioni. Tornato ad Antium, fu accusato di tradimento e ucciso in un tumulto nel foro anziate; gli Antiati gli eressero poi un monumento adornato di armi e trofei.</p>
+
+              <h3>I Rostri del Foro Romano</h3>
+              <p>La resa definitiva giunse nel 338 a.C. Con la <strong>Seconda Colonia Romana</strong>, Antium fu presa per la seconda volta dai consoli L. Furio Camillo e C. Menio. Il Senato aveva proposto di radere la città al suolo; prevalse invece la proposta di dedurre una nuova colonia di soli Romani, e agli Antiati fu concessa la cittadinanza nelle tribù <strong>Maecia</strong> e <strong>Scaptia</strong>.</p>
+
+              <p>La punizione simbolica fu però durissima: il mare fu interdetto agli Antiati e le loro navi da guerra rimosse dal porto. <strong>Sei navi rostrate</strong> — i cui bronzei rostri, portati a Roma da C. Menio, ornarono la tribuna del Foro Romano — diedero il nome alle <strong>Rostra</strong>. Vulpio cita l&rsquo;iscrizione dei Fasti Capitolini:</p>
+
+              <div class="quote-block">
+                C. MAENIUS P.F. P.N. COS. DE ANTIATIBUS LAVINEIS VELITERNEIS PRIDIE K. OCT. ANNO CDXV
+                <cite>&mdash; Fasti Capitolini, trionfo di C. Menio sugli Antiati</cite>
+              </div>
+
+              <h3>La Terza Colonia: Nerone ad Antio</h3>
+              <p>Dopo il saccheggio di C. Mario nella guerra civile sillana — che uccise quasi tutti i cittadini, abbatté gli edifici pubblici e devastò i campi — Antium rimase spopolata fino all&rsquo;età di Nerone. L&rsquo;imperatore, nato ad Antio (<em>Antii natus est Nero Imperator, ut notum est</em>), vi dedusse una <strong>Terza Colonia</strong> di veterani pretoriani. Da lui prese il nome anche il <strong>Portus Neronianus</strong>, che ampliò enormemente il porto preesistente.</p>
+
+              <h3>Il porto di Antio: più antico di Nerone</h3>
+              <p>Vulpio apre il capitolo sul porto con una correzione storiografica: <em>Errant qui putant, Antiates portum a Nerone primum constructum fuisse</em> — «Sbagliano coloro che credono che il porto degli Antiati sia stato costruito per la prima volta da Nerone». Il porto è attestato già nel primo periodo repubblicano romano come <em>munitissimum et a navibus et a navalibus instructissimum</em>. Il porto militare e commerciale non era la città stessa, ma il borgo separato di <strong>Cenona</strong> — identificato con il sito di Nettuno — che fu distrutto dal console T. Numicio nel 377 a.U.c. per privare gli Antiati della loro potenza navale.</p>
+
+              <h3>Le magistrature di Antium</h3>
+              <p>Antium ebbe tre distinte epoche istituzionali. <strong>Prima dei Romani</strong>, gli Antiati partecipavano al Concilio di Ferentino (<em>Lucus Ferentinus</em>) con Dittatori, Pretori e Questori. <strong>Come Colonia Latina</strong> (286&ndash;338 a.U.c.), adottò Duoviri, Decurioni, Censori quinquennali ed Edili; i Duoviri indossavano la <em>toga praetexta</em> e usavano i fasci. <strong>Come Colonia Romana</strong> (338 a.U.c. in poi), mantenne l&rsquo;autonomia municipale con Pretori e Quattuorviri che sopravvissero fino all&rsquo;età imperiale, come dimostra una iscrizione funeraria: <em>T. FLAVIUS AUG. LIB. EVANGELUS TABLARIUS PRAETORIS ANTIATINI</em>.</p>
+
+              <h3>Satricum, Astura e le Claustra Romanae</h3>
+              <p>L&rsquo;analisi si estende al territorio. <strong>Satricum</strong> &mdash; identificata con Conca &mdash; era la principale città fondata dagli Antiati come loro colonia nell&rsquo;entroterra; vi si venerava la <strong>Mater Matuta</strong> in un tempio che, secondo le fonti, rimase miracolosamente intatto durante i ripetuti assalti romani. <strong>Astura</strong> era l&rsquo;oppidum della penisola omonima, dove soggiornavano gli imperatori e dove Cicerone fu assassinato nel 43 a.C. (episodio che Vulpio omette, limitandosi al <em>Profanum</em>). Le <strong>Claustra Romanae</strong> — sbarramenti idraulici alla foce del Nymphaeum (Storace) — non erano affatto il confine (<em>limes</em>) dell&rsquo;Impero Romano, come qualcuno aveva creduto: erano opere di regimentazione fluviale costruite per proteggere il letto del fiume dalle mareggiate del Tirreno.</p>
+
+              <h3>Il metodo di Vulpio</h3>
+              <p>Vulpio dichiara esplicitamente la propria gerarchia di fonti: Livio (primaria per le guerre romane-volsche), Dionisio di Alicarnasso (integra e spesso corregge Livio), Plinio il Vecchio (per la geografia del litorale), Svetonio (storia imperiale), Cicerone (vita privata e ville), Fasti Capitolini (trionfi e date). Pirro Ligorius è usato <em>ea qua decuit cautela</em> — «con la dovuta cautela» — avendo Vulpio verificato di persona a Roma, nelle sedi Farnesiane, le iscrizioni da lui citate. Dove i lapidi ligoriani risultavano autentici li accetta; dove sospettava falsificazioni lo segnala. Un rigore insolito per l&rsquo;antiquaria settecentesca.</p>
+
+            </div><!-- /.article-body -->
+
+            <aside class="side-notes">
+
+              <div class="callout callout--curiosita reveal">
+                <div class="callout-header">
+                  <span class="callout-icon" aria-hidden="true">✦</span>
+                  <span class="callout-label">I tre figli di Circe</span>
+                </div>
+                <p class="callout-text">Secondo Xenagora (cit. da Dionisio di Alicarnasso), Ulisse e Circe ebbero tre figli — <strong>Romo, Antheas e Ardeia</strong> — che fondarono Roma, Antium e Ardea. Una tradizione odisseica alternativa che faceva di Antium una città «sorella» di Roma, e della Fanciulla di Anzio, in senso metaforico, una discendente di Circe.</p>
+              </div>
+
+              <div class="callout callout--critica reveal">
+                <div class="callout-header">
+                  <span class="callout-icon" aria-hidden="true">⚑</span>
+                  <span class="callout-label">Vulpio o Volpi?</span>
+                </div>
+                <p class="callout-text">Il cognome dell&rsquo;autore appare nei documenti sia come <strong>Vulpio</strong> che come <strong>Volpi</strong>: il gesuita firmava in latino (<em>Vulpius</em>), ma le fonti secondarie oscillano tra le due forme. Il titolo del testo originale è <em>De Antiatibus et Norbanis</em>; l&rsquo;opera enciclopedica entro cui si inscrive è il <em>Vetus Latium Profanum</em>, Tomo III.</p>
+              </div>
+
+              <div class="callout callout--curiosita reveal">
+                <div class="callout-header">
+                  <span class="callout-icon" aria-hidden="true">✦</span>
+                  <span class="callout-label">La sinistra fama di Astura</span>
+                </div>
+                <p class="callout-text">Vulpio annota con ironia antiquaria che <em>tutti</em> gli imperatori che soggiornarono ad Astura morirono poco dopo: Augusto si ammalò di dissenteria, Tiberio di malattia grave, Caligola vide il presagio della propria morte in un pesciolino. Cicerone fu assassinato proprio lì nel 43 a.C. — episodio che Vulpio però tace, limitandosi al <em>Profanum</em>.</p>
+              </div>
+
+              <div class="figure-stack reveal">
+                <figure class="figure-card">
+                  <img src="../img/fanciulla-anzio-massimo.webp"
+                       alt="Fanciulla di Anzio, statua marmorea, circa 300 a.C., Museo Nazionale Romano, Palazzo Massimo alle Terme"
+                       loading="lazy" decoding="async">
+                  <figcaption>
+                    <strong>Fanciulla di Anzio</strong><br>
+                    Statua marmorea, circa 300 a.C. Rinvenuta nella villa imperiale di Caligola-Nerone nel 1878. Oggi al Museo Nazionale Romano, Palazzo Massimo alle Terme.
+                  </figcaption>
+                </figure>
+              </div>
+
+            </aside>
+          </div><!-- /.article-layout -->
+
+          <!-- ── Nota fonte ── -->
+          <div class="source-credit" style="margin-top:var(--sp-10)">
+            <strong>Nota sulla fonte:</strong> Il presente estratto è tratto e tradotto dal <em>De Antiatibus et Norbanis</em> di Giuseppe Rocco Vulpio S.J., Padova 1726, parte del Tomo III del <em>Vetus Latium Profanum</em>. Testo originale in latino. La traduzione e il commento dei passi sono a cura del Gruppo FAI Anzio-Nettuno. I brani latini mantengono la grafia dell&rsquo;edizione originale. Per la lista completa delle fonti si rinvia alla pagina <a href="../fonti.html">Crediti</a>. Il documento completo è disponibile in <a href="../docs/antium-vlp-tomo3.pdf" target="_blank" rel="noopener">formato PDF</a>.
+          </div>
+
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
