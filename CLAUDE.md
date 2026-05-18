@@ -33,3 +33,14 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
 - Callout: striscia sinistra via `box-shadow: inset 4px 0 0 <colore>` (non ::before)
 - Tab: card verticali con icona SVG + numero + nome
 - Fonti, bibliografie e crediti grafici sono centralizzati in `fonti.html` (menu Crediti): non duplicare sezioni bibliografiche o liste di fonti nel corpo delle pagine in `sezioni/`.
+
+## Gestione immagini
+
+**Ogni immagine deve essere in formato WebP.** Flusso obbligatorio per qualsiasi nuovo file immagine (PNG, JPG, ecc.):
+
+1. Converti in WebP con qualità 82 usando Python + Pillow:
+   ```
+   python -c "from PIL import Image; Image.open(r'img\NOME.ext').save(r'img\NOME.webp', 'WEBP', quality=82, method=6)"
+   ```
+2. Elimina il file originale (`Remove-Item img\NOME.ext -Force`) **solo dopo** aver verificato che il `.webp` esiste.
+3. Usa sempre percorsi relativi `../img/NOME.webp` nei file HTML sotto `sezioni/`.
