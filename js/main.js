@@ -982,6 +982,22 @@ document.addEventListener('DOMContentLoaded', () => {
           note: 'Ricostruzione grafica basata sulle fonti storiche (Lugli 1940).'
         }
       ]
+    },
+    'sezioni/antium-vlp-tomo3.html': {
+      subtitle: 'Estratto VLP · De Antiatibus et Norbanis',
+      note: 'Crediti grafici specifici della sezione.',
+      rows: [
+        {
+          element: 'Hero — Fanciulla di Anzio, Palazzo Massimo alle Terme',
+          author: 'Miguel Hermoso Cuesta · Wikimedia Commons',
+          note: 'Fotografia CC BY-SA 4.0.'
+        },
+        {
+          element: 'Fanciulla di Anzio — figura nel box',
+          author: 'Museo Nazionale Romano · Palazzo Massimo alle Terme',
+          note: 'Etichetta BCS (Beni Culturali Standard, MiC) — riuso libero per studio, editoria e valorizzazione.'
+        }
+      ]
     }
   };
 
