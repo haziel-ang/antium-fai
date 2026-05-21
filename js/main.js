@@ -856,6 +856,36 @@ document.addEventListener('DOMContentLoaded', () => {
           element: 'Planimetria del Vallo di Antium',
           author: 'Riccardo Pau',
           note: 'Tavola descrittiva su fonti Lugli 1940; Egidi–Guidi 2009.'
+        },
+        {
+          element: 'Territorio di Antium — insediamenti fortificati (Fig. 2)',
+          author: 'Cifani G., Guidi A.',
+          note: 'In: Fontaine–Helas (a cura di), Le fortificazioni arcaiche del Latium vetus, IHBR 2016, fig. 2. © autori.'
+        },
+        {
+          element: 'Colle Rotondo — localizzazione saggi di scavo, foto aerea (Fig. 3)',
+          author: 'Cifani G., Guidi A.; base foto aerea Guardia Forestale 2012',
+          note: 'In: Fontaine–Helas 2016, fig. 3. © autori / Guardia Forestale.'
+        },
+        {
+          element: 'Colle Rotondo — planimetria topografica e sezione trasversale (Fig. 4)',
+          author: 'Quilici L., Quilici Gigli S. (1984); riprodotto in Cifani–Guidi 2016',
+          note: 'In: Cifani–Guidi 2016, fig. 4. © autori.'
+        },
+        {
+          element: 'Colle Rotondo — ricostruzione 3D primo aggere XI–X sec. a.C. (Fig. 5)',
+          author: 'Nomi F. (2013); Guidi A., Nomi F. (2014)',
+          note: 'In: Cifani–Guidi 2016, fig. 9. © autori.'
+        },
+        {
+          element: 'Vallo di Antium — assonometria muro in opera quadrata (Fig. 6)',
+          author: 'Egidi R., Guidi A.',
+          note: 'Scavi Soprintendenza per i Beni Archeologici del Lazio (1980–81). In: Cifani–Guidi 2016, fig. 16. © Soprintendenza / autori.'
+        },
+        {
+          element: 'Vallo di Antium — foto muro in opera quadrata (Fig. 7)',
+          author: 'Egidi R., Guidi A.',
+          note: 'Scavi Soprintendenza per i Beni Archeologici del Lazio (1980–81). In: Cifani–Guidi 2016, fig. 17. © Soprintendenza / autori.'
         }
       ]
     },
