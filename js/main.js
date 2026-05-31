@@ -1225,3 +1225,110 @@ document.addEventListener('DOMContentLoaded', () => {
 
   tiles.forEach(function (t) { io.observe(t); });
 }());
+
+/* ============================================================
+   CROSSLINK — anteprime di rimando tra sezioni
+   Ogni <a class="crosslink"> con attributi data-cross-* apre,
+   in hover/focus/tap, un box a pergamena (stile crediti) con
+   un mini-approfondimento e un invito a visitare la sezione.
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('a.crosslink'));
+  if (!links.length) return;
+
+  var pop = document.createElement('div');
+  pop.className = 'crosslink-pop';
+  pop.setAttribute('role', 'tooltip');
+  pop.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(pop);
+
+  var current = null;
+  var hideTimer = null;
+
+  function escapeHtml(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function render(link) {
+    var eyebrow = link.getAttribute('data-cross-eyebrow') || '';
+    var title = link.getAttribute('data-cross-title') || link.textContent;
+    var note = link.getAttribute('data-cross-note') || '';
+    var cta = link.getAttribute('data-cross-cta') || 'Vai alla sezione';
+    var href = link.getAttribute('href') || '#';
+    pop.innerHTML =
+      (eyebrow ? '<p class="crosslink-pop-eyebrow">' + escapeHtml(eyebrow) + '</p>' : '') +
+      '<p class="crosslink-pop-title">' + escapeHtml(title) + '</p>' +
+      (note ? '<p class="crosslink-pop-note">' + escapeHtml(note) + '</p>' : '') +
+      '<a class="crosslink-pop-cta" href="' + escapeHtml(href) + '">' + escapeHtml(cta) + '</a>';
+  }
+
+  function position(link) {
+    var r = link.getBoundingClientRect();
+    var scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    var vw = document.documentElement.clientWidth;
+    var width = pop.offsetWidth;
+    var margin = 14;
+
+    var left = r.left + scrollX;
+    if (left + width > scrollX + vw - margin) {
+      left = scrollX + vw - margin - width;
+    }
+    if (left < scrollX + margin) left = scrollX + margin;
+
+    var top = r.bottom + scrollY + 10;
+    pop.style.left = left + 'px';
+    pop.style.top = top + 'px';
+
+    // posiziona la freccia sopra l'ancora
+    var arrow = (r.left + scrollX) - left + Math.min(r.width / 2, 40);
+    arrow = Math.max(14, Math.min(arrow, width - 26));
+    pop.style.setProperty('--cross-arrow', arrow + 'px');
+  }
+
+  function show(link) {
+    if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+    current = link;
+    render(link);
+    pop.classList.add('open');
+    pop.setAttribute('aria-hidden', 'false');
+    position(link);
+  }
+
+  function hide() {
+    pop.classList.remove('open');
+    pop.setAttribute('aria-hidden', 'true');
+    current = null;
+  }
+
+  function scheduleHide() {
+    if (hideTimer) clearTimeout(hideTimer);
+    hideTimer = setTimeout(hide, 180);
+  }
+
+  links.forEach(function (link) {
+    link.addEventListener('mouseenter', function () { show(link); });
+    link.addEventListener('mouseleave', scheduleHide);
+    link.addEventListener('focus', function () { show(link); });
+    link.addEventListener('blur', hide);
+  });
+
+  pop.addEventListener('mouseenter', function () {
+    if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+  });
+  pop.addEventListener('mouseleave', scheduleHide);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && current) hide();
+  });
+  window.addEventListener('scroll', function () { if (current) hide(); }, { passive: true });
+  window.addEventListener('resize', function () { if (current) hide(); });
+}());
+
