@@ -1013,7 +1013,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       ]
     },
-    'sezioni/antium-vlp-tomo3.html': {
+    'sezioni/antium-guide.html': {
       subtitle: 'Estratto VLP · De Antiatibus et Norbanis',
       note: 'Crediti grafici specifici della sezione.',
       rows: [
