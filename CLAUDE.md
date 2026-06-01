@@ -44,3 +44,21 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
    ```
 2. Elimina il file originale (`Remove-Item img\NOME.ext -Force`) **solo dopo** aver verificato che il `.webp` esiste.
 3. Usa sempre percorsi relativi `../img/NOME.webp` nei file HTML sotto `sezioni/`.
+
+## Ricerca full-text globale
+
+Il campo di ricerca cerca in **tutte** le sezioni del sito, non solo nella pagina corrente.
+
+- L'indice è in `js/search-index.js` (`window.ANTIUM_SEARCH_INDEX`), **generato** da
+  `scripts/build_search_index.py`. Non modificarlo a mano.
+- **Dopo ogni modifica al testo** di `index.html` o di una pagina in `sezioni/`,
+  rigenera l'indice:
+  ```
+  python scripts/build_search_index.py
+  ```
+- Digitando appare un menù a tendina coi risultati raggruppati per sezione. Al click
+  si naviga a `sezioni/<pagina>.html?q=<termine>&hit=<N>`: la pagina di destinazione
+  evidenzia tutte le occorrenze e scorre esattamente a quella cliccata.
+- L'indice è caricato dinamicamente da `js/main.js` (funzione `initSiteSearch`); non
+  serve aggiungere `<script>` nelle pagine.
+

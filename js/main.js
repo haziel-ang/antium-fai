@@ -781,26 +781,165 @@ document.addEventListener('DOMContentLoaded', () => {
         clearTimeout(debounceId);
         syncInputs(control.input.value);
         const q = control.input.value.trim();
-        debounceId = setTimeout(() => highlight(q), 220);
+        debounceId = setTimeout(() => { highlight(q); renderGlobalResults(q); }, 220);
       });
       control.form.addEventListener('submit', e => {
         e.preventDefault();
         activeControl = control;
-        if (!hits.length) highlight(control.input.value.trim());
-        else goTo(current + 1);
+        const q = control.input.value.trim();
+        if (hits.length) { goTo(current + 1); return; }
+        highlight(q);
+        if (hits.length) return;
+        // Nessun risultato in questa pagina: vai al primo risultato globale
+        renderGlobalResults(q);
+        const firstBtn = control.results && control.results.querySelector('.search-result-item');
+        if (firstBtn) gotoResult(firstBtn.dataset.url, parseInt(firstBtn.dataset.hit, 10) || 0, firstBtn.dataset.current === '1');
       });
       control.prevBtn && control.prevBtn.addEventListener('click', () => goTo(current - 1));
       control.nextBtn && control.nextBtn.addEventListener('click', () => goTo(current + 1));
       control.clearBtn && control.clearBtn.addEventListener('click', () => {
         syncInputs('');
         clearHighlights();
+        hideAllResults();
         control.input.focus();
       });
     });
+
+    // ── RICERCA GLOBALE (tutte le sezioni) ──────────────────
+    const ASSET_ROOT = window.location.pathname.replace(/\\/g, '/').toLowerCase().includes('/sezioni/') ? '../' : './';
+
+    function currentPageUrl() {
+      const rel = getRepoRelativePath().replace(/^\//, '');
+      return rel || 'index.html';
+    }
+
+    // Carica l'indice di ricerca generato da scripts/build_search_index.py
+    if (!window.ANTIUM_SEARCH_INDEX) {
+      const s = document.createElement('script');
+      s.src = ASSET_ROOT + 'js/search-index.js';
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+
+    // Crea il pannello dei risultati per ogni form di ricerca
+    controls.forEach(control => {
+      const panel = document.createElement('div');
+      panel.className = 'search-results';
+      panel.setAttribute('data-site-search-results', '');
+      panel.hidden = true;
+      control.form.appendChild(panel);
+      control.results = panel;
+      panel.addEventListener('click', e => {
+        const btn = e.target.closest('.search-result-item');
+        if (!btn) return;
+        activeControl = control;
+        gotoResult(btn.dataset.url, parseInt(btn.dataset.hit, 10) || 0, btn.dataset.current === '1');
+      });
+    });
+
+    const escapeHtml = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const makeRe = q => new RegExp(escapeRegExp(q), 'gi');
+
+    function makeSnippet(text, q) {
+      const re = makeRe(q);
+      const m = re.exec(text);
+      const i = m ? m.index : 0;
+      const start = Math.max(0, i - 55);
+      const end = Math.min(text.length, i + q.length + 90);
+      let raw = (start > 0 ? '\u2026 ' : '') + text.slice(start, end) + (end < text.length ? ' \u2026' : '');
+      return escapeHtml(raw).replace(makeRe(q), mm => `<mark>${mm}</mark>`);
+    }
+
+    function hideAllResults() {
+      controls.forEach(c => { if (c.results) { c.results.hidden = true; c.results.innerHTML = ''; } });
+    }
+
+    function renderGlobalResults(q) {
+      if (!q || q.length < 2) { hideAllResults(); return; }
+      const idx = Array.isArray(window.ANTIUM_SEARCH_INDEX) ? window.ANTIUM_SEARCH_INDEX : [];
+      if (!idx.length) { hideAllResults(); return; }
+      const here = currentPageUrl();
+      const MAX_ITEMS = 40;
+      const groups = [];
+      let totalMatches = 0;
+      idx.forEach(page => {
+        const re = makeRe(q);
+        let occ = 0;
+        const items = [];
+        page.passages.forEach(text => {
+          const count = (text.match(re) || []).length;
+          if (count > 0) items.push({ hitIndex: occ, snippet: makeSnippet(text, q) });
+          occ += count;
+        });
+        if (items.length) {
+          totalMatches += occ;
+          groups.push({ url: page.url, title: page.title, current: page.url === here, count: occ, items });
+        }
+      });
+
+      groups.sort((a, b) => (b.current - a.current) || (b.count - a.count));
+
+      let html;
+      if (!groups.length) {
+        html = `<div class="search-results-empty">Nessun risultato per \u201c${escapeHtml(q)}\u201d.</div>`;
+      } else {
+        html = `<div class="search-results-head">${totalMatches} ${totalMatches === 1 ? 'risultato' : 'risultati'} in ${groups.length} ${groups.length === 1 ? 'sezione' : 'sezioni'}</div>`;
+        let shown = 0;
+        for (const g of groups) {
+          if (shown >= MAX_ITEMS) break;
+          html += '<div class="search-results-group">';
+          html += `<div class="search-results-section">${escapeHtml(g.title)}${g.current ? ' \u00b7 <span class="srg-here">questa pagina</span>' : ''} <span class="srg-count">${g.count}</span></div>`;
+          for (const it of g.items) {
+            if (shown >= MAX_ITEMS) break;
+            html += `<button type="button" class="search-result-item" data-url="${g.url}" data-hit="${it.hitIndex}" data-current="${g.current ? '1' : '0'}">${it.snippet}</button>`;
+            shown++;
+          }
+          html += '</div>';
+        }
+      }
+
+      controls.forEach(c => {
+        if (!c.results) return;
+        c.results.innerHTML = html;
+        c.results.hidden = false;
+        if (c.status) c.status.hidden = true;
+      });
+    }
+
+    function gotoResult(url, hitIndex, isCurrent) {
+      const q = (activeControl.input.value || '').trim();
+      if (isCurrent) {
+        hideAllResults();
+        if (!hits.length) highlight(q);
+        if (hits.length) goTo(Math.min(hitIndex, hits.length - 1));
+      } else {
+        window.location.href = ASSET_ROOT + url + '?q=' + encodeURIComponent(q) + '&hit=' + hitIndex;
+      }
+    }
+
+    // Chiudi i risultati cliccando fuori dal box di ricerca
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.brand-search')) hideAllResults();
+    });
+
+    // Deep-link: ?q=...&hit=N -> evidenzia e scorre all'occorrenza esatta
+    (function applyDeepLink() {
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get('q');
+      if (!q) return;
+      syncInputs(q);
+      const hit = parseInt(params.get('hit'), 10);
+      setTimeout(() => {
+        highlight(q);
+        if (hits.length) goTo(isNaN(hit) ? 0 : Math.min(hit, hits.length - 1));
+      }, 250);
+    })();
+
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && hits.length) {
         syncInputs('');
         clearHighlights();
+        hideAllResults();
       }
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();

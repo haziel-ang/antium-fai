@@ -1113,6 +1113,93 @@ mark.search-hit.is-current {
   box-shadow: 0 0 0 3px rgba(200,71,26,0.30);
 }
 
+/* Dropdown risultati ricerca globale (tutte le sezioni) */
+.search-results {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: min(380px, 86vw);
+  max-height: min(60vh, 460px);
+  overflow-y: auto;
+  background: #fffaf0;
+  border: 1px solid var(--fai-divider);
+  border-radius: 10px;
+  box-shadow: 0 14px 40px rgba(60,30,10,0.20);
+  z-index: 30;
+  padding: 6px;
+  text-align: left;
+}
+.search-results[hidden] { display: none; }
+.search-results-head {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fai-muted);
+  padding: 6px 8px 8px;
+  border-bottom: 1px solid var(--fai-divider);
+}
+.search-results-empty {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--fai-muted);
+  padding: 14px 10px;
+}
+.search-results-group { padding: 4px 0; }
+.search-results-section {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fai-brown);
+  padding: 8px 8px 4px;
+}
+.search-results-section .srg-here {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--fai-orange);
+}
+.search-results-section .srg-count {
+  margin-left: auto;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  color: #fff;
+  background: var(--fai-orange);
+  border-radius: 999px;
+  padding: 1px 7px;
+}
+.search-result-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-radius: 7px;
+  padding: 7px 9px;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--fai-brown);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.search-result-item:hover,
+.search-result-item:focus-visible {
+  background: rgba(200,71,26,0.10);
+  outline: none;
+}
+.search-result-item mark {
+  background: #ffe79a;
+  color: var(--fai-brown);
+  padding: 0 1px;
+  border-radius: 2px;
+}
+
 /* ── BUTTONS ──────────────────────────────────────────── */
 .btn {
   display: inline-flex;
