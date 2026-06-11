@@ -45,6 +45,8 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
   Narrativo, semplice, con ganci e domande lasciate in sospeso; frasi corte alternate a lunghe;
   niente registri da manuale universitario. Regole complete in
   `.claude/skills/fai-guide-rewriter/references/scrittura-umana.md`.
+- **Figure senza stili inline**: `<figure class="article-figure">` (+ `--narrow` per le strette) con `<figcaption>` nudo. Margini, ombre, raggi e didascalie sono nel CSS centralizzato: non duplicarli inline.
+- **Liste con rientro pieno**: `.article-body ul` ha padding-left 1.6rem (rombo dorato interno al margine). Non aggiungere margini negativi.
 - **Tipografia uniforme**: la prosa di lettura usa il token `--text-prose`
   (condiviso da `.intro-body p` in home e `.article-body p / ul li` nelle sezioni).
   Non introdurre mai font-size ad hoc per i paragrafi: usare i token.

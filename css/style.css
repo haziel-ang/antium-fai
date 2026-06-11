@@ -1684,8 +1684,7 @@ mark.search-hit.is-current {
 /* Elenchi puntati in articoli — rombo dorato allineato al testo */
 .article-body ul {
   list-style: none;
-  padding-left: 1.1rem;
-  margin-left: -1.1rem; /* compensa il padding per allineare il testo ai paragrafi */
+  padding-left: 1.6rem; /* rientro pieno: rombo a 0.5rem dal margine, testo a 1.6rem */
   margin-bottom: var(--sp-5);
 }
 .article-body ul li {
@@ -5263,4 +5262,34 @@ mark.search-hit.is-current {
 @media (prefers-reduced-motion: reduce) {
   .crosslink-pop { transition: opacity 0.15s ease; transform: none; }
   .crosslink-pop.open { transform: none; }
+}
+
+
+/* Tipografia fine: titoli bilanciati, paragrafi senza righe orfane */
+.hero-title, .section-title, .article-body h2, .article-body h3, .callout-label {
+  text-wrap: balance;
+}
+.article-body p, .intro-body p, .callout-text, .article-figure figcaption {
+  text-wrap: pretty;
+}
+
+/* ============================================================
+   STAMPA — le guide si stampano: testo nero su bianco, niente
+   interfaccia, callout e figure non spezzati tra le pagine.
+   ============================================================ */
+@media print {
+  .site-header, .hero-actions, .hero-eras, .back-to-top, .lightbox,
+  .brand-search, .nav-menu-btn, .mobile-search-panel { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .hero, .section, .mosaic-section, .tl-section { background: #fff !important; }
+  .hero-bg, .hero-overlay, .mosaic-bg { display: none !important; }
+  .hero-title, .hero-subtitle, .hero-meta, .section-title, .section-intro,
+  .mosaic-header .section-title, .mosaic-header .section-intro { color: #000 !important; }
+  .callout, .article-figure, .quote-block, .table-wrap, .tl-card {
+    break-inside: avoid;
+    box-shadow: none !important;
+  }
+  .article-body p, .intro-body p, .callout-text { color: #000 !important; }
+  a { color: #000 !important; text-decoration: underline; }
+  .article-figure img { box-shadow: none !important; max-height: 18cm; }
 }
