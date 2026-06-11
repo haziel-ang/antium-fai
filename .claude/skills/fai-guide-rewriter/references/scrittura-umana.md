@@ -37,6 +37,7 @@ I rimandi (Senagora, Dionigi) finiscono nella cronologia. La frase la legge tua 
 
 Evita le parole-spia dell'AI: profondo, fondamentale, cruciale, trasformativo, risonanza, esplorare, sviscerare, paesaggio (metaforico), intrecciare, illuminare, navigare (metaforico), patrimonio (vuoto), sfaccettature, dinamiche, nuances, molteplici, rafforzare, evidenziare, sottolineare, abbracciare, incarnare, rispecchiare, testimonianza, senza soluzione di continuità.
 Evita i cliché turistici: gioiello, scrigno, perla, cuore pulsante, fiore all'occhiello, custodisce, racchiude, "non a caso", "veri e propri", "viaggio" (metaforico).
+Bandito il tic dell'onestà: "onestamente", "per onestà", "onesto/a" come autocertificazione del testo. Sono parole da assistente, non da narratore: di' direttamente la cosa ("non lo sappiamo", "scritto chiaro e tondo", "la versione precedente resta citata: così si vede cosa è cambiato"). Eccezione ovvia: citazioni e latino delle fonti (es. *municipium honestissimum*).
 Niente enfasi vuota: "straordinario", "incredibile", "affascinante" senza un fatto concreto che li giustifichi. Preferisci il concreto all'astratto: non "una riflessione sul tempo" ma "il senso che tremila anni siano passati in un istante".
 
 ## Tono e onestà
