@@ -65,6 +65,16 @@ Queste non si negoziano, nemmeno se rendono il testo meno "brillante":
 - **Una sola voce per tutto il progetto**: il registro di riferimento è la home (`index.html`). Ogni sezione nuova o aggiornata deve suonare come la home, e la prosa di lettura usa il token tipografico `--text-prose`, identico in home e sezioni.
 - **Solo modalità chiara.** La guida non deve mai adattarsi al tema scuro: su iPhone diventa illeggibile. Applica sempre la guardia anti-dark-mode a 3 livelli del template (meta `color-scheme: light only` nel `<head>`; stile inline su `<html>` e `<body>`; blocco CSS `@media (prefers-color-scheme: dark)` che ri-forza i colori con `!important`). Vedi `references/html-template.md`.
 
+## Revisione finale (obbligatoria prima della consegna)
+
+Prima di consegnare o pubblicare, esegui questi controlli. Sono meccanici: falli davvero, non a memoria.
+
+1. **Trattini**: `grep -n "—\|&mdash;"` sul file deve restituire zero (salvo citazioni «» e intervalli con –).
+2. **Parole-spia**: `grep -in "onest\|fondamentale\|straordinari\|affascinante\|cruciale\|suggestiv\|prestigios"` deve restituire zero fuori dalle citazioni. La lista completa è in `references/scrittura-umana.md`.
+3. **Tipografia**: nessun `font-size` inline nei paragrafi (solo token `--text-prose` e simili); nessuno stile inline su `<figure>`, `<img>` di figura o `<figcaption>` (esistono le classi `.article-figure`, `.article-figure--narrow`).
+4. **Sito Antium**: dopo ogni modifica al testo, rigenera l'indice di ricerca (`python scripts/build_search_index.py`).
+5. **Lettura ad alta voce** di apertura e chiusura: se suonano da manuale o da AI, riscrivile prima di consegnare.
+
 ## Box: composizione
 
 - **✦ Curiosità** → `<div class="curiosita">`, titolo interno `### ✦ Curiosità · [titolo]`. Se due curiosità consecutive trattano lo stesso tema, fondile in un box solo con `<hr class="sep">` tra i blocchi.
