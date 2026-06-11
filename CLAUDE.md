@@ -34,6 +34,21 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
 - Tab: card verticali con icona SVG + numero + nome
 - Fonti, bibliografie e crediti grafici sono centralizzati in `fonti.html` (menu Crediti): non duplicare sezioni bibliografiche o liste di fonti nel corpo delle pagine in `sezioni/`.
 
+## Stile editoriale (vincolante per tutto il progetto)
+
+- **Niente trattini lunghi.** Il trattino lungo (`—`, `&mdash;`) è vietato in tutto il testo del sito:
+  al suo posto usare virgole, due punti, punto fermo o parentesi, riscrivendo se serve.
+  Il trattino corto (`–`) è ammesso **solo** negli intervalli numerici e di pagina
+  (1980–1981, IV–II sec., pp. 153–188), mai come pausa nel discorso.
+  Unica eccezione: i trattini presenti dentro citazioni testuali «» di fonti, che restano alla lettera.
+- **Il registro di riferimento è la home page (`index.html`)**: stessa voce in tutte le sezioni.
+  Narrativo, semplice, con ganci e domande lasciate in sospeso; frasi corte alternate a lunghe;
+  niente registri da manuale universitario. Regole complete in
+  `.claude/skills/fai-guide-rewriter/references/scrittura-umana.md`.
+- **Tipografia uniforme**: la prosa di lettura usa il token `--text-prose`
+  (condiviso da `.intro-body p` in home e `.article-body p / ul li` nelle sezioni).
+  Non introdurre mai font-size ad hoc per i paragrafi: usare i token.
+
 ## Gestione immagini
 
 **Ogni immagine deve essere in formato WebP.** Flusso obbligatorio per qualsiasi nuovo file immagine (PNG, JPG, ecc.):
