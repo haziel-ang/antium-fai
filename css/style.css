@@ -37,6 +37,8 @@
   --text-xs:   clamp(0.75rem,  0.7rem + 0.25vw, 0.875rem);
   --text-sm:   clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
   --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  /* Prosa di lettura: stessa misura in home (.intro-body) e sezioni (.article-body) */
+  --text-prose: clamp(0.95rem, 0.5vw + 0.85rem, 1.1rem);
   --text-lg:   clamp(1.125rem, 1rem + 0.75vw,   1.5rem);
   --text-xl:   clamp(1.5rem,   1.2rem + 1.25vw,  2.25rem);
   --text-2xl:  clamp(2rem,     1.2rem + 2.5vw,   3.5rem);
@@ -1671,8 +1673,8 @@ mark.search-hit.is-current {
   margin-bottom: var(--sp-3);
 }
 .article-body p {
-  font-size: var(--text-base);
-  line-height: 1.8;
+  font-size: var(--text-prose);
+  line-height: 1.7;
   color: var(--text-body);
   margin-bottom: var(--sp-5);
   max-width: 72ch;
@@ -1690,8 +1692,8 @@ mark.search-hit.is-current {
   position: relative;
   padding-left: 0;
   margin-bottom: var(--sp-3);
-  font-size: var(--text-base);
-  line-height: 1.8;
+  font-size: var(--text-prose);
+  line-height: 1.7;
   color: var(--text-body);
 }
 .article-body ul li:last-child {
@@ -5128,14 +5130,16 @@ mark.search-hit.is-current {
   margin: 0 0 var(--sp-8);
 }
 .intro-body p {
-  font-size: clamp(0.95rem, 0.5vw + 0.85rem, 1.1rem);
+  font-size: var(--text-prose);
   color: var(--text-body);
   line-height: 1.7;
   margin: 0 0 var(--sp-4);
 }
 
 @media (max-width: 480px) {
-  .intro-body p {
+  .intro-body p,
+  .article-body p,
+  .article-body ul li {
     font-size: 0.92rem;
     line-height: 1.65;
   }

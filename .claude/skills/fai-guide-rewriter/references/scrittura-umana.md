@@ -48,7 +48,7 @@ Niente enfasi vuota: "straordinario", "incredibile", "affascinante" senza un fat
 
 ## Punteggiatura e transizioni
 
-- Più punti fermi, meno em-dash. Nel corpo narrativo niente em-dash come stampella: usa due punti, punto e virgola, parentesi, o riscrivi. (Eccezione: nello script podcast l'em-dash è marcatore di pausa per la voce.)
+- **Trattino lungo (—) vietato, sempre.** Non "meno": zero. Niente `—` né `&mdash;` nel corpo del testo, nei titoli, nelle didascalie, nei callout. Al suo posto: virgola per gli incisi, due punti per le spiegazioni, punto fermo per gli stacchi, parentesi per gli a-parte. Se nessuno funziona, riscrivi la frase. Il trattino corto (–) vive solo negli intervalli numerici (1980–1981, pp. 153–188), mai nel discorso. Due sole eccezioni: le citazioni «» di fonti, che restano alla lettera, e lo script podcast, dove l'em-dash è marcatore di pausa per la voce.
 - Le parentesi vanno bene per incisi brevi e ironici.
 - Una frase può iniziare con "E" o "Ma".
 - I frammenti voluti sono ammessi. Anzi, necessari. In certi punti.
