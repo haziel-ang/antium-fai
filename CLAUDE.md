@@ -51,6 +51,16 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
   (condiviso da `.intro-body p` in home e `.article-body p / ul li` nelle sezioni).
   Non introdurre mai font-size ad hoc per i paragrafi: usare i token.
 
+## Pager di sezione e date di aggiornamento
+
+- In fondo a ogni pagina di `sezioni/` c'è un `<nav class="section-pager">` con i link
+  «precedente / successiva». L'ordine del percorso è: necropoli-protostoriche → vallo →
+  volsci-cicerone-culti → antium-guide → tomba-mulakia → villa-imperiale → teatro-romano →
+  monumenti-citta-alta → xystus-terme-citta-alta → cisternone-caffeaus (prima: home; dopo: fonti).
+  **Una sezione nuova va inserita nel pager** delle pagine adiacenti.
+- Ogni pagina ha `<p class="page-updated">…</p>` riscritto da `scripts/stamp_updates.py`
+  (data odierna se il file è modificato, altrimenti l'ultimo commit): non aggiornarlo a mano.
+
 ## Gestione immagini
 
 **Ogni immagine deve essere in formato WebP.** Flusso obbligatorio per qualsiasi nuovo file immagine (PNG, JPG, ecc.):
@@ -69,9 +79,10 @@ Il campo di ricerca cerca in **tutte** le sezioni del sito, non solo nella pagin
 - L'indice è in `js/search-index.js` (`window.ANTIUM_SEARCH_INDEX`), **generato** da
   `scripts/build_search_index.py`. Non modificarlo a mano.
 - **Dopo ogni modifica al testo** di `index.html` o di una pagina in `sezioni/`,
-  rigenera l'indice:
+  rigenera l'indice e stampiglia le date di aggiornamento:
   ```
   python scripts/build_search_index.py
+  python scripts/stamp_updates.py
   ```
 - Digitando appare un menù a tendina coi risultati raggruppati per sezione. Al click
   si naviga a `sezioni/<pagina>.html?q=<termine>&hit=<N>`: la pagina di destinazione
