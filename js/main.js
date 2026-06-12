@@ -1471,3 +1471,122 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', function () { if (current) hide(); });
 }());
 
+
+
+/* ============================================================
+   LEMMI — glossario interattivo. Ogni <span class="lemma"
+   data-lemma="id"> apre il popup a pergamena con la voce del
+   registro centrale (js/lemmi.js): timeline dei proprietari
+   per le ville, spiegazione breve per i termini tecnici.
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var spans = Array.prototype.slice.call(document.querySelectorAll('.lemma[data-lemma]'));
+  if (!spans.length) return;
+
+  var ASSET_ROOT = window.location.pathname.replace(/\\/g, '/').toLowerCase().includes('/sezioni/') ? '../' : './';
+  if (!window.ANTIUM_LEMMI) {
+    var loader = document.createElement('script');
+    loader.src = ASSET_ROOT + 'js/lemmi.js';
+    loader.defer = true;
+    document.head.appendChild(loader);
+  }
+
+  var pop = document.createElement('div');
+  pop.className = 'crosslink-pop';
+  pop.setAttribute('role', 'tooltip');
+  pop.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(pop);
+
+  var current = null;
+  var hideTimer = null;
+
+  function escapeHtml(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function render(span) {
+    var voce = (window.ANTIUM_LEMMI || {})[span.getAttribute('data-lemma')];
+    if (!voce) return false;
+    var html = '';
+    if (voce.eyebrow) html += '<p class="crosslink-pop-eyebrow">' + escapeHtml(voce.eyebrow) + '</p>';
+    html += '<p class="crosslink-pop-title">' + escapeHtml(voce.titolo || span.textContent) + '</p>';
+    if (voce.nota) html += '<p class="crosslink-pop-note">' + escapeHtml(voce.nota) + '</p>';
+    if (voce.righe && voce.righe.length) {
+      html += '<ul class="crosslink-pop-rows">';
+      voce.righe.forEach(function (r) {
+        html += '<li><span class="lemma-quando">' + escapeHtml(r[0]) + '</span><span>' + escapeHtml(r[1]) + '</span></li>';
+      });
+      html += '</ul>';
+    }
+    pop.innerHTML = html;
+    return true;
+  }
+
+  function position(span) {
+    var r = span.getBoundingClientRect();
+    var scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    var vw = document.documentElement.clientWidth;
+    var width = pop.offsetWidth;
+    var margin = 14;
+    var left = r.left + scrollX;
+    if (left + width > scrollX + vw - margin) left = scrollX + vw - margin - width;
+    if (left < scrollX + margin) left = scrollX + margin;
+    var top = r.bottom + scrollY + 10;
+    pop.style.left = left + 'px';
+    pop.style.top = top + 'px';
+    var arrow = (r.left + scrollX) - left + Math.min(r.width / 2, 40);
+    arrow = Math.max(14, Math.min(arrow, width - 26));
+    pop.style.setProperty('--cross-arrow', arrow + 'px');
+  }
+
+  function show(span) {
+    if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+    if (!render(span)) return;
+    current = span;
+    pop.classList.add('open');
+    pop.setAttribute('aria-hidden', 'false');
+    position(span);
+  }
+
+  function hide() {
+    pop.classList.remove('open');
+    pop.setAttribute('aria-hidden', 'true');
+    current = null;
+  }
+
+  function scheduleHide() {
+    if (hideTimer) clearTimeout(hideTimer);
+    hideTimer = setTimeout(hide, 180);
+  }
+
+  spans.forEach(function (span) {
+    span.setAttribute('tabindex', '0');
+    span.addEventListener('mouseenter', function () { show(span); });
+    span.addEventListener('mouseleave', scheduleHide);
+    span.addEventListener('focus', function () { show(span); });
+    span.addEventListener('blur', hide);
+    span.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (current === span) { hide(); } else { show(span); }
+    });
+  });
+
+  pop.addEventListener('mouseenter', function () {
+    if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+  });
+  pop.addEventListener('mouseleave', scheduleHide);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && current) hide();
+  });
+  window.addEventListener('scroll', function () { if (current) hide(); }, { passive: true });
+  window.addEventListener('resize', function () { if (current) hide(); });
+}());

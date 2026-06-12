@@ -5362,3 +5362,47 @@ mark.search-hit.is-current {
   padding: 0 var(--sp-6);
 }
 @media print { .section-pager { display: none !important; } }
+
+
+/* ============================================================
+   LEMMI — glossario interattivo: ville dai nomi stratificati e
+   termini tecnici spiegati in poche parole. Sottolineato
+   puntinato dorato (i rimandi tra sezioni restano tratteggiati
+   in arancio); popup a pergamena condiviso con i crosslink.
+   ============================================================ */
+.lemma {
+  border-bottom: 1px dotted var(--fai-gold, #b8860b);
+  text-underline-offset: 3px;
+  cursor: help;
+  transition: color var(--transition), border-color var(--transition);
+}
+.lemma:hover,
+.lemma:focus-visible {
+  color: var(--fai-orange-d);
+  border-bottom-color: var(--fai-orange-d);
+  outline: none;
+}
+.crosslink-pop-rows {
+  margin: var(--sp-3) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(110,75,25,0.18);
+}
+.crosslink-pop-rows li {
+  display: grid;
+  grid-template-columns: minmax(64px, auto) 1fr;
+  gap: var(--sp-3);
+  padding: var(--sp-2) 0;
+  border-bottom: 1px solid rgba(110,75,25,0.12);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: #4a3217;
+}
+.crosslink-pop-rows li:last-child { border-bottom: none; }
+.crosslink-pop-rows .lemma-quando {
+  font-family: var(--font-display);
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--fai-brown, #6b4423);
+}
+@media print { .lemma { border-bottom: none; cursor: auto; } }
