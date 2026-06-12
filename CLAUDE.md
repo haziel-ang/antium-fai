@@ -47,6 +47,10 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
   `.claude/skills/fai-guide-rewriter/references/scrittura-umana.md`.
 - **Figure senza stili inline**: `<figure class="article-figure">` (+ `--narrow` per le strette) con `<figcaption>` nudo. Margini, ombre, raggi e didascalie sono nel CSS centralizzato: non duplicarli inline.
 - **Liste con rientro pieno**: `.article-body ul` ha padding-left 1.6rem (rombo dorato interno al margine). Non aggiungere margini negativi.
+- **Gerarchia dei titoli (identica in tutte le sezioni)**: `h1` solo nel hero (`.hero-title`);
+  `h2` solo per il titolo dell'articolo, **uno per pagina** (`--text-xl`, display, filetto sotto);
+  `h3` per le sezioni (`--text-lg`, display corsivo); `h4` per le sottosezioni
+  (`--text-md`, display, peso 600). Mai saltare livelli né usare h2 multipli nel corpo.
 - **Tipografia uniforme**: la prosa di lettura usa il token `--text-prose`
   (condiviso da `.intro-body p` in home e `.article-body p / ul li` nelle sezioni).
   Non introdurre mai font-size ad hoc per i paragrafi: usare i token.
