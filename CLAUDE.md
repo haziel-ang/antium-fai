@@ -55,6 +55,17 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
   (condiviso da `.intro-body p` in home e `.article-body p / ul li` nelle sezioni).
   Non introdurre mai font-size ad hoc per i paragrafi: usare i token.
 
+## Lemmi: glossario interattivo (ville e termini tecnici)
+
+- Registro centrale in `js/lemmi.js` (`window.ANTIUM_LEMMI`): per ogni voce `eyebrow`,
+  `titolo`, `nota` (spiegazione breve) e opzionale `righe` (timeline `[periodo, evento]`,
+  usata per le ville che hanno cambiato nome e proprietari).
+- Nel testo: `<span class="lemma" data-lemma="id">…</span>` (su `.termine` o `<em>` basta
+  aggiungere la classe e il data-attribute). **Solo la prima occorrenza per pagina**,
+  mai dentro citazioni «» o didascalie. Popup a pergamena gestito da `js/main.js`.
+- Sottolineato puntinato dorato = lemma; tratteggiato arancio = crosslink tra sezioni.
+  Voci nuove si aggiungono al registro, mai inline.
+
 ## Pager di sezione e date di aggiornamento
 
 - In fondo a ogni pagina di `sezioni/` c'è un `<nav class="section-pager">` con i link
