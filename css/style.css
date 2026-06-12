@@ -39,6 +39,7 @@
   --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
   /* Prosa di lettura: stessa misura in home (.intro-body) e sezioni (.article-body) */
   --text-prose: clamp(0.95rem, 0.5vw + 0.85rem, 1.1rem);
+  --text-md:   clamp(1.06rem,  1rem + 0.35vw,   1.28rem);
   --text-lg:   clamp(1.125rem, 1rem + 0.75vw,   1.5rem);
   --text-xl:   clamp(1.5rem,   1.2rem + 1.25vw,  2.25rem);
   --text-2xl:  clamp(2rem,     1.2rem + 2.5vw,   3.5rem);
@@ -1672,6 +1673,15 @@ mark.search-hit.is-current {
   margin-top: var(--sp-8);
   margin-bottom: var(--sp-3);
 }
+.article-body h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+  margin-top: var(--sp-7);
+  margin-bottom: var(--sp-2);
+}
 .article-body p {
   font-size: var(--text-prose);
   line-height: 1.7;
@@ -1740,7 +1750,8 @@ mark.search-hit.is-current {
   background: rgba(255,255,255,0.58);
   box-shadow: inset 0 0 0 1px rgba(212,202,184,0.65);
 }
-.phase-block h3 {
+.phase-block h3,
+.phase-block h4 {
   margin-top: 0;
   color: var(--fai-brown);
 }
@@ -5266,7 +5277,7 @@ mark.search-hit.is-current {
 
 
 /* Tipografia fine: titoli bilanciati, paragrafi senza righe orfane */
-.hero-title, .section-title, .article-body h2, .article-body h3, .callout-label {
+.hero-title, .section-title, .article-body h2, .article-body h3, .article-body h4, .callout-label {
   text-wrap: balance;
 }
 .article-body p, .intro-body p, .callout-text, .article-figure figcaption {
