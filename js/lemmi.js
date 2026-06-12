@@ -84,6 +84,18 @@ window.ANTIUM_LEMMI = {
     ]
   },
 
+  'semaforo': {
+    eyebrow: 'La vedetta scomparsa',
+    titolo: 'Il Semaforo della Regia Marina',
+    nota: 'Una stazione di vedetta e segnalazione della Marina, costruita nel 1889 sul punto più alto del ciglio costiero, tra il faro e via Fanciulla d’Anzio: comunicava con le navi al largo con segnali ottici ed era collegata al telegrafo. L’edificio non esiste più, ma per gli archeologi resta un punto fermo: scavandone le fondamenta affiorò il vallo, e il suo nome marca ancora il limite ovest della villa imperiale.',
+    righe: [
+      ['1889', 'Si scavano le fondamenta: i picconi trovano il macco dell’aggere e una statua femminile senza testa'],
+      ['1890 ca.', 'La stazione è in servizio nella rete semaforica costiera della Regia Marina'],
+      ['1940', 'Per Lugli è il riferimento fisso: «il vallo aveva inizio proprio al di sotto del Semaforo»'],
+      ['Oggi', 'Non esiste più: quando e come sia scomparso resta da documentare. Sopravvive nel nome della «villa del Semaforo»']
+    ]
+  },
+
   /* ---------- I termini tecnici, spiegati in due righe ---------- */
 
   'macco': {
