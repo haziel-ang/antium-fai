@@ -15,6 +15,23 @@ automaticamente il sito su GitHub Pages tramite il workflow in `.github/workflow
 
 Branch di sviluppo: `claude/github-pages-deployment-Nbrty`
 
+### Prima di iniziare un nuovo lavoro: branch fresco da `main` aggiornato
+
+Per evitare i conflitti di merge (capitati quando si riusa un branch già squashato in
+`main`, o quando nel frattempo `main` è stato toccato da linter o da modifiche dirette):
+
+1. **All'inizio di ogni nuovo task**, allinea e riparti da `main`:
+   `git fetch origin main` poi `git switch -c claude/<nome-task> origin/main`
+   (oppure, se devi restare sul branch assegnato, `git merge origin/main` prima di lavorare).
+2. **Non riutilizzare un branch già mergiato**: dopo un merge squash il branch diverge
+   da `main` (un commit squash contro i commit singoli) e la PR successiva va in conflitto.
+3. **Se il conflitto capita lo stesso**: `git fetch origin main` e
+   `git merge -X ours origin/main` (il contenuto del branch include già le modifiche
+   squashate, quindi vince il branch), poi rigenera l'indice di ricerca, verifica che
+   convivano sia le tue aggiunte sia gli aggiornamenti arrivati da `main`, e ripusha.
+4. Dopo il merge in `main`, **considera chiuso quel branch**: il task seguente riparte
+   da capo dal punto 1.
+
 ## Struttura del progetto
 
 Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del repo.
