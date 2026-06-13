@@ -134,6 +134,12 @@ window.ANTIUM_LEMMI = {
     nota: 'Frammenti di terracotta pestati nella calce: un rivestimento impermeabile e quasi indistruttibile. Foderava cisterne, vasche e bagni; dove lo trovi, lì c’era acqua.'
   },
 
+  'opus-spicatum': {
+    eyebrow: 'Il pavimento a spina di pesce',
+    titolo: 'Opus spicatum',
+    nota: 'Mattoncini posati di taglio e inclinati a comporre il disegno di una spiga: di qui il nome. Economico e robusto, era il pavimento delle stanze di servizio e dei sotterranei. Nelle terme dello xystus rivestiva le camere minori intorno all’aula a mosaico.'
+  },
+
   'criptoportico': {
     eyebrow: 'Architettura',
     titolo: 'Criptoportico',
@@ -156,6 +162,12 @@ window.ANTIUM_LEMMI = {
     eyebrow: 'Date stampate sui mattoni',
     titolo: 'Bolli laterizi',
     nota: 'Timbri impressi sui mattoni freschi, con il nome della fornace e spesso dei consoli in carica: per gli archeologi sono date di fabbricazione stampate dentro l’edificio. Quelli del Cisternone lo datano al 123 d.C.'
+  },
+
+  'bipedali': {
+    eyebrow: 'Mattoni a misura',
+    titolo: 'Mattoni bipedali',
+    nota: 'I mattoni grandi due piedi romani per lato, circa 59 cm: i più larghi che uscivano dalle fornaci, usati per ripartire i carichi e segnare i piani di posa. Nel Cisternone due file di bipedali affiancati marcano la risega da cui i muri si assottigliano salendo.'
   },
 
   'basolato': {
