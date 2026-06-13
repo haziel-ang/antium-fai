@@ -32,6 +32,31 @@ Per evitare i conflitti di merge (capitati quando si riusa un branch già squash
 4. Dopo il merge in `main`, **considera chiuso quel branch**: il task seguente riparte
    da capo dal punto 1.
 
+## Sincronizzazione PDF delle sezioni (vincolante)
+
+Ogni pagina di `sezioni/` ha un **PDF associato** in `docs/`, ed esiste la pagina
+`pdf.html` che li elenca tutti. **Regola: quando si modifica il testo di una sezione,
+il PDF associato va sempre rigenerato e riallineato alla pagina. Sempre.** Non si lascia
+mai un PDF disallineato dalla versione web. Una sezione nuova deve avere il suo PDF in
+`docs/` e la sua voce in `pdf.html`.
+
+Mappa sezione → PDF (da tenere aggiornata):
+
+- `necropoli-protostoriche` → `docs/necropoli-preistoriche.pdf`
+- `vallo` → `docs/vallo.pdf`
+- `volsci-cicerone-culti` → `docs/storia-urbana.pdf`
+- `antium-guide` → `docs/antium-guide.pdf`
+- `tomba-mulakia` → `docs/tomba-mulakia.pdf`
+- `villa-imperiale` → `docs/villa-imperiale.pdf`
+- `teatro-romano` → `docs/teatro-romano.pdf`
+- `monumenti-citta-alta` → `docs/monumenti-citta-alta.pdf`
+- `xystus-terme-citta-alta` → `docs/xystus-terme-citta-alta.pdf`
+- `cisternone-caffeaus` → `docs/cisternone-caffeaus.pdf`
+- `tor-caldara` → `docs/tor-caldara.pdf` (da creare)
+
+La revisione finale di ogni modifica a una sezione include: pagina aggiornata, **PDF
+associato rigenerato** in `docs/`, e `pdf.html` aggiornato se la voce è nuova.
+
 ## Struttura del progetto
 
 Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del repo.
