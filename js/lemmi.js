@@ -134,6 +134,12 @@ window.ANTIUM_LEMMI = {
     nota: 'Frammenti di terracotta pestati nella calce: un rivestimento impermeabile e quasi indistruttibile. Foderava cisterne, vasche e bagni; dove lo trovi, lì c’era acqua.'
   },
 
+  'opus-spicatum': {
+    eyebrow: 'Il pavimento a spina di pesce',
+    titolo: 'Opus spicatum',
+    nota: 'Mattoncini posati di taglio e inclinati a comporre il disegno di una spiga: di qui il nome. Economico e robusto, era il pavimento delle stanze di servizio e dei sotterranei. Nelle terme dello xystus rivestiva le camere minori intorno all’aula a mosaico.'
+  },
+
   'criptoportico': {
     eyebrow: 'Architettura',
     titolo: 'Criptoportico',
@@ -156,6 +162,12 @@ window.ANTIUM_LEMMI = {
     eyebrow: 'Date stampate sui mattoni',
     titolo: 'Bolli laterizi',
     nota: 'Timbri impressi sui mattoni freschi, con il nome della fornace e spesso dei consoli in carica: per gli archeologi sono date di fabbricazione stampate dentro l’edificio. Quelli del Cisternone lo datano al 123 d.C.'
+  },
+
+  'bipedali': {
+    eyebrow: 'Mattoni a misura',
+    titolo: 'Mattoni bipedali',
+    nota: 'I mattoni grandi due piedi romani per lato, circa 59 cm: i più larghi che uscivano dalle fornaci, usati per ripartire i carichi e segnare i piani di posa. Nel Cisternone due file di bipedali affiancati marcano la risega da cui i muri si assottigliano salendo.'
   },
 
   'basolato': {
@@ -252,6 +264,24 @@ window.ANTIUM_LEMMI = {
     nota: 'Il corridoio di accesso scoperto che precede l’ingresso di una tomba ipogea, ripreso dalle tradizioni funerarie etrusche. Nella tomba Mulakia il dromos introduce le tre porte come nelle necropoli etrusche più antiche.'
   },
 
+  'ipogeo': {
+    eyebrow: 'La tomba sotto terra',
+    titolo: 'Ipogeo',
+    nota: 'Una tomba scavata sottoterra, a camere e gallerie, in cui si scende dall’esterno: dal greco hypó-gaios, «sotto la terra». La tomba Mulakia è un ipogeo a tre stanze con i loculi sovrapposti su più piani, un modello che anticipa di secoli le catacombe cristiane.'
+  },
+
+  'gentilizio': {
+    eyebrow: 'Il cognome dei Romani',
+    titolo: 'Nome gentilizio',
+    nota: 'Il nome di famiglia (gens) nel sistema romano, quello che passava di padre in figlio: per Caio Giulio Cesare il gentilizio è Iulius. Inciso sulla parete della tomba, «Mulakia» è il gentilizio della famiglia sepolta, e la sua terminazione tradisce un’origine campana.'
+  },
+
+  'strigili': {
+    eyebrow: 'Pulirsi senza sapone',
+    titolo: 'Strigile',
+    nota: 'Un raschietto ricurvo di bronzo con cui ci si ripuliva dopo l’esercizio: lo si passava sulla pelle unta d’olio per portare via sudore, polvere e olio insieme. Nei corredi funebri segnala spesso una persona legata alla palestra o al bagno; ce n’erano anche tra gli oggetti della tomba Mulakia.'
+  },
+
   'caffeaus': {
     eyebrow: 'Il salotto dei giardini nobiliari',
     titolo: 'Caffeaus',
@@ -273,6 +303,12 @@ window.ANTIUM_LEMMI = {
   },
 
   /* ---------- Termini tecnici (aggiuntivi) ---------- */
+
+  'amigdala': {
+    eyebrow: 'L’arnese più antico di Anzio',
+    titolo: 'Amigdala (bifacciale)',
+    nota: 'L’utensile a forma di mandorla, da cui il nome, lavorato su due facce a colpi mirati: lo strumento-simbolo del Paleolitico. Quello affiorato sotto il campo sportivo di Anzio è opera dell’uomo di Neandertal e ha circa centocinquantamila anni: la traccia umana più antica del territorio.'
+  },
 
   'facies-laziale': {
     eyebrow: 'La cultura funeraria dei Latini antichi',
