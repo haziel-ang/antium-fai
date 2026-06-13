@@ -5229,6 +5229,14 @@ mark.search-hit.is-current {
   border-top: 1px solid rgba(110,75,25,0.30);
   transform: rotate(45deg);
 }
+.crosslink-pop.above::before {
+  top: auto;
+  bottom: -7px;
+  border-left: none;
+  border-top: none;
+  border-right: 1px solid rgba(110,75,25,0.30);
+  border-bottom: 1px solid rgba(110,75,25,0.30);
+}
 .crosslink-pop-eyebrow {
   font-family: 'Inter', sans-serif;
   text-transform: uppercase;
