@@ -54,8 +54,13 @@ Mappa sezione → PDF (da tenere aggiornata):
 - `cisternone-caffeaus` → `docs/cisternone-caffeaus.pdf`
 - `tor-caldara` → `docs/tor-caldara.pdf` (da creare)
 
+I PDF si rigenerano con lo script dedicato (WeasyPrint + foglio di stampa pulito,
+immagini ridimensionate): `python scripts/build_pdfs.py` per tutte le sezioni, oppure
+`python scripts/build_pdfs.py <sezione> …` per alcune. La mappa nome-sezione → nome-PDF
+è dentro lo script (`SECTION_TO_PDF`): una sezione nuova va aggiunta lì.
+
 La revisione finale di ogni modifica a una sezione include: pagina aggiornata, **PDF
-associato rigenerato** in `docs/`, e `pdf.html` aggiornato se la voce è nuova.
+associato rigenerato** con `scripts/build_pdfs.py`, e `pdf.html` aggiornato se la voce è nuova.
 
 ## Struttura del progetto
 
