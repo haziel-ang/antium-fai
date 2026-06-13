@@ -264,24 +264,6 @@ window.ANTIUM_LEMMI = {
     nota: 'Il corridoio di accesso scoperto che precede l’ingresso di una tomba ipogea, ripreso dalle tradizioni funerarie etrusche. Nella tomba Mulakia il dromos introduce le tre porte come nelle necropoli etrusche più antiche.'
   },
 
-  'ipogeo': {
-    eyebrow: 'La tomba sotto terra',
-    titolo: 'Ipogeo',
-    nota: 'Una tomba scavata sottoterra, a camere e gallerie, in cui si scende dall’esterno: dal greco hypó-gaios, «sotto la terra». La tomba Mulakia è un ipogeo a tre stanze con i loculi sovrapposti su più piani, un modello che anticipa di secoli le catacombe cristiane.'
-  },
-
-  'gentilizio': {
-    eyebrow: 'Il cognome dei Romani',
-    titolo: 'Nome gentilizio',
-    nota: 'Il nome di famiglia (gens) nel sistema romano, quello che passava di padre in figlio: per Caio Giulio Cesare il gentilizio è Iulius. Inciso sulla parete della tomba, «Mulakia» è il gentilizio della famiglia sepolta, e la sua terminazione tradisce un’origine campana.'
-  },
-
-  'strigili': {
-    eyebrow: 'Pulirsi senza sapone',
-    titolo: 'Strigile',
-    nota: 'Un raschietto ricurvo di bronzo con cui ci si ripuliva dopo l’esercizio: lo si passava sulla pelle unta d’olio per portare via sudore, polvere e olio insieme. Nei corredi funebri segnala spesso una persona legata alla palestra o al bagno; ce n’erano anche tra gli oggetti della tomba Mulakia.'
-  },
-
   'caffeaus': {
     eyebrow: 'Il salotto dei giardini nobiliari',
     titolo: 'Caffeaus',
@@ -303,12 +285,6 @@ window.ANTIUM_LEMMI = {
   },
 
   /* ---------- Termini tecnici (aggiuntivi) ---------- */
-
-  'amigdala': {
-    eyebrow: 'L’arnese più antico di Anzio',
-    titolo: 'Amigdala (bifacciale)',
-    nota: 'L’utensile a forma di mandorla, da cui il nome, lavorato su due facce a colpi mirati: lo strumento-simbolo del Paleolitico. Quello affiorato sotto il campo sportivo di Anzio è opera dell’uomo di Neandertal e ha circa centocinquantamila anni: la traccia umana più antica del territorio.'
-  },
 
   'facies-laziale': {
     eyebrow: 'La cultura funeraria dei Latini antichi',
@@ -376,5 +352,67 @@ window.ANTIUM_LEMMI = {
     eyebrow: 'I colori del lusso imperiale',
     titolo: 'Cipollino, giallo antico, pavonazzetto',
     nota: 'I marmi pregiati che rivestivano il teatro, ciascuno da una cava lontana dell’impero: il cipollino venato di verde dall’Eubea, il giallo antico dorato dalla Numidia, il pavonazzetto bianco-violaceo dalla Frigia. Importarli da mezzo Mediterraneo era una dichiarazione di ricchezza.'
+  },
+
+  /* ---------- Tombe, terme, decorazione, materiali ---------- */
+
+  'loculi': {
+    eyebrow: 'Le nicchie dei morti',
+    titolo: 'Loculi',
+    nota: 'Le nicchie rettangolari scavate nelle pareti di una tomba sotterranea, dove si deponevano i corpi o le urne. Nella tomba Mulakia corrono su tre file sovrapposte: si sfruttava l’altezza per moltiplicare i posti senza allargare lo scavo, una soluzione che anticipa di secoli le catacombe cristiane.'
+  },
+
+  'commesso-laterizio': {
+    eyebrow: 'Pavimenti di cotto',
+    titolo: 'Commesso laterizio',
+    nota: 'Un pavimento fatto di mattoni e frammenti di cotto tagliati e accostati a disegno: povero di materia ma durissimo all’uso e resistente all’acqua. Michetti lo posò al piano basso del Cisternone quando lo adattò a deposito.'
+  },
+
+  'emiciclo': {
+    eyebrow: 'La curva di mezzo cerchio',
+    titolo: 'Emiciclo',
+    nota: 'Una struttura a semicerchio, come l’incavo di una cavea o di un’abside. Ad Antium la parola torna per il «cosiddetto teatro» della città alta: l’edificio curvo che per secoli si scambiò per un teatro e che era invece un settore termale.'
+  },
+
+  'stipe-votiva': {
+    eyebrow: 'Le offerte sepolte',
+    titolo: 'Stipe votiva',
+    nota: 'Il deposito di doni che i fedeli lasciavano a un santuario, statuette di terracotta, monete, vasetti, accumulati e poi sepolti nel terreno sacro perché non si potevano buttare. Una stipe affiorata nel 1879 in un orto è l’unico vero indizio del perduto tempio della Fortuna di Anzio.'
+  },
+
+  'ninfeo': {
+    eyebrow: 'La grotta delle ninfe',
+    titolo: 'Ninfeo',
+    nota: 'Una finta grotta da giardino, ornata di fontane, statue e mosaici, dove l’acqua scorreva da nicchie e zampilli: un angolo fresco per l’otium nelle ville di lusso. Quello della villa imperiale di Anzio era dipinto «a giardino», con un grande pannello di caccia.'
+  },
+
+  'ipocausto': {
+    eyebrow: 'Il calore sotto il pavimento',
+    titolo: 'Ipocausto',
+    nota: 'Il forno e l’intercapedine che scaldavano le terme romane dal basso: l’aria calda di un braciere circolava sotto i pavimenti sospesi e dentro le pareti cave, poi usciva dai comignoli. Riscaldamento a pavimento, duemila anni fa.'
+  },
+
+  'diaeta': {
+    eyebrow: 'La stanza con vista',
+    titolo: 'Diaeta',
+    nota: 'Un ambiente di soggiorno della villa romana, in parte coperto e in parte aperto, con portici e fontane, fatto per vivere all’aria godendo il panorama. Per Lugli il «teatro marittimo» di Anzio era proprio una diaeta: non un luogo di spettacolo, ma una terrazza per l’ozio sul mare.'
+  },
+
+  'cementizio-pozzolanico': {
+    eyebrow: 'Il cemento che indurisce nel mare',
+    titolo: 'Cementizio pozzolanico',
+    nota: 'Il calcestruzzo romano impastato con la pozzolana, la sabbia vulcanica dei Campi Flegrei: gettato sott’acqua faceva presa e induriva invece di sgretolarsi. Fu il segreto dei moli del porto di Nerone, le cui casseforme di legno portano ancora le sigle punzonate dei costruttori.'
+  },
+
+  'marmi-greci': {
+    eyebrow: 'Pario e pentelico',
+    titolo: 'I marmi greci della Fanciulla',
+    nota: 'Due marmi pregiati dall’Egeo: il pario, candido e a grana fine, dall’isola di Paro; il pentelico, dai riflessi appena azzurri, dal monte vicino ad Atene. La Fanciulla d’Anzio li usa entrambi, il pario per la spalla nuda e il pentelico per la veste, per distinguere al tatto la pelle dal tessuto.'
+  },
+
+  'volte-cassettoni': {
+    eyebrow: 'Il soffitto a riquadri',
+    titolo: 'Volte a cassettoni',
+    nota: 'Soffitti voltati suddivisi in riquadri incavati, i cassettoni, riempiti di stucchi, rosoni e dorature: alleggerivano la volta e la trasformavano in decorazione. Soffredini, intorno al 1845, vide ancora nella villa imperiale corridoi voltati «con fogliami e rosoni nel centro».'
   }
 };
