@@ -1501,6 +1501,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   var current = null;
   var hideTimer = null;
+  var openedByTouch = false;
 
   function escapeHtml(value) {
     return String(value == null ? '' : value)
@@ -1534,12 +1535,16 @@ document.addEventListener('DOMContentLoaded', () => {
     var scrollX = window.pageXOffset || document.documentElement.scrollLeft;
     var scrollY = window.pageYOffset || document.documentElement.scrollTop;
     var vw = document.documentElement.clientWidth;
+    var vh = window.innerHeight;
     var width = pop.offsetWidth;
+    var popH = pop.offsetHeight;
     var margin = 14;
     var left = r.left + scrollX;
     if (left + width > scrollX + vw - margin) left = scrollX + vw - margin - width;
     if (left < scrollX + margin) left = scrollX + margin;
-    var top = r.bottom + scrollY + 10;
+    var above = (vh - r.bottom) < (popH + 14) && r.top > (popH + 14);
+    var top = above ? r.top + scrollY - popH - 10 : r.bottom + scrollY + 10;
+    pop.classList.toggle('above', above);
     pop.style.left = left + 'px';
     pop.style.top = top + 'px';
     var arrow = (r.left + scrollX) - left + Math.min(r.width / 2, 40);
@@ -1560,6 +1565,7 @@ document.addEventListener('DOMContentLoaded', () => {
     pop.classList.remove('open');
     pop.setAttribute('aria-hidden', 'true');
     current = null;
+    openedByTouch = false;
   }
 
   function scheduleHide() {
@@ -1569,11 +1575,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   spans.forEach(function (span) {
     span.setAttribute('tabindex', '0');
-    span.addEventListener('mouseenter', function () { show(span); });
-    span.addEventListener('mouseleave', scheduleHide);
+    // Mouse: only when not in touch mode
+    span.addEventListener('mouseenter', function () { if (!openedByTouch) show(span); });
+    span.addEventListener('mouseleave', function () { if (!openedByTouch) scheduleHide(); });
     span.addEventListener('focus', function () { show(span); });
-    span.addEventListener('blur', hide);
+    span.addEventListener('blur', function () { if (!openedByTouch) hide(); });
+    // Touch: preventDefault stops the synthetic mouseenter/click chain → single-tap to open
+    span.addEventListener('touchstart', function (e) {
+      e.preventDefault();
+      openedByTouch = true;
+      if (current === span) { hide(); } else { show(span); }
+    }, { passive: false });
+    // Click fallback for non-touch pointer devices
     span.addEventListener('click', function (e) {
+      if (openedByTouch) return;
       e.preventDefault();
       if (current === span) { hide(); } else { show(span); }
     });
@@ -1582,11 +1597,19 @@ document.addEventListener('DOMContentLoaded', () => {
   pop.addEventListener('mouseenter', function () {
     if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
   });
-  pop.addEventListener('mouseleave', scheduleHide);
+  pop.addEventListener('mouseleave', function () { if (!openedByTouch) scheduleHide(); });
+
+  // Close touch-popup when tapping outside the popup and outside any lemma span
+  document.addEventListener('touchstart', function (e) {
+    if (!current) return;
+    var onSpan = spans.some(function (s) { return s === e.target || s.contains(e.target); });
+    if (!pop.contains(e.target) && !onSpan) hide();
+  }, { passive: true });
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && current) hide();
   });
-  window.addEventListener('scroll', function () { if (current) hide(); }, { passive: true });
+  // Scroll hides only mouse-opened popups; touch-opened ones stay until tapped away
+  window.addEventListener('scroll', function () { if (current && !openedByTouch) hide(); }, { passive: true });
   window.addEventListener('resize', function () { if (current) hide(); });
 }());
