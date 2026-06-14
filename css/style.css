@@ -2624,11 +2624,13 @@ mark.search-hit.is-current {
   flex-direction: column;
   gap: var(--sp-4);
   padding: var(--sp-8);
+  overflow-y: auto;
 }
 .lightbox.open { display: flex; }
 .lightbox-img {
   max-width: min(90vw, 1100px);
-  max-height: min(76vh, 900px);
+  max-height: min(62vh, 760px);
+  flex-shrink: 0;
   border-radius: var(--r-lg);
   box-shadow: 0 24px 80px rgba(0,0,0,0.6);
   object-fit: contain;
@@ -2637,6 +2639,7 @@ mark.search-hit.is-current {
   width: min(90vw, 900px);
   color: rgba(253,246,227,0.88);
   text-align: center;
+  flex-shrink: 0;
 }
 .lightbox-caption-title {
   font-family: var(--font-display);
@@ -2695,7 +2698,7 @@ mark.search-hit.is-current {
   }
   .lightbox-img {
     max-width: 94vw;
-    max-height: 68vh;
+    max-height: 54vh;
   }
   .lightbox-close {
     top: var(--sp-4);
