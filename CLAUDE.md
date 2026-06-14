@@ -71,6 +71,13 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
 - Callout: striscia sinistra via `box-shadow: inset 4px 0 0 <colore>` (non ::before)
 - Tab: card verticali con icona SVG + numero + nome
 - Fonti, bibliografie e crediti grafici sono centralizzati in `fonti.html` (menu Crediti): non duplicare sezioni bibliografiche o liste di fonti nel corpo delle pagine in `sezioni/`.
+- **Crediti grafici di sezione: due posti da tenere allineati.** Il popup «Crediti grafici»
+  che si apre dalla didascalia di una figura legge il registro `creditsCatalog` in
+  `js/main.js` (chiave per pagina, es. `'sezioni/tor-caldara.html'`, con `rows[]` di
+  `element/author/note`), **non** `fonti.html`. Quando aggiungi o cambi un'immagine in una
+  sezione, aggiorna sia la voce in `creditsCatalog` (per il popup) sia la tabella dei crediti
+  grafici in `fonti.html` (per la pagina Crediti): se manca la chiave in `creditsCatalog` il
+  popup mostra «Nessun credito grafico specifico registrato per questa sezione».
 
 ## Stile editoriale (vincolante per tutto il progetto)
 
