@@ -2,35 +2,21 @@
 
 ## Metodologia di deploy
 
-**Ogni modifica va sempre committata e mergiata in `main`** così da aggiornare
-automaticamente il sito su GitHub Pages tramite il workflow in `.github/workflows/deploy.yml`.
+**Ogni modifica va sempre committata e mergiata in `main`**: il workflow
+`.github/workflows/deploy.yml` aggiorna automaticamente il sito su GitHub Pages,
+senza passi manuali.
 
-### Flusso obbligatorio dopo ogni modifica
+Flusso per ogni task:
 
-1. `git add <file>` + `git commit`
-2. `git push -u origin <branch>`
-3. Crea PR verso `main` con `mcp__github__create_pull_request`
-4. Mergia immediatamente con `mcp__github__merge_pull_request` (squash)
-5. GitHub Actions esegue il deploy automatico — nessun passo manuale
-
-Branch di sviluppo: `claude/github-pages-deployment-Nbrty`
-
-### Prima di iniziare un nuovo lavoro: branch fresco da `main` aggiornato
-
-Per evitare i conflitti di merge (capitati quando si riusa un branch già squashato in
-`main`, o quando nel frattempo `main` è stato toccato da linter o da modifiche dirette):
-
-1. **All'inizio di ogni nuovo task**, allinea e riparti da `main`:
-   `git fetch origin main` poi `git switch -c claude/<nome-task> origin/main`
-   (oppure, se devi restare sul branch assegnato, `git merge origin/main` prima di lavorare).
-2. **Non riutilizzare un branch già mergiato**: dopo un merge squash il branch diverge
-   da `main` (un commit squash contro i commit singoli) e la PR successiva va in conflitto.
-3. **Se il conflitto capita lo stesso**: `git fetch origin main` e
-   `git merge -X ours origin/main` (il contenuto del branch include già le modifiche
-   squashate, quindi vince il branch), poi rigenera l'indice di ricerca, verifica che
-   convivano sia le tue aggiunte sia gli aggiornamenti arrivati da `main`, e ripusha.
-4. Dopo il merge in `main`, **considera chiuso quel branch**: il task seguente riparte
-   da capo dal punto 1.
+1. **Branch fresco da `main`**: `git fetch origin main` poi
+   `git switch -c claude/<nome-task> origin/main`. Non riutilizzare mai un branch
+   già mergiato (dopo un merge squash diverge da `main` e la PR successiva va in conflitto).
+2. `git add <file>` + `git commit` + `git push -u origin <branch>`.
+3. Crea PR verso `main` (`mcp__github__create_pull_request`) e mergiala subito in
+   squash (`mcp__github__merge_pull_request`).
+4. Se capita un conflitto: `git fetch origin main` e `git merge -X ours origin/main`
+   (il branch include già le modifiche squashate, quindi vince), poi rigenera l'indice
+   di ricerca, verifica che convivano le tue aggiunte e gli aggiornamenti da `main`, e ripusha.
 
 ## Sincronizzazione PDF delle sezioni (vincolante)
 
@@ -52,21 +38,18 @@ Mappa sezione → PDF (da tenere aggiornata):
 - `monumenti-citta-alta` → `docs/monumenti-citta-alta.pdf`
 - `xystus-terme-citta-alta` → `docs/xystus-terme-citta-alta.pdf`
 - `cisternone-caffeaus` → `docs/cisternone-caffeaus.pdf`
-- `tor-caldara` → `docs/tor-caldara.pdf` (da creare)
+- `tor-caldara` → `docs/tor-caldara.pdf`
 
 I PDF si rigenerano con lo script dedicato (WeasyPrint + foglio di stampa pulito,
 immagini ridimensionate): `python scripts/build_pdfs.py` per tutte le sezioni, oppure
 `python scripts/build_pdfs.py <sezione> …` per alcune. La mappa nome-sezione → nome-PDF
-è dentro lo script (`SECTION_TO_PDF`): una sezione nuova va aggiunta lì.
+è dentro lo script (`SECTION_TO_PDF`): una sezione nuova va aggiunta lì e a `pdf.html`.
 
 Ogni pagina dei PDF ha un **footer** con: una sottile linea di demarcazione a tutta
 larghezza, il numero di pagina ben leggibile a destra, e a sinistra tre righe piccole
 (Antium · Historia et Memoria; «A cura di Riccardo Pau · Gruppo FAI Anzio-Nettuno»;
 © anno e link cliccabile CC BY 4.0). I link interni alle altre sezioni vengono resi come
 testo semplice (nel PDF non avrebbero bersaglio); restano cliccabili solo i link esterni.
-
-La revisione finale di ogni modifica a una sezione include: pagina aggiornata, **PDF
-associato rigenerato** con `scripts/build_pdfs.py`, e `pdf.html` aggiornato se la voce è nuova.
 
 ## Struttura del progetto
 
@@ -75,7 +58,7 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
 - `index.html` — pagina unica con tab in-page
 - `css/style.css` — tutto lo stile, palette FAI (#C8471A arancio + avorio + marrone)
 - `js/main.js` — scroll reveal, tab switching, 3D tilt, lightbox
-- `img/` — immagini WebP (fanciulla-anzio, arco-muto, caffeaus)
+- `img/` — immagini WebP
 - `docs/antium-v5.pdf` — documento sorgente
 
 ## Convenzioni
@@ -124,7 +107,8 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
 - In fondo a ogni pagina di `sezioni/` c'è un `<nav class="section-pager">` con i link
   «precedente / successiva». L'ordine del percorso è: necropoli-protostoriche → vallo →
   volsci-cicerone-culti → antium-guide → tomba-mulakia → villa-imperiale → teatro-romano →
-  monumenti-citta-alta → xystus-terme-citta-alta → cisternone-caffeaus (prima: home; dopo: fonti).
+  monumenti-citta-alta → xystus-terme-citta-alta → cisternone-caffeaus → tor-caldara
+  (prima: home; dopo: fonti).
   **Una sezione nuova va inserita nel pager** delle pagine adiacenti.
 - Ogni pagina ha `<p class="page-updated">…</p>` riscritto da `scripts/stamp_updates.py`
   (data odierna se il file è modificato, altrimenti l'ultimo commit): non aggiornarlo a mano.
@@ -135,9 +119,9 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
 
 1. Converti in WebP con qualità 82 usando Python + Pillow:
    ```
-   python -c "from PIL import Image; Image.open(r'img\NOME.ext').save(r'img\NOME.webp', 'WEBP', quality=82, method=6)"
+   python -c "from PIL import Image; Image.open('img/NOME.ext').save('img/NOME.webp', 'WEBP', quality=82, method=6)"
    ```
-2. Elimina il file originale (`Remove-Item img\NOME.ext -Force`) **solo dopo** aver verificato che il `.webp` esiste.
+2. Elimina il file originale **solo dopo** aver verificato che il `.webp` esiste.
 3. Usa sempre percorsi relativi `../img/NOME.webp` nei file HTML sotto `sezioni/`.
 
 ## Ricerca full-text globale
