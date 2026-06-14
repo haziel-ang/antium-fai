@@ -5373,11 +5373,11 @@ mark.search-hit.is-current {
    restano tratteggiati in arancio); popup a pergamena condiviso con i crosslink.
    ============================================================ */
 .lemma {
-  background: var(--fai-gold, #b8860b);
+  background: var(--fai-gold-l, #d8b45b);
   color: #1c1206;
-  font-weight: 600;
-  border-radius: 4px;
-  padding: 0.04em 0.3em;
+  font-weight: inherit;
+  border-radius: 3px;
+  padding: 0 0.22em;
   border-bottom: none;
   text-decoration: none;
   box-decoration-break: clone;
@@ -5387,7 +5387,7 @@ mark.search-hit.is-current {
 }
 .lemma:hover,
 .lemma:focus-visible {
-  background: var(--fai-gold-l, #d8b45b);
+  background: var(--fai-gold, #b78a2a);
   color: #1c1206;
   outline: none;
 }

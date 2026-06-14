@@ -106,10 +106,11 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
 - Nel testo: `<span class="lemma" data-lemma="id">…</span>` (su `.termine` o `<em>` basta
   aggiungere la classe e il data-attribute). **Solo la prima occorrenza per pagina**,
   mai dentro citazioni «» o didascalie. Popup a pergamena gestito da `js/main.js`.
-- **Resa visiva del lemma**: evidenziato con **sfondo dorato (`--fai-gold`) e testo
-  quasi nero in grassetto**, così risalta più delle parole normali per la sua importanza
-  (hover/focus: sfondo `--fai-gold-l`). Lo stile è centralizzato in `.lemma` (`css/style.css`)
-  e vale automaticamente per tutti i lemmi: non applicarlo inline e non sottolinearli.
+- **Resa visiva del lemma**: evidenziato con **sfondo dorato chiaro (`--fai-gold-l`) e
+  testo quasi nero**, peso normale (stessa dimensione del corpo, non in grassetto), così
+  risalta senza ingrossare la parola (hover/focus: sfondo `--fai-gold` più carico). Lo stile
+  è centralizzato in `.lemma` (`css/style.css`) e vale automaticamente per tutti i lemmi:
+  non applicarlo inline e non sottolinearli.
   I crosslink tra sezioni restano invece tratteggiati in arancio (resa diversa, non confonderli).
   Voci nuove si aggiungono al registro, mai inline.
 - `js/lemmi.js` è caricato dinamicamente con cache-busting `?v=LEMMI_VERSION`. **Dopo
