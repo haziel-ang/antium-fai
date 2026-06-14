@@ -37,8 +37,10 @@
   --text-xs:   clamp(0.75rem,  0.7rem + 0.25vw, 0.875rem);
   --text-sm:   clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
   --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
-  /* Prosa di lettura: stessa misura in home (.intro-body) e sezioni (.article-body) */
-  --text-prose: clamp(0.95rem, 0.5vw + 0.85rem, 1.1rem);
+  /* Prosa di lettura: stessa misura in home (.intro-body) e sezioni (.article-body).
+     Cap desktop a 1rem (16px): leggibile ma compatto, sotto al sottotitolo dell'hero.
+     Sotto i 480px subentra l'override mobile a 0.92rem. */
+  --text-prose: clamp(0.95rem, 0.4vw + 0.86rem, 1rem);
   --text-md:   clamp(1.06rem,  1rem + 0.35vw,   1.28rem);
   --text-lg:   clamp(1.125rem, 1rem + 0.75vw,   1.5rem);
   --text-xl:   clamp(1.5rem,   1.2rem + 1.25vw,  2.25rem);
