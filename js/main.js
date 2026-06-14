@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
         io.unobserve(el);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal, .card-3d, .tl-step, .bento-card').forEach((el, i) => {
     el.dataset.reveal = i % 8;
@@ -1025,6 +1025,21 @@ document.addEventListener('DOMContentLoaded', () => {
           element: 'Vallo di Antium — foto muro in opera quadrata (Fig. 7)',
           author: 'Egidi R., Guidi A.',
           note: 'Scavi Soprintendenza per i Beni Archeologici del Lazio (1980–81). In: Cifani–Guidi 2016, fig. 17. © Soprintendenza / autori.'
+        },
+        {
+          element: 'Pianta dell’antica Antium (Tav. I)',
+          author: 'dis. L. Crema per G. Lugli (1940)',
+          note: '«Saggio sulla Topografia dell’Antica Antium», RIASA VII, Tav. I.'
+        },
+        {
+          element: 'Veduta del vallo nel lato settentrionale',
+          author: 'G. Lugli, RIASA VII (1940)',
+          note: '«Saggio sulla Topografia dell’Antica Antium», fig. 1.'
+        },
+        {
+          element: 'La Selciatella presso la pineta della Campana',
+          author: 'M. Micheli · Latium Vetus et Adiectum (2016)',
+          note: 'Fotografia dalla ricognizione 2016.'
         }
       ]
     },
@@ -1072,6 +1087,11 @@ document.addEventListener('DOMContentLoaded', () => {
           element: 'Pianta del sepolcreto Mulakia',
           author: 'Lucia Morpurgo (1944-45) · rielaborazione web Antium',
           note: 'Fonte: Notizie degli Scavi 1944-45, fig. 1.'
+        },
+        {
+          element: 'Ingresso dell’ipogeo sepolcrale (Tomba Mulakia)',
+          author: 'G. Lugli, RIASA VII (1940)',
+          note: '«Saggio sulla Topografia dell’Antica Antium», fig. 26.'
         },
         {
           element: 'Interno della Tomba Mulakia (loculi)',
@@ -1128,27 +1148,79 @@ document.addEventListener('DOMContentLoaded', () => {
           element: 'Apollo del Belvedere, Musei Vaticani',
           author: 'Livioandronico2013 / Wikimedia Commons',
           note: 'Fotografia CC BY-SA 4.0.'
+        },
+        {
+          element: 'Il porto neroniano nel 1940',
+          author: 'G. Lugli, RIASA VII (1940)',
+          note: '«Saggio sulla Topografia dell’Antica Antium», fig. 13.'
+        },
+        {
+          element: 'Schizzo ricostruttivo del prospetto a mare presso il faro',
+          author: 'A.M. Jaia (2008)',
+          note: '«Anzio. La villa Imperiale», Tusculana 2, fig. 2. © autore.'
+        },
+        {
+          element: 'Planimetria generale della villa (rilievi Gatti 1931)',
+          author: 'A.M. Jaia (2008)',
+          note: '«Anzio. La villa Imperiale», Tusculana 2, fig. 5, su rilievi G. Gatti 1931. © autore.'
+        },
+        {
+          element: 'Le rovine dei moli neroniani nel Settecento',
+          author: 'G.R. Volpi, Vetus Latium Profanum III (1726)',
+          note: 'Incisione riprodotta in Lugli 1940, fig. 17.'
         }
       ]
     },
     'sezioni/monumenti-citta-alta.html': {
       subtitle: 'Sezione 06 · Monumenti della città alta',
-      note: 'Questa sezione non contiene elaborazioni grafiche originali. Le fotografie sono di pubblico dominio o da archivi citati nel testo.',
-      rows: []
+      note: 'Crediti grafici specifici della sezione.',
+      rows: [
+        {
+          element: 'Statuetta della Fortuna Anziate (Villa Spigarelli)',
+          author: 'G. Lugli, RIASA VII (1940)',
+          note: '«Saggio sulla Topografia dell’Antica Antium», fig. 19.'
+        }
+      ]
     },
     'sezioni/volsci-cicerone-culti.html': {
       subtitle: 'Sezione 07 · Volsci, Cicerone e culti',
-      note: 'Questa sezione non contiene elaborazioni grafiche originali. Le fotografie sono di pubblico dominio o da archivi citati nel testo.',
-      rows: []
+      note: 'Crediti grafici specifici della sezione.',
+      rows: [
+        {
+          element: 'Rostro volsco (ricostruzione)',
+          author: 'Riccardo Pau',
+          note: 'Ricostruzione grafica del rostro di nave da guerra volsca.'
+        },
+        {
+          element: 'Sale termali e «tempio di Esculapio» (piante del Volpi)',
+          author: 'G.R. Volpi, Vetus Latium Profanum III (1726)',
+          note: 'Incisioni riprodotte in Lugli 1940, figg. 24–25.'
+        },
+        {
+          element: 'Ruderi attribuiti al tempio della Fortuna',
+          author: 'G.R. Volpi, Vetus Latium Profanum III (1726)',
+          note: 'Incisione riprodotta in Lugli 1940, fig. 18.'
+        }
+      ]
     },
     'sezioni/teatro-romano.html': {
       subtitle: 'Sezione 08 · Teatro romano',
       note: 'Crediti grafici specifici della sezione.',
       rows: [
         {
+          element: 'Avanzi del teatro imperiale nella città alta',
+          author: 'G. Lugli, RIASA VII (1940)',
+          note: '«Saggio sulla Topografia dell’Antica Antium», fig. 21.'
+        },
+        {
           element: 'Tavola grafica del teatro romano di Antium',
           author: 'Riccardo Pau',
           note: 'Ricostruzione grafica basata sulle fonti storiche (Lugli 1940).'
+        },
+        {
+          element: 'Pianta del «teatro» scavato nel 1712 (Bianchini)',
+          author: 'F. Bianchini, Camera ed iscrizioni sepolcrali (1727)',
+          note: 'Riprodotta in Lugli 1940, fig. 23.'
         }
       ]
     },
@@ -1160,6 +1232,21 @@ document.addEventListener('DOMContentLoaded', () => {
           element: 'Fanciulla di Anzio (hero + figura nel testo)',
           author: 'Museo Nazionale Romano · Palazzo Massimo alle Terme',
           note: 'Etichetta BCS (Beni Culturali Standard, MiC) — riuso libero per studio, editoria e valorizzazione.'
+        },
+        {
+          element: 'Antium nel territorio del Lazio antico (mappa)',
+          author: 'de Haas, Tol, Attema (2011)',
+          note: '«Investing in the colonia and ager of Antium», Facta 5, Fabrizio Serra Editore.'
+        },
+        {
+          element: 'Le ville costiere a sud di Antium e i bolli dei proprietari',
+          author: 'de Haas, Tol, Attema (2011)',
+          note: '«Investing in the colonia and ager of Antium», Facta 5, Fabrizio Serra Editore.'
+        },
+        {
+          element: 'Fistulae in piombo da Le Grottacce',
+          author: 'de Haas, Tol, Attema (2011)',
+          note: '«Investing in the colonia and ager of Antium», Facta 5, Fabrizio Serra Editore.'
         }
       ]
     }
