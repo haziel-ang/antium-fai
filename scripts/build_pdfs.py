@@ -48,20 +48,25 @@ SECTION_TO_PDF = {
 PRINT_CSS = """
 @page {
   size: A4;
-  margin: 20mm 18mm 18mm 18mm;
-  @bottom-center {
-    content: "ANTIVM \\2014 Historia et Memoria";
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 8pt;
-    color: #9a8a6a;
-  }
+  margin: 20mm 18mm 20mm 18mm;
+  @bottom-left { content: element(pdfFooter); }
   @bottom-right {
-    content: counter(page) " / " counter(pages);
-    font-family: Georgia, serif;
-    font-size: 8pt;
-    color: #9a8a6a;
+    content: counter(page);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 11pt;
+    font-weight: 700;
+    color: #6b3410;
   }
 }
+.pdf-footer {
+  position: running(pdfFooter);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 7.5pt;
+  line-height: 1.35;
+  color: #9a8a6a;
+}
+.pdf-footer strong { color: #8a4a1c; font-weight: 700; letter-spacing: .04em; }
+.pdf-footer a { color: #9a8a6a; text-decoration: none; }
 * { box-sizing: border-box; }
 body {
   font-family: Georgia, 'Times New Roman', serif;
@@ -126,10 +131,24 @@ def build_one(section: str, pdf_name: str) -> str:
 
     # le note laterali (callout) vanno in coda, sotto un titolo
     notes = soup.select(".side-notes .callout")
+    for note in notes:
+        for svg in note.find_all("svg"):
+            svg.decompose()
+        for a in note.find_all("a"):
+            if not a.get("href", "").startswith("http"):
+                a.unwrap()
 
     # ripulisce il corpo: via gli SVG, le immagini decorative restano
     for svg in body.find_all("svg"):
         svg.decompose()
+
+    # i link interni (../altra-sezione.html, crosslink, ancore) diventano testo
+    # semplice: in un PDF scaricato non avrebbero un bersaglio valido. Restano
+    # cliccabili solo i link esterni (http/https: CC, Wikimedia, Treccani, ...).
+    for a in body.find_all("a"):
+        href = a.get("href", "")
+        if not href.startswith("http"):
+            a.unwrap()
 
     # pre-processa le immagini delle figure: ridimensiona e ricomprimi in JPEG
     # cosi il PDF non si gonfia con le webp a piena risoluzione
@@ -152,6 +171,12 @@ def build_one(section: str, pdf_name: str) -> str:
         img["src"] = "file://" + outimg
 
     parts = [
+        '<div class="pdf-footer">'
+        '<strong>Antium &middot; Historia et Memoria</strong><br>'
+        'A cura di Riccardo Pau &middot; Gruppo FAI Anzio-Nettuno<br>'
+        '&copy; 2026 &middot; <a href="https://creativecommons.org/licenses/by/4.0/">'
+        'Licenza CC BY 4.0</a>'
+        '</div>',
         '<div class="doc-head">',
         f'<div class="doc-brand">Antium &middot; Historia et Memoria</div>',
         f'<h1 class="doc-title">{title}</h1>',
