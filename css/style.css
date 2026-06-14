@@ -5337,22 +5337,19 @@ mark.search-hit.is-current {
    restano tratteggiati in arancio); popup a pergamena condiviso con i crosslink.
    ============================================================ */
 .lemma {
-  background: var(--fai-gold-l, #d8b45b);
-  color: #1c1206;
-  font-weight: inherit;
-  border-radius: 3px;
-  padding: 0 0.22em;
-  border-bottom: none;
-  text-decoration: none;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+  background: none;
+  color: inherit;
+  font-weight: 500;
+  text-decoration: underline dotted var(--fai-gold, #b78a2a);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.2em;
   cursor: help;
-  transition: background var(--transition), color var(--transition);
+  transition: color var(--transition), text-decoration-color var(--transition);
 }
 .lemma:hover,
 .lemma:focus-visible {
-  background: var(--fai-gold, #b78a2a);
-  color: #1c1206;
+  color: var(--fai-gold, #b78a2a);
+  text-decoration-color: var(--fai-gold, #b78a2a);
   outline: none;
 }
 .crosslink-pop-rows {
@@ -5378,4 +5375,4 @@ mark.search-hit.is-current {
   white-space: nowrap;
   color: var(--fai-brown, #6b4423);
 }
-@media print { .lemma { background: none; color: inherit; font-weight: inherit; padding: 0; cursor: auto; } }
+@media print { .lemma { background: none; color: inherit; font-weight: inherit; text-decoration: none; cursor: auto; } }

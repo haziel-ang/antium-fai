@@ -113,12 +113,13 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
 - Nel testo: `<span class="lemma" data-lemma="id">…</span>` (su `.termine` o `<em>` basta
   aggiungere la classe e il data-attribute). **Solo la prima occorrenza per pagina**,
   mai dentro citazioni «» o didascalie. Popup a pergamena gestito da `js/main.js`.
-- **Resa visiva del lemma**: evidenziato con **sfondo dorato chiaro (`--fai-gold-l`) e
-  testo quasi nero**, peso normale (stessa dimensione del corpo, non in grassetto), così
-  risalta senza ingrossare la parola (hover/focus: sfondo `--fai-gold` più carico). Lo stile
-  è centralizzato in `.lemma` (`css/style.css`) e vale automaticamente per tutti i lemmi:
-  non applicarlo inline e non sottolinearli.
-  I crosslink tra sezioni restano invece tratteggiati in arancio (resa diversa, non confonderli).
+- **Resa visiva del lemma**: **niente sfondo**. Testo nel colore del corpo (leggibile),
+  peso 500, con **sottolineatura a puntini dorata (`--fai-gold`)** offset dal testo, così
+  segnala l'interattività senza appesantire la parola (hover/focus: la parola e i puntini
+  diventano dorati). Lo stile è centralizzato in `.lemma` (`css/style.css`) e vale
+  automaticamente per tutti i lemmi: non applicarlo inline.
+  I crosslink tra sezioni restano invece **tratteggiati (dashed) in arancio** con marcatore ◇:
+  resa diversa (puntini dorati vs trattini arancio), così non si confondono.
   Voci nuove si aggiungono al registro, mai inline.
 - `js/lemmi.js` è caricato dinamicamente con cache-busting `?v=LEMMI_VERSION`. **Dopo
   ogni modifica al registro, aggiorna la costante `LEMMI_VERSION` in `js/main.js`** (data
