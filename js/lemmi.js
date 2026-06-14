@@ -258,10 +258,28 @@ window.ANTIUM_LEMMI = {
     nota: 'Il grande porto circolare voluto da Nerone nella seconda metà del I secolo d.C., con una bocca rivolta a sud-est larga circa 60 metri e 34 ettari di specchio d’acqua. Strabone aveva scritto che Anzio era «senza porto»: Nerone cambiò tutto. I moli sono ancora sott’acqua, visibili in giorni di bassa marea.'
   },
 
+  'ipogeo': {
+    eyebrow: 'La tomba sotto terra',
+    titolo: 'Ipogeo',
+    nota: 'Una camera sepolcrale scavata sotto il livello del suolo, dal greco hypó (sotto) e gaîa (terra). La Mulakia è un ipogeo a gallerie ricavato nel banco di arenaria, con i loculi disposti su più file: una soluzione che, secoli dopo, le catacombe cristiane avrebbero ripreso in modo indipendente.'
+  },
+
   'dromos': {
     eyebrow: 'Il corridoio delle tombe',
     titolo: 'Dromos',
     nota: 'Il corridoio di accesso scoperto che precede l’ingresso di una tomba ipogea, ripreso dalle tradizioni funerarie etrusche. Nella tomba Mulakia il dromos introduce le tre porte come nelle necropoli etrusche più antiche.'
+  },
+
+  'strigili': {
+    eyebrow: 'L’arnese degli atleti',
+    titolo: 'Strigile',
+    nota: 'Un raschietto ricurvo in bronzo con cui gli atleti antichi si toglievano da pelle olio, sudore e polvere dopo l’esercizio. Trovarli nel corredo di una tomba indica spesso una sepoltura maschile legata al mondo del ginnasio. Nella Mulakia comparivano insieme a vasellame, fusarole, collane e specchi.'
+  },
+
+  'gentilizio': {
+    eyebrow: 'Il nome della famiglia',
+    titolo: 'Nome gentilizio',
+    nota: 'Il nome che nell’onomastica romana indicava la gens, cioè la famiglia o il clan di appartenenza, l’equivalente antico del nostro cognome. «Mulakia» è un gentilizio femminile di origine campana: il segno di una famiglia immigrata dall’area campano-sannitica e stabilitasi ad Anzio.'
   },
 
   'caffeaus': {
