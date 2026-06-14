@@ -59,6 +59,12 @@ immagini ridimensionate): `python scripts/build_pdfs.py` per tutte le sezioni, o
 `python scripts/build_pdfs.py <sezione> …` per alcune. La mappa nome-sezione → nome-PDF
 è dentro lo script (`SECTION_TO_PDF`): una sezione nuova va aggiunta lì.
 
+Ogni pagina dei PDF ha un **footer** con: una sottile linea di demarcazione a tutta
+larghezza, il numero di pagina ben leggibile a destra, e a sinistra tre righe piccole
+(Antium · Historia et Memoria; «A cura di Riccardo Pau · Gruppo FAI Anzio-Nettuno»;
+© anno e link cliccabile CC BY 4.0). I link interni alle altre sezioni vengono resi come
+testo semplice (nel PDF non avrebbero bersaglio); restano cliccabili solo i link esterni.
+
 La revisione finale di ogni modifica a una sezione include: pagina aggiornata, **PDF
 associato rigenerato** con `scripts/build_pdfs.py`, e `pdf.html` aggiornato se la voce è nuova.
 
