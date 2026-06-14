@@ -103,6 +103,9 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
   mai dentro citazioni «» o didascalie. Popup a pergamena gestito da `js/main.js`.
 - Sottolineato puntinato dorato = lemma; tratteggiato arancio = crosslink tra sezioni.
   Voci nuove si aggiungono al registro, mai inline.
+- `js/lemmi.js` è caricato dinamicamente con cache-busting `?v=LEMMI_VERSION`. **Dopo
+  ogni modifica al registro, aggiorna la costante `LEMMI_VERSION` in `js/main.js`** (data
+  odierna), altrimenti i browser continuano a servire la versione vecchia dopo il deploy.
 
 ## Pager di sezione e date di aggiornamento
 
