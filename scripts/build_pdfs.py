@@ -48,7 +48,7 @@ SECTION_TO_PDF = {
 PRINT_CSS = """
 @page {
   size: A4;
-  margin: 20mm 18mm 20mm 18mm;
+  margin: 20mm 18mm 16mm 18mm;
   @bottom-left { content: element(pdfFooter); }
   @bottom-right {
     content: counter(page);
@@ -57,6 +57,16 @@ PRINT_CSS = """
     font-weight: 700;
     color: #6b3410;
   }
+}
+/* sottile linea che demarca il footer: elemento fisso ripetuto su ogni pagina,
+   a tutta larghezza, al bordo inferiore dell'area di contenuto (sopra il footer) */
+.pdf-rule {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0;
+  border-top: 0.6pt solid #d8c8a4;
 }
 .pdf-footer {
   position: running(pdfFooter);
@@ -171,6 +181,7 @@ def build_one(section: str, pdf_name: str) -> str:
         img["src"] = "file://" + outimg
 
     parts = [
+        '<div class="pdf-rule"></div>',
         '<div class="pdf-footer">'
         '<strong>Antium &middot; Historia et Memoria</strong><br>'
         'A cura di Riccardo Pau &middot; Gruppo FAI Anzio-Nettuno<br>'
