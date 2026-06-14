@@ -1835,15 +1835,16 @@ mark.search-hit.is-current {
   color: var(--text-body);
   margin-bottom: var(--sp-4);
 }
-.article-layout {
+/* Sezioni sempre a colonna unica: corpo dell'articolo e side-notes/curiosità
+   uno sotto l'altro, mai affiancati, a qualsiasi larghezza (inclusi tablet in
+   portrait). Non reintrodurre layout a due colonne in queste pagine. */
+.article-layout,
+.article-layout--media {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(var(--sp-6), 4vw, var(--sp-12));
   align-items: start;
   padding-block: var(--sp-10) var(--sp-6);
-}
-.article-layout--media {
-  grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.7fr);
 }
 .article-layout .article-body {
   margin-inline: 0;
@@ -1851,8 +1852,6 @@ mark.search-hit.is-current {
 .side-notes {
   display: grid;
   gap: var(--sp-5);
-  position: sticky;
-  top: 110px;
 }
 .side-notes .callout,
 .callout-grid .callout,
@@ -4316,13 +4315,8 @@ mark.search-hit.is-current {
 
 @media (max-width: 900px) {
   .story-grid,
-  .article-layout,
-  .article-layout--media,
   .source-columns {
     grid-template-columns: 1fr;
-  }
-  .side-notes {
-    position: static;
   }
   .callout-grid {
     grid-template-columns: 1fr;

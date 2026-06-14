@@ -83,6 +83,11 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
   Narrativo, semplice, con ganci e domande lasciate in sospeso; frasi corte alternate a lunghe;
   niente registri da manuale universitario. Regole complete in
   `.claude/skills/fai-guide-rewriter/references/scrittura-umana.md`.
+- **Sezioni sempre a colonna unica**: il corpo dell'articolo e le side-notes/curiosità
+  scorrono uno sotto l'altro, mai affiancati su due colonne, a qualsiasi larghezza
+  (compresi i tablet in portrait). `.article-layout` (e `--media`) è grid a una sola
+  colonna nel CSS centralizzato: non reintrodurre layout a due colonne né `grid-template-columns`
+  con una colonna laterale nelle pagine di `sezioni/`.
 - **Figure senza stili inline**: `<figure class="article-figure">` (+ `--narrow` per le strette) con `<figcaption>` nudo. Margini, ombre, raggi e didascalie sono nel CSS centralizzato: non duplicarli inline.
 - **Liste con rientro pieno**: `.article-body ul` ha padding-left 1.6rem (rombo dorato interno al margine). Non aggiungere margini negativi.
 - **Gerarchia dei titoli (identica in tutte le sezioni)**: `h1` solo nel hero (`.hero-title`);
