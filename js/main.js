@@ -1249,6 +1249,22 @@ document.addEventListener('DOMContentLoaded', () => {
           note: '«Investing in the colonia and ager of Antium», Facta 5, Fabrizio Serra Editore.'
         }
       ]
+    },
+    'sezioni/tor-caldara.html': {
+      subtitle: 'Sezione · Tor Caldara',
+      note: 'Crediti grafici specifici della sezione.',
+      rows: [
+        {
+          element: 'Hero · La torre delle Caldane, dal disegno alla ricostruzione',
+          author: 'Riccardo Pau',
+          note: 'Elaborazione grafica del disegno storico della torre (da Miselli 1691).'
+        },
+        {
+          element: 'La torre delle Caldane (disegno nel testo)',
+          author: 'G. Miselli, 1691',
+          note: 'Dalla «Visita generale fatta da me Giuseppe Miselli detto Burattino» (1691): copia presso la Biblioteca Istituzionale della Città Metropolitana di Roma Capitale, coll. G 45; stesura coeva alla Biblioteca Apostolica Vaticana, Ott. lat. 2159.'
+        }
+      ]
     }
   };
 
