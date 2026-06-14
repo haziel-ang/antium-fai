@@ -2106,15 +2106,12 @@ mark.search-hit.is-current {
 }
 .pdf-page-hero {
   background: #302113;
-  height: calc(100svh - var(--site-header-height, 0px));
-  min-height: 0;
-  max-height: calc(100svh - var(--site-header-height, 0px));
+  min-height: calc(100svh - var(--site-header-height, 0px));
   overflow: hidden;
 }
 @supports (height: 100dvh) {
   .pdf-page-hero {
-    height: calc(100dvh - var(--site-header-height, 0px));
-    max-height: calc(100dvh - var(--site-header-height, 0px));
+    min-height: calc(100dvh - var(--site-header-height, 0px));
   }
 }
 .pdf-page-hero .hero-bg {
@@ -2196,19 +2193,21 @@ mark.search-hit.is-current {
 }
 .pdf-hero-actions {
   display: grid;
-  grid-template-columns: 124px minmax(0, 1fr);
-  gap: 6px;
-  width: min(920px, 100%);
-  max-width: 980px;
-  margin-top: clamp(6px, 1.2vh, 10px);
-  padding: 6px;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  width: min(1180px, 100%);
+  margin-top: clamp(8px, 1.6vh, 14px);
+  padding: 8px;
   background: rgba(24,12,5,0.26);
   border: 1px solid rgba(247,212,136,0.20);
   backdrop-filter: blur(4px);
-  overflow: hidden;
+}
+/* Tutte le card (Home + i PDF) scorrono in un'unica griglia che va a capo:
+   niente più scroll orizzontale nascosto, ogni documento resta raggiungibile. */
+.pdf-hero-actions-scroll {
+  display: contents;
 }
 .pdf-page-hero .hero-actions .era-card {
-  flex: 0 0 auto;
   min-width: 0;
   min-height: 78px;
   border: 1px solid rgba(247,212,136,0.20);
@@ -2224,30 +2223,6 @@ mark.search-hit.is-current {
     radial-gradient(ellipse at 100% 0%, rgba(200,71,26,0.24), transparent 62%),
     linear-gradient(180deg, rgba(253,246,227,0.16), rgba(253,246,227,0.06));
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.10);
-}
-.pdf-hero-actions-scroll {
-  display: flex;
-  min-width: 0;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x proximity;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(247,212,136,0.22) transparent;
-}
-.pdf-hero-actions-scroll .era-card {
-  width: 124px;
-  flex-basis: 124px;
-  scroll-snap-align: start;
-}
-.pdf-hero-actions-scroll::-webkit-scrollbar {
-  height: 6px;
-}
-.pdf-hero-actions-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-.pdf-hero-actions-scroll::-webkit-scrollbar-thumb {
-  background: rgba(247,212,136,0.18);
-  border-radius: 999px;
 }
 .pdf-page-hero .hero-actions .era-icon {
   width: 20px;
@@ -2489,10 +2464,6 @@ mark.search-hit.is-current {
   .credits-page-hero .credits-hero-actions .era-sub {
     font-size: 0.5rem;
   }
-  .pdf-page-hero {
-    height: calc(100svh - var(--site-header-height, 0px));
-    max-height: calc(100svh - var(--site-header-height, 0px));
-  }
   .pdf-page-hero .hero-bg::before {
     inset: -6% -18%;
     font-size: clamp(2rem, 13vw, 4.4rem);
@@ -2531,18 +2502,13 @@ mark.search-hit.is-current {
     letter-spacing: 0.16em;
   }
   .pdf-hero-actions {
-    grid-template-columns: 96px minmax(0, 1fr);
-    max-width: none;
+    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
     gap: 6px;
     padding: 6px;
   }
   .pdf-page-hero .hero-actions .era-card {
-    min-height: 88px;
+    min-height: 84px;
     padding: 7px 8px;
-  }
-  .pdf-hero-actions-scroll .era-card {
-    width: 132px;
-    flex-basis: 132px;
   }
   .pdf-page-hero .hero-actions .era-icon {
     width: 21px;
@@ -4037,11 +4003,6 @@ mark.search-hit.is-current {
   .pdf-page-hero .hero-actions .era-card {
     min-height: 72px;
     padding: 5px 7px;
-  }
-
-  .pdf-hero-actions-scroll .era-card {
-    flex-basis: 132px;
-    min-width: 132px;
   }
 
   .pdf-page-hero .hero-actions .era-icon {
