@@ -37,10 +37,10 @@
   --text-xs:   clamp(0.75rem,  0.7rem + 0.25vw, 0.875rem);
   --text-sm:   clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
   --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
-  /* Prosa di lettura: stessa misura in home (.intro-body) e sezioni (.article-body).
-     Cap desktop a 1rem (16px): leggibile ma compatto, sotto al sottotitolo dell'hero.
-     Sotto i 480px subentra l'override mobile a 0.92rem. */
-  --text-prose: clamp(0.95rem, 0.4vw + 0.86rem, 1rem);
+  /* Prosa di lettura: stessa misura in home (.intro-body, .section-intro) e
+     sezioni (.article-body). Praticamente uniforme (~15px) tra desktop, tablet e
+     mobile, dove l'override sotto i 480px la porta a 0.92rem. */
+  --text-prose: clamp(0.9rem, 0.25vw + 0.83rem, 0.94rem);
   --text-md:   clamp(1.06rem,  1rem + 0.35vw,   1.28rem);
   --text-lg:   clamp(1.125rem, 1rem + 0.75vw,   1.5rem);
   --text-xl:   clamp(1.5rem,   1.2rem + 1.25vw,  2.25rem);
@@ -1323,7 +1323,7 @@ mark.search-hit.is-current {
 }
 .section-title em { font-style: italic; color: var(--fai-orange); }
 .section-intro {
-  font-size: var(--text-base);
+  font-size: var(--text-prose);
   color: var(--text-muted);
   max-width: 68ch;
   line-height: 1.75;
@@ -4730,7 +4730,7 @@ mark.search-hit.is-current {
 .mosaic-header .section-intro {
   max-width: 58ch;
   margin: 0.6rem auto 0;
-  font-size: var(--text-base);
+  font-size: var(--text-prose);
   line-height: 1.65;
 }
 
@@ -5108,6 +5108,7 @@ mark.search-hit.is-current {
 
 @media (max-width: 480px) {
   .intro-body p,
+  .section-intro,
   .article-body p,
   .article-body ul li {
     font-size: 0.92rem;
