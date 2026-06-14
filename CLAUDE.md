@@ -2,18 +2,20 @@
 
 ## Metodologia di deploy
 
-**Ogni modifica va sempre committata e mergiata in `main`**: il workflow
-`.github/workflows/deploy.yml` aggiorna automaticamente il sito su GitHub Pages,
-senza passi manuali.
+**Ogni modifica va sempre mergiata in `main`, sempre e senza chiedere conferma.** Il
+merge in `main` è il deploy: il workflow `.github/workflows/deploy.yml` aggiorna in
+automatico il sito su GitHub Pages. Siamo in fase di rifinitura (errori e incongruenze):
+priorità a operatività e velocità, quindi porta ogni task fino alla produzione da solo,
+in un colpo unico, senza fermarti a chiedere il via libera per la PR o il merge.
 
-Flusso per ogni task:
+Flusso per ogni task (eseguilo per intero, sempre):
 
 1. **Branch fresco da `main`**: `git fetch origin main` poi
    `git switch -c claude/<nome-task> origin/main`. Non riutilizzare mai un branch
    già mergiato (dopo un merge squash diverge da `main` e la PR successiva va in conflitto).
 2. `git add <file>` + `git commit` + `git push -u origin <branch>`.
-3. Crea PR verso `main` (`mcp__github__create_pull_request`) e mergiala subito in
-   squash (`mcp__github__merge_pull_request`).
+3. Crea PR verso `main` (`mcp__github__create_pull_request`) e **mergiala subito** in
+   squash (`mcp__github__merge_pull_request`): non lasciare mai un task fermo prima del merge.
 4. Se capita un conflitto: `git fetch origin main` e `git merge -X ours origin/main`
    (il branch include già le modifiche squashate, quindi vince), poi rigenera l'indice
    di ricerca, verifica che convivano le tue aggiunte e gli aggiornamenti da `main`, e ripusha.
