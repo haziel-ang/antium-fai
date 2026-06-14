@@ -98,6 +98,12 @@ window.ANTIUM_LEMMI = {
 
   /* ---------- I termini tecnici, spiegati in due righe ---------- */
 
+  'amigdala': {
+    eyebrow: 'L’attrezzo più antico',
+    titolo: 'Amigdala',
+    nota: 'Il bifacciale del Paleolitico: una pietra scheggiata su entrambe le facce a forma di mandorla (dal greco amýgdala), usata per tagliare e raschiare. Quella trovata ad Anzio, di tipo neandertaliano, porta la presenza umana sul territorio a circa centocinquantamila anni fa.'
+  },
+
   'macco': {
     eyebrow: 'La pietra di Anzio',
     titolo: 'Macco',

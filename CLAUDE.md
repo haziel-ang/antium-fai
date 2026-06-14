@@ -106,6 +106,12 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
 - `js/lemmi.js` è caricato dinamicamente con cache-busting `?v=LEMMI_VERSION`. **Dopo
   ogni modifica al registro, aggiorna la costante `LEMMI_VERSION` in `js/main.js`** (data
   odierna), altrimenti i browser continuano a servire la versione vecchia dopo il deploy.
+- **Verifica obbligatoria prima del deploy**: ogni `data-lemma` usato nelle pagine deve
+  avere la sua voce nel registro, altrimenti la parola appare sottolineata ma il popup non
+  si apre. Controlla che l'elenco sia vuoto con:
+  ```
+  python -c "import re,glob; src=open('js/lemmi.js',encoding='utf-8').read(); keys=set(re.findall(r\"(?m)^  '([\w-]+)':\s*\{\", src)); used=set(); [used.update(re.findall(r'data-lemma=\"([^\"]+)\"', open(f,encoding='utf-8').read())) for f in ['index.html']+sorted(glob.glob('sezioni/*.html'))]; print('Lemmi senza voce:', sorted(used-keys) or 'nessuno')"
+  ```
 
 ## Pager di sezione e date di aggiornamento
 
