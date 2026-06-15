@@ -432,12 +432,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const pagerEl = document.querySelector('.section-pager');
     const footerR = footerEl ? footerEl.getBoundingClientRect() : null;
     const pagerR = pagerEl ? pagerEl.getBoundingClientRect() : null;
+    const heroEl = document.querySelector('main > .hero, main > .section-page-hero');
+    const heroHeight = heroEl ? heroEl.offsetHeight : 0;
+    const heroTop = heroEl ? heroEl.getBoundingClientRect().top : 0;
     rails.forEach(({ rail, layout, body }) => {
       const r = layout.getBoundingClientRect();
       const railW = rail.offsetWidth;
-      // Layout sotto al viewport (hero in vista): nascondi.
+      // L'hero e' ancora in viewport sopra l'articolo: il rail non deve
+      // sovrapporsi all'hero. Nascondi finche' l'hero copre l'area
+      // dove andrebbe il rail, cioe' finche' heroTop + heroHeight > headerH + pad.
+      if (heroEl && heroTop + heroHeight > headerH + pad) {
+        rail.style.display = 'none';
+        return;
+      }
+      // Layout sotto al viewport: nascondi.
       if (r.top >= window.innerHeight) {
-        rail.style.visibility = 'hidden';
+        rail.style.display = 'none';
         return;
       }
       // Calcola il limite inferiore del rail in base al primo tra
@@ -452,14 +462,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       const maxH2 = Math.max(120, railBottomLimit - headerH - pad * 2);
       if (maxH2 < 140) {
-        rail.style.visibility = 'hidden';
+        rail.style.display = 'none';
         return;
       }
       // Pin a destra del viewport, allineato al lato destro del body + gap.
       const bodyR = body.getBoundingClientRect();
       const gap = parseInt(getComputedStyle(layout).columnGap || '40', 10) || 40;
       const left = Math.max(16, Math.round(bodyR.right + gap));
-      rail.style.visibility = '';
+      rail.style.display = '';
       rail.classList.add('article-rail--pinned');
       rail.style.position = 'fixed';
       rail.style.left = `${left}px`;
