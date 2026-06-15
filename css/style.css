@@ -1772,6 +1772,20 @@ mark.search-hit.is-current {
   max-width: min(460px, 100%);
   margin-inline: auto;
 }
+/* Figure verticali (portrait): si limita l'ALTEZZA dell'immagine, non la
+   larghezza, così anche gli scatti molto slanciati restano contenuti e
+   armonici accanto al testo invece di allungarsi a dismisura. La larghezza
+   segue le proporzioni; box e didascalia restano centrati. */
+.article-figure--portrait {
+  max-width: min(460px, 100%);
+  margin-inline: auto;
+}
+.article-figure--portrait img {
+  width: auto;
+  max-width: 100%;
+  max-height: 440px;
+  margin-inline: auto;
+}
 .article-figure figcaption {
   margin-top: var(--sp-3);
   font-size: var(--text-sm);
