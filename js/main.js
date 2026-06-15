@@ -437,7 +437,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroTop = heroEl ? heroEl.getBoundingClientRect().top : 0;
     rails.forEach(({ rail, layout, body }) => {
       const r = layout.getBoundingClientRect();
-      const railW = rail.offsetWidth;
       // L'hero e' ancora in viewport sopra l'articolo: il rail non deve
       // sovrapporsi all'hero. Nascondi finche' l'hero copre l'area
       // dove andrebbe il rail, cioe' finche' heroTop + heroHeight > headerH + pad.
@@ -466,6 +465,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       // Pin a destra del viewport, allineato al lato destro del body + gap.
+      // Non toccare rail.style.width: il CSS gia' imposta width: var(--rail-w, 320px).
+      // Se lo impostassimo inline qui con rail.offsetWidth, al primo frame dopo un
+      // display:none il width sarebbe 0 e il rail collasserebbe a 16px.
       const bodyR = body.getBoundingClientRect();
       const gap = parseInt(getComputedStyle(layout).columnGap || '40', 10) || 40;
       const left = Math.max(16, Math.round(bodyR.right + gap));
@@ -475,7 +477,6 @@ document.addEventListener('DOMContentLoaded', () => {
       rail.style.left = `${left}px`;
       rail.style.top = `${headerH + pad}px`;
       rail.style.maxHeight = `${maxH2}px`;
-      rail.style.width = `${railW}px`;
     });
   };
   initArticleRail();
