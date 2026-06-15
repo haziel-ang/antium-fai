@@ -1875,20 +1875,29 @@ mark.search-hit.is-current {
    (eccezione documentata in CLAUDE.md). Sotto i 1024px resta la colonna
    unica e nulla di tutto questo è attivo. */
 @media (min-width: 1024px) {
-  /* 1 · Pagina che occupa il viewport con margini equilibrati */
+  /* 1 · Pagina a tutta larghezza con soli 6px di margine intorno */
   .section-page-content .container--wide {
-    max-width: min(1360px, 94vw);
-    padding-inline: clamp(2rem, 5vw, 4.5rem);
+    max-width: none;
+    padding-inline: 6px;
   }
 
-  /* 2 · Corpo di lettura + rail note: gruppo centrato nel viewport */
+  /* 2 · Corpo di lettura (riempie lo spazio) + rail note a destra */
   .section-page-article .article-layout--media {
-    grid-template-columns: minmax(0, 74ch) clamp(248px, 22vw, 330px);
-    justify-content: center;
+    grid-template-columns: minmax(0, 1fr) clamp(248px, 22vw, 330px);
+    justify-content: stretch;
     column-gap: clamp(2rem, 4vw, 3.75rem);
-    padding-block: var(--sp-12) var(--sp-8);
+    padding-block: var(--sp-10) var(--sp-8);
   }
   .section-page-article .article-body--long {
+    max-width: none;
+  }
+  /* testo, box e figure occupano la larghezza piena del corpo */
+  .section-page-article .article-body--long p,
+  .section-page-article .article-body--long ul li,
+  .section-page-article .article-body--long .quote-block,
+  .section-page-article .article-body--long > .callout,
+  .section-page-article .article-body--long .table-wrap,
+  .section-page-article .article-body--long .phase-block {
     max-width: none;
   }
 
@@ -4635,18 +4644,6 @@ mark.search-hit.is-current {
     gap: var(--sp-3);
   }
   .section-cta-desc { display: none; }
-}
-}
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--fai-orange);
-  opacity: 0.95;
-}
-.bento-eyebrow svg {
-  width: 16px; height: 16px;
-  stroke: var(--fai-orange);
-  flex-shrink: 0;
 }
 
 .bento-num--lg {

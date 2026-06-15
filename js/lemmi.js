@@ -164,6 +164,30 @@ window.ANTIUM_LEMMI = {
     nota: 'Pilastrini di mattoni che reggevano un pavimento sospeso: nell’intercapedine circolava l’aria calda di un forno (l’ipocausto), che scaldava le sale termali da sotto. Il riscaldamento a pavimento, duemila anni fa.'
   },
 
+  'frigidarium': {
+    eyebrow: 'Le sale delle terme',
+    titolo: 'Frigidarium',
+    nota: 'La sala fredda delle terme, con la vasca d’acqua non riscaldata: ci si tuffava alla fine del percorso di bagno, per chiudere i pori e tonificare il corpo dopo il caldo.'
+  },
+
+  'tepidarium': {
+    eyebrow: 'Le sale delle terme',
+    titolo: 'Tepidarium',
+    nota: 'La sala tiepida, di passaggio tra il freddo e il caldo: serviva a far abituare gradualmente il corpo alla temperatura, senza sbalzi. Spesso era l’ambiente più curato nelle decorazioni.'
+  },
+
+  'calidarium': {
+    eyebrow: 'Le sale delle terme',
+    titolo: 'Calidarium',
+    nota: 'La sala calda, la più vicina al forno: aveva una vasca d’acqua bollente e l’aria satura di vapore, scaldata da sotto attraverso il pavimento sospeso (le suspensurae) e dalle pareti cave.'
+  },
+
+  'laconicum': {
+    eyebrow: 'Le sale delle terme',
+    titolo: 'Laconicum',
+    nota: 'La saletta del bagno di sudore a calore secco, l’antenata della sauna: piccola e rovente, prendeva nome dalla Laconia (Sparta), patria di questa pratica. Ci si faceva sudare prima di lavarsi.'
+  },
+
   'bolli-laterizi': {
     eyebrow: 'Date stampate sui mattoni',
     titolo: 'Bolli laterizi',
