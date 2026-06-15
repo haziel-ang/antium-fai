@@ -1950,6 +1950,9 @@ mark.search-hit.is-current {
     position: fixed;
     top: calc(var(--site-header-height, 0px) + 16px);
     right: auto;          /* left impostato da JS in base alla colonna */
+    /* Width impostato da JS (fluido: dal bordo dx del body di lettura
+       al bordo dx del container). Default 320px per il primo frame
+       prima che JS calcoli le misure. */
     width: var(--rail-w, 320px);
     max-height: calc(100vh - var(--site-header-height, 0px) - 32px);
     overflow-y: auto;
@@ -1980,6 +1983,8 @@ mark.search-hit.is-current {
   body > .article-rail .callout {
     margin-block: 0;
     background: rgba(255,255,255,0.66);
+    max-width: 540px;          /* callout non piu' larghi del necessario */
+    margin-inline: auto;       /* centrati dentro al rail fluido */
   }
   body > .article-rail .side-notes,
   body > .article-rail .section-endnotes {

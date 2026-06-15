@@ -468,24 +468,30 @@ document.addEventListener('DOMContentLoaded', () => {
         rail.style.display = 'none';
         return;
       }
-      // Pin a destra del viewport. Il rail viene ancorato al lato
-      // destro del container--wide (non del body di lettura), cosi'
-      // copre tutta la zona disponibile a destra della colonna di
-      // lettura fino al bordo del container, senza lasciare aria
-      // bianca a destra del rail.
-      // Non toccare rail.style.width: il CSS gia' imposta width: var(--rail-w, 320px).
-      // Se lo impostassimo inline qui con rail.offsetWidth, al primo frame dopo un
-      // display:none il width sarebbe 0 e il rail collasserebbe a 16px.
-      const containerR = container ? container.getBoundingClientRect() : body.getBoundingClientRect();
-      const railW = parseFloat(getComputedStyle(rail).width) || 320;
-      // Allinea il lato destro del rail al lato destro del container.
-      const left = Math.max(16, Math.round(containerR.right - railW));
+      // Pin a destra del viewport. Il rail è **fluido**: parte dal
+      // lato destro del body di lettura e arriva al lato destro del
+      // container, riempiendo TUTTO lo spazio disponibile a destra
+      // della colonna di lettura. I callout dentro al rail hanno
+      // max-width: 540px e sono centrati (via CSS), quindi su
+      // viewport molto larghi il rail contiene callout di 540px
+      // centrati nel mezzo, senza aria bianca né a sinistra del
+      // rail (vicino al body) né a destra (vicino al bordo del
+      // container). Larghezza e posizione sono impostate inline
+      // perché il CSS non può sapere a runtime dove finisce il
+      // body di lettura.
+      const bodyR = body.getBoundingClientRect();
+      const containerR = container ? container.getBoundingClientRect() : bodyR;
+      const innerGap = 8;
+      const rightGap = 8;
+      const railWidth = Math.max(280, Math.round(containerR.right - bodyR.right - innerGap - rightGap));
+      const railLeft = Math.round(containerR.right - rightGap - railWidth);
       rail.style.display = '';
       rail.classList.add('article-rail--pinned');
       rail.style.position = 'fixed';
-      rail.style.left = `${left}px`;
+      rail.style.left = `${railLeft}px`;
       rail.style.top = `${headerH + pad}px`;
       rail.style.maxHeight = `${maxH2}px`;
+      rail.style.width = `${railWidth}px`;
     });
   };
   initArticleRail();
