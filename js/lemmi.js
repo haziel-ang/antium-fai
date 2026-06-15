@@ -462,5 +462,23 @@ window.ANTIUM_LEMMI = {
     eyebrow: 'Il soffitto a riquadri',
     titolo: 'Volte a cassettoni',
     nota: 'Soffitti voltati suddivisi in riquadri incavati, i cassettoni, riempiti di stucchi, rosoni e dorature: alleggerivano la volta e la trasformavano in decorazione. Soffredini, intorno al 1845, vide ancora nella villa imperiale corridoi voltati «con fogliami e rosoni nel centro».'
+  },
+
+  'tablino': {
+    eyebrow: 'La stanza dello studio',
+    titolo: 'Tablino',
+    nota: 'La stanza principale della casa romana, aperta sull’atrio, dove il padrone teneva i suoi archivi e riceveva gli ospiti importanti. Il nome viene dalle tabulae, le tavolette di cera dei documenti di famiglia. Spesso decorata con mosaici e affreschi, mostrava il rango della casata.'
+  },
+
+  'cubicula': {
+    eyebrow: 'Le stanze da letto',
+    titolo: 'Cubicula',
+    nota: 'Le camere da letto della casa romana, di solito piccole e prive di finestre, ricavate nel corpo della casa per conservare il fresco. Decorate con affreschi e mosaici, arredate con letti ricchi di cuscini: erano gli spazi privati della famiglia, uno per il padrone, gli altri per familiari e ospiti.'
+  },
+
+  'triclinio': {
+    eyebrow: 'La sala da pranzo',
+    titolo: 'Triclinio',
+    nota: 'La sala da pranzo della casa romana, arredata con tre lettighe (le klinai) disposte sui tre lati di un tavolo centrale: il padrone e gli ospiti vi mangiavano sdraiati, secondo la tradizione greco-romana. Era il cuore della vita sociale della villa, spesso quello rivolto al panorama migliore.'
   }
 };
