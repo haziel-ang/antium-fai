@@ -1875,50 +1875,67 @@ mark.search-hit.is-current {
    (eccezione documentata in CLAUDE.md). Sotto i 1024px resta la colonna
    unica e nulla di tutto questo è attivo. */
 @media (min-width: 1024px) {
-  /* 1 · Pagina a tutta larghezza con soli 6px di margine intorno */
+  /* Layout editoriale a NOTE DI MARGINE (solo desktop):
+     colonna di lettura ~74ch + gutter destro dove i box contestuali
+     (curiosità, note critiche, riepiloghi) scorrono accanto al loro
+     paragrafo. Sotto i 1024px resta la colonna unica.
+     Eccezione alla regola colonna unica documentata in CLAUDE.md. */
+
+  /* 1 · area dei contenuti centrata, con margini equilibrati */
   .section-page-content .container--wide {
-    max-width: none;
-    padding-inline: 6px;
+    max-width: min(1280px, 94vw);
+    padding-inline: clamp(1.5rem, 4vw, 3rem);
   }
 
-  /* 2 · Corpo di lettura (riempie lo spazio) + rail note a destra */
+  /* 2 · corpo: colonna di lettura + gutter destro riservato ai box */
   .section-page-article .article-layout--media {
-    grid-template-columns: minmax(0, 1fr) clamp(248px, 22vw, 330px);
-    justify-content: stretch;
-    column-gap: clamp(2rem, 4vw, 3.75rem);
+    grid-template-columns: minmax(0, 1fr);
     padding-block: var(--sp-10) var(--sp-8);
   }
   .section-page-article .article-body--long {
-    max-width: none;
+    --note-gutter: 320px;
+    --note-gap: 40px;
+    max-width: calc(74ch + var(--note-gutter) + var(--note-gap));
+    margin-inline: auto;
+    padding-right: calc(var(--note-gutter) + var(--note-gap));
   }
-  /* testo, box e figure occupano la larghezza piena del corpo */
+  .section-page-article .article-body--long::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  /* il testo resta nella colonna di lettura (~74ch) */
   .section-page-article .article-body--long p,
   .section-page-article .article-body--long ul li,
   .section-page-article .article-body--long .quote-block,
-  .section-page-article .article-body--long > .callout,
   .section-page-article .article-body--long .table-wrap,
   .section-page-article .article-body--long .phase-block {
     max-width: none;
   }
 
-  /* 3 · Rail note sticky: resta a fianco del testo e scorre con esso */
+  /* 3 · box contestuali → note di margine nel gutter destro,
+         scorrono accanto al paragrafo da cui partono */
+  .section-page-article .article-body--long > .callout,
+  .section-page-article .article-body--long > .side-notes {
+    float: right;
+    clear: right;
+    width: var(--note-gutter);
+    margin-right: calc(-1 * (var(--note-gutter) + var(--note-gap)));
+    margin-block: 0 var(--sp-6);
+  }
   .section-page-article .side-notes {
-    position: sticky;
-    top: calc(var(--site-header-height, 0px) + var(--sp-6));
-    align-self: start;
-    max-height: calc(100svh - var(--site-header-height, 0px) - var(--sp-10));
-    overflow: auto;
-    padding-right: var(--sp-1);
+    display: block;
   }
   .section-page-article .side-notes .callout {
+    margin-bottom: var(--sp-5);
     background: rgba(255,255,255,0.62);
   }
 
-  /* 4 · Figure paesaggio: box editoriale centrato, banda alternata */
+  /* 4 · figure: box editoriale nella colonna di lettura */
   .section-page-article .article-figure {
     max-width: 100%;
     margin-inline: auto;
-    margin-block: clamp(2.25rem, 4vw, 3.5rem);
+    margin-block: clamp(2rem, 3.5vw, 3rem);
     padding: var(--sp-4);
     background: linear-gradient(135deg, #fff, var(--fai-cream-2));
     border-radius: var(--r-lg);
@@ -1933,42 +1950,13 @@ mark.search-hit.is-current {
     margin-top: var(--sp-3);
     padding-inline: var(--sp-2);
   }
-  .section-page-article .article-figure:nth-of-type(even) figcaption {
-    text-align: left;
-  }
   .section-page-article .article-figure.is-zoomable:hover {
     transform: translateY(-3px);
     box-shadow: 0 14px 40px rgba(42,28,14,0.16);
   }
-
-  /* 5 · Figure ritratto: affiancate al testo, alternate sinistra/destra */
   .section-page-article .article-figure--narrow {
-    max-width: min(360px, 42%);
-    margin-block: var(--sp-2);
-    padding: var(--sp-3);
-  }
-  .section-page-article .article-figure--narrow:nth-of-type(odd) {
-    float: right;
-    margin-left: var(--sp-7);
-  }
-  .section-page-article .article-figure--narrow:nth-of-type(even) {
-    float: left;
-    margin-right: var(--sp-7);
-  }
-  /* gli elementi a blocco non devono affiancarsi alle figure flottanti */
-  .section-page-article .article-body--long h2,
-  .section-page-article .article-body--long h3,
-  .section-page-article .article-body--long h4,
-  .section-page-article .article-body--long .phase-block,
-  .section-page-article .article-body--long .table-wrap,
-  .section-page-article .article-body--long .quote-block,
-  .section-page-article .article-body--long > .callout {
-    clear: both;
-  }
-
-  /* 6 · Callout inline più ariosi nel flusso del corpo */
-  .section-page-article .article-body--long > .callout {
-    margin-block: var(--sp-7);
+    max-width: min(380px, 70%);
+    margin-inline: auto;
   }
 }
 .callout-grid {
