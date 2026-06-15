@@ -1706,9 +1706,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   spans.forEach(function (span) {
     span.setAttribute('tabindex', '0');
-    // Desktop: il lemma si apre con un CLICK (non più al passaggio del mouse)
-    span.addEventListener('focus', function () { show(span); });
+    // Desktop: il lemma si apre con un CLICK (non più al passaggio del mouse).
+    // Niente apertura su focus: scatenerebbe show() prima del click, che poi
+    // vedendo current===span lo richiuderebbe subito (primo click "a vuoto").
     span.addEventListener('blur', function () { if (!openedByTouch) hide(); });
+    span.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (current === span) { hide(); } else { show(span); }
+      }
+    });
     // Touch: preventDefault stops the synthetic mouseenter/click chain → single-tap to open
     span.addEventListener('touchstart', function (e) {
       e.preventDefault();
