@@ -99,7 +99,9 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
   (vedi blocco «REVISIONE UI/UX SEZIONI» in `css/style.css` e `initArticleRail` in
   `js/main.js`):
   - **colonna di lettura** centrata (~74ch) con testo, figure e tabelle
-  - **rail sticky a destra** (`<aside class="article-rail">`, larghezza 320px)
+  - **rail sticky a destra** (`<aside class="article-rail">`, larghezza
+    `clamp(360px, 32vw, 700px)` — si adatta alla viewport invece di
+    restare fisso, per coprire tutta la zona a destra del body)
     che raccoglie TUTTI i callout e il blocco side-notes in un'unica
     sidebar scrollabile. Il rail è `position: fixed` ancorato al
     viewport (JS lo posiziona sotto l'header, accanto al lato destro

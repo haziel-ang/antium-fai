@@ -394,12 +394,16 @@ document.addEventListener('DOMContentLoaded', () => {
       head.textContent = 'Note e curiosità';
       rail.insertBefore(head, rail.firstChild);
       RAIL_PARENT.appendChild(rail);
-      rails.push({ rail, layout, body });
+      // Il container--wide e' il riferimento per il posizionamento
+      // orizzontale del rail: il suo lato destro delimita la zona
+      // in cui il rail puo' crescere (copre tutta la viewport).
+      const container = document.querySelector('.section-page-content .container--wide');
+      rails.push({ rail, layout, body, container });
     });
   };
   const teardownArticleRail = () => {
     while (rails.length) {
-      const { rail, layout, body } = rails.pop();
+      const { rail, layout, body, container } = rails.pop();
       while (rail.firstChild) {
         const node = rail.firstChild;
         if (node.classList && node.classList.contains('article-rail-head')) {
@@ -435,7 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroEl = document.querySelector('main > .hero, main > .section-page-hero');
     const heroHeight = heroEl ? heroEl.offsetHeight : 0;
     const heroTop = heroEl ? heroEl.getBoundingClientRect().top : 0;
-    rails.forEach(({ rail, layout, body }) => {
+    rails.forEach(({ rail, layout, body, container }) => {
       const r = layout.getBoundingClientRect();
       // L'hero e' ancora in viewport sopra l'articolo: il rail non deve
       // sovrapporsi all'hero. Nascondi finche' l'hero copre l'area
@@ -464,13 +468,18 @@ document.addEventListener('DOMContentLoaded', () => {
         rail.style.display = 'none';
         return;
       }
-      // Pin a destra del viewport, allineato al lato destro del body + gap.
+      // Pin a destra del viewport. Il rail viene ancorato al lato
+      // destro del container--wide (non del body di lettura), cosi'
+      // copre tutta la zona disponibile a destra della colonna di
+      // lettura fino al bordo del container, senza lasciare aria
+      // bianca a destra del rail.
       // Non toccare rail.style.width: il CSS gia' imposta width: var(--rail-w, 320px).
       // Se lo impostassimo inline qui con rail.offsetWidth, al primo frame dopo un
       // display:none il width sarebbe 0 e il rail collasserebbe a 16px.
-      const bodyR = body.getBoundingClientRect();
-      const gap = parseInt(getComputedStyle(layout).columnGap || '40', 10) || 40;
-      const left = Math.max(16, Math.round(bodyR.right + gap));
+      const containerR = container ? container.getBoundingClientRect() : body.getBoundingClientRect();
+      const railW = parseFloat(getComputedStyle(rail).width) || 320;
+      // Allinea il lato destro del rail al lato destro del container.
+      const left = Math.max(16, Math.round(containerR.right - railW));
       rail.style.display = '';
       rail.classList.add('article-rail--pinned');
       rail.style.position = 'fixed';

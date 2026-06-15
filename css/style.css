@@ -1901,16 +1901,20 @@ mark.search-hit.is-current {
    con i callout nel flusso del testo, e nulla di tutto questo è
    attivo. */
 @media (min-width: 1024px) {
-  /* 1 · area dei contenuti centrata, con margini equilibrati */
+  /* 1 · area dei contenuti: si estende quasi a tutta la viewport
+        per evitare gli ampi margini laterali che lasciava il vecchio
+        max-width: 1280px. Il padding interno garantisce l'aria. */
   .section-page-content .container--wide {
-    max-width: min(1280px, 94vw);
-    padding-inline: clamp(1.5rem, 4vw, 3rem);
+    max-width: min(2200px, 99vw);
+    padding-inline: clamp(1rem, 2vw, 2rem);
   }
 
-  /* 2 · corpo: griglia a 2 colonne (lettura + rail) */
+  /* 2 · corpo: griglia a 2 colonne (lettura + rail). Il rail prende
+        tutta la zona a destra del body; il gap è piccolo (24px) per
+        non sprecare spazio orizzontale. */
   .section-page-article .article-layout--media {
-    --rail-w: 320px;
-    --rail-gap: 40px;
+    --rail-w: clamp(360px, 32vw, 700px);
+    --rail-gap: 24px;
     display: grid;
     grid-template-columns: minmax(0, 1fr) var(--rail-w);
     gap: var(--rail-gap);
@@ -1920,7 +1924,7 @@ mark.search-hit.is-current {
   /* Il rail vive a <body>: rendi disponibili le variabili del grid
      anche al di fuori dell'articolo, cosi' puo' usare --rail-w. */
   body:has(> .article-rail) {
-    --rail-w: 320px;
+    --rail-w: clamp(360px, 32vw, 700px);
   }
   .section-page-article .article-body--long {
     max-width: 74ch;
