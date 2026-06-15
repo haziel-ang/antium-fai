@@ -394,12 +394,16 @@ document.addEventListener('DOMContentLoaded', () => {
       head.textContent = 'Note e curiosità';
       rail.insertBefore(head, rail.firstChild);
       RAIL_PARENT.appendChild(rail);
-      rails.push({ rail, layout, body });
+      // Il container--wide e' il riferimento per il posizionamento
+      // orizzontale del rail: il suo lato destro delimita la zona
+      // in cui il rail puo' crescere (copre tutta la viewport).
+      const container = document.querySelector('.section-page-content .container--wide');
+      rails.push({ rail, layout, body, container });
     });
   };
   const teardownArticleRail = () => {
     while (rails.length) {
-      const { rail, layout, body } = rails.pop();
+      const { rail, layout, body, container } = rails.pop();
       while (rail.firstChild) {
         const node = rail.firstChild;
         if (node.classList && node.classList.contains('article-rail-head')) {
@@ -435,9 +439,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroEl = document.querySelector('main > .hero, main > .section-page-hero');
     const heroHeight = heroEl ? heroEl.offsetHeight : 0;
     const heroTop = heroEl ? heroEl.getBoundingClientRect().top : 0;
-    rails.forEach(({ rail, layout, body }) => {
+    rails.forEach(({ rail, layout, body, container }) => {
       const r = layout.getBoundingClientRect();
-      const railW = rail.offsetWidth;
       // L'hero e' ancora in viewport sopra l'articolo: il rail non deve
       // sovrapporsi all'hero. Nascondi finche' l'hero copre l'area
       // dove andrebbe il rail, cioe' finche' heroTop + heroHeight > headerH + pad.
@@ -465,17 +468,30 @@ document.addEventListener('DOMContentLoaded', () => {
         rail.style.display = 'none';
         return;
       }
-      // Pin a destra del viewport, allineato al lato destro del body + gap.
+      // Pin a destra del viewport. Il rail è **fluido**: parte dal
+      // lato destro del body di lettura e arriva al lato destro del
+      // container, riempiendo TUTTO lo spazio disponibile a destra
+      // della colonna di lettura. I callout dentro al rail hanno
+      // max-width: 540px e sono centrati (via CSS), quindi su
+      // viewport molto larghi il rail contiene callout di 540px
+      // centrati nel mezzo, senza aria bianca né a sinistra del
+      // rail (vicino al body) né a destra (vicino al bordo del
+      // container). Larghezza e posizione sono impostate inline
+      // perché il CSS non può sapere a runtime dove finisce il
+      // body di lettura.
       const bodyR = body.getBoundingClientRect();
-      const gap = parseInt(getComputedStyle(layout).columnGap || '40', 10) || 40;
-      const left = Math.max(16, Math.round(bodyR.right + gap));
+      const containerR = container ? container.getBoundingClientRect() : bodyR;
+      const innerGap = 8;
+      const rightGap = 8;
+      const railWidth = Math.max(280, Math.round(containerR.right - bodyR.right - innerGap - rightGap));
+      const railLeft = Math.round(containerR.right - rightGap - railWidth);
       rail.style.display = '';
       rail.classList.add('article-rail--pinned');
       rail.style.position = 'fixed';
-      rail.style.left = `${left}px`;
+      rail.style.left = `${railLeft}px`;
       rail.style.top = `${headerH + pad}px`;
       rail.style.maxHeight = `${maxH2}px`;
-      rail.style.width = `${railW}px`;
+      rail.style.width = `${railWidth}px`;
     });
   };
   initArticleRail();
