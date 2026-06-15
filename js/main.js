@@ -468,30 +468,25 @@ document.addEventListener('DOMContentLoaded', () => {
         rail.style.display = 'none';
         return;
       }
-      // Pin a destra del viewport. Il rail è **fluido**: parte dal
-      // lato destro del body di lettura e arriva al lato destro del
-      // container, riempiendo TUTTO lo spazio disponibile a destra
-      // della colonna di lettura. I callout dentro al rail hanno
-      // max-width: 540px e sono centrati (via CSS), quindi su
-      // viewport molto larghi il rail contiene callout di 540px
-      // centrati nel mezzo, senza aria bianca né a sinistra del
-      // rail (vicino al body) né a destra (vicino al bordo del
-      // container). Larghezza e posizione sono impostate inline
-      // perché il CSS non può sapere a runtime dove finisce il
-      // body di lettura.
-      const bodyR = body.getBoundingClientRect();
-      const containerR = container ? container.getBoundingClientRect() : bodyR;
-      const innerGap = 8;
-      const rightGap = 8;
-      const railWidth = Math.max(280, Math.round(containerR.right - bodyR.right - innerGap - rightGap));
-      const railLeft = Math.round(containerR.right - rightGap - railWidth);
+      // Pin a destra del viewport. Il rail ha larghezza presa dal CSS
+      // (clamp 320-540px) ed è ancorato al lato destro dell'area
+      // utile del container (cioè container.right meno il padding
+      // destro), così il margine dx del rail è identico al margine
+      // sx del body. Il body riempie tutto lo spazio rimanente a
+      // sinistra; il gap tra body e rail è il --rail-gap del grid.
+      // I tre spazi (sx body, gap body-rail, dx rail) sono della
+      // stessa misura proporzionale (32-94px).
+      const containerR = container ? container.getBoundingClientRect() : body.getBoundingClientRect();
+      const cs = container ? getComputedStyle(container) : null;
+      const padR = cs ? parseFloat(cs.paddingRight) || 0 : 0;
+      const railW = parseFloat(getComputedStyle(rail).width) || 540;
+      const railLeft = Math.max(16, Math.round(containerR.right - padR - railW));
       rail.style.display = '';
       rail.classList.add('article-rail--pinned');
       rail.style.position = 'fixed';
       rail.style.left = `${railLeft}px`;
       rail.style.top = `${headerH + pad}px`;
       rail.style.maxHeight = `${maxH2}px`;
-      rail.style.width = `${railWidth}px`;
     });
   };
   initArticleRail();

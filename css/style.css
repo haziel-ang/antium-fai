@@ -1901,20 +1901,28 @@ mark.search-hit.is-current {
    con i callout nel flusso del testo, e nulla di tutto questo è
    attivo. */
 @media (min-width: 1024px) {
-  /* 1 · area dei contenuti: si estende quasi a tutta la viewport
-        per evitare gli ampi margini laterali che lasciava il vecchio
-        max-width: 1280px. Il padding interno garantisce l'aria. */
+  /* 1 · area dei contenuti: si estende a tutta la viewport con
+        padding interno proporzionale (32-94px), così da avere
+        margini sx/dx simmetrici e ampi su monitor larghi.
+        Niente max-width: il body riempie tutto il viewport, l'aria
+        è garantita dal padding-inline. */
   .section-page-content .container--wide {
-    max-width: min(2200px, 99vw);
-    padding-inline: clamp(1rem, 2vw, 2rem);
+    max-width: 100%;
+    padding-inline: clamp(32px, 4vw, 94px);
   }
 
-  /* 2 · corpo: griglia a 2 colonne (lettura + rail). Il rail prende
-        tutta la zona a destra del body; il gap è piccolo (24px) per
-        non sprecare spazio orizzontale. */
+  /* 2 · corpo: griglia a 2 colonne (lettura + rail).
+        - Body: fluido, riempie tutto lo spazio disponibile a sinistra
+          del rail (le figure prendono il 100% del body, mentre il
+          testo è limitato a 74ch sui paragrafi per leggibilità).
+        - Rail: 320-540px (clamp), subito a destra del body con gap
+          proporzionale (32-94px) uguale ai margini esterni del
+          container. Niente aria vuota né tra body e rail né tra
+          rail e bordo del container: i tre spazi (sx, gap, dx) sono
+          della stessa misura. */
   .section-page-article .article-layout--media {
-    --rail-w: clamp(360px, 32vw, 700px);
-    --rail-gap: 24px;
+    --rail-w: clamp(320px, 28vw, 540px);
+    --rail-gap: clamp(32px, 4vw, 94px);
     display: grid;
     grid-template-columns: minmax(0, 1fr) var(--rail-w);
     gap: var(--rail-gap);
@@ -1924,12 +1932,27 @@ mark.search-hit.is-current {
   /* Il rail vive a <body>: rendi disponibili le variabili del grid
      anche al di fuori dell'articolo, cosi' puo' usare --rail-w. */
   body:has(> .article-rail) {
-    --rail-w: clamp(360px, 32vw, 700px);
+    --rail-w: clamp(320px, 28vw, 540px);
   }
+  /* Body fluido: riempie tutta la colonna grid (le figure e le tabelle
+     prendono il 100% del body, mentre il testo è limitato sotto). */
   .section-page-article .article-body--long {
-    max-width: 74ch;
+    max-width: none;
     margin-inline: 0;
     min-width: 0;
+  }
+  /* Testo limitato a 74ch per leggibilità (paragrafi, liste, quote,
+     headings). Le figure, tabelle e phase-block restano fluide al
+     100% del body, così le immagini sono ampie e proporzionate. */
+  .section-page-article .article-body--long > p,
+  .section-page-article .article-body--long > ul,
+  .section-page-article .article-body--long > ol,
+  .section-page-article .article-body--long > h2,
+  .section-page-article .article-body--long > h3,
+  .section-page-article .article-body--long > h4,
+  .section-page-article .article-body--long > .panel-lede,
+  .section-page-article .article-body--long > .quote-block {
+    max-width: 74ch;
   }
   /* il testo resta nella colonna di lettura */
   .section-page-article .article-body--long p,
@@ -1983,8 +2006,15 @@ mark.search-hit.is-current {
   body > .article-rail .callout {
     margin-block: 0;
     background: rgba(255,255,255,0.66);
-    max-width: 540px;          /* callout non piu' larghi del necessario */
-    margin-inline: auto;       /* centrati dentro al rail fluido */
+  }
+  /* Allinea la grandezza del testo del rail a quella del body
+     (l'utente percepiva il callout-text leggermente piu' grande:
+     --text-sm raggiunge 1rem mentre --text-prose si ferma a .94rem). */
+  body > .article-rail .callout-text,
+  body > .article-rail .callout p,
+  body > .article-rail .side-notes p,
+  body > .article-rail .section-endnotes p {
+    font-size: var(--text-prose);
   }
   body > .article-rail .side-notes,
   body > .article-rail .section-endnotes {
