@@ -110,6 +110,52 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
 - **Tipografia uniforme**: la prosa di lettura usa il token `--text-prose`
   (condiviso da `.intro-body p` in home e `.article-body p / ul li` nelle sezioni).
   Non introdurre mai font-size ad hoc per i paragrafi: usare i token.
+- **Struttura canonica delle pagine in `sezioni/`** (uniformare sempre a `villa-imperiale.html`):
+  - **Wrapper articolo** obbligatorio in entrambe le varianti:
+    `<div class="article-layout article-layout--media">` che contiene
+    `<div class="article-body article-body--long">`. Non omettere mai nessuna delle
+    quattro classi: servono ad attivare il layout a colonna unica sotto i 1024px
+    e le note di margine desktop (gutter destro per callout e side-notes).
+  - **Hero**: `<section class="hero hero--editorial section-page-hero">` con `hero-bg`,
+    `hero-overlay`, `hero-content container`, `hero-title` (h1), `hero-divider`,
+    `hero-subtitle`, `hero-meta` (arco cronologico) e
+    `hero-actions hero-actions--section-dual` con due `era-card` (Home + PDF).
+    Le varianti `hero--fit-viewport`, `hero-copy` e la classe di pagina
+    (`*-page-hero`) si aggiungono **solo** quando servono per un fit specifico
+    (volsci, antium-guide, tor-caldara): non replicarle a tappeto.
+  - **Apertura articolo**: dopo `<h2>` di pagina, **sempre** un `<p class="panel-lede">`
+    (sommario narrativo di 1–2 frasi) e, dove la pagina cita una fonte antica
+    in esergo, un `<div class="quote-block reveal">` con `quote-text` e `quote-source`.
+  - **Figure**: `<figure class="article-figure">` (+ `--narrow` per le strette,
+    `--portrait` per le verticali) con `<figcaption>` nudo. Niente stili inline.
+  - **Callout** (tre varianti cromatiche, gestite da CSS):
+    `callout--curiosita` (icona ✦, arancio, FAI), `callout--critica` (icona ⚑,
+    arancio scuro, osservazione/errore storiografico), `callout--suggerimento`
+    (icona ◎, oro, "dove andare"). Ogni callout ha sempre
+    `<div class="callout-header">` con `<span class="callout-icon">` e
+    `<span class="callout-label">`, seguito da `<p class="callout-text">`.
+  - **Tabelle**: wrapper `<div class="table-wrap">` con `<table class="data-table">`
+    dentro. Intestazione in `<thead>` con `<th>`, corpo in `<tbody>` con `<td>`.
+    Sempre la classe `data-table` (uniforma bordi, hover e tipografia).
+  - **Blocco "fase"**: quando si scandisce una storia costruttiva in fasi
+    (villa imperiale, cisternone, terme), usare `<div class="phase-block">` con
+    `<h4>` interno. Le pagine che hanno scansione cronologica lineare
+    (vallo, necropoli, volsci) usano solo `h3`/`h4` senza wrapper.
+  - **Side-notes finali**: `<aside class="side-notes section-endnotes">`
+    con callout di chiusura (riepilogo, dove vedere i reperti, citazioni).
+    Sempre `section-endnotes` insieme a `side-notes`: la prima classe attiva
+    lo styling di chiusura, la seconda lo stile base del componente.
+  - **Pager di sezione**: sempre presente in fondo a ogni pagina canonica
+    (`<nav class="section-pager">` con `pager-link--prev` e `pager-link--next`,
+    `pager-eyebrow` + `pager-title`). L'ordine canonico è in
+    "Pager di sezione e date di aggiornamento" più sotto.
+  - **Footer**: `<footer class="simple-footer">` con `.footer-summary` (logo,
+    brand-name `ANTIVM`, citazione Cicerone) e `.footer-meta` (autore,
+    Gruppo FAI Anzio-Nettuno, rimando a `fonti.html`, licenza CC BY 4.0).
+  - **Chiusura standard**: dopo il `</main>` ma prima del `</body>` sempre
+    `<div class="lightbox">`, `<button class="back-to-top">` e lo script
+    `js/main.js` in `defer`. `<p class="page-updated">` è gestito da
+    `scripts/stamp_updates.py`: non aggiornarlo a mano.
 
 ## Lemmi: glossario interattivo (ville e termini tecnici)
 
