@@ -98,19 +98,28 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
   `sezioni/` adottano un layout editoriale «a colonna di lettura + rail di note»
   (vedi blocco «REVISIONE UI/UX SEZIONI» in `css/style.css` e `initArticleRail` in
   `js/main.js`):
-  - **colonna di lettura** centrata (~74ch) con testo, figure e tabelle
+  - **colonna di lettura** fluida (riempie tutto lo spazio a sinistra del rail);
+    il testo dei paragrafi/headings/quote è limitato a `74ch` per leggibilità,
+    mentre figure e tabelle prendono il 100% del body, così le immagini sono
+    ampie e proporzionate
   - **rail sticky a destra** (`<aside class="article-rail">`, larghezza
-    `clamp(360px, 32vw, 700px)` — si adatta alla viewport invece di
-    restare fisso, per coprire tutta la zona a destra del body)
-    che raccoglie TUTTI i callout e il blocco side-notes in un'unica
-    sidebar scrollabile. Il rail è `position: fixed` ancorato al
-    viewport (JS lo posiziona sotto l'header, accanto al lato destro
-    del body); si nasconde solo sopra l'hero e quando il footer sale
-    a coprire la sua area. Scrollbar sottilissima in oro (4px),
-    hover più visibile; rotella del mouse fa scrollare il rail senza
-    propagarsi alla pagina. JS appende il rail a `<body>` per sfuggire
+    `clamp(320px, 28vw, 540px)` — fisso a 540px su monitor larghi, si
+    riduce in modo proporzionale su viewport più piccole) che raccoglie
+    TUTTI i callout e il blocco side-notes in un'unica sidebar scrollabile.
+    Il font del rail è allineato a quello del body (`--text-prose`),
+    così il testo dei callout ha la stessa grandezza di quello dell'articolo.
+    Il rail è `position: fixed` ancorato al lato destro dell'area utile del
+    container (JS lo posiziona sotto l'header, allineando rail.right a
+    `container.right - padding-right`); si nasconde solo sopra l'hero e
+    quando il footer sale a coprire la sua area. Scrollbar sottilissima in
+    oro (4px), hover più visibile; rotella del mouse fa scrollare il rail
+    senza propagarsi alla pagina. JS appende il rail a `<body>` per sfuggire
     al `transform` di fade-in dell'articolo (che creerebbe un nuovo
     containing block per `position: fixed`).
+  - **Margini simmetrici**: `padding-inline` del container, `--rail-gap` del
+    grid e margine destro del rail sono tutti `clamp(32px, 4vw, 94px)`, così
+    su monitor larghi i tre spazi (sx body, gap body→rail, dx rail) sono
+    uguali e ampi (~94px).
   - I callout, le side-notes e le section-endnotes **non devono comparire
     nel flusso centrale del testo**: `initArticleRail` li sposta nel
     rail automaticamente. Non replicare quei box in colonna centrale.
