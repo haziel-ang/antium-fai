@@ -90,11 +90,16 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
   Narrativo, semplice, con ganci e domande lasciate in sospeso; frasi corte alternate a lunghe;
   niente registri da manuale universitario. Regole complete in
   `.claude/skills/fai-guide-rewriter/references/scrittura-umana.md`.
-- **Sezioni sempre a colonna unica**: il corpo dell'articolo e le side-notes/curiosità
-  scorrono uno sotto l'altro, mai affiancati su due colonne, a qualsiasi larghezza
-  (compresi i tablet in portrait). `.article-layout` (e `--media`) è grid a una sola
-  colonna nel CSS centralizzato: non reintrodurre layout a due colonne né `grid-template-columns`
-  con una colonna laterale nelle pagine di `sezioni/`.
+- **Sezioni a colonna unica sotto i 1024px**: su tablet in portrait e mobile il corpo
+  dell'articolo e le side-notes/curiosità scorrono uno sotto l'altro, mai affiancati.
+  `.article-layout` (e `--media`) è grid a una sola colonna di base: non reintrodurre
+  layout a due colonne fuori dalla media query desktop.
+  **Eccezione desktop (≥1024px)**: dentro `@media (min-width:1024px)` le pagine di
+  `sezioni/` adottano un layout editoriale (vedi blocco «REVISIONE UI/UX SEZIONI» in
+  `css/style.css`): corpo di lettura centrato + **rail laterale sticky** per le
+  `.side-notes`, figure paesaggio in box (bande alternate) e figure `--narrow`
+  flottanti affiancate al testo (alternate sinistra/destra). Questo gutter laterale
+  vale solo su desktop; sotto i 1024px resta tutto a colonna unica.
 - **Figure senza stili inline**: `<figure class="article-figure">` (+ `--narrow` per le strette) con `<figcaption>` nudo. Margini, ombre, raggi e didascalie sono nel CSS centralizzato: non duplicarli inline.
 - **Liste con rientro pieno**: `.article-body ul` ha padding-left 1.6rem (rombo dorato interno al margine). Non aggiungere margini negativi.
 - **Gerarchia dei titoli (identica in tutte le sezioni)**: `h1` solo nel hero (`.hero-title`);

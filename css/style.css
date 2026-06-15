@@ -1860,6 +1860,108 @@ mark.search-hit.is-current {
 .story-grid > .callout {
   margin-block: 0;
 }
+
+/* Affordance lightbox sulle figure dell'articolo (tutte le larghezze) */
+.article-figure.is-zoomable {
+  cursor: zoom-in;
+}
+
+/* ── REVISIONE UI/UX SEZIONI · solo desktop (≥1024px) ──────────
+   Layout editoriale: il contenuto occupa il viewport con margini
+   equilibrati; rail laterale sticky per le note che scorre con il
+   testo; figure paesaggio in box centrato (bande alternate) e figure
+   ritratto affiancate al testo, alternate sinistra/destra.
+   ATTENZIONE: introduce un gutter laterale per le note SOLO su desktop
+   (eccezione documentata in CLAUDE.md). Sotto i 1024px resta la colonna
+   unica e nulla di tutto questo è attivo. */
+@media (min-width: 1024px) {
+  /* 1 · Pagina che occupa il viewport con margini equilibrati */
+  .section-page-content .container--wide {
+    max-width: min(1360px, 94vw);
+    padding-inline: clamp(2rem, 5vw, 4.5rem);
+  }
+
+  /* 2 · Corpo di lettura + rail note: gruppo centrato nel viewport */
+  .section-page-article .article-layout--media {
+    grid-template-columns: minmax(0, 74ch) clamp(248px, 22vw, 330px);
+    justify-content: center;
+    column-gap: clamp(2rem, 4vw, 3.75rem);
+    padding-block: var(--sp-12) var(--sp-8);
+  }
+  .section-page-article .article-body--long {
+    max-width: none;
+  }
+
+  /* 3 · Rail note sticky: resta a fianco del testo e scorre con esso */
+  .section-page-article .side-notes {
+    position: sticky;
+    top: calc(var(--site-header-height, 0px) + var(--sp-6));
+    align-self: start;
+    max-height: calc(100svh - var(--site-header-height, 0px) - var(--sp-10));
+    overflow: auto;
+    padding-right: var(--sp-1);
+  }
+  .section-page-article .side-notes .callout {
+    background: rgba(255,255,255,0.62);
+  }
+
+  /* 4 · Figure paesaggio: box editoriale centrato, banda alternata */
+  .section-page-article .article-figure {
+    max-width: 100%;
+    margin-inline: auto;
+    margin-block: clamp(2.25rem, 4vw, 3.5rem);
+    padding: var(--sp-4);
+    background: linear-gradient(135deg, #fff, var(--fai-cream-2));
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .section-page-article .article-figure img {
+    box-shadow: none;
+    border-radius: var(--r-sm);
+  }
+  .section-page-article .article-figure figcaption {
+    margin-top: var(--sp-3);
+    padding-inline: var(--sp-2);
+  }
+  .section-page-article .article-figure:nth-of-type(even) figcaption {
+    text-align: left;
+  }
+  .section-page-article .article-figure.is-zoomable:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(42,28,14,0.16);
+  }
+
+  /* 5 · Figure ritratto: affiancate al testo, alternate sinistra/destra */
+  .section-page-article .article-figure--narrow {
+    max-width: min(360px, 42%);
+    margin-block: var(--sp-2);
+    padding: var(--sp-3);
+  }
+  .section-page-article .article-figure--narrow:nth-of-type(odd) {
+    float: right;
+    margin-left: var(--sp-7);
+  }
+  .section-page-article .article-figure--narrow:nth-of-type(even) {
+    float: left;
+    margin-right: var(--sp-7);
+  }
+  /* gli elementi a blocco non devono affiancarsi alle figure flottanti */
+  .section-page-article .article-body--long h2,
+  .section-page-article .article-body--long h3,
+  .section-page-article .article-body--long h4,
+  .section-page-article .article-body--long .phase-block,
+  .section-page-article .article-body--long .table-wrap,
+  .section-page-article .article-body--long .quote-block,
+  .section-page-article .article-body--long > .callout {
+    clear: both;
+  }
+
+  /* 6 · Callout inline più ariosi nel flusso del corpo */
+  .section-page-article .article-body--long > .callout {
+    margin-block: var(--sp-7);
+  }
+}
 .callout-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
