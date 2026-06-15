@@ -1706,9 +1706,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   spans.forEach(function (span) {
     span.setAttribute('tabindex', '0');
-    // Mouse: only when not in touch mode
-    span.addEventListener('mouseenter', function () { if (!openedByTouch) show(span); });
-    span.addEventListener('mouseleave', function () { if (!openedByTouch) scheduleHide(); });
+    // Desktop: il lemma si apre con un CLICK (non più al passaggio del mouse)
     span.addEventListener('focus', function () { show(span); });
     span.addEventListener('blur', function () { if (!openedByTouch) hide(); });
     // Touch: preventDefault stops the synthetic mouseenter/click chain → single-tap to open
@@ -1717,7 +1715,7 @@ document.addEventListener('DOMContentLoaded', () => {
       openedByTouch = true;
       if (current === span) { hide(); } else { show(span); }
     }, { passive: false });
-    // Click fallback for non-touch pointer devices
+    // Click (mouse desktop): apre/chiude il popover
     span.addEventListener('click', function (e) {
       if (openedByTouch) return;
       e.preventDefault();
@@ -1728,7 +1726,13 @@ document.addEventListener('DOMContentLoaded', () => {
   pop.addEventListener('mouseenter', function () {
     if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
   });
-  pop.addEventListener('mouseleave', function () { if (!openedByTouch) scheduleHide(); });
+
+  // Chiude il popover cliccando fuori da esso e da qualsiasi lemma (mouse desktop)
+  document.addEventListener('click', function (e) {
+    if (!current || openedByTouch) return;
+    var onSpan = spans.some(function (s) { return s === e.target || s.contains(e.target); });
+    if (!pop.contains(e.target) && !onSpan) hide();
+  });
 
   // Close touch-popup when tapping outside the popup and outside any lemma span
   document.addEventListener('touchstart', function (e) {
