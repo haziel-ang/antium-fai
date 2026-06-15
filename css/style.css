@@ -1890,44 +1890,44 @@ mark.search-hit.is-current {
 }
 
 /* ── REVISIONE UI/UX SEZIONI · solo desktop (≥1024px) ──────────
-   Layout editoriale: il contenuto occupa il viewport con margini
-   equilibrati; rail laterale sticky per le note che scorre con il
-   testo; figure paesaggio in box centrato (bande alternate) e figure
-   ritratto affiancate al testo, alternate sinistra/destra.
-   ATTENZIONE: introduce un gutter laterale per le note SOLO su desktop
-   (eccezione documentata in CLAUDE.md). Sotto i 1024px resta la colonna
-   unica e nulla di tutto questo è attivo. */
+   Layout editoriale a RAIL STICKY: il contenuto occupa il viewport
+   con margini equilibrati; colonna di lettura a sinistra (~74ch) e
+   rail sticky a destra che raccoglie TUTTI i box contestuali (callout
+   sparsi + side-notes finale) in un'unica sidebar scrollabile.
+   I callout sono spostati nel rail via JS (initArticleRail) in modo
+   che la colonna di lettura contenga solo testo, figure e tabelle.
+   ATTENZIONE: introduce un rail laterale SOLO su desktop (eccezione
+   documentata in CLAUDE.md). Sotto i 1024px resta la colonna unica
+   con i callout nel flusso del testo, e nulla di tutto questo è
+   attivo. */
 @media (min-width: 1024px) {
-  /* Layout editoriale a NOTE DI MARGINE (solo desktop):
-     colonna di lettura ~74ch + gutter destro dove i box contestuali
-     (curiosità, note critiche, riepiloghi) scorrono accanto al loro
-     paragrafo. Sotto i 1024px resta la colonna unica.
-     Eccezione alla regola colonna unica documentata in CLAUDE.md. */
-
   /* 1 · area dei contenuti centrata, con margini equilibrati */
   .section-page-content .container--wide {
     max-width: min(1280px, 94vw);
     padding-inline: clamp(1.5rem, 4vw, 3rem);
   }
 
-  /* 2 · corpo: colonna di lettura + gutter destro riservato ai box */
+  /* 2 · corpo: griglia a 2 colonne (lettura + rail) */
   .section-page-article .article-layout--media {
-    grid-template-columns: minmax(0, 1fr);
+    --rail-w: 320px;
+    --rail-gap: 40px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--rail-w);
+    gap: var(--rail-gap);
+    align-items: start;
     padding-block: var(--sp-10) var(--sp-8);
   }
+  /* Il rail vive a <body>: rendi disponibili le variabili del grid
+     anche al di fuori dell'articolo, cosi' puo' usare --rail-w. */
+  body:has(> .article-rail) {
+    --rail-w: 320px;
+  }
   .section-page-article .article-body--long {
-    --note-gutter: 320px;
-    --note-gap: 40px;
-    max-width: calc(74ch + var(--note-gutter) + var(--note-gap));
-    margin-inline: auto;
-    padding-right: calc(var(--note-gutter) + var(--note-gap));
+    max-width: 74ch;
+    margin-inline: 0;
+    min-width: 0;
   }
-  .section-page-article .article-body--long::after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-  /* il testo resta nella colonna di lettura (~74ch) */
+  /* il testo resta nella colonna di lettura */
   .section-page-article .article-body--long p,
   .section-page-article .article-body--long ul li,
   .section-page-article .article-body--long .quote-block,
@@ -1936,22 +1936,50 @@ mark.search-hit.is-current {
     max-width: none;
   }
 
-  /* 3 · box contestuali → note di margine nel gutter destro,
-         scorrono accanto al paragrafo da cui partono */
-  .section-page-article .article-body--long > .callout,
-  .section-page-article .article-body--long > .side-notes {
-    float: right;
-    clear: right;
-    width: var(--note-gutter);
-    margin-right: calc(-1 * (var(--note-gutter) + var(--note-gap)));
-    margin-block: 0 var(--sp-6);
+  /* 3 · RAIL: sidebar dx che contiene tutti i callout.
+         Il rail è SEMPRE `position: fixed` (è figlio di <body>, fuori
+         dal transform di fade-in dell'articolo). JS gestisce la
+         posizione e la visibilità in base allo scroll: appare durante
+         la lettura dell'articolo, si nasconde sopra l'hero e sotto il
+         pager/footer. Scrollbar sottilissima in oro, hover più visibile. */
+  body > .article-rail {
+    position: fixed;
+    top: calc(var(--site-header-height, 0px) + 16px);
+    right: auto;          /* left impostato da JS in base alla colonna */
+    width: var(--rail-w, 320px);
+    max-height: calc(100vh - var(--site-header-height, 0px) - 32px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(183,138,42,0.18) transparent;
+    padding: 4px 10px 4px 6px;       /* spazio per la scrollbar visiva */
+    margin-right: -6px;               /* compensa il padding */
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    z-index: 10;                      /* sopra l'articolo, sotto header/menu (100) */
   }
-  .section-page-article .side-notes {
-    display: block;
+  body > .article-rail::-webkit-scrollbar {
+    width: 4px;
   }
-  .section-page-article .side-notes .callout {
-    margin-bottom: var(--sp-5);
-    background: rgba(255,255,255,0.62);
+  body > .article-rail::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  body > .article-rail::-webkit-scrollbar-thumb {
+    background: rgba(183,138,42,0.18);
+    border-radius: 999px;
+    transition: background 0.2s ease;
+  }
+  body > .article-rail:hover::-webkit-scrollbar-thumb {
+    background: rgba(183,138,42,0.36);
+  }
+  body > .article-rail .callout {
+    margin-block: 0;
+    background: rgba(255,255,255,0.66);
+  }
+  body > .article-rail .side-notes,
+  body > .article-rail .section-endnotes {
+    display: contents;
   }
 
   /* 4 · figure: box editoriale nella colonna di lettura */
@@ -1977,19 +2005,14 @@ mark.search-hit.is-current {
     transform: translateY(-3px);
     box-shadow: 0 14px 40px rgba(42,28,14,0.16);
   }
-  .section-page-article .article-figure:not(.article-figure--portrait) {
-    clear: both;
-  }
   .section-page-article .article-figure--narrow {
     max-width: min(380px, 70%);
     margin-inline: auto;
   }
   .section-page-article .article-figure--portrait {
-    float: right;
-    clear: right;
-    width: min(300px, 32vw);
-    max-width: min(300px, 42%);
-    margin: 0 0 var(--sp-5) var(--sp-6);
+    width: min(300px, 70%);
+    max-width: min(300px, 90%);
+    margin: var(--sp-4) auto;
     padding: var(--sp-3);
   }
   .section-page-article .article-figure--portrait img {
@@ -2002,26 +2025,6 @@ mark.search-hit.is-current {
     font-size: clamp(0.72rem, 0.7vw, 0.8rem);
     line-height: 1.42;
     padding-inline: 0;
-  }
-  .section-page-article .section-endnotes {
-    float: none;
-    clear: both;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: 100%;
-    max-width: 100%;
-    margin-right: 0;
-    margin: var(--sp-10) 0 var(--sp-2);
-  }
-  .section-page-article .article-body--long > .section-endnotes {
-    float: none;
-    clear: both;
-    width: 100%;
-    margin-right: 0;
-    margin-block: var(--sp-10) var(--sp-2);
-  }
-  .section-page-article .section-endnotes .callout {
-    margin-bottom: 0;
   }
 }
 .callout-grid {
@@ -2036,6 +2039,19 @@ mark.search-hit.is-current {
   box-shadow: var(--shadow-card);
   overflow: hidden;
   align-self: start;
+}
+
+/* ── ARTICLE RAIL HEAD ────────────────────────────────── */
+.article-rail-head {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-style: italic;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  color: var(--fai-brown-d);
+  margin: 0 0 4px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--fai-divider);
 }
 .figure-stack {
   display: grid;

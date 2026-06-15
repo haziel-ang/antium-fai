@@ -357,6 +357,144 @@ document.addEventListener('DOMContentLoaded', () => {
     io.observe(el);
   });
 
+  // ── ARTICLE RAIL (solo desktop) ────────────────────────
+  // Raccoglie TUTTI i callout e il blocco side-notes in un'unica
+  // sidebar fissa a destra, separata dalla colonna di lettura.
+  // Il rail viene appeso a `<body>` (e NON dentro l'articolo)
+  // perché l'articolo ha un `transform` di fade-in che creerebbe
+  // un nuovo containing block per `position: fixed`, impedendo al
+  // rail di ancorarsi al viewport.
+  // Il rail ha sempre `overflow-y: auto` per scroll indipendente
+  // della colonna (rotella del mouse + scrollbar sottilissima).
+  // Su mobile/tablet non si attiva: i callout restano nel flusso
+  // del testo come elementi inline a colonna unica.
+  const rails = [];
+  const RAIL_PARENT = document.body;
+  const initArticleRail = () => {
+    if (!window.matchMedia('(min-width: 1024px)').matches) return;
+    document.querySelectorAll('.article-layout--media').forEach(layout => {
+      const body = layout.querySelector(':scope > .article-body--long');
+      if (!body) return;
+      const toMove = [];
+      body.querySelectorAll(':scope > aside.callout, :scope > aside.side-notes').forEach(el => toMove.push(el));
+      Array.from(layout.children).forEach(child => {
+        if (child === body) return;
+        if (child.classList && (child.classList.contains('article-rail') || child.classList.contains('article-rail-head'))) return;
+        if (child.tagName === 'ASIDE' && (child.classList.contains('side-notes') || child.classList.contains('section-endnotes'))) {
+          toMove.push(child);
+        }
+      });
+      if (!toMove.length) return;
+      const rail = document.createElement('aside');
+      rail.className = 'article-rail';
+      rail.setAttribute('aria-label', 'Note e curiosità della sezione');
+      toMove.forEach(el => rail.appendChild(el));
+      const head = document.createElement('p');
+      head.className = 'article-rail-head';
+      head.textContent = 'Note e curiosità';
+      rail.insertBefore(head, rail.firstChild);
+      RAIL_PARENT.appendChild(rail);
+      rails.push({ rail, layout, body });
+    });
+  };
+  const teardownArticleRail = () => {
+    while (rails.length) {
+      const { rail, layout, body } = rails.pop();
+      while (rail.firstChild) {
+        const node = rail.firstChild;
+        if (node.classList && node.classList.contains('article-rail-head')) {
+          rail.removeChild(node);
+          continue;
+        }
+        if (node.tagName === 'ASIDE' && node.classList.contains('callout') && body) {
+          body.appendChild(node);
+        } else {
+          layout.appendChild(node);
+        }
+      }
+      rail.remove();
+    }
+  };
+  // Aggiorna la posizione del rail: il rail è SEMPRE `position: fixed`
+  // sul lato destro del viewport (è figlio di <body>, fuori dal
+  // transform di fade-in dell'articolo). Il rail:
+  // - si nasconde durante la lettura dell'hero (sopra l'articolo) e
+  //   quando il footer sale a coprire l'area del rail senza piu'
+  //   articolo sopra
+  // - quando il pager o il footer salgono in vista, l'altezza del rail
+  //   viene ridotta per non sovrapporsi
+  const updateRails = () => {
+    if (!window.matchMedia('(min-width: 1024px)').matches) return;
+    const headerH = header ? header.offsetHeight : 0;
+    const pad = 16;
+    const maxH = window.innerHeight - headerH - pad * 2;
+    const footerEl = document.querySelector('.simple-footer, .site-footer');
+    const pagerEl = document.querySelector('.section-pager');
+    const footerR = footerEl ? footerEl.getBoundingClientRect() : null;
+    const pagerR = pagerEl ? pagerEl.getBoundingClientRect() : null;
+    rails.forEach(({ rail, layout, body }) => {
+      const r = layout.getBoundingClientRect();
+      const railW = rail.offsetWidth;
+      // Layout sotto al viewport (hero in vista): nascondi.
+      if (r.top >= window.innerHeight) {
+        rail.style.visibility = 'hidden';
+        return;
+      }
+      // Calcola il limite inferiore del rail in base al primo tra
+      // pager e footer che sale in viewport. Limita l'altezza del rail
+      // per non sovrapporsi.
+      let railBottomLimit = window.innerHeight;
+      if (footerR && footerR.top >= 0 && footerR.top < window.innerHeight) {
+        railBottomLimit = Math.min(railBottomLimit, footerR.top);
+      }
+      if (pagerR && pagerR.top >= 0 && pagerR.top < window.innerHeight) {
+        railBottomLimit = Math.min(railBottomLimit, pagerR.top);
+      }
+      const maxH2 = Math.max(120, railBottomLimit - headerH - pad * 2);
+      if (maxH2 < 140) {
+        rail.style.visibility = 'hidden';
+        return;
+      }
+      // Pin a destra del viewport, allineato al lato destro del body + gap.
+      const bodyR = body.getBoundingClientRect();
+      const gap = parseInt(getComputedStyle(layout).columnGap || '40', 10) || 40;
+      const left = Math.max(16, Math.round(bodyR.right + gap));
+      rail.style.visibility = '';
+      rail.classList.add('article-rail--pinned');
+      rail.style.position = 'fixed';
+      rail.style.left = `${left}px`;
+      rail.style.top = `${headerH + pad}px`;
+      rail.style.maxHeight = `${maxH2}px`;
+      rail.style.width = `${railW}px`;
+    });
+  };
+  initArticleRail();
+  let lastDesktopMatch = window.matchMedia('(min-width: 1024px)').matches;
+  let resizeRaf = 0;
+  const onResize = () => {
+    cancelAnimationFrame(resizeRaf);
+    resizeRaf = requestAnimationFrame(() => {
+      const nowMatch = window.matchMedia('(min-width: 1024px)').matches;
+      if (nowMatch !== lastDesktopMatch) {
+        lastDesktopMatch = nowMatch;
+        if (!nowMatch) {
+          teardownArticleRail();
+          return;
+        }
+        teardownArticleRail();
+        initArticleRail();
+      }
+      updateRails();
+    });
+  };
+  window.addEventListener('resize', onResize);
+  window.addEventListener('scroll', updateRails, { passive: true });
+  requestAnimationFrame(() => requestAnimationFrame(updateRails));
+  window.addEventListener('load', updateRails);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(updateRails).catch(() => {});
+  }
+
   // ── 3D Card mouse tilt ─────────────────────────────────
   document.querySelectorAll('.card-3d').forEach(card => {
     card.addEventListener('mousemove', e => {

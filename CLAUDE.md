@@ -95,12 +95,25 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
   `.article-layout` (e `--media`) è grid a una sola colonna di base: non reintrodurre
   layout a due colonne fuori dalla media query desktop.
   **Eccezione desktop (≥1024px)**: dentro `@media (min-width:1024px)` le pagine di
-  `sezioni/` adottano un layout editoriale «a note di margine» (vedi blocco «REVISIONE
-  UI/UX SEZIONI» in `css/style.css`): colonna di lettura centrata (~74ch) con un
-  **gutter destro** in cui i box contestuali (`.callout` e la `.side-notes` finale,
-  spostata dentro `.article-body--long`) flottano come note di margine accanto al loro
-  paragrafo, scorrendo con il testo. Le figure restano nella colonna di lettura, in box.
-  Questo gutter laterale vale solo su desktop; sotto i 1024px resta tutto a colonna unica.
+  `sezioni/` adottano un layout editoriale «a colonna di lettura + rail di note»
+  (vedi blocco «REVISIONE UI/UX SEZIONI» in `css/style.css` e `initArticleRail` in
+  `js/main.js`):
+  - **colonna di lettura** centrata (~74ch) con testo, figure e tabelle
+  - **rail sticky a destra** (`<aside class="article-rail">`, larghezza 320px)
+    che raccoglie TUTTI i callout e il blocco side-notes in un'unica
+    sidebar scrollabile. Il rail è `position: fixed` ancorato al
+    viewport (JS lo posiziona sotto l'header, accanto al lato destro
+    del body); si nasconde solo sopra l'hero e quando il footer sale
+    a coprire la sua area. Scrollbar sottilissima in oro (4px),
+    hover più visibile; rotella del mouse fa scrollare il rail senza
+    propagarsi alla pagina. JS appende il rail a `<body>` per sfuggire
+    al `transform` di fade-in dell'articolo (che creerebbe un nuovo
+    containing block per `position: fixed`).
+  - I callout, le side-notes e le section-endnotes **non devono comparire
+    nel flusso centrale del testo**: `initArticleRail` li sposta nel
+    rail automaticamente. Non replicare quei box in colonna centrale.
+  - Sotto i 1024px il rail non viene creato: i callout restano inline
+    come elementi di paragrafo.
 - **Figure senza stili inline**: `<figure class="article-figure">` (+ `--narrow` per le strette) con `<figcaption>` nudo. Margini, ombre, raggi e didascalie sono nel CSS centralizzato: non duplicarli inline.
 - **Liste con rientro pieno**: `.article-body ul` ha padding-left 1.6rem (rombo dorato interno al margine). Non aggiungere margini negativi.
 - **Gerarchia dei titoli (identica in tutte le sezioni)**: `h1` solo nel hero (`.hero-title`);
