@@ -1676,24 +1676,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function position(link) {
     var r = link.getBoundingClientRect();
-    var scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
     var vw = document.documentElement.clientWidth;
     var width = pop.offsetWidth;
     var margin = 14;
 
-    var left = r.left + scrollX;
-    if (left + width > scrollX + vw - margin) {
-      left = scrollX + vw - margin - width;
+    var left = r.left;
+    if (left + width > vw - margin) {
+      left = vw - margin - width;
     }
-    if (left < scrollX + margin) left = scrollX + margin;
+    if (left < margin) left = margin;
 
-    var top = r.bottom + scrollY + 10;
+    var top = r.bottom + 10;
     pop.style.left = left + 'px';
     pop.style.top = top + 'px';
 
     // posiziona la freccia sopra l'ancora
-    var arrow = (r.left + scrollX) - left + Math.min(r.width / 2, 40);
+    var arrow = r.left - left + Math.min(r.width / 2, 40);
     arrow = Math.max(14, Math.min(arrow, width - 26));
     pop.style.setProperty('--cross-arrow', arrow + 'px');
   }
@@ -1801,22 +1799,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function position(span) {
     var r = span.getBoundingClientRect();
-    var scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
     var vw = document.documentElement.clientWidth;
     var vh = window.innerHeight;
     var width = pop.offsetWidth;
     var popH = pop.offsetHeight;
     var margin = 14;
-    var left = r.left + scrollX;
-    if (left + width > scrollX + vw - margin) left = scrollX + vw - margin - width;
-    if (left < scrollX + margin) left = scrollX + margin;
+    var left = r.left;
+    if (left + width > vw - margin) left = vw - margin - width;
+    if (left < margin) left = margin;
     var above = (vh - r.bottom) < (popH + 14) && r.top > (popH + 14);
-    var top = above ? r.top + scrollY - popH - 10 : r.bottom + scrollY + 10;
+    var top = above ? r.top - popH - 10 : r.bottom + 10;
     pop.classList.toggle('above', above);
     pop.style.left = left + 'px';
     pop.style.top = top + 'px';
-    var arrow = (r.left + scrollX) - left + Math.min(r.width / 2, 40);
+    var arrow = r.left - left + Math.min(r.width / 2, 40);
     arrow = Math.max(14, Math.min(arrow, width - 26));
     pop.style.setProperty('--cross-arrow', arrow + 'px');
   }
