@@ -1869,6 +1869,15 @@ mark.search-hit.is-current {
   display: grid;
   gap: var(--sp-5);
 }
+.section-endnotes {
+  clear: both;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--sp-6);
+  margin-top: var(--sp-10);
+  padding-top: var(--sp-6);
+  border-top: 1px solid var(--fai-divider);
+}
 .side-notes .callout,
 .callout-grid .callout,
 .story-grid > .callout {
@@ -1968,9 +1977,51 @@ mark.search-hit.is-current {
     transform: translateY(-3px);
     box-shadow: 0 14px 40px rgba(42,28,14,0.16);
   }
+  .section-page-article .article-figure:not(.article-figure--portrait) {
+    clear: both;
+  }
   .section-page-article .article-figure--narrow {
     max-width: min(380px, 70%);
     margin-inline: auto;
+  }
+  .section-page-article .article-figure--portrait {
+    float: right;
+    clear: right;
+    width: min(300px, 32vw);
+    max-width: min(300px, 42%);
+    margin: 0 0 var(--sp-5) var(--sp-6);
+    padding: var(--sp-3);
+  }
+  .section-page-article .article-figure--portrait img {
+    width: auto;
+    max-width: 100%;
+    max-height: 360px;
+    margin-inline: auto;
+  }
+  .section-page-article .article-figure--portrait figcaption {
+    font-size: clamp(0.72rem, 0.7vw, 0.8rem);
+    line-height: 1.42;
+    padding-inline: 0;
+  }
+  .section-page-article .section-endnotes {
+    float: none;
+    clear: both;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin: var(--sp-10) 0 var(--sp-2);
+  }
+  .section-page-article .article-body--long > .section-endnotes {
+    float: none;
+    clear: both;
+    width: 100%;
+    margin-right: 0;
+    margin-block: var(--sp-10) var(--sp-2);
+  }
+  .section-page-article .section-endnotes .callout {
+    margin-bottom: 0;
   }
 }
 .callout-grid {
@@ -3510,6 +3561,26 @@ mark.search-hit.is-current {
 .footer-meta {
   text-align: right;
   color: rgba(253,246,227,0.50);
+  gap: 0.28rem;
+  font-size: clamp(0.68rem, 0.68vw, 0.78rem);
+  line-height: 1.35;
+  max-width: 360px;
+  justify-self: end;
+}
+.footer-meta p {
+  margin: 0;
+}
+.footer-meta-note {
+  margin-block: 0.15rem 0.1rem;
+}
+.footer-meta-title {
+  color: rgba(247,212,136,0.78);
+  font-family: var(--font-display);
+  font-size: clamp(0.84rem, 0.85vw, 0.95rem);
+  font-style: italic;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
 }
 .footer-meta a {
   color: rgba(247,212,136,0.80);
@@ -4426,6 +4497,8 @@ mark.search-hit.is-current {
   }
   .footer-meta {
     text-align: left;
+    justify-self: start;
+    max-width: none;
   }
 }
 
