@@ -615,6 +615,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Figure dell'articolo nelle sezioni → lightbox con didascalia
+  document.querySelectorAll('.article-figure').forEach(figure => {
+    const img = figure.querySelector('img');
+    if (!img) return;
+    const caption = figure.querySelector('figcaption');
+    figure.classList.add('is-zoomable');
+    figure.addEventListener('click', event => {
+      // non aprire la lightbox cliccando un link/pulsante interno alla didascalia
+      if (event.target.closest('a, button')) return;
+      let note = '';
+      if (caption) {
+        // escludi dal testo eventuali trigger ("Crediti grafici") e link
+        const clone = caption.cloneNode(true);
+        clone.querySelectorAll('a, button').forEach(el => el.remove());
+        note = clone.textContent.replace(/\s+/g, ' ').trim();
+      }
+      openLightbox({
+        src: img.currentSrc || img.src,
+        alt: img.alt,
+        title: img.alt,
+        note
+      });
+    });
+  });
+
   creditPreviewButtons.forEach(button => {
     button.addEventListener('click', () => {
       openLightbox({
