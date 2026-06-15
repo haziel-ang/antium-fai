@@ -5509,26 +5509,45 @@ mark.search-hit.is-current {
 
 /* ============================================================
    LEMMI — glossario interattivo: ville dai nomi stratificati e
-   termini tecnici spiegati in poche parole. Evidenziati con sfondo
-   dorato e testo quasi nero, per dare risalto (i rimandi tra sezioni
-   restano tratteggiati in arancio); popup a pergamena condiviso con i crosslink.
+   termini tecnici spiegati in poche parole. Diamante dorato + testo
+   dorato con puntini dorati, in un unico colore (--fai-gold) — anche
+   in hover. Popup a pergamena condiviso con i crosslink.
+   I rimandi tra sezioni (.crosslink) restano invece tratteggiati in
+   arancio, per non confondere le due funzioni.
    ============================================================ */
 .lemma {
-  background: none;
-  color: inherit;
+  color: var(--fai-gold, #b78a2a);
   font-weight: 500;
   text-decoration: underline dotted var(--fai-gold, #b78a2a);
   text-decoration-thickness: 1.5px;
-  text-underline-offset: 0.2em;
+  text-underline-offset: 0.22em;
   cursor: help;
-  transition: color var(--transition), text-decoration-color var(--transition);
+  transition: background-color var(--transition), box-shadow var(--transition);
+}
+.lemma::before {
+  content: "◆";
+  color: var(--fai-gold, #b78a2a);
+  font-size: 0.78em;
+  margin-right: 0.28em;
+  vertical-align: 0.08em;
+  opacity: 0.95;
+  transition: opacity var(--transition);
 }
 .lemma:hover,
 .lemma:focus-visible {
   color: var(--fai-gold, #b78a2a);
   text-decoration-color: var(--fai-gold, #b78a2a);
+  background-color: rgba(183, 138, 42, 0.10);
+  box-shadow: 0 0 0 2px rgba(183, 138, 42, 0.10);
+  border-radius: 3px;
   outline: none;
 }
+.lemma:hover::before,
+.lemma:focus-visible::before {
+  opacity: 1;
+}
+/* Le voci dentro <em> (corsivo) restano corsive: la regola .lemma
+   non altera lo stile tipografico dell'elemento ospite. */
 .crosslink-pop-rows {
   margin: var(--sp-3) 0 0;
   padding: 0;
@@ -5552,4 +5571,7 @@ mark.search-hit.is-current {
   white-space: nowrap;
   color: var(--fai-brown, #6b4423);
 }
-@media print { .lemma { background: none; color: inherit; font-weight: inherit; text-decoration: none; cursor: auto; } }
+@media print {
+  .lemma { background: none; color: inherit; font-weight: inherit; text-decoration: none; cursor: auto; box-shadow: none; }
+  .lemma::before { content: none; }
+}
