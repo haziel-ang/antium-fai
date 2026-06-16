@@ -312,6 +312,24 @@ window.ANTIUM_LEMMI = {
     nota: 'Il nome che nell’onomastica romana indicava la gens, cioè la famiglia o il clan di appartenenza, l’equivalente antico del nostro cognome. «Mulakia» è un gentilizio femminile di origine campana: il segno di una famiglia immigrata dall’area campano-sannitica e stabilitasi ad Anzio.'
   },
 
+  'otia': {
+    eyebrow: 'Il riposo che vale',
+    titolo: 'Otia',
+    nota: 'Plurale di otium, il tempo libero dell’aristocrazia romana: non pigrizia, ma riposo nobile dedicato allo studio, alla conversazione e all’arte, l’opposto del negotium, gli affari e la politica. Anzio, quieta e affacciata sul mare a due passi da Roma, era il luogo perfetto per gli otia dell’élite senatoria.'
+  },
+
+  'volumen': {
+    eyebrow: 'Il libro prima del libro',
+    titolo: 'Volumen',
+    nota: 'Il libro antico: un lungo foglio di papiro arrotolato attorno a un bastoncino, che si srotolava da un lato e si riavvolgeva dall’altro via via che si leggeva. Da volumen, «rotolo», viene la nostra parola «volume». La Fanciulla d’Anzio ne porta uno semiaperto sul vassoio, tra gli oggetti del rito.'
+  },
+
+  'collegium': {
+    eyebrow: 'Le confraternite di Roma',
+    titolo: 'Collegium',
+    nota: 'Un’associazione riconosciuta dell’antica Roma: poteva riunire artigiani dello stesso mestiere, fedeli di un culto o addetti di una casa, con cassa comune, feste e riti propri. Nella villa imperiale di Anzio i Fasti attestano un collegium in onore della famiglia Giulio-Claudia, con festività e giochi dedicati.'
+  },
+
   'caffeaus': {
     eyebrow: 'Il salotto dei giardini nobiliari',
     titolo: 'Caffeaus',
@@ -456,6 +474,12 @@ window.ANTIUM_LEMMI = {
     eyebrow: 'Pario e pentelico',
     titolo: 'I marmi greci della Fanciulla',
     nota: 'Due marmi pregiati dall’Egeo: il pario, candido e a grana fine, dall’isola di Paro; il pentelico, dai riflessi appena azzurri, dal monte vicino ad Atene. La Fanciulla d’Anzio li usa entrambi, il pario per la spalla nuda e il pentelico per la veste, per distinguere al tatto la pelle dal tessuto.'
+  },
+
+  'pentelico': {
+    eyebrow: 'Il marmo dell’Acropoli',
+    titolo: 'Pentelico',
+    nota: 'Il marmo bianco con cui fu costruito il Partenone, cavato sul monte Pentelico vicino ad Atene. Col tempo prende una calda patina dorata, per il ferro che contiene. Sulla Fanciulla d’Anzio veste le pieghe del panneggio, mentre il pario, più candido, fa la pelle nuda: due marmi diversi per distinguere al tatto la stoffa dalla carne.'
   },
 
   'volte-cassettoni': {
