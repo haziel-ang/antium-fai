@@ -273,7 +273,7 @@ window.ANTIUM_LEMMI = {
   'xystus': {
     eyebrow: 'La palestra coperta',
     titolo: 'Xystus',
-    nota: 'Il corridoio coperto dove gli atleti si allenavano d’inverno, al riparo dal vento. Vitruvio chiama xystus il corpo lungo e rettangolare del ginnasio. Ad Antium il termine identifica il grande edificio tra il Municipio e il vicolo dei Sanniti: circa 115 metri di struttura, con le terme attaccate sul lato est.'
+    nota: 'Il corridoio coperto dove gli atleti si allenavano d’inverno, al riparo dal vento. Vitruvio chiama xystus il corpo lungo e rettangolare del ginnasio. Ad Antium il termine identifica il grande edificio della città alta, lungo Via Roma tra il Municipio (ex Villa Sarsina) e Villa Albani: Lugli notò che le rovine proseguivano dritte sotto la villa, con le terme attaccate.'
   },
 
   'porto-innocenziano': {
