@@ -136,7 +136,7 @@ const injectSeoMarkup = () => {
   graph.push({
     '@type': 'Organization',
     '@id': `${baseUrl}/#organization`,
-    name: 'Gruppo FAI Anzio-Nettuno',
+    name: 'Antium · Historia et Memoria',
     url: `${baseUrl}/`,
     logo: {
       '@type': 'ImageObject',
@@ -1146,7 +1146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
           element: 'Mosaico con Erote su pantera, Museo Civico Archeologico di Anzio',
-          author: 'Gruppo FAI Anzio-Nettuno / Riccardo Pau',
+          author: 'Riccardo Pau',
           note: 'Fotografia 2025 usata come sfondo del mosaico numerico in home page.'
         }
       ]
