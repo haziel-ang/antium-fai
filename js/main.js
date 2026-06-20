@@ -823,6 +823,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Hero delle sezioni → icona "occhio" che apre l'immagine intera nella
+  // lightbox (su mobile lo sfondo è ritagliato in cover e si vede parziale).
+  document.querySelectorAll('.section-page-hero').forEach(hero => {
+    const bg = hero.querySelector('.hero-bg');
+    if (!bg) return;
+    const raw = bg.style.backgroundImage || getComputedStyle(bg).backgroundImage || '';
+    const match = raw.match(/url\(["']?(.*?)["']?\)/);
+    if (!match || !match[1]) return;
+    const titleEl = hero.querySelector('.hero-title');
+    const title = titleEl ? titleEl.textContent.trim() : 'Immagine';
+
+    const zoom = document.createElement('button');
+    zoom.type = 'button';
+    zoom.className = 'hero-zoom';
+    zoom.setAttribute('aria-label', 'Apri l’immagine completa');
+    zoom.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12Z"/>
+        <circle cx="12" cy="12" r="3.2"/>
+      </svg>
+      <span class="hero-zoom-label">Vedi intera</span>
+    `;
+    zoom.addEventListener('click', () => openLightbox({ src: match[1], title }));
+    hero.appendChild(zoom);
+  });
+
   // Designed fallback for broken images
   document.querySelectorAll('img').forEach(img => {
     img.addEventListener('error', () => {
