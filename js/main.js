@@ -823,9 +823,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Hero delle sezioni → icona "occhio" che apre l'immagine intera nella
+  // Hero (home e sezioni) → icona "occhio" che apre l'immagine intera nella
   // lightbox (su mobile lo sfondo è ritagliato in cover e si vede parziale).
-  document.querySelectorAll('.section-page-hero').forEach(hero => {
+  // Gli hero senza immagine di sfondo (gradiente decorativo) sono esclusi
+  // dal controllo sull'url.
+  document.querySelectorAll('.hero').forEach(hero => {
     const bg = hero.querySelector('.hero-bg');
     if (!bg) return;
     const raw = bg.style.backgroundImage || getComputedStyle(bg).backgroundImage || '';
@@ -837,6 +839,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const zoom = document.createElement('button');
     zoom.type = 'button';
     zoom.className = 'hero-zoom';
+    // Negli hero con footer (la home, dove in basso c'è la nav delle ere)
+    // l'icona va in alto a destra per non coprire le card.
+    if (hero.querySelector('.hero-footer')) zoom.classList.add('hero-zoom--top');
     zoom.setAttribute('aria-label', 'Apri l’immagine completa');
     zoom.innerHTML = `
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
