@@ -685,6 +685,10 @@ a:hover { color: var(--fai-orange); }
   cursor: pointer;
   transition: background var(--transition), border-color var(--transition), transform var(--transition);
 }
+.hero-zoom--top {
+  bottom: auto;
+  top: var(--sp-5);
+}
 .hero-zoom svg {
   width: 18px;
   height: 18px;
@@ -702,6 +706,10 @@ a:hover { color: var(--fai-orange); }
     bottom: var(--sp-4);
     right: var(--sp-4);
     padding: 7px;
+  }
+  .hero-zoom--top {
+    bottom: auto;
+    top: var(--sp-4);
   }
   .hero-zoom-label {
     position: absolute;
