@@ -799,16 +799,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  creditPreviewButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      openLightbox({
-        src: button.dataset.creditImage,
-        title: button.dataset.creditTitle || button.textContent.trim(),
-        note: button.dataset.creditNote || '',
-        source: button.dataset.creditSource || '',
-        sourceLabel: button.dataset.creditSourceLabel || 'Apri fonte'
-      });
+  function openCreditPreview(button) {
+    openLightbox({
+      src: button.dataset.creditImage,
+      title: button.dataset.creditTitle || button.textContent.trim(),
+      note: button.dataset.creditNote || '',
+      source: button.dataset.creditSource || '',
+      sourceLabel: button.dataset.creditSourceLabel || 'Apri fonte'
     });
+  }
+
+  creditPreviewButtons.forEach(button => {
+    button.addEventListener('click', () => openCreditPreview(button));
+    // Tutta la riga apre la lightbox (click o tap su qualsiasi cella),
+    // mentre il pulsante e gli eventuali link mantengono il loro handler.
+    const row = button.closest('tr');
+    if (row) {
+      row.classList.add('credit-row');
+      row.addEventListener('click', event => {
+        if (event.target.closest('a, button')) return;
+        openCreditPreview(button);
+      });
+    }
   });
 
   // Designed fallback for broken images

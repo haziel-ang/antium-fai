@@ -2563,6 +2563,9 @@ mark.search-hit.is-current {
 .credits-section .data-table tbody tr:hover td {
   background: rgba(200,71,26,0.055);
 }
+.credits-section .data-table tbody tr.credit-row {
+  cursor: pointer;
+}
 .credit-preview {
   position: relative;
   display: inline-flex;
