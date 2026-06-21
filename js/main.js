@@ -1303,8 +1303,24 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     'sezioni/necropoli-protostoriche.html': {
       subtitle: 'Sezione 02 · Necropoli protostoriche',
-      note: 'Questa sezione non contiene elaborazioni grafiche originali. Le fotografie sono di pubblico dominio o da archivi citati nel testo.',
-      rows: []
+      note: 'Crediti grafici specifici della sezione. Le figure di Colle Rotondo sono condivise con la Sezione 01 (Il Vallo di Antium).',
+      rows: [
+        {
+          element: 'Colle Rotondo — localizzazione saggi di scavo, foto aerea (Fig. 3)',
+          author: 'Cifani G., Guidi A.; base foto aerea Guardia Forestale 2012',
+          note: 'In: Fontaine–Helas 2016, fig. 3. © autori / Guardia Forestale.'
+        },
+        {
+          element: 'Colle Rotondo — ricostruzione 3D primo aggere XI–X sec. a.C. (Fig. 5)',
+          author: 'Nomi F. (2013); Guidi A., Nomi F. (2014)',
+          note: 'In: Cifani–Guidi 2016, fig. 9. © autori.'
+        },
+        {
+          element: 'Colle Rotondo — planimetria topografica e sezione trasversale (Fig. 4)',
+          author: 'Quilici L., Quilici Gigli S. (1984); riprodotto in Cifani–Guidi 2016',
+          note: 'In: Cifani–Guidi 2016, fig. 4. © autori.'
+        }
+      ]
     },
     'sezioni/tomba-mulakia.html': {
       subtitle: 'Sezione 03 · Tomba Mulakia',
