@@ -1306,6 +1306,11 @@ document.addEventListener('DOMContentLoaded', () => {
       note: 'Crediti grafici specifici della sezione. Le figure di Colle Rotondo sono condivise con la Sezione 01 (Il Vallo di Antium).',
       rows: [
         {
+          element: 'Italcable — sito di approdo del cavo ad Anzio, foto storica',
+          author: 'per gentile concessione di Donard de Cogan',
+          note: 'Da atlantic-cable.com (History of the Atlantic Cable & Undersea Communications, a cura di Bill Burns). Foto di pubblico dominio per età.'
+        },
+        {
           element: 'Colle Rotondo — localizzazione saggi di scavo, foto aerea (Fig. 3)',
           author: 'Cifani G., Guidi A.; base foto aerea Guardia Forestale 2012',
           note: 'In: Fontaine–Helas 2016, fig. 3. © autori / Guardia Forestale.'
