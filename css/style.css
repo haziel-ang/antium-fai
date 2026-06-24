@@ -1067,7 +1067,15 @@ a:hover { color: var(--fai-orange); }
   max-width: 480px;
   padding: 4px 0;
 }
-.section-page-hero .hero-actions--section-dual .era-card {
+.section-page-hero .hero-actions--section-triple {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  max-width: 560px;
+  padding: 4px 0;
+}
+.section-page-hero .hero-actions--section-dual .era-card,
+.section-page-hero .hero-actions--section-triple .era-card {
   min-width: 0;
   min-height: 60px;
   padding: 6px 8px;
@@ -1077,18 +1085,22 @@ a:hover { color: var(--fai-orange); }
     radial-gradient(ellipse at 100% 0%, rgba(200,71,26,0.16), transparent 58%),
     linear-gradient(180deg, rgba(253,246,227,0.10), rgba(253,246,227,0.035));
 }
-.section-page-hero .hero-actions--section-dual .era-card + .era-card::before {
+.section-page-hero .hero-actions--section-dual .era-card + .era-card::before,
+.section-page-hero .hero-actions--section-triple .era-card + .era-card::before {
   display: none;
 }
-.section-page-hero .hero-actions--section-dual .era-icon {
+.section-page-hero .hero-actions--section-dual .era-icon,
+.section-page-hero .hero-actions--section-triple .era-icon {
   width: 20px;
   height: 20px;
 }
-.section-page-hero .hero-actions--section-dual .era-title {
+.section-page-hero .hero-actions--section-dual .era-title,
+.section-page-hero .hero-actions--section-triple .era-title {
   font-size: clamp(0.72rem, 0.78vw, 0.84rem);
   letter-spacing: 0.13em;
 }
-.section-page-hero .hero-actions--section-dual .era-sub {
+.section-page-hero .hero-actions--section-dual .era-sub,
+.section-page-hero .hero-actions--section-triple .era-sub {
   font-size: clamp(0.48rem, 0.54vw, 0.58rem);
   letter-spacing: 0.12em;
 }
@@ -1106,13 +1118,19 @@ a:hover { color: var(--fai-orange); }
     max-width: none;
     font-size: clamp(0.9rem, 3.6vw, 1rem);
   }
-  .section-page-hero .hero-actions--section-dual {
+  .section-page-hero .hero-actions--section-dual,
+  .section-page-hero .hero-actions--section-triple {
     max-width: none;
     gap: 8px;
   }
-  .section-page-hero .hero-actions--section-dual .era-card {
+  .section-page-hero .hero-actions--section-dual .era-card,
+  .section-page-hero .hero-actions--section-triple .era-card {
     min-height: 60px;
     padding: 6px 8px;
+  }
+  .section-page-hero .hero-actions--section-triple .era-sub {
+    font-size: clamp(0.46rem, 1.6vw, 0.56rem);
+    letter-spacing: 0.08em;
   }
 }
 .hero-meta {
