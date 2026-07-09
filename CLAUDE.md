@@ -229,6 +229,86 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
 2. Elimina il file originale **solo dopo** aver verificato che il `.webp` esiste.
 3. Usa sempre percorsi relativi `../img/NOME.webp` nei file HTML sotto `sezioni/`.
 
+## LLM Wiki — Second Brain (Second Brain)
+
+La cartella `wiki/` implementa il pattern **LLM Wiki** di Andrej Karpathy
+([gist](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)): una
+wiki persistente di markdown mantenuta dall'LLM.
+
+### Architettura (3 strati)
+
+1. **Raw sources** (`wiki/raw/`) — testi estratti dai PDF in `docs/`. Immutabili.
+   L'LLM legge da qui ma non modifica mai.
+2. **The wiki** (`wiki/sources/`, `wiki/entities/`, `wiki/concepts/`) — pagine
+   markdown interamente generate e aggiornate dall'LLM. Sintesi, pagine-entità,
+   pagine-concetto, comparazioni, overview.
+3. **The schema** (questa sezione del CLAUDE.md) — dice all'LLM struttura,
+   convenzioni e workflow.
+
+### Struttura directory
+
+```
+wiki/
+  raw/          # estrazioni dai PDF (generato da script, non modificare a mano)
+  sources/      # una pagina-sintesi per ogni fonte processata
+  entities/     # Nerone, Volsci, Cicerone, Villa Imperiale, Caffeaus…
+  concepts/     # agger, necropoli a incinerazione, xystus, mitraismo…
+  index.md      # catalogo di tutto il wiki (LLM-owned)
+  log.md        # cronologico append-only (LLM-owned)
+  overview.md   # sintesi generale del dominio (LLM-owned)
+```
+
+### Convenzioni pagine wiki
+
+- Ogni pagina ha **frontmatter YAML** con i campi obbligatori:
+  - `type`: `source`, `entity`, `concept`
+  - `title`: titolo leggibile
+  - `tags`: `[tag1, tag2]`
+  - `timestamp`: `YYYY-MM-DD`
+  - `sources`: `[file1.md, file2.md]` (riferimenti a `wiki/raw/`)
+- Collegamenti tra pagine wiki: `[[entity/nerone]]` o `[[concepts/xystus]]`
+- Overview: sintesi di ciò che si sa, aggiornata a ogni ingest
+
+### Workflow operazioni
+
+**Ingest.** Quando arriva una nuova fonte in `wiki/raw/`:
+1. Leggi la fonte
+2. Discuti i punti chiave con l'umano
+3. Crea/aggiorna la pagina in `wiki/sources/`
+4. Aggiorna `wiki/index.md`
+5. Aggiorna le pagine entity/concept correlate (10-15 pagine per fonte)
+6. Appendi al `wiki/log.md`
+
+**Query.** Per rispondere a domande:
+1. Leggi `wiki/index.md` per trovare pagine pertinenti
+2. Leggi le pagine trovate
+3. Sintetizza con citazioni alle fonti
+4. Se la risposta è di valore, archiviala come nuova pagina wiki
+
+**Lint.** Periodicamente (almeno ogni 3 ingests):
+1. Contraddizioni tra pagine
+2. Claim obsolete superati da fonti più recenti
+3. Pagine orfane (nessun link in entrata)
+4. Concetti importanti menzionati ma senza pagina propria
+5. Cross-reference mancanti
+6. Logga il lint pass in `wiki/log.md`
+
+### Indice e log
+
+- `wiki/index.md` — contiene ogni pagina con link, sommario 1 riga, metadata.
+  Organizzato per categoria (entities, concepts, sources). L'LLM lo aggiorna a
+  ogni ingest.
+- `wiki/log.md` — ogni entry inizia con `## [YYYY-MM-DD] ingest | Nome Fonte`
+  (o `query | ...` o `lint | ...`). Parsabile con grep.
+
+### Regole d'oro
+
+- **Non scrivere mai le pagine wiki a mano.** Le crea e aggiorna l'LLM.
+- **Fonti immutabili**: mai modificare `wiki/raw/` (se serve ri-estrarre,
+  rilancia lo script `python scripts/extract_pdfs.py`).
+- **Non modificare il sito web** (sezioni/*.html, index.html, etc.) come
+  conseguenza di operazioni wiki. Il wiki è un layer cognitivo separato.
+
 ## Ricerca full-text globale
 
 Il campo di ricerca cerca in **tutte** le sezioni del sito, non solo nella pagina corrente.
