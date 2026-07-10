@@ -184,7 +184,7 @@ def build_one(section: str, pdf_name: str) -> str:
         '<div class="pdf-rule"></div>',
         '<div class="pdf-footer">'
         '<strong>Antium &middot; Historia et Memoria</strong><br>'
-        'A cura di Riccardo Pau<br>'
+        'Riccardo Pau (Profxeni) &middot; ricerca e cura editoriale<br>'
         '&copy; 2026 &middot; <a href="https://creativecommons.org/licenses/by/4.0/">'
         'Licenza CC BY 4.0</a>'
         '</div>',

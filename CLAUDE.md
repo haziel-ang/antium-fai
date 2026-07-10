@@ -49,7 +49,7 @@ immagini ridimensionate): `python scripts/build_pdfs.py` per tutte le sezioni, o
 
 Ogni pagina dei PDF ha un **footer** con: una sottile linea di demarcazione a tutta
 larghezza, il numero di pagina ben leggibile a destra, e a sinistra tre righe piccole
-(Antium · Historia et Memoria; «A cura di Riccardo Pau · Gruppo FAI Anzio-Nettuno»;
+(Antium · Historia et Memoria; «Riccardo Pau (Profxeni) · ricerca e cura editoriale»;
 © anno e link cliccabile CC BY 4.0). I link interni alle altre sezioni vengono resi come
 testo semplice (nel PDF non avrebbero bersaglio); restano cliccabili solo i link esterni.
 
@@ -174,8 +174,9 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
     `pager-eyebrow` + `pager-title`). L'ordine canonico è in
     "Pager di sezione e date di aggiornamento" più sotto.
   - **Footer**: `<footer class="simple-footer">` con `.footer-summary` (logo,
-    brand-name `ANTIVM`, citazione Cicerone) e `.footer-meta` (autore,
-    Gruppo FAI Anzio-Nettuno, rimando a `fonti.html`, licenza CC BY 4.0).
+    brand-name `ANTIVM`, citazione Cicerone) e `.footer-meta` (attribuzione
+    «Riccardo Pau (Profxeni) · ricerca e cura editoriale», rimando a
+    `fonti.html`, licenza CC BY 4.0).
   - **Chiusura standard**: dopo il `</main>` ma prima del `</body>` sempre
     `<div class="lightbox">`, `<button class="back-to-top">` e lo script
     `js/main.js` in `defer`. `<p class="page-updated">` è gestito da
