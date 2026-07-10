@@ -542,42 +542,60 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── HERO ERAS — drag to scroll on narrow viewports ─────
-  const heroEras = document.querySelector('.hero-eras');
-  if (heroEras) {
+  // ── STRISCE ORIZZONTALI (hero eras, episodi podcast) — drag to scroll ─────
+  document.querySelectorAll('.hero-eras, .podcast-hero-actions-scroll').forEach((strip) => {
     let isDown = false;
     let startX = 0;
     let startScroll = 0;
     let moved = false;
-    heroEras.addEventListener('pointerdown', (e) => {
+    strip.addEventListener('pointerdown', (e) => {
       if (e.pointerType === 'touch') return;
-      if (heroEras.scrollWidth <= heroEras.clientWidth) return;
+      if (strip.scrollWidth <= strip.clientWidth) return;
       isDown = true;
       moved = false;
       startX = e.clientX;
-      startScroll = heroEras.scrollLeft;
-      heroEras.classList.add('is-dragging');
+      startScroll = strip.scrollLeft;
     });
-    heroEras.addEventListener('pointermove', (e) => {
+    strip.addEventListener('pointermove', (e) => {
       if (!isDown) return;
       const dx = e.clientX - startX;
-      if (Math.abs(dx) > 4) moved = true;
-      heroEras.scrollLeft = startScroll - dx;
+      if (Math.abs(dx) > 4 && !moved) {
+        // La classe (che spegne i pointer-events delle card) entra solo a
+        // drag iniziato: se arrivasse al pointerdown, il click fermo sui
+        // link non partirebbe mai.
+        moved = true;
+        strip.classList.add('is-dragging');
+      }
+      if (moved) strip.scrollLeft = startScroll - dx;
     });
     const endDrag = () => {
       isDown = false;
-      heroEras.classList.remove('is-dragging');
+      strip.classList.remove('is-dragging');
     };
-    heroEras.addEventListener('pointerup', endDrag);
-    heroEras.addEventListener('pointercancel', endDrag);
-    heroEras.addEventListener('pointerleave', endDrag);
-    heroEras.addEventListener('click', (e) => {
+    strip.addEventListener('pointerup', endDrag);
+    strip.addEventListener('pointercancel', endDrag);
+    strip.addEventListener('pointerleave', endDrag);
+    // I link trascinati avvierebbero il drag nativo del browser: va spento,
+    // altrimenti la striscia non si muove.
+    strip.addEventListener('dragstart', (e) => e.preventDefault());
+    // Rotella del mouse sopra la striscia: scorre in orizzontale finché c'è
+    // spazio, poi lascia scorrere la pagina.
+    strip.addEventListener('wheel', (e) => {
+      if (strip.scrollWidth <= strip.clientWidth) return;
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      const max = strip.scrollWidth - strip.clientWidth;
+      if ((delta < 0 && strip.scrollLeft > 0) || (delta > 0 && strip.scrollLeft < max)) {
+        e.preventDefault();
+        strip.scrollLeft = Math.max(0, Math.min(max, strip.scrollLeft + delta));
+      }
+    }, { passive: false });
+    strip.addEventListener('click', (e) => {
       if (moved) {
         e.preventDefault();
         e.stopPropagation();
       }
     }, true);
-  }
+  });
 
   // ── IN-PAGE TABS ────────────────────────────────────────
   const tabBtns = document.querySelectorAll('.tab-btn');
