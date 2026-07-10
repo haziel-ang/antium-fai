@@ -33,3 +33,19 @@ Sito aggiornato in parallelo (stessa operazione, fuori dal layer wiki):
 Tensioni tra fonti segnalate in ⚑: date di Cenone (Nibby 493 vs cronologie correnti
 468/469), artista del Giove di Tarquinio (Winckelmann «volsco» vs Vulca di Veio),
 attribuzione dell'opera capitolina.
+
+## [2026-07-10] query | Occhi di allora vs scoperte di oggi (verifica incrociata antiquari-archeologia)
+Verifica sistematica delle testimonianze antiquarie ingerite (Winckelmann 1783,
+Nibby 1819/1848) contro i dati archeologici moderni già nel wiki:
+- CONFERMATI dagli scavi: vestigia murarie di Nibby alle Vignacce (= muro scavato
+  1980-81); ordine di grandezza del perimetro («tre miglia» ~4,4 km vs 3.900 m);
+  stima a occhio del porto neroniano (semicerchio di mezzo miglio vs rilievo aereo
+  1938 e ~34 ettari di Felici); lettura «magazzini/sostruzioni» dei corridoi
+  sotterranei (coerente con criptoportico del Quartierone e gallerie sostruttive
+  di Villa Adele 2023, identità non dimostrata).
+- CORRETTI dalle cronologie/scoperte: resa di Anzio al 493 a.C. (oggi 469-467);
+  «due monete e nient'altro» dell'arte volsca (oggi abbondante cultura materiale
+  dai centri volsci; valido solo per l'arte maggiore); Giove di Tarquinio da
+  artista «volsco» (tradizione prevalente: Vulca di Veio).
+Esito riportato nelle pagine del sito (paragrafi e callout aggiornati in
+volsci-cicerone-culti e villa-imperiale) e in `entities/volsci`.
