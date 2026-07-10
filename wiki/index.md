@@ -1,7 +1,7 @@
 # Antium Wiki — Index
 
 > **Domain:** Antium (Anzio-Nettuno), storia archeologica del Lazio antico
-> **Last updated:** 2026-07-09
+> **Last updated:** 2026-07-10
 
 ## Entities (pagine-entità)
 
@@ -14,6 +14,9 @@
 | [[entities/villa-imperiale]] | Complesso residenziale imperiale, fase neroniana e adrianea | `raw/villa-imperiale.md`, `raw/nel-giardino-della-villa-albani-di-anzio.md` |
 | [[entities/riccardo-pau]] | Curatore del progetto FAI Anzio-Nettuno | — |
 | [[entities/nervegna]] | Mecenate/evergete locale e associazioni | `raw/colle-rotondo-comune-di-anzio-aggere-occ.md` |
+| [[entities/nibby]] | Antonio Nibby: viaggio del 1819 e Analisi del 1848 su Anzio | `raw/nibby-viaggio-anzio-1819.md`, `raw/vallo-di-antium-guida-2026.md` |
+| [[entities/winckelmann]] | Winckelmann (ed. Fea 1783): Volsci, Apollo, iconografia | `raw/winckelmann-estratti-antium-1783.md` |
+| [[entities/apollo-belvedere]] | Apollo del Belvedere: provenienza anziate contestata, giudizi di Winckelmann | `raw/winckelmann-estratti-antium-1783.md`, `raw/nibby-viaggio-anzio-1819.md` |
 
 ## Concepts (pagine-concetto)
 
@@ -29,6 +32,7 @@
 | [[concepts/fortificazioni-anziensi]] | Mura, vallo e torri costiere dal IV sec. a.C. al Medioevo | `raw/le-fortificazioni-nel-territorio-di-anzi.md`, `raw/le-fortificazioni-nel-territorio-di-anzi-1.md` |
 | [[concepts/livelli-abitato-eta-bronzo]] | Frequenza abitativa dell'età del Bronzo medio-recente | `raw/livelli-di-abitato-delleta-del-bronzo-me.md` |
 | [[concepts/villa-albani]] | Villa Albani di Anzio: storia e trasformazioni | `raw/nel-giardino-della-villa-albani-di-anzio.md` |
+| [[concepts/tempio-della-fortuna]] | Culto oracolare della Fortuna Anziate, Macrobio, localizzazione ignota | `raw/nibby-viaggio-anzio-1819.md`, `raw/storia-urbana.md` |
 
 ## Sources (pagine-fonte)
 
@@ -60,3 +64,5 @@
 | [[sources/approfondimenti-produzione]] | `docs/Antium_02_approfondimenti_produzione.pdf` | Produzione e approvvigionamenti |
 | [[sources/vlp-tomo3]] | `docs/antium-vlp-tomo3.pdf` | Estratto VLP Tomo III |
 | [[sources/guida-integrata]] | `docs/Antium_guida_integrata.pdf` | Guida integrata Antium |
+| [[sources/nibby-viaggio-1819]] | upload `vallodiantium` batch (raw: `nibby-viaggio-anzio-1819.md`) | Nibby 1819: viaggio ad Anzio, Capo XXXI |
+| [[sources/winckelmann-1783]] | upload (raw: `winckelmann-estratti-antium-1783.md`) | Winckelmann ed. Fea 1783: Volsci, Apollo, Nettuno |

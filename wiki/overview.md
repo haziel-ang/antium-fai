@@ -1,13 +1,15 @@
 ---
 type: overview
 title: Antium — Overview Archeologica
-timestamp: 2026-07-09
+timestamp: 2026-07-10
 tags: [antium, overview, general]
 sources:
   - raw/antium-v5.md
   - raw/storia-urbana.md
   - raw/vallo.md
   - raw/villa-imperiale.md
+  - raw/nibby-viaggio-anzio-1819.md
+  - raw/winckelmann-estratti-antium-1783.md
 ---
 
 # Antium — Overview
@@ -72,8 +74,12 @@ coloniale e nuove ville marittime (liberte, proprieta' senatorie).
 
 ## Evoluzione della ricerca
 
-Lo studio di Antium ha conosciuto fasi alterne: le antichita' locali furono
-raccolte da Soffredini, Lanciani, Jaia, e piu' recentemente dal progetto
-VLP (Valorizzazione Lazio Preclassico). Il **Gruppo FAI Anzio-Nettuno**
-(e Riccardo Pau) ha curato la sintesi divulgativa che costituisce il
-principale corpus testuale di questo wiki.
+Lo studio di Antium ha conosciuto fasi alterne. La tradizione antiquaria
+sette-ottocentesca è ora rappresentata nel wiki da tre testimoni diretti:
+[[entities/winckelmann]] (ed. Fea 1783: i Volsci e l'Apollo del Belvedere),
+[[entities/nibby]] (1819: stato dei luoghi, porto neroniano ancora
+riconoscibile; 1848: vestigia murarie alle Vignacce) e Lombardi (1847). Le
+antichita' locali furono poi raccolte da Soffredini, Lanciani, Lugli, Jaia, e
+piu' recentemente dal progetto VLP (Valorizzazione Lazio Preclassico). Il
+**Gruppo FAI Anzio-Nettuno** (e Riccardo Pau) ha curato la sintesi divulgativa
+che costituisce il principale corpus testuale di questo wiki.
