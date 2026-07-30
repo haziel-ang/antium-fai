@@ -1855,7 +1855,7 @@ document.addEventListener('DOMContentLoaded', () => {
   var ASSET_ROOT = window.location.pathname.replace(/\\/g, '/').toLowerCase().includes('/sezioni/') ? '../' : './';
   // Cache-busting: bump LEMMI_VERSION ogni volta che si modifica js/lemmi.js,
   // così i browser non servono una copia vecchia del registro dopo il deploy.
-  var LEMMI_VERSION = '2026-07-30';
+  var LEMMI_VERSION = '2026-07-30b';
   if (!window.ANTIUM_LEMMI) {
     var loader = document.createElement('script');
     loader.src = ASSET_ROOT + 'js/lemmi.js?v=' + LEMMI_VERSION;
