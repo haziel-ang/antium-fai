@@ -241,7 +241,7 @@ window.ANTIUM_LEMMI = {
   'tor-caldara': {
     eyebrow: 'La fonte calda sulla falesia',
     titolo: 'Tor Caldara (il Caldanum)',
-    nota: 'La sorgente di acqua calda della villa sulla falesia, oggi nota come villa di Patrizia: la tradizione antiquaria la assegnava a Mecenate, che vi avrebbe dedicato una statua ad Augusto «come al genio tutelare del luogo», ma l’attribuzione resta un’ipotesi. Dal nome latino della sorgente, Caldanum, viene il toponimo moderno. Da qui, sempre secondo gli eruditi, partiva l’acquedotto che riforniva le terme della città.'
+    nota: 'La sorgente di acqua calda della villa sulla falesia, oggi nota come Villa Patrizia: la tradizione antiquaria la assegnava a Mecenate, che vi avrebbe dedicato una statua ad Augusto «come al genio tutelare del luogo», ma l’attribuzione resta un’ipotesi. Dal nome latino della sorgente, Caldanum, viene il toponimo moderno. Da qui, sempre secondo gli eruditi, partiva l’acquedotto che riforniva le terme della città.'
   },
 
   'colle-rotondo': {
