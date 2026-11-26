@@ -72,6 +72,8 @@ Prima di consegnare o pubblicare, esegui questi controlli. Sono meccanici: falli
 
 1. **Trattini**: `grep -n "—\|&mdash;"` sul file deve restituire zero (salvo citazioni «» e intervalli con –).
 2. **Parole-spia**: `grep -in "onest\|fondamentale\|straordinari\|affascinante\|cruciale\|suggestiv\|prestigios"` deve restituire zero fuori dalle citazioni. La lista completa è in `references/scrittura-umana.md`.
+2 bis. **Controllo di stile automatico**: ogni blocco di prosa riscritto passa `node .claude/skills/fai-guide-rewriter/scripts/controlla-testo.mjs` senza rossi (cinque prove, cliché, ritmo). Dettagli e soglie in `references/scrittura-umana.md`, che è l'unica regola di scrittura del progetto.
+2 ter. **Lettura dell'utente prima della pubblicazione**: la riscrittura di una sezione esistente si presenta prima come bozza (testo nuovo, cosa è cambiato, fatti da verificare) e si applica a `sezioni/` solo dopo il via libera.
 3. **Tipografia**: nessun `font-size` inline nei paragrafi (solo token `--text-prose` e simili); nessuno stile inline su `<figure>`, `<img>` di figura o `<figcaption>` (esistono le classi `.article-figure`, `.article-figure--narrow`).
 4. **Sito Antium**: dopo ogni modifica al testo, rigenera l'indice di ricerca (`python scripts/build_search_index.py`) e le date di aggiornamento (`python scripts/stamp_updates.py`); se la sezione è nuova, inseriscila nel pager delle pagine adiacenti (ordine del percorso in CLAUDE.md).
 5. **Lettura ad alta voce** di apertura e chiusura: se suonano da manuale o da AI, riscrivile prima di consegnare.
