@@ -1705,6 +1705,8 @@ mark.search-hit.is-current {
   line-height: 1.75;
   padding-left: 0;
 }
+/* Callout su più paragrafi (riscritture con le regole di scrittura del 26/11/2026) */
+.callout-text + .callout-text { margin-top: var(--sp-3); }
 .callout a,
 .source-list a,
 .image-credit a {
