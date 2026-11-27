@@ -49,3 +49,31 @@ Nibby 1819/1848) contro i dati archeologici moderni già nel wiki:
   artista «volsco» (tradizione prevalente: Vulca di Veio).
 Esito riportato nelle pagine del sito (paragrafi e callout aggiornati in
 volsci-cicerone-culti e villa-imperiale) e in `entities/volsci`.
+
+## [2026-11-27] ingest | Swetnam-Burland 2024, Classical Antiquity 43.1
+Articolo sui Fasti Antiates Ministrorum Domus Augustae (testo fornito in chat,
+non archiviato in `raw/` per i diritti). Nuove pagine: `sources/swetnam-burland-2024`,
+`concepts/fasti-anziati`. Aggiornate: `entities/villa-imperiale`,
+`sources/jaia-anzio-fasti-2010`, `sources/teatro-romano`, `index`.
+
+## [2026-11-27] query | Verifiche fattuali della riscrittura del sito (PR #137–#150)
+Esiti confluiti nel wiki:
+- Livio XXVII 38: trenta giorni, non «quaranta giovani» (`entities/volsci`).
+- Incursione inglese: 5 ottobre 1813 (Lombardi 1847; Marshall 1823; O'Byrne 1849)
+  (`entities/caffeaus`, `sources/tor-caldara`).
+- Fasti Ministrorum: Musei Capitolini inv. 2447–2448; contenuto riletto
+  (`concepts/fasti-anziati`).
+- M. Aquilio: iscrizione onoraria, non statua; terme di Basso distinte dallo
+  xystus; Nibby morto nel 1839 (`concepts/xystus`, `entities/nibby`).
+- Tor Caldara: Frasch, Colli Albani, Gerba, Waters, Malick, Churchill, Pliocene
+  (`sources/tor-caldara`).
+
+## [2026-11-27] lint | Correzione di pagine in contrasto con le fonti
+- `entities/caffeaus` riscritta: diceva cisterna ipogea adrianea della villa
+  imperiale, trasformata in caffetteria negli anni '90. Errato: cisterna fuori
+  terra del II sec. per la villa del Semaforo, Caffeaus Corsini del 1743.
+- `concepts/cisterna-romana` riscritta per lo stesso motivo.
+- `concepts/mitraismo`: tolta l'affermazione che il rilievo riporti i fasti consolari.
+- `concepts/xystus`: tolta la collocazione dentro un impianto termale severiano.
+- `entities/villa-imperiale`: il Cisternone non apparteneva alla villa imperiale.
+

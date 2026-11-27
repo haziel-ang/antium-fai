@@ -2,10 +2,19 @@
 type: concept
 title: Cisterna romana (Cisternone)
 tags: [cisterna, idraulica, caffeaus]
-timestamp: 2026-07-09
+timestamp: 2026-11-27
 sources: [raw/cisternone-caffeaus.md, raw/dalla-cisterna-romana-al-caffeaus-recent.md]
 ---
 
-La **cisterna romana** di Antium, nota come **Cisternone**, è una delle più imponenti infrastrutture idriche del Lazio antico. Costruita in età imperiale (probabilmente tra I e II sec. d.C.) per alimentare il complesso termale della città alta, presenta una pianta rettangolare con volte a botte sostenute da pilastri e pareti rivestite in opus signinum, che garantivano la perfetta impermeabilizzazione.
+Il **Cisternone** di via Tripoli è una cisterna **fuori terra** del II sec. d.C.
+(bollo del 123 d.C.), in laterizio, di circa 10 × 18 m su due piani: il piano
+inferiore era solo sostruttivo, il serbatoio stava al piano superiore, con
+pavimento in cocciopesto e tre pilastri in laterizio che dividevano lo spazio in
+due navate. Dieci contrafforti radiali su tre lati. Confronti: cisterna P della
+Villa dei Quintili, Sette Sale (Aglietti, Arena 2012).
 
-Dopo l'abbandono dell'uso antico, la cisterna fu riadattata in età post-classica e divenne sede del **Caffeaus**, un locale pubblico della cittadina di Anzio, testimoniando la continuità d'uso degli spazi attraverso i secoli. Il legame tra [[entities/caffeaus]] e la cisterna è un caso emblematico di riuso adattivo. La struttura era funzionalmente connessa allo [[concepts/xystus]] e alle terme della città alta, formando un unico sistema idrico integrato.
+Alimentava per gravità le terme della **villa del Semaforo**, residenza privata
+a nord della villa imperiale. La scheda del Museo Civico («tre pilastri in
+blocchi di pietra», quattro ambienti) mescola la fase romana con le modifiche
+del 1743, quando la cisterna divenne il Caffeaus del cardinale Corsini. Vedi
+[[entities/caffeaus]].

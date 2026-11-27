@@ -2,7 +2,7 @@
 type: entity
 title: Volsci
 tags: [volsci, lazio-antico, guerra-latina]
-timestamp: 2026-07-10
+timestamp: 2026-11-27
 sources: [raw/storia-urbana.md, raw/vallo.md, raw/winckelmann-estratti-antium-1783.md, raw/nibby-viaggio-anzio-1819.md]
 ---
 
@@ -24,3 +24,14 @@ Dopo la guerra latina (340–338 a.C.) i Volsci furono sconfitti da Roma, che im
 - **VI–V sec. a.C.** — apogeo della civiltà volsica nell'Agro Pontino e sulla costa laziale
 - **340–338 a.C.** — guerra latina; sconfitta dei Volsci e dei Latini
 - **338 a.C.** — deduzione della colonia romana ad Antium; divieto del mare e rostri al Foro
+
+
+## Anzio colonia marittima nella guerra annibalica
+
+Livio XXVII 38 (207 a.C., consoli C. Claudio Nerone e M. Livio Salinatore):
+delle sette colonie marittime che rivendicavano l'esenzione dalla leva (Ostia,
+Alsium, Antium, Anxur, Minturnae, Sinuessa, Sena), il Senato la riconobbe solo
+ad Antium e Ostia; i loro *iuniores* giurarono di non pernottare fuori dalle mura
+per più di trenta giorni (*supra dies triginta*) finché il nemico restava in
+Italia. Il sito diceva «non più di quaranta» giovani: corretto il 2026-11-27.
+

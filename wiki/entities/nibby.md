@@ -2,7 +2,7 @@
 type: entity
 title: Antonio Nibby (1792–1839)
 tags: [nibby, ottocento, topografia-antiquaria, viaggiatori]
-timestamp: 2026-07-10
+timestamp: 2026-11-27
 sources: [nibby-viaggio-anzio-1819.md, vallo-di-antium-guida-2026.md]
 ---
 
@@ -28,3 +28,9 @@ Anonimo Ravennate) anticipa la topografia scientifica di Lugli di oltre un
 secolo. Le sue datazioni degli eventi antichi (es. resa di Anzio al 493 a.C.)
 divergono talvolta dalle cronologie correnti: le tensioni sono segnalate in ⚑
 nelle pagine del sito.
+
+Nota cronologica: Nibby morì nel 1839. La sua venuta ad Anzio per fermare la
+demolizione dell'edificio semicircolare dei Mencacci, che Jaia (2010) colloca
+«intorno alla metà dell'800», va quindi posta nella prima metà del secolo. In
+quell'occasione scambiò l'emiciclo dello [[concepts/xystus]] per il «teatro» di
+Bianchini.
