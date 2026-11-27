@@ -32,9 +32,16 @@ Frase media **sotto le 24 parole**, almeno una frase **sotto le 12**. Dopo un pe
 
 I paragrafi sono disuguali per scelta: alcuni una riga, altri sei. Mai un blocco unico oltre le 110 parole.
 
-### 3. La chiusura non è una riga di servizio né un riassunto
+### 3. La chiusura aggiunge, non riassume
 
-Mai chiudere con «In conclusione», «In sintesi», «Come abbiamo visto», e mai con orari, biglietti, accessi (quelli vivono nel callout ◎ «dove andare» e solo se verificati). L'ultima frase di una sezione è una scena, un'immagine o una domanda. Non ripete quello che hai già detto.
+Mai chiudere con «In conclusione», «In sintesi», «Come abbiamo visto», e mai con orari, biglietti, accessi (quelli vivono nel callout ◎ «dove andare» e solo se verificati).
+
+Il difetto più insidioso però è un altro: il riassunto travestito da scena. A novembre 2026 nove sezioni su undici chiudevano così, e tutte allo stesso modo. Cinque attaccavano l'ultimo paragrafo con «La prossima volta che…», due finivano con «Pochi luoghi/edifici… così tanto», quasi tutte rimettevano in fila tre cose già raccontate («Ottocento metri di palazzo, due imperatori nati qui, statue al Louvre…»). Il Vallo rimandava il lettore a guardare i fossili e la pendenza del Municipio, già descritti venti paragrafi prima. Lette una dopo l'altra, le sezioni sembravano scritte con lo stampino.
+
+- **Prova della cancellazione.** Copri l'ultimo paragrafo. Se il lettore non perde nessuna informazione, è un riassunto: toglilo, e il finale diventa il paragrafo prima. In sette casi su nove è bastato questo: Tor Caldara ora chiude sulle fosse dei dragaggi «troppo profonde perché le onde le richiudano», la Necropoli sugli emigrati che pagavano il cavo «per poter sentire, finalmente, le famiglie rimaste a casa».
+- **L'ultima frase porta qualcosa di nuovo**: un dettaglio tenuto da parte, una conseguenza che arriva fino a oggi, una citazione di fonte, una domanda che le fonti lasciano davvero aperta, una persona che fa un gesto. Scena e immagine valgono solo se sono nuove. Il fatto nuovo deve stare nelle fonti: un finale inventato è peggio di un finale piatto.
+- **Niente morale finale.** Non dire al lettore che cosa deve provare («Non si vede niente. Ma c'è tutto.», «la perdita è anche tua»).
+- **I finali si leggono in serie.** Prima di chiudere una sezione rileggi i finali delle sezioni adiacenti nel pager: se usano la stessa mossa (invito al lettore, scena, domanda), cambiala. Formule consumate, da non usare: «La prossima volta che…», «Fai una prova», «pensa a…» / «immagina…», «sotto i (tuoi) piedi», «Pochi luoghi/edifici…», «è ancora lì», «non si vede niente, ma c'è tutto», «e capisci perché». Il controllo automatico le segna (rosso le prime tre, giallo le altre).
 
 ### 4. L'attacco non è una definizione
 

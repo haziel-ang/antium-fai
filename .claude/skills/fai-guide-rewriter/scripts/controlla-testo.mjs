@@ -31,6 +31,15 @@ const SEGNALI_AI = [
   [/\bdeve affrontare\b|\bguarda al futuro\b|\bcontinua a essere\b/i, "chiusura sfide e futuro"],
 ];
 const SERVIZIO = /(?<![\p{L}])(biglietti?|orari|parcheggio|prenotazion\p{L}*|prezzi?|contatti|ingresso (?:è|a pagamento|gratuito|libero)|visita (?:è|libera)|aperto (?:tutti|dal|il)|chiuso (?:il|di))(?![\p{L}])/iu;
+/* Chiusure-stampino (27/11/2026). La regola "l'ultima frase e' una scena" ha prodotto
+   finali tutti uguali: sul sito Antium 5 sezioni su 11 chiudevano con "La prossima volta
+   che...", nel catalogo Wanderlust 127 schede su 1385 con una frase che comincia per "Poi".
+   Si guarda l'ultimo paragrafo. Il riassunto vero e proprio non si misura (la sovrapposizione
+   di parole col resto del testo e' stata provata e non distingue): resta la prova della
+   cancellazione, a mano. */
+const CHIUSURA_ROSSA = /(?<![\p{L}])(la prossima volta che|fai (?:una|questa) prova|pochi (?:luoghi|posti|edifici|borghi|paesi|monumenti)(?![\p{L}]))/iu;
+const CHIUSURA_GIALLA = /(?<![\p{L}])(sotto i (?:tuoi )?piedi|immagina|pensa a|(?:è|sono|resta|restano) ancora lì|c'è tutto|(?:capisci|si capisce) perché)(?![\p{L}])/iu;
+const ULTIMA_A_STAMPO = /^(Poi|La sera)(?![\p{L}])/u;
 const DEFINIZIONE = /^.{0,90}?(?<![\p{L}])(è (?:un|uno|una|il|la|l')|si trova|si trovano|sorge|sorgono|è situat[oa])(?![\p{L}])/iu;
 const VOCE = [
   [/(?<![\p{L}])[a-zàèéìòù]{3,}(?:ò|ì)(?![\p{L}])/u, "persona che agisce"],
@@ -70,6 +79,12 @@ function esamina(testo) {
   if (!VOCE.some(([re]) => re.test(t))) rossi.push(["voce", "nessuno dentro: né persona che agisce, né lettore, né dettaglio sensoriale"]);
   const ultima = fr[fr.length - 1];
   if (SERVIZIO.test(ultima)) rossi.push(["chiusura", `l'ultima frase è una riga di servizio: «${corto(ultima)}»`]);
+  const ultimoPar = par[par.length - 1];
+  const stampo = ultimoPar.match(CHIUSURA_ROSSA);
+  if (stampo) rossi.push(["chiusura", `finale a stampino («${stampo[0]}»): togli il paragrafo se riassume, o chiudi su un fatto nuovo`]);
+  const stampoGiallo = ultimoPar.match(CHIUSURA_GIALLA);
+  if (stampoGiallo) gialli.push(["chiusura", `formula di chiusura consumata: «${stampoGiallo[0]}». Prova della cancellazione: se togli l'ultimo paragrafo, si perde qualcosa?`]);
+  if (ULTIMA_A_STAMPO.test(ultima)) gialli.push(["chiusura", `l'ultima frase attacca con «${ultima.match(ULTIMA_A_STAMPO)[0]}»: è la scena finale più usata, varia la mossa`]);
   if (DEFINIZIONE.test(fr[0])) rossi.push(["apertura", `attacco da definizione: «${corto(fr[0])}»`]);
 
   // gialli
@@ -111,6 +126,7 @@ if (argomenti.includes("--prova")) {
     ["voce", "La villa ha un parco ampio e una facciata regolare. Il corpo centrale ha tre piani e due ali laterali di uguale altezza. Le finestre sono disposte su file ordinate. Il giardino è diviso in aiuole simmetriche con siepi basse. Ci sono due fontane e un viale alberato che conduce al cancello principale. Resta aperta al pubblico."],
     ["chiusura", BUONO + " L'ingresso è libero dall'alba al tramonto."],
     ["apertura", "Villa Mattei è una dimora cinquecentesca. " + BUONO],
+    ["chiusura", BUONO + "\n\nLa prossima volta che passi di lì, pensa al cantiere. Pochi luoghi hanno visto tanto."],
     ["metronomo", "Nel 1553 la famiglia comprò una vigna sul colle per mille scudi d'oro e subito iniziò i lavori. Il cantiere durò molti anni e coinvolse gli operai di tutta la valle, che lavoravano con grande fatica e poca paga. Ogni autunno arrivavano le squadre con i carri carichi di pietra presa dalla cava vicina, e ripartivano prima dell'inverno. Il vento portava la polvere fin sul terrazzo."],
   ];
   const base = esamina(BUONO);
