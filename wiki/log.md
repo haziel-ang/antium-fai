@@ -77,3 +77,7 @@ Esiti confluiti nel wiki:
 - `concepts/xystus`: tolta la collocazione dentro un impianto termale severiano.
 - `entities/villa-imperiale`: il Cisternone non apparteneva alla villa imperiale.
 
+
+## [2026-11-27] lint | antium-v5 archiviato
+- Il PDF sorgente `docs/antium-v5.pdf` (25/04/2026) è stato spostato in `docs/archivio/antium-v5-2026-04-25.pdf`; al suo posto c'è la guida completa generata dal sito. `raw/antium-v5.md` resta la trascrizione dell'originale.
+- Nota: l'attribuzione a Santamaria Scrinari del refuso «Agrippina Maggiore» madre di Nerone, presente in `raw/antium-v5.md`, non è verificata sull'originale ed è stata tolta dal sito.

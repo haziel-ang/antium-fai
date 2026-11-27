@@ -7,7 +7,9 @@ un foglio di stampa pulito e uniforme, indipendente dal CSS del sito (che non e
 adatto al motore di stampa). Output: docs/<nome>.pdf
 
 Regola di progetto: dopo ogni modifica al testo di una sezione, rigenerare il PDF
-associato con questo script.
+associato con questo script. Ogni esecuzione rigenera anche la guida completa
+(docs/antium-v5.pdf: introduzione dalla home + tutte le sezioni), che cosi resta
+identica alle pagine.
 
     python scripts/build_pdfs.py            # tutte le sezioni
     python scripts/build_pdfs.py tor-caldara volsci-cicerone-culti   # solo alcune
@@ -17,6 +19,7 @@ import hashlib
 import os
 import sys
 import tempfile
+from datetime import date
 
 from bs4 import BeautifulSoup
 from PIL import Image
@@ -28,6 +31,8 @@ MAX_IMG_W = 1100  # px: larghezza massima delle immagini incorporate nel PDF
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SEZIONI = os.path.join(ROOT, "sezioni")
+MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio",
+        "agosto", "settembre", "ottobre", "novembre", "dicembre"]
 DOCS = os.path.join(ROOT, "docs")
 
 # nome-pagina (senza .html)  ->  nome-pdf (senza .pdf)
@@ -119,10 +124,16 @@ th { background: #f3e8cf; color: #6b3410; }
 .callout-label { font-weight: 700; color: #6b3410; display: block; margin-bottom: 3pt; font-size: 10pt; }
 .callout-icon { color: #C8471A; margin-right: 4pt; }
 .notes-head { margin-top: 18pt; }
+.chapter { page-break-before: always; }
+.guide-cover { padding-top: 60mm; }
+.guide-cover .doc-title { font-size: 30pt; }
+.guide-toc { font-size: 11pt; line-height: 1.7; }
 """
 
 
-def build_one(section: str, pdf_name: str) -> str:
+def section_fragment(section: str) -> tuple:
+    """HTML di una sezione (intestazione, corpo, note), senza footer: serve sia
+    al PDF della singola sezione sia alla guida completa."""
     src = os.path.join(SEZIONI, section + ".html")
     with open(src, encoding="utf-8") as fh:
         soup = BeautifulSoup(fh.read(), "html.parser")
@@ -188,13 +199,6 @@ def build_one(section: str, pdf_name: str) -> str:
         img["src"] = "file://" + outimg
 
     parts = [
-        '<div class="pdf-rule"></div>',
-        '<div class="pdf-footer">'
-        '<strong>Antium &middot; Historia et Memoria</strong><br>'
-        'Riccardo Pau (Profxeni) &middot; ricerca e cura editoriale<br>'
-        '&copy; 2026 &middot; <a href="https://creativecommons.org/licenses/by/4.0/">'
-        'Licenza CC BY 4.0</a>'
-        '</div>',
         '<div class="doc-head">',
         f'<div class="doc-brand">Antium &middot; Historia et Memoria</div>',
         f'<h1 class="doc-title">{title}</h1>',
@@ -208,12 +212,25 @@ def build_one(section: str, pdf_name: str) -> str:
         for c in notes:
             parts.append(str(c))
 
+    return title, "".join(parts)
+
+
+FOOTER = (
+    '<div class="pdf-rule"></div>'
+    '<div class="pdf-footer">'
+    '<strong>Antium &middot; Historia et Memoria</strong><br>'
+    'Riccardo Pau (Profxeni) &middot; ricerca e cura editoriale<br>'
+    '&copy; 2026 &middot; <a href="https://creativecommons.org/licenses/by/4.0/">'
+    'Licenza CC BY 4.0</a>'
+    '</div>'
+)
+
+
+def render(fragment: str, out: str) -> str:
     html_doc = (
         "<!doctype html><html lang='it'><head><meta charset='utf-8'>"
-        f"<style>{PRINT_CSS}</style></head><body>" + "".join(parts) + "</body></html>"
+        f"<style>{PRINT_CSS}</style></head><body>" + FOOTER + fragment + "</body></html>"
     )
-
-    out = os.path.join(DOCS, pdf_name + ".pdf")
     # base_url = cartella sezioni/, cosi i path ../img/... si risolvono.
     # options: comprime e abbassa la risoluzione delle immagini per non gonfiare il PDF.
     HTML(string=html_doc, base_url=SEZIONI + os.sep).write_pdf(
@@ -221,6 +238,79 @@ def build_one(section: str, pdf_name: str) -> str:
         options={"optimize_images": True, "jpeg_quality": 80, "dpi": 150},
     )
     return out
+
+
+def build_one(section: str, pdf_name: str) -> str:
+    _, fragment = section_fragment(section)
+    return render(fragment, os.path.join(DOCS, pdf_name + ".pdf"))
+
+
+def home_fragment() -> str:
+    """Introduzione della guida completa, presa dalla home: i due capitoli in
+    prosa (con i loro box) e la cronologia. Le tessere dei numeri non entrano:
+    sono anticipazioni delle sezioni, che nella guida seguono per intero."""
+    soup = BeautifulSoup(open(os.path.join(ROOT, "index.html"), encoding="utf-8").read(), "html.parser")
+    for a in soup.find_all("a"):
+        if not a.get("href", "").startswith("http"):
+            a.unwrap()
+    for svg in soup.find_all("svg"):
+        svg.decompose()
+    hero = soup.select_one(".hero")
+    def t(sel):
+        el = hero.select_one(sel) if hero else None
+        return el.decode_contents().strip() if el else ""
+    out = [
+        '<div class="doc-head">',
+        '<div class="doc-brand">Antium &middot; Historia et Memoria</div>',
+        f'<h1 class="doc-title">{t(".hero-title").capitalize()}</h1>',
+        f'<p class="doc-sub">{t(".hero-subtitle")}</p>',
+        f'<p class="doc-meta">{t(".hero-quote-text")} {t(".hero-quote-author")}</p>',
+        "</div>",
+    ]
+    for sec in soup.select("section.intro-section"):
+        h = sec.find("h2")
+        out.append(f"<h2>{h.decode_contents()}</h2>")
+        # paragrafi e box nell'ordine della pagina (il primo paragrafo sta
+        # nell'intestazione della sezione, i box possono stare fuori dal corpo)
+        for el in sec.find_all(["p", "div", "aside"]):
+            cls = el.get("class") or []
+            if "callout" in cls:
+                out.append(str(el))
+            elif el.name == "p" and not el.find_parent(class_="callout") and len(el.get_text(strip=True)) > 40:
+                out.append(str(el))
+    steps = soup.select("#timeline li.tl-step")
+    if steps:
+        out.append("<h2>Tremila anni in sequenza</h2><table class='data-table'><tbody>")
+        for li in steps:
+            d = " ".join(x.get_text(" ", strip=True) for x in li.select(".tl-left span"))
+            ti = li.select_one(".tl-card-title").get_text(" ", strip=True)
+            tx = li.select_one(".tl-card-text").get_text(" ", strip=True)
+            out.append(f"<tr><td>{d}</td><td><strong>{ti}</strong>. {tx}</td></tr>")
+        out.append("</tbody></table>")
+    return "".join(out)
+
+
+GUIDE_PDF = "antium-v5"  # nome storico del file: la guida completa del sito
+
+
+def build_guide() -> str:
+    """La guida completa: copertina con indice, introduzione dalla home e le
+    sezioni nell'ordine del percorso, in un solo documento a numerazione
+    continua. Si rigenera a ogni esecuzione, cosi resta identica alle pagine."""
+    chapters = [section_fragment(s) for s in SECTION_TO_PDF]
+    toc = "".join(f"<li>{title}</li>" for title, _ in chapters)
+    cover = (
+        '<div class="guide-cover">'
+        '<div class="doc-brand">Antium &middot; Historia et Memoria</div>'
+        '<h1 class="doc-title">La guida completa</h1>'
+        '<p class="doc-sub">Tutte le sezioni del sito, nella versione pubblicata '
+        f'il {date.today().day} {MESI[date.today().month - 1]} {date.today().year}.</p>'
+        f'<h2>Indice</h2><ol class="guide-toc"><li>Introduzione</li>{toc}</ol>'
+        '</div>'
+    )
+    body = cover + f'<div class="chapter">{home_fragment()}</div>'
+    body += "".join(f'<div class="chapter">{frag}</div>' for _, frag in chapters)
+    return render(body, os.path.join(DOCS, GUIDE_PDF + ".pdf"))
 
 
 def main():
@@ -232,6 +322,9 @@ def main():
         out = build_one(section, pdf_name)
         size = os.path.getsize(out)
         print(f"OK  {section:28s} -> docs/{pdf_name}.pdf  ({size//1024} KB)")
+    # la guida completa si rigenera sempre: e' fatta delle stesse pagine
+    out = build_guide()
+    print(f"OK  {'guida completa':28s} -> docs/{GUIDE_PDF}.pdf  ({os.path.getsize(out)//1024} KB)")
 
 
 if __name__ == "__main__":

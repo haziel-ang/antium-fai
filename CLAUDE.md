@@ -61,7 +61,9 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
 - `css/style.css` — tutto lo stile, palette FAI (#C8471A arancio + avorio + marrone)
 - `js/main.js` — scroll reveal, tab switching, 3D tilt, lightbox
 - `img/` — immagini WebP
-- `docs/antium-v5.pdf` — documento sorgente
+- `docs/antium-v5.pdf` — **guida completa** (introduzione dalla home + tutte le sezioni), generata da
+  `scripts/build_pdfs.py` a ogni esecuzione: è sempre identica alle pagine, non si modifica a mano.
+  Il documento sorgente originale (aprile 2026) è in `docs/archivio/antium-v5-2026-04-25.pdf`.
 
 ## Convenzioni
 
