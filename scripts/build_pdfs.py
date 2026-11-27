@@ -263,6 +263,7 @@ def home_fragment() -> str:
         '<div class="doc-head">',
         '<div class="doc-brand">Antium &middot; Historia et Memoria</div>',
         f'<h1 class="doc-title">{t(".hero-title").capitalize()}</h1>',
+        f'<p class="doc-meta">{t(".hero-eyebrow").capitalize()}</p>',
         f'<p class="doc-sub">{t(".hero-subtitle")}</p>',
         f'<p class="doc-meta">{t(".hero-quote-text")} {t(".hero-quote-author")}</p>',
         "</div>",
