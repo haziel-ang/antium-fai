@@ -45,7 +45,8 @@ Leggi i file di riferimento man mano che ti servono, non tutti in una volta.
 ## APERTURA — [nome evocativo]
 ## [sezioni con titoli narrativi]
    box ✦ Curiosità  /  box ⚑ Nota critica
-## [Un invito concreto a camminare/vedere il luogo oggi]
+## [ultima sezione narrativa: chiude su un fatto nuovo, mai un riepilogo né un invito «la prossima volta che…»]
+   box ◎ Dove andare (come vedere il luogo oggi, solo se verificato)
 ## Corrispondenze tra ieri e oggi   [tabella]
 ## Cronologia storica   [tabella: Data / Evento / Fonte]
 ### Bibliografia   [riprodotta integralmente dall'originale]
