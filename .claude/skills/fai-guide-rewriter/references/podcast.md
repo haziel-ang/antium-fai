@@ -12,6 +12,14 @@ Istantàne-e di Storia: il passato, un minuto alla volta.
 ```
 «Istantàne-e» è scritto così apposta, solo per la voce (il titolo della serie resta «Istantanee di Storia»): scelta dell'utente del 27/11/2026 dopo diverse prove d'ascolto. Scritta «Istantanee» o «Istantànee», la voce mette l'accento sulla prima delle due e (istantanèe); con la «e» staccata («Istantàne e») l'accento cade giusto ma si sente una parola in più. Il trattino corto tiene l'accento su «-tà-» e lega la «e» finale (va bene anche l'apostrofo, «Istantàne'e»). Unico caso in cui un trattino nel parlato è voluto. Nessun altro accento grafico nella frase: su «Stòria», «passàto» e «minùto» la voce storpiava tutto. Mai ripetere la frase-tagline dell'intro nella chiusura. (Verifica che `[sound of camera shutter click]` renda in v3; se no, spostalo in post-produzione.)
 
+## Voce e generazione (decisione dell'utente del 27/11/2026)
+
+Tutti i podcast di Antium si fanno con questa skill e con la voce della puntata della Necropoli, «Altro che Volsci!»: **Jarnathan - warm, confident, versatile** (`c6SfcYrb2t09NHXiT80T`), modello `eleven_v4`, italiano, stability 0,5, similarity 0,8, style 0,2, speaker boost attivo, mp3 mono 64 kbps, poi livellamento (sezione «Volume costante»). Le puntate già pubblicate con altre voci si riscrivono e si rigenerano.
+
+- **Pronunce**: la chiave API della VPS non può leggere i dizionari ElevenLabs. Prima di generare si applicano al testo, come sostituzioni, gli alias del dizionario «Storia e FAI - Anzio Nettuno» che compaiono nello script: è quello che farebbe il dizionario.
+- **Crediti**: piano Starter, 40.000 caratteri al mese. Prima di un lotto controlla quanti ne restano e dillo all'utente: una puntata costa 3.500-4.500 caratteri.
+- **Dove vanno**: script e mp3 in `podcast/` (`podcast-antium-<sezione>.md`, `<sezione>.mp3`). Le puntate si ascoltano su Spotify, dove le carica l'utente: la pagina `podcast.html` rimanda agli episodi Spotify.
+
 ## Limiti e formato
 - Massimo 5.000 caratteri totali (testo + tag). Punta a ~4.500 reali: i numeri scritti per esteso gonfiano il conteggio.
 - Se il documento è lungo, scegli le 3-4 scene più forti (apertura, rivelazione centrale, tracciato oggi, chiusura). Non riassumere: approfondisci quelle, taglia il resto.
