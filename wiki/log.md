@@ -109,3 +109,20 @@ Sito corretto in parallelo (fuori dal layer wiki): `sezioni/necropoli-protostori
 Antonielli, capitale Italcable, box dei militari tolto), `sezioni/villa-imperiale.html` (box «I soldati
 del Sanatorio e le Grotte di Nerone»), `fonti.html`, PDF delle due sezioni e guida completa; podcast
 della Necropoli riscritto e rigenerato.
+
+## [2026-11-27] lint | Verifica frase per frase degli otto script podcast
+Ogni affermazione degli script di `podcast/` confrontata con le pagine del sito, con Lugli 1940 (PDF della
+rivista, *Saggio sulla topografia dell'antica Antium*, pp. 153–188), con `raw/jaia-di-mario-anzio-e-nerone-2009.md`
+e con fonti esterne. Correzioni (podcast e, dove serviva, sito):
+- **Teatro, tre porte con «soglie e cardini» ritrovati da Lugli**: in Lugli 1940 (p. 175–176) non ci sono; Lugli
+  descrive solo un fornice centrale e due laterali per la cavea e le stanze sotto la scena. Il dettaglio veniva
+  dalla vecchia guida PDF (`raw/teatro-romano.md`). Tolto da pagina e podcast.
+- **Teatro, «ad Antium c'è una fossa lunga e stretta» per il sipario**: nessuna fonte di scavo trovata (viene dalla
+  legenda della tavola ricostruttiva). Ora la pagina parla della fossa dei teatri romani in generale.
+- **Necropoli, l'Apollo «nello stesso terreno/cantiere» delle tombe**: Lugli scrive solo «di recente l'Apollo
+  scoperto presso l'Italcable». Non è detto che venga dallo scavo del 1925.
+- **Necropoli, Antonielli «direttore»**: nel 1925 era «reggente» della Direzione del Museo Preistorico Etnografico
+  (Di Mario e Jaia 2009).
+- Podcast: Mulakia («saccheggiata in poche ore» → «prima che arrivassero le autorità»), Villa imperiale
+  (Caligola «in Germania» → «sul Reno, fra i Treviri»), Tor Caldara (porta in alto e scala a pioli «in un
+  disegno del Settecento»).

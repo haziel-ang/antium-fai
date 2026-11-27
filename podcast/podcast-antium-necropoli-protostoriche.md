@@ -6,8 +6,8 @@ Una lettera scritta di getto, un archeologo che non sta più nella pelle, e una 
 
 [serious tone] «Chiarissimo Paribeni, altro che elmo di Coriolano! Altro che Volsci!»
 [short pause]
-Chi scrive è Ugo Antonielli, direttore del Museo Preistorico di Roma. È il millenovecentoventicinque. Ad Anzio, lungo la via Ardeatina, c'è il cantiere dell'Italcable: si posa il cavo telegrafico sottomarino che deve unire per la prima volta l'Italia alle Americhe. Dalla terra cominciano a uscire tombe. Tante.
-E non solo tombe: nello stesso terreno salta fuori un Apollo di marmo, che finisce a Roma, al Museo delle Terme: oggi il Museo Nazionale Romano. I morti dei Latini e un dio dei Cesari, nello stesso cantiere.
+Chi scrive è Ugo Antonielli, che regge il Museo Preistorico di Roma. È il millenovecentoventicinque. Ad Anzio, lungo la via Ardeatina, c'è il cantiere dell'Italcable: si posa il cavo telegrafico sottomarino che deve unire per la prima volta l'Italia alle Americhe. Dalla terra cominciano a uscire tombe. Tante.
+E non solo tombe: vicino all'Italcable è venuto fuori anche un Apollo di marmo, finito a Roma al Museo delle Terme, che oggi è il Museo Nazionale Romano.
 
 [reflective] Perché tanta gioia?
 [pause]

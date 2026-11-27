@@ -2,7 +2,7 @@ Benvenuti a
 [sound of camera shutter click]
 Istantàne-e di Storia: il passato, un minuto alla volta.
 [pause]
-Un colpo di piccone, una tomba di famiglia saccheggiata in poche ore, e una ragazza che nessuno toccò per duemila anni.
+Un colpo di piccone, una tomba di famiglia saccheggiata prima che arrivassero le autorità, e una ragazza che nessuno toccò per duemila anni.
 
 [serious tone] Il ventisette dicembre del millenovecentotrentotto, lungo la via Nettunense, poco prima del cimitero di Anzio, una squadra di operai sta cavando blocchi di arenaria su un pendio erboso. Un colpo di piccone, e si apre l'ingresso di una tomba sotterranea. Dentro, decine di sepolture intatte da secoli.
 [short pause]

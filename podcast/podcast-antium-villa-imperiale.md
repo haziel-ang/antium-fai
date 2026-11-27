@@ -12,7 +12,7 @@ Una sacerdotessa, una profetessa di Apollo: le ipotesi sono tante. Sappiamo inve
 [pause]
 
 Questa era la casa al mare degli imperatori. Augusto ci stava nel due avanti Cristo, quando una delegazione venne a offrirgli il titolo di Padre della Patria. E qui nacquero due imperatori: Caligola e Nerone.
-Come sappiamo che Caligola nacque proprio qui? Già gli antichi litigavano: chi lo diceva nato a Tivoli, chi in Germania. Lo storico Svetonio andò a controllare, e trovò la sua nascita scritta nei registri pubblici di Anzio.
+Come sappiamo che Caligola nacque proprio qui? Già gli antichi litigavano: chi lo diceva nato a Tivoli, chi sul Reno, fra i Treviri. Lo storico Svetonio andò a controllare, e trovò la sua nascita scritta nei registri pubblici di Anzio.
 [pause]
 
 [matter-of-fact] Nerone la ricostruì da capo. La villa arrivò a superare gli ottocento metri lungo la costa, a partire da dove oggi c'è il faro di Capo d'Anzio, con gallerie scavate nella roccia per i servi e scale che scendevano dal pianoro fino alle sale sul mare. E davanti, un porto nuovo. Per due secoli gli studiosi litigarono sulla sua forma: una bocca o due? Nel millenovecentotrentotto Giuseppe Lugli, che dalla barca non riusciva a vedere niente, chiese una cosa nuova per l'epoca: una fotografia dall'aereo. La risposta fu netta. Una bocca sola, larga una sessantina di metri.

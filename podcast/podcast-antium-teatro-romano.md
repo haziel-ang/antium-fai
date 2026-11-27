@@ -14,8 +14,8 @@ Non era un teatro per la folla. Le pareti erano foderate di marmi colorati: cipo
 Augusto aveva stabilito per legge chi sedeva dove. In basso cavalieri e magistrati, in mezzo i cittadini liberi, in alto donne, schiavi e liberti. Ad Anzio restano le tracce di tre ingressi a volta, uno al centro e due ai lati: percorsi separati, così nobili e popolani entravano e uscivano alla stessa ora senza incrociarsi mai. Dai corridoi coperti, che i Romani chiamavano vomitori, la gente sbucava direttamente nel suo settore. E in pochi minuti il teatro si riempiva, o si svuotava.
 [pause]
 
-[matter-of-fact] Poi c'era il sipario, e qui i Romani facevano il contrario di noi. Davanti al palco, ad Anzio, c'è ancora una fossa lunga e stretta. All'inizio dello spettacolo il sipario non si alzava: veniva abbassato, spariva dentro la fossa e scopriva la scena tutta in un colpo. Alla fine lo tiravano su con argani e contrappesi.
-Alle spalle degli attori c'era il fondale di colonne e marmi, con tre porte. Come lo sappiamo? Lugli ne ritrovò le soglie e i cardini.
+[matter-of-fact] Poi c'era il sipario, e qui i Romani facevano il contrario di noi. All'inizio dello spettacolo il sipario non si alzava: veniva abbassato, spariva in una fossa davanti al palco e scopriva la scena tutta in un colpo. Alla fine lo tiravano su con argani e contrappesi.
+Alle spalle degli attori c'era il fondale di colonne e marmi. E sotto la scena, scrive Lugli, c'erano stanze sotterranee per gli attrezzi, con le stanze degli attori ai lati.
 [pause]
 
 Altre cose, invece, non tornano. Vitruvio voleva sotto i sedili dei vasi di bronzo accordati, per pulire la voce degli attori. Qui non ne è stata trovata traccia. Forse il teatro era abbastanza piccolo da non averne bisogno. Forse se li portarono via i saccheggiatori. E dopo Lugli nessuno ha più scritto uno studio completo: il teatro lo ritrovarono negli anni Venti del Novecento e lo scavarono, scrive l'archeologo Alessandro Jaia, «fuori da ogni controllo».
