@@ -109,12 +109,12 @@ Lo schema è un aiuto, non uno stampo: se due episodi vicini hanno le stesse mos
 Il volume deve restare allo stesso livello dall'inizio alla fine. I tag espressivi lo fanno oscillare: nella prova della Necropoli (27/11/2026) la voce calava fino a 8 dB sui passaggi con `[awe]` e `[continues softly]`, e l'utente l'ha sentito subito. Quindi:
 
 - **Niente tag che abbassano la voce**: `[continues softly]`, `[whispers]`, `[softly]`. In chiusura il tono raccolto si ottiene con la frase, non con il volume. `[awe]` e `[reflective]` con parsimonia.
-- **Pause mai oltre 0,7 secondi** (richiesta dell'utente del 27/11/2026: «ci vogliono ma non esagerate altrimenti perdiamo di fluidità»). I tag `[pause]` e `[long pause]` producevano silenzi fino a 2 secondi. Dopo la generazione, prima del livellamento, si accorciano tutti i silenzi più lunghi di 0,7 secondi, lasciando intatti quelli brevi: `python -I .claude/skills/fai-guide-rewriter/scripts/accorcia_pause.py grezzo.mp3 accorciato.wav 0.7` (serve numpy; sulla VPS c'è nell'ambiente `~/.local/share/wanderlust-allinea`). Negli script, `[long pause]` al massimo una volta.
+- **Pause mai oltre 0,8 secondi, 1 secondo nell'intro** (richieste dell'utente del 27/11/2026: «ci vogliono ma non esagerate altrimenti perdiamo di fluidità»; poi 0,8 come misura ideale, e fino a 1 secondo tra l'intro e l'inizio del racconto). I tag `[pause]` e `[long pause]` producevano silenzi fino a 2 secondi. Dopo la generazione, prima del livellamento, si accorciano tutti i silenzi più lunghi di 0,8 secondi (1 secondo nei primi 20 secondi, cioè nell'intro), lasciando intatti quelli brevi: `python -I .claude/skills/fai-guide-rewriter/scripts/accorcia_pause.py grezzo.mp3 accorciato.wav` (valori predefiniti: 0,8 e 1,0) (serve numpy; sulla VPS c'è nell'ambiente `~/.local/share/wanderlust-allinea`). Negli script, `[long pause]` al massimo una volta.
 - **Ogni mp3 si livella prima della consegna**, senza crediti:
   ```
   ffmpeg -i accorciato.wav -af "dynaudnorm=f=200:g=7:p=0.9:m=10:r=0.5,acompressor=threshold=-24dB:ratio=3:attack=10:release=250:makeup=4,loudnorm=I=-16:TP=-1.5:LRA=4" -ar 44100 -ac 1 -b:a 64k puntata.mp3
   ```
-  Sulla Necropoli lo scarto tra il punto più basso e il più alto è sceso da 8,3 a 2 dB (finestre di cinque secondi, solo parlato). Obiettivo: sotto i 3 dB, a -16 LUFS integrati.
+  Sulla Necropoli lo scarto tra il punto più basso e il più alto è sceso da 8,3 a 2 dB (finestre di cinque secondi, solo parlato). Obiettivo: sotto i 3 dB, a -16 LUFS integrati. Se resta sopra, si alza il compressore a `ratio=4` (così la Necropoli è passata da 3,2 a 2,9 dB).
 
 ## Crediti di chiusura (dal PASSO 0)
 - A) Riccardo Pau e Vittorio Gamba, Delegazione FAI di Roma.
