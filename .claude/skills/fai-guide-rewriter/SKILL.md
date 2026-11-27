@@ -77,6 +77,7 @@ Prima di consegnare o pubblicare, esegui questi controlli. Sono meccanici: falli
 3. **Tipografia**: nessun `font-size` inline nei paragrafi (solo token `--text-prose` e simili); nessuno stile inline su `<figure>`, `<img>` di figura o `<figcaption>` (esistono le classi `.article-figure`, `.article-figure--narrow`).
 4. **Sito Antium**: dopo ogni modifica al testo, rigenera l'indice di ricerca (`python scripts/build_search_index.py`) e le date di aggiornamento (`python scripts/stamp_updates.py`); se la sezione è nuova, inseriscila nel pager delle pagine adiacenti (ordine del percorso in CLAUDE.md).
 5. **Lettura ad alta voce** di apertura e chiusura: se suonano da manuale o da AI, riscrivile prima di consegnare.
+6. **Prova della cancellazione sul finale**: copri l'ultimo paragrafo della sezione. Se non si perde nessuna informazione è un riassunto, e va tolto. Poi confronta il finale con quelli delle sezioni vicine nel pager: mai la stessa mossa due volte di fila (regola 3 di `references/scrittura-umana.md`).
 
 ## Box: composizione
 
