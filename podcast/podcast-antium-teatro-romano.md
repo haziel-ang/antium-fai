@@ -19,7 +19,8 @@ Alle spalle degli attori c'era il fondale di colonne e marmi, con tre porte. Com
 [pause]
 
 Altre cose, invece, non tornano. Vitruvio voleva sotto i sedili dei vasi di bronzo accordati, per pulire la voce degli attori. Qui non ne è stata trovata traccia. Forse il teatro era abbastanza piccolo da non averne bisogno. Forse se li portarono via i saccheggiatori. E dopo Lugli nessuno ha più scritto uno studio completo: il teatro lo ritrovarono negli anni Venti del Novecento e lo scavarono, scrive l'archeologo Alessandro Jaia, «fuori da ogni controllo».
-[awe] Sotto il teatro che guardava il mare c'era anche un'opera che nessuno spettatore vedeva: una cisterna a cunicoli, con pozzi tondi e gli incavi per mani e piedi. Uno di quei pozzi scendeva fino all'acqua: trentadue metri.
+Sotto il teatro che guardava il mare c'era anche un'opera che nessuno spettatore vedeva. Dalla gradinata partiva un canale di scolo, coperto da tegole appoggiate a capanna, che portava l'acqua giù, verso il mare. E poco più a sud c'era una grande cisterna. Non una vasca: una rete di gallerie sotterranee, dove l'acqua si raccoglieva al buio. Per scendere laggiù c'erano dei pozzi rotondi, con piccoli incavi nelle pareti, uno sopra l'altro: chi doveva calarsi ci infilava le mani e i piedi, come su una scala scavata nella pietra.
+[awe] Uno di quei pozzi scendeva fino all'acqua che sta sotto terra, la falda. Trentadue metri: quanto un palazzo di dieci piani, ma verso il basso.
 [long pause]
 
 Alla fine del quarto secolo i teatri chiudono: i vescovi li combattono, troppo legati ai riti pagani. E quello di Anzio cambia mestiere. I corridoi da cui uscivano gli spettatori, con i muri spessi e le volte che tengono il calore, diventano fornaci per cuocere mattoni. Lo raccontano ancora gli strati pieni di carbone e di cocci, trovati sul pianoro di Santa Teresa.
