@@ -17,11 +17,8 @@ Perché quelle tombe non sono volsche. Sono latine. Vasi a forma di doppio cono 
 
 Ma come lo sappiamo, se oggi quelle tombe non si vedono? [inhales] Qui la storia si complica. Antonielli scava a maggio e a settembre: una trentina di tombe a fossa, cinque a pozzetto. Ma quello scavo non lo pubblicherà mai. I corredi finiscono a Roma tutti insieme, e nessuno sa più quale vaso venisse da quale tomba. Restano i suoi appunti, scritti a mano. Trentacinque anni dopo uno studioso svedese li pubblica, e da quelle pagine riesce a ricostruire con certezza una tomba sola: la numero quattordici.
 
-[matter-of-fact] Tra le carte della Soprintendenza spunta anche un dettaglio che nessuno si aspettava. Nel millenovecentotrentaquattro lì accanto apre un sanatorio militare, che oggi è il Dipartimento Militare di Lungodegenza. E una parte degli scavi, negli anni dopo, la fanno di nascosto i militari ricoverati. Noia? Passione? Non lo sappiamo. Convalescenti che scavavano la necropoli sotto casa.
-[pause]
-
 Oggi la necropoli è praticamente sotto la strada, davanti al Centro Difesa Elettronica, che una volta era l'Italcable. I corredi stanno a Roma, al Museo Pigorini, dentro il Museo delle Civiltà, e una scelta è esposta ad Anzio, nel Museo Civico di Villa Adele.
-[awe] Poco lontano, scavando per il campo sportivo Giuseppe Grisetti, quello dove giocava l'Anzio Calcio, è venuta fuori una pietra scheggiata su due facce: l'aveva lavorata un uomo di Neandertal, centocinquantamila anni fa. Il campo non c'è più: la sua area oggi è dentro lo stesso ospedale militare.
+[awe] Poco lontano, scavando per il campo sportivo Giuseppe Grisetti, quello dove giocava l'Anzio Calcio, è venuta fuori una pietra scheggiata su due facce: l'aveva lavorata un uomo di Neandertal, centocinquantamila anni fa. Il campo non c'è più: la sua area oggi è dentro l'ospedale militare, il Dipartimento Militare di Lungodegenza.
 [long pause]
 
 E il cavo? Il sedici marzo di quell'anno la linea entrò in funzione: da Anzio i messaggi del telegrafo correvano sul fondo dell'oceano, passavano per le Azzorre e arrivavano a New York. La società che l'aveva posato, l'Italcable, aveva un capitale di duecento milioni di lire, e metà lo avevano messo, a piccole quote, gli emigrati italiani dell'America Latina: pagavano per sentire, finalmente, le voci di casa.

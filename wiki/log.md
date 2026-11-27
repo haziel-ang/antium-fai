@@ -81,3 +81,31 @@ Esiti confluiti nel wiki:
 ## [2026-11-27] lint | antium-v5 archiviato
 - Il PDF sorgente `docs/antium-v5.pdf` (25/04/2026) è stato spostato in `docs/archivio/antium-v5-2026-04-25.pdf`; al suo posto c'è la guida completa generata dal sito. `raw/antium-v5.md` resta la trascrizione dell'originale.
 - Nota: l'attribuzione a Santamaria Scrinari del refuso «Agrippina Maggiore» madre di Nerone, presente in `raw/antium-v5.md`, non è verificata sull'originale ed è stata tolta dal sito.
+
+## [2026-11-27] lint | Correzioni di fatto: Antonielli, capitale Italcable, scavi dei militari del Sanatorio
+Verifica dei nomi e dei collegamenti del podcast della Necropoli («Altro che Volsci!»), su fonti esterne
+e sulle fonti primarie di `raw/`. Tre affermazioni erano sbagliate; i file di `raw/` restano immutati
+(sono estrazioni dei vecchi PDF) e qui si annota che cosa contengono di errato.
+
+- **Ugo Antonielli non morì nel 1926.** Errore in `raw/antium-v5.md`, `raw/necropoli-preistoriche.md`,
+  `raw/antium-necropoli-protostoriche-scheda.md`, `raw/antium-02-approfondimenti-produzione.md`
+  («morì prematuramente nel 1926, prima di pubblicare»). Antonielli diresse il Museo Preistorico
+  Etnografico di Roma dagli anni Venti, prese parte al recupero delle navi di Nemi (1929–1931), dal 1934
+  guidò la Soprintendenza di Padova e morì a Padova nel 1935 (Museo Nazionale Scienza e Tecnologia,
+  Archivi online, scheda «Antonielli»; atti della XLVI Riunione IIPP). Resta vero che lo scavo
+  dell'Italcable del 1925 non lo pubblicò mai: lo fece Gierow (1960–1961, 1966).
+- **I 200 milioni di lire non erano il costo del cavo.** Errore in `raw/necropoli-preistoriche.md`
+  («L'opera costò duecento milioni di lire»). Erano il capitale della società Italcable, per metà
+  (100 milioni) sottoscritto a piccole quote dagli emigrati italiani in America Latina (Associazione
+  Italcable; *Il Granchio*, 23/3/2025). `raw/antium-necropoli-protostoriche-scheda.md` lo diceva già bene.
+- **Gli scavi clandestini dei militari del Sanatorio non riguardano la necropoli.** Errore in
+  `raw/necropoli-preistoriche.md` («Convalescenti che scavavano la necropoli sotto casa»). La fonte
+  primaria, `raw/jaia-di-mario-anzio-e-nerone-2009.md`, li colloca nell'area della **villa imperiale**
+  (Grotte di Nerone, Villa Aldobrandini), nel **1921**: nota di Paribeni al generale del 29 marzo 1921,
+  risposta del Sanatorio sui «tubercolosi di guerra degenti». Il Sanatorio Militare esisteva quindi già nel
+  1921; il 1934 è l'inaugurazione della nuova sede (risposta all'interrogazione parlamentare 4/13367).
+
+Sito corretto in parallelo (fuori dal layer wiki): `sezioni/necropoli-protostoriche.html` (morte di
+Antonielli, capitale Italcable, box dei militari tolto), `sezioni/villa-imperiale.html` (box «I soldati
+del Sanatorio e le Grotte di Nerone»), `fonti.html`, PDF delle due sezioni e guida completa; podcast
+della Necropoli riscritto e rigenerato.
