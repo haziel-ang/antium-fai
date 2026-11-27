@@ -39,7 +39,7 @@
 
 | Page | Original PDF | Summary |
 |------|-------------|---------|
-| [[sources/antium-v5]] | `docs/antium-v5.pdf` | Sorgente principale, guida integrata Antium |
+| [[sources/antium-v5]] | `docs/archivio/antium-v5-2026-04-25.pdf` | Sorgente principale, guida integrata Antium (versione di aprile 2026, archiviata) |
 | [[sources/storia-urbana]] | `docs/storia-urbana.pdf` | Volsci, Cicerone, culti — storia urbana |
 | [[sources/vallo]] | `docs/vallo.pdf` | Vallo arcaico e fortificazioni di Antium |
 | [[sources/villa-imperiale]] | `docs/villa-imperiale.pdf` | Villa imperiale e ville marittime |
