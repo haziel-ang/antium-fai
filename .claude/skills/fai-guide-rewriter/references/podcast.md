@@ -17,7 +17,7 @@ Istantàne-e di Storia: il passato, un minuto alla volta.
 Tutti i podcast di Antium si fanno con questa skill e con la voce della puntata della Necropoli, «Altro che Volsci!»: **Jarnathan - warm, confident, versatile** (`c6SfcYrb2t09NHXiT80T`), modello `eleven_v4`, italiano, stability 0,5, similarity 0,8, style 0,2, speaker boost attivo, mp3 mono 64 kbps, poi livellamento (sezione «Volume costante»). Le puntate già pubblicate con altre voci si riscrivono e si rigenerano.
 
 - **Pronunce**: la chiave API della VPS non può leggere i dizionari ElevenLabs. Prima di generare si applicano al testo, come sostituzioni, gli alias del dizionario «Storia e FAI - Anzio Nettuno» che compaiono nello script: è quello che farebbe il dizionario.
-- **Crediti**: piano Starter, 40.000 caratteri al mese. Prima di un lotto controlla quanti ne restano e dillo all'utente: una puntata costa 3.500-4.500 caratteri.
+- **Crediti**: la chiave API della VPS (`~/.elevenlabs_key`) appartiene a un account diverso da quello del connettore ElevenLabs di Claude: il saldo che mostra il connettore (piano Starter, 40.000 caratteri al mese) non è quello che si spende generando. La chiave non ha il permesso di leggere il proprio saldo: chiedi all'utente. Prima di un lotto controlla quanti ne restano e dillo all'utente: una puntata costa 3.500-4.500 caratteri.
 - **Dove vanno**: script e mp3 in `podcast/` (`podcast-antium-<sezione>.md`, `<sezione>.mp3`). Le puntate si ascoltano su Spotify, dove le carica l'utente: la pagina `podcast.html` rimanda agli episodi Spotify.
 
 ## Limiti e formato
@@ -109,9 +109,10 @@ Lo schema è un aiuto, non uno stampo: se due episodi vicini hanno le stesse mos
 Il volume deve restare allo stesso livello dall'inizio alla fine. I tag espressivi lo fanno oscillare: nella prova della Necropoli (27/11/2026) la voce calava fino a 8 dB sui passaggi con `[awe]` e `[continues softly]`, e l'utente l'ha sentito subito. Quindi:
 
 - **Niente tag che abbassano la voce**: `[continues softly]`, `[whispers]`, `[softly]`. In chiusura il tono raccolto si ottiene con la frase, non con il volume. `[awe]` e `[reflective]` con parsimonia.
+- **Pause mai oltre 0,7 secondi** (richiesta dell'utente del 27/11/2026: «ci vogliono ma non esagerate altrimenti perdiamo di fluidità»). I tag `[pause]` e `[long pause]` producevano silenzi fino a 2 secondi. Dopo la generazione, prima del livellamento, si accorciano tutti i silenzi più lunghi di 0,7 secondi, lasciando intatti quelli brevi: `python -I .claude/skills/fai-guide-rewriter/scripts/accorcia_pause.py grezzo.mp3 accorciato.wav 0.7` (serve numpy; sulla VPS c'è nell'ambiente `~/.local/share/wanderlust-allinea`). Negli script, `[long pause]` al massimo una volta.
 - **Ogni mp3 si livella prima della consegna**, senza crediti:
   ```
-  ffmpeg -i grezzo.mp3 -af "dynaudnorm=f=300:g=15:p=0.9:m=8:r=0.5,acompressor=threshold=-24dB:ratio=3:attack=10:release=250:makeup=4,loudnorm=I=-16:TP=-1.5:LRA=4" -ar 44100 -ac 1 -b:a 64k puntata.mp3
+  ffmpeg -i accorciato.wav -af "dynaudnorm=f=200:g=7:p=0.9:m=10:r=0.5,acompressor=threshold=-24dB:ratio=3:attack=10:release=250:makeup=4,loudnorm=I=-16:TP=-1.5:LRA=4" -ar 44100 -ac 1 -b:a 64k puntata.mp3
   ```
   Sulla Necropoli lo scarto tra il punto più basso e il più alto è sceso da 8,3 a 2 dB (finestre di cinque secondi, solo parlato). Obiettivo: sotto i 3 dB, a -16 LUFS integrati.
 
