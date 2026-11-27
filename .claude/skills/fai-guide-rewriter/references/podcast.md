@@ -31,6 +31,8 @@ L'errore più facile è ripetere la pagina web frase per frase, con la stessa ch
 
 ## La voce, adattata all'ascolto
 
+- **L'antico accanto all'attuale, sempre** (regola dell'utente del 27/11/2026). Ogni luogo, edificio o istituzione del passato si accompagna con quello che è oggi, se si sa e se chi ascolta lo riconosce: l'Italcable «che oggi è il Centro Difesa Elettronica», il sanatorio «che oggi è il Dipartimento Militare di Lungodegenza», il campo Grisetti «la cui area è dentro l'ospedale militare», il Museo delle Terme «oggi Museo Nazionale Romano». Solo con le fonti: se non si sa che cosa c'è oggi, non si inventa.
+
 - **Qualcuno dentro.** Ogni scena ha una persona che agisce, o l'ascoltatore messo sul posto, o un dettaglio che si sente con un senso. **Storia dal basso**: se la fonte lo dà, chi lavorava lì (gli operai dell'Italcable, i cavatori, i marinai) entra nel racconto accanto al cardinale e all'imperatore.
 - **Come lo sappiamo.** Almeno una volta l'ascoltatore sente la prova, non solo il fatto: lo strato, la lapide, la lettera, il disegno d'archivio («quel disegno, chiuso in archivio, diventa la chiave per separare le epoche»). Si nomina la cosa; l'autore solo se è un personaggio della storia (Lanciani che disegna, Antonielli che scrive). Mai rimandi bibliografici a voce.
 - **Le lacune si dicono.** «Non sappiamo chi la costruì» suona come una persona; un'ipotesi si dichiara come tale o si toglie.

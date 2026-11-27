@@ -62,9 +62,10 @@ I modelli di metà 2026 scrivono frasi di 8-20 parole con punteggiatura uniforme
 ## Scrivere per attirare tutti
 
 1. **Storia dal basso.** Prima di scegliere l'attacco, chiediti: **chi lavorava qui?** Operai, cavatori, minatori dello zolfo, pescatori, copisti, liberti, schiavi, soldati semplici. Ad Antium le scoperte le hanno quasi sempre fatte loro: gli operai del Semaforo nel 1889, quelli della cava nel 1938, i cantieri dell'Italcable nel 1925. Se la fonte lo dà, almeno una persona di mestiere o di condizione comune entra nel testo, accanto o al posto dell'imperatore e del cardinale. **Solo con le fonti**: niente mestieri inventati per dare colore. Se la fonte tace, si dichiara la lacuna («non sappiamo chi ci lavorasse»).
-2. **La scala con le cose di oggi.** Il numero antico diventa misurabile: «grande come tre campi da calcio», «alto quanto un palazzo di cinque piani». Il confronto parte da una misura verificata.
-3. **Una parola locale con traduzione**, al massimo una per sezione.
-4. **Leggibilità misurata.** Indice Gulpease della prosa: obiettivo 60 o più; sotto 47 è un avviso. È grossolano su nomi propri e termini tecnici, che in una guida archeologica abbondano: non sostituisce il giudizio.
+2. **L'antico accanto all'attuale** (regola dell'utente del 27/11/2026). Un luogo o un edificio del passato si accompagna con quello che è oggi, quando si sa e il lettore lo riconosce: «l'Italcable, oggi Centro Difesa Elettronica», «il sanatorio, oggi Dipartimento Militare di Lungodegenza». Solo con le fonti.
+3. **La scala con le cose di oggi.** Il numero antico diventa misurabile: «grande come tre campi da calcio», «alto quanto un palazzo di cinque piani». Il confronto parte da una misura verificata.
+4. **Una parola locale con traduzione**, al massimo una per sezione.
+5. **Leggibilità misurata.** Indice Gulpease della prosa: obiettivo 60 o più; sotto 47 è un avviso. È grossolano su nomi propri e termini tecnici, che in una guida archeologica abbondano: non sostituisce il giudizio.
 
 ## Le mosse del buon divulgatore
 
