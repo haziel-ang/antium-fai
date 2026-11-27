@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const body = layout.querySelector(':scope > .article-body--long');
       if (!body) return;
       const toMove = [];
-      body.querySelectorAll(':scope > aside.callout, :scope > aside.side-notes').forEach(el => toMove.push(el));
+      body.querySelectorAll(':scope > .callout, :scope > aside.side-notes').forEach(el => toMove.push(el));
       Array.from(layout.children).forEach(child => {
         if (child === body) return;
         if (child.classList && (child.classList.contains('article-rail') || child.classList.contains('article-rail-head'))) return;
@@ -388,7 +388,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const rail = document.createElement('aside');
       rail.className = 'article-rail';
       rail.setAttribute('aria-label', 'Note e curiosità della sezione');
-      toMove.forEach(el => rail.appendChild(el));
+      // Ogni box lascia un segnaposto nel punto del testo da cui parte:
+      // tornando sotto i 1024px rientra esattamente lì, accanto al
+      // paragrafo a cui si riferisce (e non in coda all'articolo).
+      const slots = [];
+      toMove.forEach(el => {
+        const slot = document.createComment('rail-slot');
+        el.parentNode.insertBefore(slot, el);
+        slots.push({ el, slot });
+        rail.appendChild(el);
+      });
       const head = document.createElement('p');
       head.className = 'article-rail-head';
       head.textContent = 'Note e curiosità';
@@ -398,24 +407,15 @@ document.addEventListener('DOMContentLoaded', () => {
       // orizzontale del rail: il suo lato destro delimita la zona
       // in cui il rail puo' crescere (copre tutta la viewport).
       const container = document.querySelector('.section-page-content .container--wide');
-      rails.push({ rail, layout, body, container });
+      rails.push({ rail, layout, body, container, slots });
     });
   };
   const teardownArticleRail = () => {
     while (rails.length) {
-      const { rail, layout, body, container } = rails.pop();
-      while (rail.firstChild) {
-        const node = rail.firstChild;
-        if (node.classList && node.classList.contains('article-rail-head')) {
-          rail.removeChild(node);
-          continue;
-        }
-        if (node.tagName === 'ASIDE' && node.classList.contains('callout') && body) {
-          body.appendChild(node);
-        } else {
-          layout.appendChild(node);
-        }
-      }
+      const { rail, slots } = rails.pop();
+      slots.forEach(({ el, slot }) => {
+        if (slot.parentNode) slot.parentNode.replaceChild(el, slot);
+      });
       rail.remove();
     }
   };

@@ -148,6 +148,13 @@ def build_one(section: str, pdf_name: str) -> str:
             if not a.get("href", "").startswith("http"):
                 a.unwrap()
 
+    # le side-notes finali stanno a volte dentro .article-body: si staccano dal
+    # corpo (extract, non decompose: i nodi servono ancora per l'appendice),
+    # altrimenti nel PDF comparirebbero due volte. I callout contestuali,
+    # figli diretti del corpo, restano dove sono, accanto al loro paragrafo.
+    for sn in body.select(".side-notes"):
+        sn.extract()
+
     # ripulisce il corpo: via gli SVG, le immagini decorative restano
     for svg in body.find_all("svg"):
         svg.decompose()

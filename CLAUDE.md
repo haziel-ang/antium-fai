@@ -158,6 +158,16 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
     (icona ◎, oro, "dove andare"). Ogni callout ha sempre
     `<div class="callout-header">` con `<span class="callout-icon">` e
     `<span class="callout-label">`, seguito da `<p class="callout-text">`.
+  - **Posizione dei callout: sempre nel contesto.** Ogni box si scrive come
+    `<aside class="callout ...">` figlio diretto di `.article-body--long`, **subito
+    dopo il paragrafo a cui si riferisce** (dopo l'elenco, se il paragrafo lo introduce
+    con i due punti). Su mobile si legge lì, nel punto giusto del racconto; su desktop
+    `initArticleRail` lo sposta nel rail nello stesso ordine, lasciando un segnaposto
+    che lo rimette al suo posto se si torna sotto i 1024px. **Mai accumulare i box in
+    coda**: nel blocco finale `side-notes` restano solo i box pratici («Dove si trova»,
+    «Per la visita», «Si può visitare?», «Dove vedere i reperti», «Per chi volesse
+    approfondire»). Un box che ripete un paragrafo del testo non si sposta: si fonde
+    nel testo (solo i dettagli nuovi) e si toglie.
   - **Tabelle**: wrapper `<div class="table-wrap">` con `<table class="data-table">`
     dentro. Intestazione in `<thead>` con `<th>`, corpo in `<tbody>` con `<td>`.
     Sempre la classe `data-table` (uniforma bordi, hover e tipografia).
@@ -166,7 +176,7 @@ Sito statico (HTML/CSS/JS puro) senza build step. GitHub Pages serve la root del
     `<h4>` interno. Le pagine che hanno scansione cronologica lineare
     (vallo, necropoli, volsci) usano solo `h3`/`h4` senza wrapper.
   - **Side-notes finali**: `<aside class="side-notes section-endnotes">`
-    con callout di chiusura (riepilogo, dove vedere i reperti, citazioni).
+    solo con i callout pratici di chiusura (dove vedere i reperti, per la visita).
     Sempre `section-endnotes` insieme a `side-notes`: la prima classe attiva
     lo styling di chiusura, la seconda lo stile base del componente.
   - **Pager di sezione**: sempre presente in fondo a ogni pagina canonica
