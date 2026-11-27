@@ -1,4 +1,4 @@
-# Script podcast: "Istantànee di Stòria" (ElevenLabs v3)
+# Script podcast: "Istantanee di Storia" (ElevenLabs v3)
 
 Si attiva col comando "Riscrivi questa guida e aggiungi lo script podcast". Valgono **tutte** le regole di `references/scrittura-umana.md`: qui sotto c'è solo come si adattano all'ascolto, più quello che vale solo per l'audio. L'attribuzione del PASSO 0 determina i crediti di chiusura. Aggiornato il 27/11/2026 sulle regole di scrittura più recenti (chiusure, mosse del divulgatore, varietà) e su quello che il podcast di Wanderlust ha insegnato su pronuncia e crediti.
 
@@ -6,11 +6,11 @@ Si attiva col comando "Riscrivi questa guida e aggiungi lo script podcast". Valg
 ```
 Benvenuti a
 [sound of camera shutter click]
-Istantànee di Storia: il passato, un minuto alla volta.
+Istantàne-e di Storia: il passato, un minuto alla volta.
 [pause]
 [1-2 righe di aggancio tematico. Nessun luogo nominato nell'intro.]
 ```
-L'unico accento grafico è su «Istantànee»: scelta dell'utente del 27/11/2026, dopo una prova d'ascolto. Con gli accenti anche su «Stòria», «passàto» e «minùto» la voce storpiava la frase, e all'ascolto questa versione è stata preferita a quella senza nessun accento. Mai ripetere la frase-tagline dell'intro nella chiusura. (Verifica che `[sound of camera shutter click]` renda in v3; se no, spostalo in post-produzione.)
+«Istantàne-e» è scritto così apposta, solo per la voce (il titolo della serie resta «Istantanee di Storia»): scelta dell'utente del 27/11/2026 dopo diverse prove d'ascolto. Scritta «Istantanee» o «Istantànee», la voce mette l'accento sulla prima delle due e (istantanèe); con la «e» staccata («Istantàne e») l'accento cade giusto ma si sente una parola in più. Il trattino corto tiene l'accento su «-tà-» e lega la «e» finale (va bene anche l'apostrofo, «Istantàne'e»). Unico caso in cui un trattino nel parlato è voluto. Nessun altro accento grafico nella frase: su «Stòria», «passàto» e «minùto» la voce storpiava tutto. Mai ripetere la frase-tagline dell'intro nella chiusura. (Verifica che `[sound of camera shutter click]` renda in v3; se no, spostalo in post-produzione.)
 
 ## Limiti e formato
 - Massimo 5.000 caratteri totali (testo + tag). Punta a ~4.500 reali: i numeri scritti per esteso gonfiano il conteggio.
