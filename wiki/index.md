@@ -1,7 +1,7 @@
 # Antium Wiki — Index
 
 > **Domain:** Antium (Anzio-Nettuno), storia archeologica del Lazio antico
-> **Last updated:** 2026-07-10
+> **Last updated:** 2026-11-27
 
 ## Entities (pagine-entità)
 
@@ -10,7 +10,7 @@
 | [[entities/nerone]] | Nerone ad Antium: nascita, porto, villa imperiale | `raw/antium-v5.md`, `raw/il-porto-neroniano-di-antium-un-trattato.md`, `raw/jaia-di-mario-anzio-e-nerone-2009.md` |
 | [[entities/volsci]] | Popolazione italica, conflitto con Roma, sconfitta nel 338 a.C. | `raw/storia-urbana.md`, `raw/vallo.md` |
 | [[entities/cicerone]] | Cicerone, culti e giurisdizione | `raw/storia-urbana.md` |
-| [[entities/caffeaus]] | Familiaris architettura e gestione della cisterna romana | `raw/cisternone-caffeaus.md`, `raw/dalla-cisterna-romana-al-caffeaus-recent.md` |
+| [[entities/caffeaus]] | Cisternone di via Tripoli: cisterna del II sec., Caffeaus Corsini (1743), distruzione del 5 ottobre 1813 | `raw/cisternone-caffeaus.md`, `raw/dalla-cisterna-romana-al-caffeaus-recent.md` |
 | [[entities/villa-imperiale]] | Complesso residenziale imperiale, fase neroniana e adrianea | `raw/villa-imperiale.md`, `raw/nel-giardino-della-villa-albani-di-anzio.md` |
 | [[entities/riccardo-pau]] | Curatore del progetto FAI Anzio-Nettuno | — |
 | [[entities/nervegna]] | Mecenate/evergete locale e associazioni | `raw/colle-rotondo-comune-di-anzio-aggere-occ.md` |
@@ -24,14 +24,15 @@
 |------|---------|---------|
 | [[concepts/agger]] | Terrapieno difensivo, fortificazioni arcaiche del Vallo | `raw/vallo.md`, `raw/colle-rotondo-comune-di-anzio-aggere-occ.md` |
 | [[concepts/necropoli-incinerazione]] | Necropoli protostoriche a incinerazione, Cavallo Morto | `raw/necropoli-preistoriche.md`, `raw/la-necropoli-ad-incinerazione-di-cavallo.md` |
-| [[concepts/xystus]] | Ginnasio/portico scoperto nelle terme romane | `raw/xystus-terme-citta-alta.md` |
+| [[concepts/xystus]] | Palestra coperta della città alta (inizi II sec. d.C.), con il bagno termale annesso | `raw/xystus-terme-citta-alta.md` |
 | [[concepts/mitraismo]] | Culto di Mitra, rilievo mitraico ad Anzio | `raw/rilievo-mitraico-in-anzio-e-i-suoi-fasti.md`, `raw/jaia-anzio-fasti-2010.md` |
 | [[concepts/porto-neroniano]] | Porto artificiale di Nerone ad Antium | `raw/il-porto-neroniano-di-antium-un-trattato.md` |
 | [[concepts/colonia-romana]] | Deduzione coloniale, ager publicus e centuriazione | `raw/investing-in-the-colonia-and-ager-of-antium.md` |
-| [[concepts/cisterna-romana]] | Cisterna romana del Caffeaus: architettura idraulica | `raw/cisternone-caffeaus.md`, `raw/dalla-cisterna-romana-al-caffeaus-recent.md` |
+| [[concepts/cisterna-romana]] | Cisterna fuori terra del II sec. d.C. al servizio della villa del Semaforo | `raw/cisternone-caffeaus.md`, `raw/dalla-cisterna-romana-al-caffeaus-recent.md` |
 | [[concepts/fortificazioni-anziensi]] | Mura, vallo e torri costiere dal IV sec. a.C. al Medioevo | `raw/le-fortificazioni-nel-territorio-di-anzi.md`, `raw/le-fortificazioni-nel-territorio-di-anzi-1.md` |
 | [[concepts/livelli-abitato-eta-bronzo]] | Frequenza abitativa dell'età del Bronzo medio-recente | `raw/livelli-di-abitato-delleta-del-bronzo-me.md` |
 | [[concepts/villa-albani]] | Villa Albani di Anzio: storia e trasformazioni | `raw/nel-giardino-della-villa-albani-di-anzio.md` |
+| [[concepts/fasti-anziati]] | I tre calendari di Anzio; i Fasti Ministrorum ai Capitolini (inv. 2447–2448) | `raw/jaia-anzio-fasti-2010.md` |
 | [[concepts/tempio-della-fortuna]] | Culto oracolare della Fortuna Anziate, Macrobio, localizzazione ignota | `raw/nibby-viaggio-anzio-1819.md`, `raw/storia-urbana.md` |
 
 ## Sources (pagine-fonte)
@@ -66,3 +67,4 @@
 | [[sources/guida-integrata]] | `docs/Antium_guida_integrata.pdf` | Guida integrata Antium |
 | [[sources/nibby-viaggio-1819]] | upload `vallodiantium` batch (raw: `nibby-viaggio-anzio-1819.md`) | Nibby 1819: viaggio ad Anzio, Capo XXXI |
 | [[sources/winckelmann-1783]] | upload (raw: `winckelmann-estratti-antium-1783.md`) | Winckelmann ed. Fea 1783: Volsci, Apollo, Nettuno |
+| [[sources/swetnam-burland-2024]] | articolo letto in chat, non archiviato (diritti) | Fasti Ministrorum Domus Augustae: collegio del personale della villa, 31–51 d.C. |

@@ -2,13 +2,13 @@
 type: entity
 title: Villa Imperiale di Antium (Neroniana–Adrianea)
 tags: [villa, imperiale, nerone, adriano]
-timestamp: 2026-07-10
+timestamp: 2026-11-27
 sources: [raw/villa-imperiale.md, raw/nel-giardino-della-villa-albani-di-anzio.md, raw/nibby-viaggio-anzio-1819.md, raw/winckelmann-estratti-antium-1783.md]
 ---
 
 La villa imperiale di Antium fu il più grande complesso residenziale della costa laziale in età romana, esteso per circa 4 km lungo il litorale tra Capo d'Anzio e la spiaggia di Levante. [[entities/nerone]] ne avviò la costruzione dopo il 54 d.C., integrando preesistenti residenze repubblicane (tra cui la *Domus Augusta* dov'era nato) con nuovi padiglioni, *cryptoporticus*, [[concepts/villa-albani|ninfei]] e strutture marittime.
 
-Sotto Adriano (117–138 d.C.) il complesso fu ampliato e ristrutturato: vennero aggiunte terme monumentali, una *palestra* e un sistema di cisterne (il cosiddetto Cisternone). Dopo il declino tardo-antico, i ruderi furono riscoperti nel XVI secolo e progressivamente spogliati per materiali da costruzione, ma gli scavi ottocenteschi e novecenteschi hanno restituito mosaici, sculture e decorazioni parietali oggi conservati nei musei locali e nazionali.
+Sotto Adriano (117–138 d.C.) il complesso fu ampliato e ristrutturato: vennero aggiunte terme monumentali, una *palestra* e un sistema di cisterne (il Cisternone di via Tripoli, invece, serviva la villa privata del Semaforo: vedi [[entities/caffeaus]]). Dopo il declino tardo-antico, i ruderi furono riscoperti nel XVI secolo e progressivamente spogliati per materiali da costruzione, ma gli scavi ottocenteschi e novecenteschi hanno restituito mosaici, sculture e decorazioni parietali oggi conservati nei musei locali e nazionali.
 
 ## Testimonianze antiquarie
 
@@ -20,6 +20,15 @@ sostruzioni in laterizio e reticolato a ponente del porto (terme o condutture,
 pavimenti in opera signina, un frammento di mosaico), i corridoi sotterranei
 presso Palazzo Corsini letti come magazzini o arsenale, e la scomparsa di molte
 rovine disegnate dal Volpi nel 1726. Vedi [[sources/nibby-viaggio-1819]].
+
+## I Fasti della villa
+
+Nell'area della villa, presso l'Arco Muto, furono trovati due dei tre calendari
+di Anzio: i *Fasti Antiates Maiores* dipinti (1915) e i *Fasti Antiates
+Ministrorum Domus Augustae* (scavi Albani, 1711). Questi ultimi sono il registro
+di un'associazione del personale della villa (31–51 d.C.), non di un collegio
+in onore della dinastia come leggeva Santamaria Scrinari. Vedi
+[[concepts/fasti-anziati]] e [[sources/swetnam-burland-2024]].
 
 ## Timeline
 
