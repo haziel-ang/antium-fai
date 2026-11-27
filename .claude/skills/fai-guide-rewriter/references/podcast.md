@@ -54,7 +54,7 @@ Niente SSML `<break>`: non è supportato in v3. **Niente trattini lunghi nemmeno
 - pausa media prima di una rivelazione: `[pause]`;
 - pausa lunga (max 2-3 per script): `[long pause]`.
 
-Tag espressivi (max 1-2 per paragrafo): `[serious tone]` o `[reflective]` in apertura; `[awe]` o `[dramatic tone]` al climax; `[slows down]` sulla frase chiave; `[matter-of-fact]` per il tono presente; `[reflective]`/`[continues softly]` in chiusura; reazioni `[sighs]`, `[inhales]`, `[hesitates]`. Anche i tag si leggono in serie: se tutti gli episodi aprono con `[serious tone]` e chiudono con `[reflective]`, cambia.
+Tag espressivi (max 1-2 per paragrafo): `[serious tone]` o `[reflective]` in apertura; `[awe]` o `[dramatic tone]` al climax; `[slows down]` sulla frase chiave; `[matter-of-fact]` per il tono presente; `[reflective]` in chiusura; reazioni `[sighs]`, `[inhales]`, `[hesitates]`. Anche i tag si leggono in serie: se tutti gli episodi aprono con `[serious tone]` e chiudono con `[reflective]`, cambia.
 
 Note d'uso: i tag non sono case-sensitive; un tag a inizio riga dà il tono all'intera riga. Il modello li interpreta a senso: verifica alla prima generazione e, se la voce non reagisce, ripiega sulla punteggiatura. Non accostare due tag senza testo in mezzo. Non abusarne.
 
@@ -62,7 +62,7 @@ Note d'uso: i tag non sono case-sensitive; un tag a inizio riga dà il tono all'
 **Tutti i numeri per esteso**, non solo i romani: "338 a.C." → "trecentotrentotto avanti Cristo"; "XI sec." → "undicesimo secolo"; "4 km" → "quattro chilometri".
 Termini latini: tradotti, spiegati in poche parole o tolti, come nel testo scritto. Se uno resta, si legge con la **pronuncia scolastica italiana** (scelta dell'utente del 27/11/2026): c e g dolci davanti a e/i, *ae* e *oe* = e, *ti* + vocale = zi, *h* muta, *x* = cs, accento secondo la quantità latina. Respelling italiano senza sillabazione puntata (la voce legge i trattini come pause): "damnatio memoriae" → "damnàzio memòrie". Il greco si legge all'italiana (Àcragas, kainòn).
 
-**Il dizionario «Storia e FAI - Anzio Nettuno»** (ElevenLabs, 141 regole dal 27/11/2026) copre già i toponimi del Lazio antico, i termini latini e greci del sito (opus, cavea, xystus, scaenae frons, calidarium…), i nomi di studiosi e luoghi con accento a rischio (Paribèni, Nìbbi, Sàrsina, Trìpoli, Epìro) e le sigle (a.C., d.C., SPQR). Tutte le regole sono **alias** in grafia italiana accentata, non IPA: le regole fonetiche non sono affidabili su v3. Accenti dei nomi italiani verificati sul DiPI (`dipionline.it`). Una parola nuova si aggiunge lì con la stessa convenzione.
+**Il dizionario «Storia e FAI - Anzio Nettuno»** (ElevenLabs, 143 regole dal 27/11/2026) copre già i toponimi del Lazio antico, i termini latini e greci del sito (opus, cavea, xystus, scaenae frons, calidarium…), i nomi di studiosi e luoghi con accento a rischio (Paribèni, Nìbbi, Sàrsina, Trìpoli, Epìro) e le sigle (a.C., d.C., SPQR). Tutte le regole sono **alias** in grafia italiana accentata, non IPA: le regole fonetiche non sono affidabili su v3. Accenti dei nomi italiani verificati sul DiPI (`dipionline.it`). Una parola nuova si aggiunge lì con la stessa convenzione.
 Accenti su parole ambigue: Àntium, màcco, Vòlsci; città, già, può, è, né, lì, sì. L'accento grafico va solo dove serve davvero: uno script pieno di accenti forzati è più difficile da rileggere e non suona meglio.
 Nomi studiosi per esteso: "Lugli" non "G. Lugli"; "Egidi e Guidi" non "Egidi-Guidi".
 
@@ -95,6 +95,17 @@ Lo schema è un aiuto, non uno stampo: se due episodi vicini hanno le stesse mos
 2. Conta i caratteri (testo + tag) e resta sotto 5.000.
 3. Rileggi gli accenti grafici uno per uno (`è`, `più`, `può`, `già`, `perché`, `città`).
 4. Consegna con l'elenco delle parole forzate o sostituite, così il primo ascolto è mirato.
+
+## Volume costante (dopo la generazione, sempre)
+
+Il volume deve restare allo stesso livello dall'inizio alla fine. I tag espressivi lo fanno oscillare: nella prova della Necropoli (27/11/2026) la voce calava fino a 8 dB sui passaggi con `[awe]` e `[continues softly]`, e l'utente l'ha sentito subito. Quindi:
+
+- **Niente tag che abbassano la voce**: `[continues softly]`, `[whispers]`, `[softly]`. In chiusura il tono raccolto si ottiene con la frase, non con il volume. `[awe]` e `[reflective]` con parsimonia.
+- **Ogni mp3 si livella prima della consegna**, senza crediti:
+  ```
+  ffmpeg -i grezzo.mp3 -af "dynaudnorm=f=300:g=15:p=0.9:m=8:r=0.5,acompressor=threshold=-24dB:ratio=3:attack=10:release=250:makeup=4,loudnorm=I=-16:TP=-1.5:LRA=4" -ar 44100 -ac 1 -b:a 64k puntata.mp3
+  ```
+  Sulla Necropoli lo scarto tra il punto più basso e il più alto è sceso da 8,3 a 2 dB (finestre di cinque secondi, solo parlato). Obiettivo: sotto i 3 dB, a -16 LUFS integrati.
 
 ## Crediti di chiusura (dal PASSO 0)
 - A) Riccardo Pau e Vittorio Gamba, Delegazione FAI di Roma.
