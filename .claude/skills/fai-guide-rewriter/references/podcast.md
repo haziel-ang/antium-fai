@@ -6,11 +6,11 @@ Si attiva col comando "Riscrivi questa guida e aggiungi lo script podcast". Valg
 ```
 Benvenuti a
 [sound of camera shutter click]
-Istantànee di Stòria: il passàto, un minùto alla volta.
+Istantànee di Storia: il passato, un minuto alla volta.
 [pause]
 [1-2 righe di aggancio tematico. Nessun luogo nominato nell'intro.]
 ```
-Mai ripetere la frase-tagline dell'intro nella chiusura. (Verifica che `[sound of camera shutter click]` renda in v3; se no, spostalo in post-produzione.)
+L'unico accento grafico è su «Istantànee»: scelta dell'utente del 27/11/2026, dopo una prova d'ascolto. Con gli accenti anche su «Stòria», «passàto» e «minùto» la voce storpiava la frase, e all'ascolto questa versione è stata preferita a quella senza nessun accento. Mai ripetere la frase-tagline dell'intro nella chiusura. (Verifica che `[sound of camera shutter click]` renda in v3; se no, spostalo in post-produzione.)
 
 ## Limiti e formato
 - Massimo 5.000 caratteri totali (testo + tag). Punta a ~4.500 reali: i numeri scritti per esteso gonfiano il conteggio.
