@@ -126,3 +126,17 @@ e con fonti esterne. Correzioni (podcast e, dove serviva, sito):
 - Podcast: Mulakia («saccheggiata in poche ore» → «prima che arrivassero le autorità»), Villa imperiale
   (Caligola «in Germania» → «sul Reno, fra i Treviri»), Tor Caldara (porta in alto e scala a pioli «in un
   disegno del Settecento»).
+
+## [2026-11-28] lint | Villa imperiale: verifica sulle fonti primarie e citazione di Cicerone
+Script del podcast della villa imperiale riscritto in ordine cronologico e verificato frase per frase su
+Cicerone (*Ad Atticum* II e IV), Svetonio (*Aug.* 58, *Cal.* 8, *Nero* 6, 9, 25), Treccani EAA «Anzio»,
+Felici e Swetnam-Burland 2024. Errori trovati:
+- **«Nullum in Italia litus amoenius» (Ad Atticum II, 8) non esiste**: il testo vero è IV, 8, «nihil quietius,
+  nihil alsius, nihil amoenius». Era in home, nella sezione, nei PDF e nello script. Corretto ovunque.
+- Caligola e Nerone nati «nella villa»/«nelle stesse stanze»: le fonti dicono Anzio.
+- Villa «già della famiglia imperiale» nel 2 a.C.: è una deduzione, ora detta come indizio.
+- «Due giorni di carrozza» e «miasmi»: senza fonte, tolti dalla sezione.
+- Cicerone «sul litorale», *patronus*, Marcello «esiliato ad Antium» in [[entities/cicerone]]: segnati da verificare.
+Pagine aggiornate: [[entities/villa-imperiale]], [[entities/cicerone]]. Regola nuova (utente): la verifica
+storica sulle fonti è obbligatoria per ogni testo, prima di scriverlo; da riapplicare a tutte le sezioni e a tutti
+gli script tranne la villa imperiale.

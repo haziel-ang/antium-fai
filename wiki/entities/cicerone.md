@@ -2,7 +2,7 @@
 type: entity
 title: Marco Tullio Cicerone
 tags: [cicerone, repubblica, patronus]
-timestamp: 2026-07-09
+timestamp: 2026-11-28
 sources: [raw/storia-urbana.md]
 ---
 
@@ -14,3 +14,11 @@ Cicerone frequentò assiduamente la città tra il 54 e il 44 a.C., alternando pe
 
 - **54–44 a.C.** — soggiorni ciceroniani ad Antium documentati nelle lettere
 - **46 a.C.** — Cicerone difende M. Claudio Marcello, esiliato ad Antium
+
+## Verifica sulle fonti primarie (2026-11-28)
+
+- **Lettere scritte ad Anzio**: *Ad Atticum* II, 4–9 (aprile del 59 a.C., intestazioni «Scr. Anti») e IV, 5, 6, 8 (56 a.C., «Scr. in Antiati»). Quindi i soggiorni non stanno solo nel 54–44 a.C.
+- **L'elogio di Anzio** è in *Ad Atticum* IV, 8: «nihil quietius, nihil alsius, nihil amoenius» (niente di più tranquillo, di più fresco, di più piacevole). La citazione «Nullum in Italia litus amoenius», attribuita a II, 8 e usata dal sito fino al 28/11/2026, **non esiste** nel testo di Cicerone: corretta in home e nella sezione [[entities/villa-imperiale]].
+- II, 6: «aut libris me delecto, quorum habeo Anti festivam copiam»; II, 8: ludi ad Anzio dal 4 al 6 maggio.
+- La casa di Cicerone era «in oppido», dentro le mura (lettere del 56 a.C., da `raw/storia-urbana.md` e `raw/antium-v5.md`), non «sul litorale» come diceva questa pagina.
+- **Da verificare** (nessun riscontro trovato finora): Cicerone *patronus* della colonia; il processo di Coponio e Oltronio; Marcello «esiliato ad Antium» (le fonti note lo dicono a Mitilene). Non usarli finché non sono controllati sul testo.
