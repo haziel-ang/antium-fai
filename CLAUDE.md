@@ -20,6 +20,20 @@ Flusso per ogni task (eseguilo per intero, sempre):
    (il branch include già le modifiche squashate, quindi vince), poi rigenera l'indice
    di ricerca, verifica che convivano le tue aggiunte e gli aggiornamenti da `main`, e ripusha.
 
+## Verifica delle informazioni (vincolante, imprescindibile)
+
+Regola dell'utente del 28/11/2026: **sul sito, nei PDF e nei podcast resta solo quello che è convalidato
+sulle fonti.** La verifica si fa **prima** di scrivere o pubblicare, **sempre**, per ogni testo. Ogni
+affermazione (data, nome, luogo, citazione, attribuzione) si controlla sul documento da cui viene: la fonte
+antica nel testo originale, lo studio in `wiki/raw/` o `wiki/sources/`. Le pagine del sito non sono una prova.
+All'utente si consegna la tabella affermazione / fonte / esito. Quello che non ha riscontro si toglie; le
+deduzioni si dicono come tali («forse», «un indizio»). Dettagli nella skill `fai-guide-rewriter`
+(SKILL.md e `references/podcast.md`, punto 5 di «Prima di consegnare»).
+
+**Lavoro aperto (dal 28/11/2026)**: riapplicare questa verifica a tutti i testi del sito (home, sezioni,
+`fonti.html`, PDF) e a tutti gli script in `podcast/`, **tranne la villa imperiale**, già verificata
+(PR #189, #190). Si procede una sezione alla volta, con la tabella per l'utente.
+
 ## Sincronizzazione PDF delle sezioni (vincolante)
 
 Ogni pagina di `sezioni/` ha un **PDF associato** in `docs/`, ed esiste la pagina
