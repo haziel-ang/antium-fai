@@ -2,26 +2,32 @@ Benvenuti a
 [sound of camera shutter click]
 Istantàne-e di Storia: il passato, un minuto alla volta.
 [pause]
-Una mareggiata, un muro che crolla, e dietro il muro una ragazza di marmo che aspettava da duemila anni.
+Cinque secoli nella stessa casa al mare. Solo che i padroni di casa, qui, erano imperatori.
 
-[serious tone] La notte del ventitré dicembre del milleottocentosettantotto il mare, ad Anzio, è più violento del solito. Un'onda butta giù un muro della villa imperiale. Dietro, in una nicchia, c'è lei: la Fanciulla di Anzio.
+[matter-of-fact] Cicerone lo scrive all'amico Attico senza giri di parole: in Italia non esiste una costa più piacevole. Parla di Anzio, a meno di due giorni di viaggio da Roma, lontana dal caldo e dall'aria cattiva della capitale. Già nel secondo secolo avanti Cristo le grandi famiglie romane ci costruiscono le loro case, sul ciglio di una falesia di pietra che cade dritta nel mare.
 [short pause]
-È alta un metro e settanta e avanza con un vassoio di oggetti sacri: un rotolo, un ramo d'alloro. Si è arrotolata il mantello in vita, per non inciampare. Lo scultore ha usato due marmi greci diversi, uno per la pelle e uno per la stoffa, perché al tatto fossero diverse.
-[reflective] Chi è? Non lo sappiamo.
-Una sacerdotessa, una profetessa di Apollo: le ipotesi sono tante. Sappiamo invece che è un originale greco, non una copia. Nel millenovecentootto lo Stato italiano la comprò con un voto del Parlamento, per quattrocentocinquantamila lire. Oggi è a Roma, a Palazzo Massimo.
+Una di quelle case forse era del nonno di Augusto. Di certo, qualche decennio dopo, la villa è della famiglia imperiale.
+Nel due avanti Cristo Augusto è qui quando arriva una delegazione del popolo romano: vengono a offrirgli il titolo di Padre della Patria, e lui lo rifiuta. Come sappiamo che la casa era già sua? Da un silenzio. Lo storico che racconta la scena non nomina nessun padrone di casa.
 [pause]
 
-Questa era la casa al mare degli imperatori. Augusto ci stava nel due avanti Cristo, quando una delegazione venne a offrirgli il titolo di Padre della Patria. E qui nacquero due imperatori: Caligola e Nerone.
-Come sappiamo che Caligola nacque proprio qui? Già gli antichi litigavano: chi lo diceva nato a Tivoli, chi sul Reno, fra i Treviri. Lo storico Svetonio andò a controllare, e trovò la sua nascita scritta nei registri pubblici di Anzio.
+Nel dodici dopo Cristo, in questa villa, nasce un bambino che il mondo ricorderà come Caligola. Già gli antichi litigavano sul dove: chi lo diceva nato a Tivoli, chi sul Reno, fra i Treviri. Lo storico Svetonio andò a controllare, e trovò la sua nascita scritta nei registri pubblici di Anzio.
+Venticinque anni dopo, nelle stesse stanze, nasce Nerone. Su di lui nessuno ha mai avuto dubbi.
+[short pause]
+Intanto la villa è diventata una piccola città. Lo racconta una lapide: dal trentuno al cinquantuno dopo Cristo, ogni anno, chi ci lavora elegge i suoi capi, e accanto ai nomi scrive il mestiere. Giardinieri, servi di casa, bibliotecari, medici, quasi tutti schiavi e liberti dell'imperatore. Nel loro calendario c'è una sola festa tutta loro, il sedici ottobre: il giorno dei servi nati in casa. Oggi quella lapide è ai Musei Capitolini.
 [pause]
 
-[matter-of-fact] Nerone la ricostruì da capo. La villa arrivò a superare gli ottocento metri lungo la costa, a partire da dove oggi c'è il faro di Capo d'Anzio, con gallerie scavate nella roccia per i servi e scale che scendevano dal pianoro fino alle sale sul mare. E davanti, un porto nuovo. Per due secoli gli studiosi litigarono sulla sua forma: una bocca o due? Nel millenovecentotrentotto Giuseppe Lugli, che dalla barca non riusciva a vedere niente, chiese una cosa nuova per l'epoca: una fotografia dall'aereo. La risposta fu netta. Una bocca sola, larga una sessantina di metri.
+[serious tone] Diventato imperatore, Nerone ricostruisce tutto da capo. La villa supera gli ottocento metri lungo la costa, a partire da dove oggi c'è il faro di Capo d'Anzio. Nella roccia fa scavare gallerie per i servi, e scale lunghissime che scendono dal pianoro fino alle sale sul mare. Davanti, un porto nuovo, che secondo Svetonio costò una fortuna. Sul fondale i sub hanno trovato perfino le sigle punzonate sui legni delle casseforme: le firme del cantiere, rimaste sott'acqua per quasi duemila anni.
+Alla fine del sessantasette Nerone torna dalla Grecia, carico delle vittorie vinte cantando nei giochi. Entra ad Anzio su un cocchio tirato da cavalli bianchi, attraverso un tratto di mura fatto abbattere apposta. Una porta, evidentemente, non bastava.
 [pause]
 
-Chi teneva in piedi tutto questo? Una lapide lo racconta. Per vent'anni, ogni anno, il personale della villa eleggeva i suoi capi, e accanto ai nomi c'è il mestiere: giardinieri, servi di casa, bibliotecari, medici. Quasi tutti schiavi e liberti dell'imperatore. Il loro calendario aveva perfino una festa tutta loro, il sedici ottobre: il giorno dei servi nati in casa. Oggi quella lapide è ai Musei Capitolini.
-[awe] Da questa costa sono uscite statue che oggi stanno al Louvre e a Roma. Come il guerriero detto Gladiatore Borghese. Forse anche l'Apollo del Belvedere, anche se l'unico a dirlo è un antiquario del Cinquecento, a cui non sempre si può credere.
+La villa sopravvive al suo costruttore. Domiziano rifà canali e pareti. Adriano aggiunge padiglioni in mattoni sottilissimi, gli stessi della sua villa di Tivoli, e ci conserva rarità di ogni genere: fra queste, racconta lo scrittore Filostrato, un libro con le dottrine di Pitagora.
+Poi, tra la fine del secondo secolo e l'inizio del terzo, l'ultima grande stagione. Il palazzo scende fino all'acqua, con edifici piantati sulla battigia, ai piedi della falesia, per più di settecento metri. Chi li studia oggi li paragona ai palazzi di Venezia. Ma su un mare aperto, e senza difese. Le terme hanno quattro piani: in basso i magazzini, a pelo d'acqua, in cima la vasca calda.
+[pause]
+
+Poi arrivano i pirati, la malaria, la sabbia che riempie il porto. La città si svuota, e le onde continuano a mordere la roccia. I giardini sul ciglio della falesia crollano, e le statue scivolano in mare insieme ai muri che le reggevano. Per questo, ancora nel Novecento, dall'acqua di Anzio sono riemersi marmi antichi.
 [long pause]
 
-Molti di quei tesori li ha restituiti il mare. Non da navi affondate, però. Secondo l'archeologo Alessandro Jaia, con ogni probabilità sono caduti dai giardini sul ciglio della falesia, trascinati giù insieme ai muri che li reggevano. La stessa erosione che, una notte di dicembre, aprì la nicchia della Fanciulla.
+La notte del ventitré dicembre del milleottocentosettantotto una mareggiata più violenta del solito butta giù un muro della villa. In una nicchia c'è una ragazza di marmo che avanza con un vassoio di oggetti sacri: la Fanciulla di Anzio, un originale greco, oggi a Roma, a Palazzo Massimo.
+[reflective] Nel nicchione accanto, sappiamo oggi, c'era un'altra statua: un'Artemide. Quella è andata perduta.
 [pause]
 Questo podcast è una produzione del Gruppo FAI Anzio-Nettuno. A cura di Riccardo Pau.
