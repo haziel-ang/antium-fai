@@ -30,7 +30,10 @@ Poi, per decenni, quei vasi restano chiusi nei depositi. Nel duemilanove due arc
 Oggi quei corredi sono ancora a Roma, nel Museo delle Civiltà, che ha accolto le collezioni del Pigorini. L'area dello scavo è quella della vecchia palazzina dell'Italcable, oggi zona militare: il Centro Difesa Elettronica. E ad Anzio, nel Museo civico di Villa Adele, si possono vedere i corredi delle necropoli protostoriche della città.
 [long pause]
 
-E il cavo? Il sedici marzo del millenovecentoventicinque, due mesi prima che Antonielli cominci a scavare, la linea per New York è già in funzione: da Anzio a Malaga, poi alle Azzorre, poi l'America. Il dodici ottobre arriva l'inaugurazione che metteva tanta fretta ad Antonielli: parla Mussolini, e un messaggio del Re corre sotto l'oceano fino in Sud America.
+E il cavo? Il sedici marzo del millenovecentoventicinque, due mesi prima che Antonielli cominci a scavare, la linea per New York è già in funzione: da Anzio a Malaga, poi alle Azzorre, poi l'America.
+[short pause]
+Poi arriva il dodici ottobre, l'inaugurazione che metteva tanta fretta ad Antonielli. La data non è scelta a caso: è l'anniversario della scoperta dell'America, e il regime ci tiene. Da Roma partono due treni speciali, con Mussolini, i ministri e i diplomatici di Argentina, Brasile e Uruguay. Alla stazione di Anzio li aspettano il sindaco e l'ingegner Giovanni Carosio: un italiano emigrato in Argentina, che quattro anni prima ha fondato l'Italcable.
+Davanti alla stazione dei cavi prendono la parola Carosio e i dirigenti della società. Poi parla Mussolini. Finito il suo discorso, Carosio dà il segnale, e sotto l'oceano parte il telegramma di auguri del re, Vittorio Emanuele Terzo, ai presidenti di Argentina, Brasile e Uruguay.
 [short pause]
 Ma chi l'aveva pagato, quel cavo? Su duecento milioni di lire, cento erano piccole quote di emigrati italiani in America Latina. Avevano messo i loro soldi per una cosa sola: poter comunicare con la patria lontana, con le famiglie rimaste a casa.
 [slows down] Lo stesso pezzo di costa, a tremila anni di distanza. Qui i Latini salutavano i loro morti. E qui, parola per parola, arrivavano le notizie di chi era partito.
