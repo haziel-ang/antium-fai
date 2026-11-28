@@ -37,7 +37,7 @@ Ordine del percorso. «Pagina» = sezione HTML + PDF; «Podcast» = script + mp3
 | Xystus e terme | da fare | da fare | |
 | Cisternone e Caffeaus | da fare | da fare | |
 | Tor Caldara | da fare | da fare | |
-| `fonti.html` | da fare | – | |
+| `fonti.html` | allineata per Necropoli, Vallo, Volsci (PR #205); il resto da fare | – | #205 |
 
 ## Fonti originali trovate online (riusabili)
 
@@ -57,6 +57,12 @@ Ordine del percorso. «Pagina» = sezione HTML + PDF; «Podcast» = script + mp3
 - Catalogo generale dei Beni Culturali (catalogo.beniculturali.it): rilievo di Mitra da Anzio, Verona
 
 ## Punti aperti
+
+- **Quattro studi in `wiki/raw/` sono scansioni senza testo** (i PDF originali sono sul computer
+  dell'utente, non sulla VPS): Angle et al. 2004 (Cavallo Morto), Abbondanzieri et al. (*Lazio e Sabina* 13,
+  scavo 2021), Bolla 2010 (rilievo mitriaco, *Anzio e i suoi Fasti*), «Studi sulle antichità di Anzio e
+  Nettuno». Servono sulla VPS per l'OCR: alcuni contenuti tolti perché non verificabili (depositi votivi
+  delle Vignacce, dettagli dello scavo 2021, culti orientali di Cacciotti) potrebbero tornare se le fonti li confermano.
 
 - Cavallo Morto: il PDF di Angle et al. 2004 in `docs/` è una scansione senza testo (dati presi dalla Treccani).
 - Santamaria Scrinari 1975 non consultabile online: le sue citazioni sono state tolte.
