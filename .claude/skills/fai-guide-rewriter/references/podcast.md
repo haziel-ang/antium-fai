@@ -114,8 +114,12 @@ Lo schema è un aiuto, non uno stampo: se due episodi vicini hanno le stesse mos
 
 La voce non è uguale da una generazione all'altra: il 28/11/2026 «Vòlsci» è uscito bene nel Vallo e come «Volschi» nella Necropoli, con lo stesso alias. Per questo «Volsci» (bisillabo piano, nessun accento da forzare) ora va senza alias. Prima di consegnare:
 
-1. Trascrivi l'mp3 grezzo con `faster_whisper` (modello `small`, nell'ambiente `~/.local/share/wanderlust-allinea`; passa l'audio come array: ffmpeg a 16 kHz mono f32, perché la lettura diretta dell'mp3 fallisce) con `word_timestamps=True`, e controlla una per una le parole della scheda di pronuncia.
-2. Per **sc/sch** (Volsci, pesci, Lucio Scipione…) la trascrizione non basta: scrive «Volschi» anche quando la voce dice giusto. Si guarda l'onda della parola a finestre di 5 ms: la «k» ha un buco di silenzio (sotto -50 dB, nell'errore della Necropoli -74), la «sc» dolce no (resta sopra -35).
+1. Trascrivi l'mp3 con il **`large-v3` di Minerva** (indicazione dell'utente del 28/11/2026: «un trascrittore più evoluto»), sulla rete Tailscale, in circa metà della durata dell'audio:
+   ```
+   source ~/.whisper_minerva_key && curl -s -m 600 http://100.126.76.85:8120/v1/audio/transcriptions -H "Authorization: Bearer $WHISPER_MINERVA_KEY" -F file=@podcast/<puntata>.mp3 -F model=whisper-1 -F language=it -F response_format=verbose_json -F "timestamp_granularities[]=word" -o trascrizione.json
+   ```
+   Controlla una per una le parole della scheda di pronuncia. Sulla Necropoli il `large-v3` ha sentito giusti tre punti che il `small` dava sbagliati («a metà», «si capisce», «Volsci»). Se Minerva è spenta, ripiega sul `small` della VPS: `faster_whisper` nell'ambiente `~/.local/share/wanderlust-allinea`, con l'audio passato come array (ffmpeg a 16 kHz mono f32; la lettura diretta dell'mp3 fallisce) e `word_timestamps=True`, sapendo che sbaglia di più. Due trappole del `large-v3`: a volte inventa una parola dentro un silenzio («partito questo / Questo podcast») e i tempi delle parole sono approssimati, quindi le pause si misurano sull'onda, non sulla trascrizione.
+2. Per **sc/sch** (Volsci, pesci, Lucio Scipione…) la trascrizione da sola non basta (il `small` scrive «Volschi» anche quando la voce dice giusto): conferma sull'onda. Si guarda l'onda della parola a finestre di 5 ms: la «k» ha un buco di silenzio (sotto -50 dB, nell'errore della Necropoli -74), la «sc» dolce no (resta sopra -35).
 3. Se una parola è sbagliata, **non si rigenera la puntata**: si rigenera solo la frase (poche decine di caratteri), si allinea il volume, la si inserisce a metà delle pause che la circondano nel grezzo, poi si rifanno pause e livellamento. Si ricontrolla la parola nel file finale.
 
 ## Volume costante (dopo la generazione, sempre)
