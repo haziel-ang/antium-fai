@@ -55,14 +55,15 @@ Ordine del percorso. «Pagina» = sezione HTML + PDF; «Podcast» = script + mp3
 - Plinio, Macrobio, Svetonio (latino): LacusCurtius `Thayer/L/Roman/Texts/...`; Orazio: thelatinlibrary
 - Treccani: «Valerio Anziate» (Enc. Italiana), «Corradino di Svevia» (Enc. Dantesca), «Frangipane, Giovanni»
 - Caricati dall'utente e messi in `wiki/raw/` (28/11/2026): Nibby, *Viaggio antiquario*, tomo II, 1819 (testo integrale); Matteucci 1872; Cramer 1826 in traduzione
+- Caricati dall'utente (28/11/2026, secondo lotto) e messi in `wiki/raw/`: Cacciotti 2008 (culti orientali), Jaia-Ebanista 2024, LVA 2016 (via Lanuvio-Anzio), Ebanista (residenze imperiali), Jaia 2008 (villa imperiale), Pergola (reperti della villa al MNR), Swetnam-Burland (Fasti Antiates), Bianchini (geografia urbana), Pasqualini (recensione a Brandizzi Vittucci 2000)
 - Catalogo generale dei Beni Culturali (catalogo.beniculturali.it): rilievo di Mitra da Anzio, Verona
 
 ## Punti aperti
 
 - **Quattro studi in `wiki/raw/` sono scansioni senza testo** (i PDF originali sono sul computer
   dell'utente, non sulla VPS): Angle et al. 2004 (Cavallo Morto), Abbondanzieri et al. (*Lazio e Sabina* 13,
-  scavo 2021), Bolla 2010 (rilievo mitriaco, *Anzio e i suoi Fasti*), «Studi sulle antichità di Anzio e
-  Nettuno». Servono sulla VPS per l'OCR: alcuni contenuti tolti perché non verificabili (depositi votivi
+  scavo 2021), Bolla 2010 (rilievo mitriaco, *Anzio e i suoi Fasti*). («Studi sulle antichità di Anzio e
+  Nettuno» ora ha il testo.) Già ripristinati con nuove fonti: culti egizi, teste planetarie, strade, Caenon al Pantano, Villa Adele. Servono sulla VPS per l'OCR: alcuni contenuti tolti perché non verificabili (depositi votivi
   delle Vignacce, dettagli dello scavo 2021, culti orientali di Cacciotti) potrebbero tornare se le fonti li confermano.
 
 - Cavallo Morto: il PDF di Angle et al. 2004 in `docs/` è una scansione senza testo (dati presi dalla Treccani).
