@@ -33,6 +33,8 @@ deduzioni si dicono come tali («forse», «un indizio»). Dettagli nella skill 
 **Lavoro aperto (dal 28/11/2026)**: riapplicare questa verifica a tutti i testi del sito (home, sezioni,
 `fonti.html`, PDF) e a tutti gli script in `podcast/`, **tranne la villa imperiale**, già verificata
 (PR #189, #190). Si procede una sezione alla volta, con la tabella per l'utente.
+**Stato, metodo e fonti trovate sono in `VERIFICA-FONTI.md`**: va aggiornato a ogni passo, nello
+stesso commit della sezione o dello script verificato.
 
 ## Sincronizzazione PDF delle sezioni (vincolante)
 
