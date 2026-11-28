@@ -54,6 +54,7 @@ Ordine del percorso. «Pagina» = sezione HTML + PDF; «Podcast» = script + mp3
 - Autori greci in traduzione: LacusCurtius (Dionigi di Alicarnasso, Strabone, Polibio)
 - Plinio, Macrobio, Svetonio (latino): LacusCurtius `Thayer/L/Roman/Texts/...`; Orazio: thelatinlibrary
 - Treccani: «Valerio Anziate» (Enc. Italiana), «Corradino di Svevia» (Enc. Dantesca), «Frangipane, Giovanni»
+- Caricati dall'utente e messi in `wiki/raw/` (28/11/2026): Nibby, *Viaggio antiquario*, tomo II, 1819 (testo integrale); Matteucci 1872; Cramer 1826 in traduzione
 - Catalogo generale dei Beni Culturali (catalogo.beniculturali.it): rilievo di Mitra da Anzio, Verona
 
 ## Punti aperti

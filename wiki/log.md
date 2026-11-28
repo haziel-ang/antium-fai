@@ -140,3 +140,7 @@ Felici e Swetnam-Burland 2024. Errori trovati:
 Pagine aggiornate: [[entities/villa-imperiale]], [[entities/cicerone]]. Regola nuova (utente): la verifica
 storica sulle fonti è obbligatoria per ogni testo, prima di scriverlo; da riapplicare a tutte le sezioni e a tutti
 gli script tranne la villa imperiale.
+
+## [2026-11-28] ingest | Nibby 1819 (tomo II), Matteucci 1872, Cramer 1826 (trad. it.)
+- Nuove fonti in `wiki/raw/` dai file caricati dall'utente: `nibby-viaggio-antiquario-tomo2-1819.md` (testo integrale, ed. Marino 2017), `matteucci-cenni-storici-1872.md`, `cramer-1826-antium-it.md`. Winckelmann e il digest di Nibby erano già presenti, identici.
+- Usate per la verifica della sezione Volsci: Solino e Ascanio, Anziati in aiuto degli Aricini contro Arunte (Nibby da Dionigi V), Catone in Servio sul dominio etrusco (Cramer). Pagine wiki entità/concetti da aggiornare al prossimo ingest.
