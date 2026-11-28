@@ -8,7 +8,8 @@ Uso: python -I accorcia_pause.py grezzo.mp3 accorciato.wav [max] [fine_intro] [m
 Scelta dell'utente del 27/11/2026: pause sì, ma senza perdere fluidità.
 Regola del 28/11/2026: la chiusura ha lo stesso respiro dell'apertura. La
 chiusura comincia dalla pausa più lunga del racconto (nello script è l'unico
-[long pause], messo subito prima della chiusura): da lì alla fine, quella
+[long pause], messo subito prima della chiusura), esclusi il silenzio di coda
+e la pausa prima dei crediti (ultimi 12 secondi): da lì alla fine, quella
 pausa compresa, il limite è max_intro come nell'intro.
 Serve numpy (sulla VPS: ~/.local/share/wanderlust-allinea/bin/python).
 """
@@ -30,7 +31,8 @@ while i < n:
     j = i
     while j < n and sil[j] == sil[i]:
         j += 1
-    if sil[i] and i * fr / SR >= fine_intro:
+    # non contano il silenzio di coda e la pausa prima dei crediti (ultimi 12 s)
+    if sil[i] and i * fr / SR >= fine_intro and (n - i) * fr / SR > 12:
         corse.append((j - i, i))
     i = j
 inizio_chiusura = max(corse)[1] if corse else n

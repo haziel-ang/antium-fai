@@ -22,7 +22,7 @@ Perché quelle tombe non sono volsche. Sono latine. Le più antiche hanno quasi 
 Ma il cantiere non aspetta. «Il guaio è che qui devono fare presto», scrive Antonielli: per il dodici ottobre è fissata l'inaugurazione, con il Re e con Mussolini, e davanti al palazzo deve esserci già il giardino. Lui scava in due riprese, a maggio e a settembre, con due soli operai, in mezzo al via vai dei lavori. In tutto vengono fuori più di trenta sepolture, di epoche diverse: la necropoli resta in uso fino al primo secolo avanti Cristo.
 
 Poi la storia si complica. [inhales] Antonielli muore presto, e fa in tempo a pubblicare solo poche notizie. I corredi finiscono al Museo Pigorini tutti insieme, e nessuno sa più quale vaso venisse da quale tomba.
-Trentacinque anni dopo uno studioso, Pär Göran Gierow, riprende i materiali con i pochi appunti rimasti. Riesce a ricostruire con certezza il corredo di una tomba sola: la numero quattordici.
+Trentacinque anni dopo un altro studioso riprende i materiali con i pochi appunti rimasti. Riesce a ricostruire con certezza il corredo di una tomba sola: la numero quattordici.
 [short pause]
 Poi, per decenni, quei vasi restano chiusi nei depositi. Nel duemilanove due archeologi, Francesco Di Mario e Alessandro Jaia, pubblicano le lettere di Antonielli, rimaste inedite in archivio, con gli schizzi delle tombe, e cominciano a rimettere i pezzi al loro posto.
 [pause]
