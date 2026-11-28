@@ -144,3 +144,7 @@ gli script tranne la villa imperiale.
 ## [2026-11-28] ingest | Nibby 1819 (tomo II), Matteucci 1872, Cramer 1826 (trad. it.)
 - Nuove fonti in `wiki/raw/` dai file caricati dall'utente: `nibby-viaggio-antiquario-tomo2-1819.md` (testo integrale, ed. Marino 2017), `matteucci-cenni-storici-1872.md`, `cramer-1826-antium-it.md`. Winckelmann e il digest di Nibby erano già presenti, identici.
 - Usate per la verifica della sezione Volsci: Solino e Ascanio, Anziati in aiuto degli Aricini contro Arunte (Nibby da Dionigi V), Catone in Servio sul dominio etrusco (Cramer). Pagine wiki entità/concetti da aggiornare al prossimo ingest.
+
+## [2026-11-28] ingest | Nove studi caricati dall'utente
+- Nuovi in `wiki/raw/`: `cacciotti-culti-orientali-antium-2008.md`, `jaia-ebanista-villa-comunale-2024.md`, `lva-via-lanuvio-anzio-2016.md`, `ebanista-anzio-residenze-eta-imperiale.md`, `jaia-villa-imperiale-anzio-2008.md`, `pergola-reperti-villa-imperiale-mnr.md`, `swetnam-burland-working-for-the-emperor-antium.md`, `bianchini-anzio-nettuno-geografia-urbana.md`. Riestratto con testo `studi-sulle-antichita-di-anzio-e-nettuno.md` (Pasqualini, recensione a Brandizzi Vittucci 2000), prima vuoto. Matteucci, Cramer e Jaia 2010 erano duplicati.
+- Usati per ripristinare, con la fonte, contenuti tolti nelle verifiche: culti egizi e teste planetarie (Cacciotti), strade per Lanuvio e Selciatella (LVA 2016), Caenon al Pantano (Pasqualini), scavi di Villa Adele (Jaia-Ebanista). Da usare per Villa imperiale e Antium guide.
