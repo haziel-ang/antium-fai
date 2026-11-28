@@ -56,6 +56,7 @@ Ordine del percorso. «Pagina» = sezione HTML + PDF; «Podcast» = script + mp3
 - Treccani: «Valerio Anziate» (Enc. Italiana), «Corradino di Svevia» (Enc. Dantesca), «Frangipane, Giovanni»
 - Caricati dall'utente e messi in `wiki/raw/` (28/11/2026): Nibby, *Viaggio antiquario*, tomo II, 1819 (testo integrale); Matteucci 1872; Cramer 1826 in traduzione
 - Caricati dall'utente (28/11/2026, secondo lotto) e messi in `wiki/raw/`: Cacciotti 2008 (culti orientali), Jaia-Ebanista 2024, LVA 2016 (via Lanuvio-Anzio), Ebanista (residenze imperiali), Jaia 2008 (villa imperiale), Pergola (reperti della villa al MNR), Swetnam-Burland (Fasti Antiates), Bianchini (geografia urbana), Pasqualini (recensione a Brandizzi Vittucci 2000)
+- Caricati dall'utente (28/11/2026, terzo lotto): Lombardi 1847 trascritto per paragrafi, Volpi *De Antiatibus* (compendio it.), Della Torre 1700 (trad. it.), Nibby *Analisi* (opera intera), Colle Rotondo in *Lazio e Sabina*
 - Catalogo generale dei Beni Culturali (catalogo.beniculturali.it): rilievo di Mitra da Anzio, Verona
 
 ## Punti aperti
