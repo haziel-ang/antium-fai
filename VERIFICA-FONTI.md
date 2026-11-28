@@ -11,6 +11,8 @@ verificato (richiesta dell'utente del 28/11/2026: «aggiorna sempre documentazio
   scientifici. Mai una fonte sola se se ne trovano altre; mai Wikipedia da sola.
 - Quello che non ha riscontro si toglie; le deduzioni si dicono come tali.
 - Le citazioni «» si controllano alla lettera sul testo originale.
+- **Nessuna eccezione per la «conoscenza consolidata»** (utente, 28/11/2026: «Verifica sempre»): anche i fatti noti si ricontrollano sul testo.
+- Dopo ogni modifica HTML controllare che nessun callout abbia perso l'intestazione (`callout-header`) e che i tag siano bilanciati.
 - Date archeologiche: solo il periodo, mai il metodo (niente carbonio 14, C14, laboratori).
 - Pagine bloccate ai bot: `https://r.jina.ai/` davanti all'URL.
 - All'utente si consegna la tabella affermazione / fonte / esito.
@@ -26,7 +28,7 @@ Ordine del percorso. «Pagina» = sezione HTML + PDF; «Podcast» = script + mp3
 | Home (`index.html`) | da fare (corretta solo la citazione di Cicerone) | – | #189 |
 | Necropoli protostoriche | **fatta** | **fatto** | #193–#200 |
 | Vallo | **fatta** | **fatto** | #199, #201, #202 |
-| Volsci, Cicerone e i culti | **fatta** | – | #203 |
+| Volsci, Cicerone e i culti | **fatta** | – | #203, #204 |
 | Antium guide | prossima | – | |
 | Tomba Mulakia | da fare | da fare | |
 | Villa imperiale | **fatta** | **fatto** | #189–#191 |
@@ -50,13 +52,11 @@ Ordine del percorso. «Pagina» = sezione HTML + PDF; «Podcast» = script + mp3
 - Minto, necrologio di Antonielli: *Studi Etruschi* IX (studietruschi.org)
 - Autori latini: thelatinlibrary.com (Livio, Tacito, Svetonio, Ovidio, Cicerone *Ad Atticum*); Svetonio anche su LacusCurtius
 - Autori greci in traduzione: LacusCurtius (Dionigi di Alicarnasso, Strabone, Polibio)
+- Plinio, Macrobio, Svetonio (latino): LacusCurtius `Thayer/L/Roman/Texts/...`; Orazio: thelatinlibrary
+- Treccani: «Valerio Anziate» (Enc. Italiana), «Corradino di Svevia» (Enc. Dantesca), «Frangipane, Giovanni»
 - Catalogo generale dei Beni Culturali (catalogo.beniculturali.it): rilievo di Mitra da Anzio, Verona
 
 ## Punti aperti
-
-- Volsci (PR #203): restano da verificare con fonti dirette Plinio (*Columna Maenia*), Orazio *Odi* I 35,
-  Macrobio *Saturnali* I 23, Svetonio *Augusto* 97 e *Tiberio* 72 (Astura), Plinio XXXII 4 (Caligola e la
-  remora), Corradino ad Astura, Valerio Anziate; dati presi da conoscenza consolidata, non ricontrollati sul testo.
 
 - Cavallo Morto: il PDF di Angle et al. 2004 in `docs/` è una scansione senza testo (dati presi dalla Treccani).
 - Santamaria Scrinari 1975 non consultabile online: le sue citazioni sono state tolte.
