@@ -105,6 +105,8 @@ Lo schema è un aiuto, non uno stampo: se due episodi vicini hanno le stesse mos
 2. Conta i caratteri (testo + tag) e resta sotto 5.000.
 3. Rileggi gli accenti grafici uno per uno (`è`, `più`, `può`, `già`, `perché`, `città`).
 4. Consegna con l'elenco delle parole forzate o sostituite, così il primo ascolto è mirato.
+5. **Lo script si mostra sempre per intero in chat** (regola dell'utente del 28/11/2026): l'utente deve poterlo leggere lì, senza aprire file. Ogni volta che uno script si scrive o si cambia, il testo completo va nella risposta, non solo il percorso o un riassunto.
+6. **L'audio si genera solo dopo l'ok dell'utente sullo script.** Mai prima. Dato l'ok, si crea subito la puntata (generazione, pause accorciate, livellamento, mp3 in `podcast/`) senza altre domande.
 
 ## Volume costante (dopo la generazione, sempre)
 
