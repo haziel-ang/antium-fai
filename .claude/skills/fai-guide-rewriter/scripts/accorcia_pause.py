@@ -3,8 +3,13 @@
 Uso: python -I accorcia_pause.py grezzo.mp3 accorciato.wav [max] [fine_intro] [max_intro]
   max         pausa massima nel racconto, in secondi (default 0.8)
   fine_intro  secondi dall'inizio entro cui vale max_intro (default 20)
-  max_intro   pausa massima nell'intro e tra l'intro e il racconto (default 1.0)
+  max_intro   pausa massima nell'intro, tra l'intro e il racconto e nella
+              chiusura (default 1.0)
 Scelta dell'utente del 27/11/2026: pause sì, ma senza perdere fluidità.
+Regola del 28/11/2026: la chiusura ha lo stesso respiro dell'apertura. La
+chiusura comincia dalla pausa più lunga del racconto (nello script è l'unico
+[long pause], messo subito prima della chiusura): da lì alla fine, quella
+pausa compresa, il limite è max_intro come nell'intro.
 Serve numpy (sulla VPS: ~/.local/share/wanderlust-allinea/bin/python).
 """
 import sys, subprocess
@@ -19,6 +24,16 @@ a = np.frombuffer(subprocess.run(['ffmpeg', '-v', 'error', '-i', src, '-ac', '1'
                                  capture_output=True, check=True).stdout, dtype=np.float32)
 fr = int(SR * 0.02); n = len(a) // fr
 sil = np.sqrt((a[:n * fr].reshape(n, fr) ** 2).mean(1)) < 10 ** (-40 / 20)
+# inizio della chiusura: il silenzio più lungo dopo l'intro
+corse, i = [], 0
+while i < n:
+    j = i
+    while j < n and sil[j] == sil[i]:
+        j += 1
+    if sil[i] and i * fr / SR >= fine_intro:
+        corse.append((j - i, i))
+    i = j
+inizio_chiusura = max(corse)[1] if corse else n
 parti, i, tagliato, lunghe = [], 0, 0.0, 0
 while i < n:
     j = i
@@ -26,7 +41,7 @@ while i < n:
         j += 1
     pezzo = a[i * fr:j * fr]
     if sil[i]:
-        limite = max_intro if i * fr / SR < fine_intro else maxp
+        limite = max_intro if (i * fr / SR < fine_intro or i >= inizio_chiusura) else maxp
         M = int(limite * SR)
         if len(pezzo) > M:
             h = M // 2
@@ -37,4 +52,4 @@ parti.append(a[n * fr:])
 out = np.concatenate(parti)
 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'f32le', '-ar', str(SR), '-ac', '1', '-i', '-', dst],
                input=out.tobytes(), check=True)
-print(f'pause accorciate: {lunghe}, secondi tolti: {tagliato:.1f}')
+print(f'pause accorciate: {lunghe}, secondi tolti: {tagliato:.1f}, chiusura da {inizio_chiusura * fr / SR:.1f} s')
