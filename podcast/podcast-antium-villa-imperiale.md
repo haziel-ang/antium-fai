@@ -22,6 +22,6 @@ Chi teneva in piedi tutto questo? Una lapide lo racconta. Per vent'anni, ogni an
 [awe] Da questa costa sono uscite statue che oggi stanno al Louvre e a Roma. Come il guerriero detto Gladiatore Borghese. Forse anche l'Apollo del Belvedere, anche se l'unico a dirlo è un antiquario del Cinquecento, a cui non sempre si può credere.
 [long pause]
 
-Molti di quei tesori li ha restituiti il mare. Non da navi affondate, però. Secondo l'archeologo Jaia, con ogni probabilità sono caduti dai giardini sul ciglio della falesia, trascinati giù insieme ai muri che li reggevano. La stessa erosione che, una notte di dicembre, aprì la nicchia della Fanciulla.
+Molti di quei tesori li ha restituiti il mare. Non da navi affondate, però. Secondo l'archeologo Alessandro Jaia, con ogni probabilità sono caduti dai giardini sul ciglio della falesia, trascinati giù insieme ai muri che li reggevano. La stessa erosione che, una notte di dicembre, aprì la nicchia della Fanciulla.
 [pause]
 Questo podcast è una produzione del Gruppo FAI Anzio-Nettuno. A cura di Riccardo Pau.
